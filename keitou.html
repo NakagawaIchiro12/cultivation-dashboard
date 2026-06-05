@@ -3,92 +3,100 @@
 <title>ケイトウ 生育タイムライン</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#0f0e08;color:#f3efe2;font-family:system-ui,'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;padding:0 0 36px}
-header{padding:15px 16px 11px;background:linear-gradient(135deg,#2a2410,#1a1608);border-bottom:1px solid #4a3f1c}
-header h1{margin:0;font-size:20px;color:#ffd86b}
-header .sub{font-size:12px;color:#c9bd8e;margin-top:4px}
-.summary{display:flex;flex-wrap:wrap;gap:6px 14px;padding:10px 16px;font-size:14px;font-weight:800;background:#161309}
-.wrap{max-width:620px;margin:0 auto;padding:12px}
-.card{border:1.5px solid;border-radius:16px;padding:13px 13px 11px;margin:0 0 14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+body{margin:0;background:#f6f5ef;color:#34322a;font-family:system-ui,'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;padding:0 0 36px}
+header{padding:16px 16px 12px;background:linear-gradient(135deg,#ffffff,#fbf3df);border-bottom:1px solid #e7ddc0}
+header h1{margin:0;font-size:20px;color:#b07a16}
+header .sub{font-size:12px;color:#8c8366;margin-top:4px}
+.summary{display:flex;flex-wrap:wrap;gap:6px 14px;padding:10px 16px;font-size:14px;font-weight:800;background:#fffdf7;border-bottom:1px solid #ece4cf}
+.wrap{max-width:640px;margin:0 auto;padding:12px}
+.card{border:1.5px solid #e3dcc8;border-radius:16px;padding:13px 13px 11px;margin:0 0 14px;overflow:hidden;box-shadow:0 2px 8px rgba(120,110,80,.10);background:#fff}
+.sched-card{background:#f4f8ff;border-color:#cfdcf2}
+.schh{font-size:15px;font-weight:800;color:#2f5fa6;margin:0 0 6px}
+.sch{width:100%;height:auto;display:block}
+.schgrid{stroke:#dfe6f2;stroke-width:1}
+.schdt{fill:#5a6f99;font-size:10px;font-weight:bold}
+.schname{fill:#2a3a5a;font-size:11px;font-weight:bold}
+.schwlb{fill:#8a8266;font-size:9px}
+.schnote{font-size:11px;color:#8089a3;margin-top:4px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:2px}
-.name{font-size:18px;font-weight:900;color:#fff}
-.pill{font-size:13px;font-weight:900;color:#13130c;padding:5px 12px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+.name{font-size:18px;font-weight:900;color:#2c2a22}
+.pill{font-size:13px;font-weight:900;color:#fff;padding:5px 12px;border-radius:999px;white-space:nowrap;flex-shrink:0;text-shadow:0 1px 1px rgba(0,0,0,.25)}
 .tl{width:100%;height:auto;display:block}
-.axis{stroke:#5a4f28;stroke-width:2}
-.todayl{stroke:#ff9d3d;stroke-width:2;stroke-dasharray:3 2}
-.todayt{fill:#ff9d3d;font-size:10px;font-weight:bold}
-.mk{fill:#ffd86b;stroke:#1a1608;stroke-width:1}
-.mk.g40{fill:#6fe0ff}.mk.gh{fill:#3ddc6e}.mk.gd{fill:#ff5d73}
-.mem{font-size:13px}
-.mlb{fill:#e7ddc0;font-size:9.5px}
-.mdt{fill:#cdbf8e;font-size:10px;font-weight:bold}
-.gbar{position:relative;height:24px;background:#0000004d;border:1px solid #ffffff22;border-radius:7px;margin:6px 0 0}
+.axis{stroke:#d8cfae;stroke-width:2}
+.todayl{stroke:#ef8a23;stroke-width:2;stroke-dasharray:3 2}
+.todayt{fill:#ef8a23;font-size:10px;font-weight:bold}
+.mk{fill:#e0a200;stroke:#fff;stroke-width:1.2}
+.mk.g40{fill:#2390c0}.mk.gh{fill:#27a857}.mk.gd{fill:#e0485f}
+.mem{font-size:13px} .mlb{fill:#6b6450;font-size:9.5px} .mdt{fill:#7a7258;font-size:10px;font-weight:bold}
+.gbar{position:relative;height:24px;background:#efeada;border:1px solid #00000014;border-radius:7px;margin:6px 0 0}
 .gfill{height:100%;border-radius:6px 0 0 6px}
-.gmk{position:absolute;top:-2px;height:28px;border-left:2px dashed #cfe;opacity:.85}
-.gmk span{position:absolute;top:-13px;left:-7px;font-size:10px;color:#cfe;font-weight:bold}
-.gmk.h{border-color:#3ddc6e}.gmk.h span{color:#3ddc6e}
-.gnow{position:absolute;right:8px;top:0;line-height:24px;font-size:12px;font-weight:800;color:#fff;text-shadow:0 1px 2px #000}
-.sub{font-size:12px;color:#cdbf8e;margin-top:7px}
-.foot{font-size:11px;color:#7d7350;text-align:center;margin-top:8px;line-height:1.7}
+.gmk{position:absolute;top:-2px;height:28px;border-left:2px dashed #9b9379}
+.gmk span{position:absolute;top:-13px;left:-7px;font-size:10px;color:#7a7258;font-weight:bold}
+.gmk.h{border-color:#27a857}.gmk.h span{color:#1f8a47}
+.gnow{position:absolute;right:8px;top:0;line-height:24px;font-size:12px;font-weight:800;color:#2c2a22}
+.norec{font-size:12px;color:#9a927a;padding:6px 0 0}
+.sub{font-size:12px;color:#7a7258;margin-top:7px}
+.foot{font-size:11px;color:#9a927a;text-align:center;margin-top:8px;line-height:1.7}
 </style></head><body>
 <header><h1>🐔 ケイトウ 生育タイムライン</h1>
-<div class="sub">日付の軸で「今どこ・40cm/50cmに届いてるか」を一目／記録 4/25〜6/4</div></header>
-<div class="summary"><span style="color:#3ddc6e">🟢 順調/出荷 2</span>　<span style="color:#ffd23d">🟡 育成中 2</span>　<span style="color:#9aa0b5">⚪ 記録待ち 1</span></div>
+<div class="sub">日付の軸で「今どこ・40cm/50cmに届いてるか・いつ穫れるか」を一目／記録 4/25〜6/4</div></header>
+<div class="summary"><span style="color:#27a857">🟢 順調/出荷 2</span>　<span style="color:#e0a200">🟡 育成中 2</span>　<span style="color:#9aa0b0">⚪ 記録待ち 1</span></div>
 <div class="wrap">
+<div class="card sched-card"><div class="schh">🗓 収穫スケジュール（収穫開始〜デッドライン）</div><svg viewBox="0 0 700 169" class="sch"><line x1="64.0" y1="24" x2="64.0" y2="163" class="schgrid"/><text x="64.0" y="18" class="schdt" text-anchor="middle">6/5</text><line x1="168.0" y1="24" x2="168.0" y2="163" class="schgrid"/><text x="168.0" y="18" class="schdt" text-anchor="middle">6/13</text><line x1="272.0" y1="24" x2="272.0" y2="163" class="schgrid"/><text x="272.0" y="18" class="schdt" text-anchor="middle">6/21</text><line x1="376.0" y1="24" x2="376.0" y2="163" class="schgrid"/><text x="376.0" y="18" class="schdt" text-anchor="middle">6/29</text><line x1="480.0" y1="24" x2="480.0" y2="163" class="schgrid"/><text x="480.0" y="18" class="schdt" text-anchor="middle">7/8</text><line x1="584.0" y1="24" x2="584.0" y2="163" class="schgrid"/><text x="584.0" y="18" class="schdt" text-anchor="middle">7/16</text><line x1="688.0" y1="24" x2="688.0" y2="163" class="schgrid"/><text x="688.0" y="18" class="schdt" text-anchor="middle">7/24</text><line x1="64.0" y1="24" x2="64.0" y2="163" class="todayl"/><text x="64.0" y="10" class="todayt" text-anchor="middle">今日</text><text x="58" y="43.5" class="schname" text-anchor="end">苗ハウス1</text><rect x="306.0" y="32.5" width="178.3" height="14" rx="4" fill="#27a857" opacity=".9"><title>苗ハウス1 収穫 6/24〜7/8</title></rect><text x="303.0" y="43.5" class="schwlb" text-anchor="end">6/24</text><text x="58" y="70.5" class="schname" text-anchor="end">苗ハウス2</text><rect x="382.4" y="59.5" width="178.3" height="14" rx="4" fill="#27a857" opacity=".9"><title>苗ハウス2 収穫 6/30〜7/14</title></rect><text x="379.4" y="70.5" class="schwlb" text-anchor="end">6/30</text><text x="58" y="97.5" class="schname" text-anchor="end">苗ハウス3</text><rect x="509.7" y="86.5" width="178.3" height="14" rx="4" fill="#e0a200" opacity=".9"><title>苗ハウス3 収穫 7/10〜7/24</title></rect><text x="506.7" y="97.5" class="schwlb" text-anchor="end">7/10</text><text x="58" y="124.5" class="schname" text-anchor="end">白沢1</text><rect x="484.2" y="113.5" width="178.3" height="14" rx="4" fill="#e0a200" opacity=".9"><title>白沢1 収穫 7/8〜7/22</title></rect><text x="481.2" y="124.5" class="schwlb" text-anchor="end">7/8</text><text x="58" y="151.5" class="schname" text-anchor="end">白沢2</text><rect x="446.0" y="140.5" width="178.3" height="14" rx="4" fill="#9aa0b0" opacity=".9"><title>白沢2 収穫 7/5〜7/19</title></rect><text x="443.0" y="151.5" class="schwlb" text-anchor="end">7/5</text></svg><div class="schnote">バーの色＝各ハウスの今の状態／オレンジの「今日」線が現在位置</div></div>
 
-  <div class="card" style="background:#15321a;border-color:#3ddc6e">
-    <div class="top"><span class="name">苗ハウス1</span><span class="pill" style="background:#3ddc6e">🟢 順調(40cm)</span></div>
+  <div class="card" style="background:#eafaef;border-color:#27a857">
+    <div class="top"><span class="name">苗ハウス1</span><span class="pill" style="background:#27a857">🟢 順調(40cm)</span></div>
     <svg viewBox="0 0 700 92" class="tl"><line x1="18" y1="40" x2="682" y2="40" class="axis"/><line x1="385.9" y1="14" x2="385.9" y2="48" class="todayl"/><text x="385.9" y="11" class="todayt" text-anchor="middle">今日</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌿</text><text x="18.0" y="60" class="mlb" text-anchor="middle">発芽(推)</text><text x="18.0" y="72" class="mdt" text-anchor="middle">4/25</text><circle cx="287.2" cy="40" r="5" class="mk g40"/><text x="287.2" y="30" class="mem" text-anchor="middle">📏</text><text x="287.2" y="60" class="mlb" text-anchor="middle">40cm/花芽</text><text x="287.2" y="72" class="mdt" text-anchor="middle">5/25</text><circle cx="556.4" cy="40" r="5" class="mk gh"/><text x="556.4" y="30" class="mem" text-anchor="middle">✂️</text><text x="556.4" y="60" class="mlb" text-anchor="middle">収穫</text><text x="556.4" y="72" class="mdt" text-anchor="middle">6/24</text><circle cx="682.0" cy="40" r="5" class="mk gd"/><text x="682.0" y="30" class="mem" text-anchor="middle">⛔</text><text x="682.0" y="60" class="mlb" text-anchor="middle">期限</text><text x="682.0" y="72" class="mdt" text-anchor="middle">7/8</text></svg>
     <div class="gbar">
-      <div class="gfill" style="width:95%;background:#3ddc6e"></div>
-      <div class="gmk" style="left:56%"><span>40</span></div>
-      <div class="gmk h" style="left:71%"><span>50</span></div>
+      <div class="gfill" style="width:96.4%;background:#27a857"></div>
+      <div class="gmk" style="left:57.1%"><span>40</span></div>
+      <div class="gmk h" style="left:71.4%"><span>50</span></div>
       <div class="gnow">68cm</div>
     </div>
     <div class="sub">現在 68cm　追肥 5/6　最終 6/4</div>
   </div>
-  <div class="card" style="background:#15321a;border-color:#3ddc6e">
-    <div class="top"><span class="name">苗ハウス2</span><span class="pill" style="background:#3ddc6e">🟢 順調(40cm)</span></div>
+  <div class="card" style="background:#eafaef;border-color:#27a857">
+    <div class="top"><span class="name">苗ハウス2</span><span class="pill" style="background:#27a857">🟢 順調(40cm)</span></div>
     <svg viewBox="0 0 700 92" class="tl"><line x1="18" y1="40" x2="682" y2="40" class="axis"/><line x1="350.0" y1="14" x2="350.0" y2="48" class="todayl"/><text x="350.0" y="11" class="todayt" text-anchor="middle">今日</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌱</text><text x="18.0" y="60" class="mlb" text-anchor="middle">播種</text><text x="18.0" y="72" class="mdt" text-anchor="middle">4/27</text><circle cx="52.1" cy="40" r="5" class="mk"/><text x="52.1" y="30" class="mem" text-anchor="middle">🌿</text><text x="52.1" y="60" class="mlb" text-anchor="middle">発芽</text><text x="52.1" y="72" class="mdt" text-anchor="middle">5/1</text><circle cx="307.4" cy="40" r="5" class="mk g40"/><text x="307.4" y="30" class="mem" text-anchor="middle">📏</text><text x="307.4" y="60" class="mlb" text-anchor="middle">40cm/花芽</text><text x="307.4" y="72" class="mdt" text-anchor="middle">5/31</text><circle cx="562.8" cy="40" r="5" class="mk gh"/><text x="562.8" y="30" class="mem" text-anchor="middle">✂️</text><text x="562.8" y="60" class="mlb" text-anchor="middle">収穫</text><text x="562.8" y="72" class="mdt" text-anchor="middle">6/30</text><circle cx="682.0" cy="40" r="5" class="mk gd"/><text x="682.0" y="30" class="mem" text-anchor="middle">⛔</text><text x="682.0" y="60" class="mlb" text-anchor="middle">期限</text><text x="682.0" y="72" class="mdt" text-anchor="middle">7/14</text></svg>
     <div class="gbar">
-      <div class="gfill" style="width:95%;background:#3ddc6e"></div>
-      <div class="gmk" style="left:66%"><span>40</span></div>
-      <div class="gmk h" style="left:83%"><span>50</span></div>
+      <div class="gfill" style="width:82.1%;background:#27a857"></div>
+      <div class="gmk" style="left:57.1%"><span>40</span></div>
+      <div class="gmk h" style="left:71.4%"><span>50</span></div>
       <div class="gnow">58cm</div>
     </div>
     <div class="sub">現在 58cm　追肥 5/9　最終 6/4</div>
   </div>
-  <div class="card" style="background:#332d12;border-color:#ffd23d">
-    <div class="top"><span class="name">苗ハウス3</span><span class="pill" style="background:#ffd23d">🟡 育成中</span></div>
+  <div class="card" style="background:#fff7e0;border-color:#e0a200">
+    <div class="top"><span class="name">苗ハウス3</span><span class="pill" style="background:#e0a200">🟡 育成中</span></div>
     <svg viewBox="0 0 700 92" class="tl"><line x1="18" y1="40" x2="682" y2="40" class="axis"/><line x1="270.2" y1="14" x2="270.2" y2="48" class="todayl"/><text x="270.2" y="11" class="todayt" text-anchor="middle">今日</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌱</text><text x="18.0" y="60" class="mlb" text-anchor="middle">播種</text><text x="18.0" y="72" class="mdt" text-anchor="middle">5/6</text><circle cx="60.0" cy="40" r="5" class="mk"/><text x="60.0" y="30" class="mem" text-anchor="middle">🌿</text><text x="60.0" y="60" class="mlb" text-anchor="middle">発芽</text><text x="60.0" y="72" class="mdt" text-anchor="middle">5/11</text><circle cx="312.2" cy="40" r="5" class="mk g40"/><text x="312.2" y="30" class="mem" text-anchor="middle">📏</text><text x="312.2" y="60" class="mlb" text-anchor="middle">40cm/花芽</text><text x="312.2" y="72" class="mdt" text-anchor="middle">6/10</text><circle cx="564.3" cy="40" r="5" class="mk gh"/><text x="564.3" y="30" class="mem" text-anchor="middle">✂️</text><text x="564.3" y="60" class="mlb" text-anchor="middle">収穫</text><text x="564.3" y="72" class="mdt" text-anchor="middle">7/10</text><circle cx="682.0" cy="40" r="5" class="mk gd"/><text x="682.0" y="30" class="mem" text-anchor="middle">⛔</text><text x="682.0" y="60" class="mlb" text-anchor="middle">期限</text><text x="682.0" y="72" class="mdt" text-anchor="middle">7/24</text></svg>
     <div class="gbar">
-      <div class="gfill" style="width:38%;background:#ffd23d"></div>
-      <div class="gmk" style="left:67%"><span>40</span></div>
-      <div class="gmk h" style="left:83%"><span>50</span></div>
+      <div class="gfill" style="width:32.9%;background:#e0a200"></div>
+      <div class="gmk" style="left:57.1%"><span>40</span></div>
+      <div class="gmk h" style="left:71.4%"><span>50</span></div>
       <div class="gnow">23cm</div>
     </div>
     <div class="sub">現在 23cm　追肥 5/15　最終 6/4</div>
   </div>
-  <div class="card" style="background:#332d12;border-color:#ffd23d">
-    <div class="top"><span class="name">白沢1</span><span class="pill" style="background:#ffd23d">🟡 育成中</span></div>
+  <div class="card" style="background:#fff7e0;border-color:#e0a200">
+    <div class="top"><span class="name">白沢1</span><span class="pill" style="background:#e0a200">🟡 育成中</span></div>
     <svg viewBox="0 0 700 92" class="tl"><line x1="18" y1="40" x2="682" y2="40" class="axis"/><line x1="276.7" y1="14" x2="276.7" y2="48" class="todayl"/><text x="276.7" y="11" class="todayt" text-anchor="middle">今日</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌱</text><text x="18.0" y="60" class="mlb" text-anchor="middle">播種</text><text x="18.0" y="72" class="mdt" text-anchor="middle">5/6</text><circle cx="43.9" cy="40" r="5" class="mk"/><text x="43.9" y="30" class="mem" text-anchor="middle">🌿</text><text x="43.9" y="60" class="mlb" text-anchor="middle">発芽(推)</text><text x="43.9" y="72" class="mdt" text-anchor="middle">5/9</text><circle cx="302.6" cy="40" r="5" class="mk g40"/><text x="302.6" y="30" class="mem" text-anchor="middle">📏</text><text x="302.6" y="60" class="mlb" text-anchor="middle">40cm/花芽</text><text x="302.6" y="72" class="mdt" text-anchor="middle">6/8</text><circle cx="561.3" cy="40" r="5" class="mk gh"/><text x="561.3" y="30" class="mem" text-anchor="middle">✂️</text><text x="561.3" y="60" class="mlb" text-anchor="middle">収穫</text><text x="561.3" y="72" class="mdt" text-anchor="middle">7/8</text><circle cx="682.0" cy="40" r="5" class="mk gd"/><text x="682.0" y="30" class="mem" text-anchor="middle">⛔</text><text x="682.0" y="60" class="mlb" text-anchor="middle">期限</text><text x="682.0" y="72" class="mdt" text-anchor="middle">7/22</text></svg>
     <div class="gbar">
-      <div class="gfill" style="width:5%;background:#ffd23d"></div>
-      <div class="gmk" style="left:67%"><span>40</span></div>
-      <div class="gmk h" style="left:83%"><span>50</span></div>
+      <div class="gfill" style="width:4.3%;background:#e0a200"></div>
+      <div class="gmk" style="left:57.1%"><span>40</span></div>
+      <div class="gmk h" style="left:71.4%"><span>50</span></div>
       <div class="gnow">3cm</div>
     </div>
     <div class="sub">現在 3cm　追肥 6/1　最終 6/4</div>
   </div>
-  <div class="card" style="background:#23222b;border-color:#9aa0b5">
-    <div class="top"><span class="name">白沢2</span><span class="pill" style="background:#9aa0b5">⚪ 育成中</span></div>
+  <div class="card" style="background:#f2f3f6;border-color:#9aa0b0">
+    <div class="top"><span class="name">白沢2</span><span class="pill" style="background:#9aa0b0">⚪ 育成中</span></div>
     <svg viewBox="0 0 700 92" class="tl"><line x1="18" y1="40" x2="682" y2="40" class="axis"/><line x1="287.2" y1="14" x2="287.2" y2="48" class="todayl"/><text x="287.2" y="11" class="todayt" text-anchor="middle">今日</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌱</text><text x="18.0" y="60" class="mlb" text-anchor="middle">播種</text><text x="18.0" y="72" class="mdt" text-anchor="middle">5/6</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌿</text><text x="18.0" y="60" class="mlb" text-anchor="middle">発芽</text><text x="18.0" y="72" class="mdt" text-anchor="middle">5/6</text><circle cx="287.2" cy="40" r="5" class="mk g40"/><text x="287.2" y="30" class="mem" text-anchor="middle">📏</text><text x="287.2" y="60" class="mlb" text-anchor="middle">40cm/花芽</text><text x="287.2" y="72" class="mdt" text-anchor="middle">6/5</text><circle cx="556.4" cy="40" r="5" class="mk gh"/><text x="556.4" y="30" class="mem" text-anchor="middle">✂️</text><text x="556.4" y="60" class="mlb" text-anchor="middle">収穫</text><text x="556.4" y="72" class="mdt" text-anchor="middle">7/5</text><circle cx="682.0" cy="40" r="5" class="mk gd"/><text x="682.0" y="30" class="mem" text-anchor="middle">⛔</text><text x="682.0" y="60" class="mlb" text-anchor="middle">期限</text><text x="682.0" y="72" class="mdt" text-anchor="middle">7/19</text></svg>
-    
+    <div class="norec">草丈の記録待ち</div>
     <div class="sub">草丈記録なし</div>
   </div>
 <div class="foot">
 🌱播種→🌿発芽→📏発芽+1ヶ月=40cm(順調ライン/花芽)→✂️花芽+1ヶ月=収穫→⛔収穫+2週間=デッドライン<br>
-達成バー：今の草丈／40=順調ライン・50=収穫(Mサイズ)ライン。50cm未満で収穫期はアウト。<br>
+達成バーは全ハウス共通スケール(0〜70cm)。40=順調ライン・50=収穫(Mサイズ)ライン。50cm未満で収穫期はアウト。<br>
 発芽(推)＝発芽記録が無く播種から推定。草丈の記録を読み取って自動表示しています。</div>
 </div>
 </body></html>
