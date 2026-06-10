@@ -1,0 +1,142 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中川農産 ダッシュボード</title>
+<style>
+:root{--bg:#f5f6f8;--card:#ffffff;--ink:#0f1722;--sub:#7b8694;--line:#eceef1;
+--ac:#10b981;--ac2:#0ea5a4;--ac-soft:#e7f7f0;--violet:#6366f1;--amber:#f59e0b;--rose:#f43f5e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',system-ui,'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:.1px}
+.app{display:flex;min-height:100vh}
+/* sidebar */
+.side{width:218px;flex-shrink:0;background:#0f1722;color:#cdd5df;padding:22px 14px;display:flex;flex-direction:column;gap:4px}
+.brand{display:flex;align-items:center;gap:9px;padding:4px 8px 18px}
+.blogo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--ac),var(--ac2));display:flex;align-items:center;justify-content:center;font-size:16px}
+.bname{font-weight:800;font-size:15px;color:#fff}.bsub{font-size:10.5px;color:#7b8694}
+.nav{font-size:13.5px;font-weight:600;color:#9aa4b2;padding:10px 12px;border-radius:10px;display:flex;align-items:center;gap:10px;cursor:pointer}
+.nav.on{background:#1b2735;color:#fff}.nav.on .dot{background:var(--ac)}
+.nav .ic{width:18px;text-align:center;opacity:.9}
+.navh{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#566173;padding:16px 12px 6px;font-weight:700}
+.side .foot{margin-top:auto;font-size:11px;color:#566173;padding:8px 12px}
+/* main */
+.main{flex:1;padding:24px 28px 40px;min-width:0}
+.top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.top h1{font-size:23px;font-weight:800;letter-spacing:-.3px}
+.top .crumb{font-size:12.5px;color:var(--sub);margin-top:3px}
+.season{font-size:12px;font-weight:700;color:var(--ac2);background:var(--ac-soft);padding:7px 13px;border-radius:999px}
+/* metric cards */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:18px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px 18px;box-shadow:0 1px 2px rgba(16,23,34,.04)}
+.kpi .kl{font-size:12px;color:var(--sub);font-weight:600;display:flex;align-items:center;gap:7px}
+.kpi .ki{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.kpi .kv{font-size:30px;font-weight:800;letter-spacing:-1px;margin-top:11px;line-height:1}
+.kpi .kv small{font-size:14px;font-weight:700;color:var(--sub);letter-spacing:0}
+.kpi .kd{font-size:11.5px;font-weight:700;margin-top:7px;display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px}
+.up{color:#0b9466;background:#e7f7f0}.flat{color:#8a93a0;background:#f0f1f4}
+.i-green{background:var(--ac-soft);color:var(--ac)}.i-violet{background:#eef0fe;color:var(--violet)}
+.i-amber{background:#fef5e7;color:var(--amber)}.i-rose{background:#feeaee;color:var(--rose)}
+/* grid */
+.grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:0 1px 2px rgba(16,23,34,.04)}
+.ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.ph .pt{font-size:15px;font-weight:800}
+.ph .pm{font-size:11.5px;color:var(--sub)}
+/* bars (seedling by month) */
+.chart{display:flex;align-items:flex-end;gap:18px;height:170px;padding:0 4px}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;height:100%}
+.bwrap{flex:1;width:100%;display:flex;align-items:flex-end;justify-content:center;gap:7px}
+.bcol{width:34px;border-radius:8px 8px 3px 3px;position:relative}
+.bcol .bn{position:absolute;top:-19px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:800;color:var(--ink);white-space:nowrap}
+.bk{background:linear-gradient(180deg,#34d399,#10b981)}.bh{background:linear-gradient(180deg,#fcd34d,#f59e0b)}
+.blbl{font-size:11.5px;color:var(--sub);font-weight:600}
+.lgd{display:flex;gap:14px;font-size:11.5px;color:var(--sub);font-weight:600;margin-top:4px}
+.lgd i{width:9px;height:9px;border-radius:3px;display:inline-block;margin-right:5px;vertical-align:middle}
+/* breakdown rows */
+.brk{display:flex;flex-direction:column;gap:13px}
+.brow .bt{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:6px}
+.brow .bt span{color:var(--sub);font-weight:700}
+.track{height:8px;background:#f0f1f4;border-radius:999px;overflow:hidden}
+.fill{height:100%;border-radius:999px}
+/* weekly shipping list */
+.ship{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.scard{border:1px solid var(--line);border-radius:14px;padding:13px 15px}
+.scard .sd{font-size:11px;color:var(--sub);font-weight:700}
+.scard .sn{font-size:20px;font-weight:800;letter-spacing:-.5px;margin-top:4px}
+.scard .sn small{font-size:12px;color:var(--sub);font-weight:700}
+.scard .sb{font-size:11px;color:var(--ac2);font-weight:700;margin-top:3px}
+.foot2{font-size:11.5px;color:var(--sub);margin-top:20px;text-align:center}
+@media(max-width:820px){
+ .side{display:none}.main{padding:18px 14px 36px}
+ .kpis{grid-template-columns:repeat(2,1fr);gap:12px}
+ .grid{grid-template-columns:1fr}.ship{grid-template-columns:1fr 1fr}
+ .top h1{font-size:20px}.kpi .kv{font-size:26px}
+}
+</style></head><body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><div class="blogo">🌱</div><div><div class="bname">中川農産</div><div class="bsub">Farm Console</div></div></div>
+    <div class="nav on"><span class="ic">▦</span>ダッシュボード<span class="dot" style="margin-left:auto;width:6px;height:6px;border-radius:50%"></span></div>
+    <div class="nav"><span class="ic">🌱</span>苗・注文</div>
+    <div class="nav"><span class="ic">📐</span>作付け計画</div>
+    <div class="nav"><span class="ic">📦</span>出荷</div>
+    <div class="navh">分析</div>
+    <div class="nav"><span class="ic">🔍</span>品種</div>
+    <div class="nav"><span class="ic">🧪</span>肥料・農薬</div>
+    <div class="foot">v1 · AI秘書あいな</div>
+  </aside>
+
+  <main class="main">
+    <div class="top">
+      <div><h1>栽培ダッシュボード</h1><div class="crumb">中川農産 · キャベツ／白菜</div></div>
+      <div class="season">● 2025–26 シーズン</div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><div class="kl"><span class="ki i-green">🌱</span>苗 総数</div><div class="kv">641<small> 枚</small></div><div class="kd up">▲ キャベツ500 / 白菜140</div></div>
+      <div class="kpi"><div class="kl"><span class="ki i-violet">📐</span>作付面積</div><div class="kv">17.2<small> 反</small></div><div class="kd flat">キャ12.5 ＋ 白4.7</div></div>
+      <div class="kpi"><div class="kl"><span class="ki i-amber">🔍</span>品種数</div><div class="kv">14<small> 種</small></div><div class="kd flat">キャ8 ／ 白5 ／ ブ1</div></div>
+      <div class="kpi"><div class="kl"><span class="ki i-rose">📦</span>週間出荷ライン</div><div class="kv">6<small> 本</small></div><div class="kd up">▲ 約 8.3t／週</div></div>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <div class="ph"><div class="pt">苗 納品スケジュール</div><div class="pm">トレイ枚数（月別）</div></div>
+        <div class="chart">
+          <div class="bar"><div class="bwrap">
+            <div class="bcol bk" style="height:58%"><span class="bn">220</span></div>
+            <div class="bcol bh" style="height:0%"></div>
+          </div><div class="blbl">7月</div></div>
+          <div class="bar"><div class="bwrap">
+            <div class="bcol bk" style="height:74%"><span class="bn">280</span></div>
+            <div class="bcol bh" style="height:37%"><span class="bn">140</span></div>
+          </div><div class="blbl">8月</div></div>
+        </div>
+        <div class="lgd"><span><i class="bk"></i>キャベツ</span><span><i class="bh"></i>白菜</span></div>
+        <div class="ship">
+          <div class="scard"><div class="sd">水・岩田食品</div><div class="sn">1,005<small> kg</small></div><div class="sb">キャベツ</div></div>
+          <div class="scard"><div class="sd">木金・ヤオフク</div><div class="sn">3,000<small> kg</small></div><div class="sb">キャベツ ×2便</div></div>
+          <div class="scard"><div class="sd">月・丸西</div><div class="sn">1,005<small> kg</small></div><div class="sb">キャベツ</div></div>
+          <div class="scard"><div class="sd">火・白菜便</div><div class="sn">1,800<small> kg</small></div><div class="sb">白菜</div></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="ph"><div class="pt">品種別 内訳</div><div class="pm">キャベツ500枚</div></div>
+        <div class="brk">
+          <div class="brow"><div class="bt">ないと<span>180枚</span></div><div class="track"><div class="fill" style="width:100%;background:linear-gradient(90deg,#34d399,#10b981)"></div></div></div>
+          <div class="brow"><div class="bt">銀次郎<span>60枚</span></div><div class="track"><div class="fill" style="width:33%;background:#10b981"></div></div></div>
+          <div class="brow"><div class="bt">冬藍<span>60枚</span></div><div class="track"><div class="fill" style="width:33%;background:#22c08e"></div></div></div>
+          <div class="brow"><div class="bt">冬まどか<span>60枚</span></div><div class="track"><div class="fill" style="width:33%;background:#34cd99"></div></div></div>
+          <div class="brow"><div class="bt">そらと / 冬のぼり<span>各40枚</span></div><div class="track"><div class="fill" style="width:22%;background:#6ee7b7"></div></div></div>
+          <div class="brow"><div class="bt">りくと / りくよう<span>各30枚</span></div><div class="track"><div class="fill" style="width:17%;background:#a7f3d0"></div></div></div>
+        </div>
+        <div class="ph" style="margin-top:22px"><div class="pt">春系キャベツ（新規）</div><div class="pm">岩田・野村さん</div></div>
+        <div class="brk">
+          <div class="brow"><div class="bt">新しい畑<span>3〜5 反</span></div><div class="track"><div class="fill" style="width:70%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div></div>
+          <div class="brow"><div class="bt">出荷目安<span>週 1t＋ ×月3回</span></div><div class="track"><div class="fill" style="width:55%;background:#f59e0b"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot2">データ：苗注文Googleシート・出荷先記録 ／ デザイン振り見本 ／ 制作：AI秘書あいな</div>
+  </main>
+</div>
+</body></html>
