@@ -1,88 +1,107 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>中川農産 — Bento</title>
+<title>中川農産 — Dark Pro</title>
 <style>
-:root{--ink:#101418;--sub:#7a828c;--bg:#eef0f3;--card:#fff;--ac:#16a34a;--ac2:#0d9488}
+:root{--bg:#0a0d13;--card:#121822;--card2:#0f141d;--ink:#eaf0f7;--sub:#7d8a9c;--line:#1e2733;
+--ac:#34d399;--ac2:#22d3ee;--glow:rgba(52,211,153,.18)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',system-ui,'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;-webkit-font-smoothing:antialiased;padding:22px}
-.head{max-width:1000px;margin:0 auto 16px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:0 4px}
-.head h1{font-size:22px;font-weight:800;letter-spacing:-.4px}
-.head .s{font-size:12.5px;color:var(--sub);margin-top:2px}
-.head .pill{font-size:12px;font-weight:700;color:#0d8a4f;background:#dcf5e6;padding:7px 14px;border-radius:999px}
-.bento{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:118px;gap:14px}
-.c{background:var(--card);border-radius:22px;padding:18px 20px;box-shadow:0 1px 3px rgba(16,20,24,.05);overflow:hidden;position:relative;display:flex;flex-direction:column}
-.c .lab{font-size:12px;color:var(--sub);font-weight:600;display:flex;align-items:center;gap:7px}
-.c .em{font-size:16px}
-.big{grid-column:span 2;grid-row:span 2}
-.wide{grid-column:span 2}
-.tall{grid-row:span 2}
-.val{font-size:34px;font-weight:800;letter-spacing:-1.2px;line-height:1;margin-top:auto}
-.val small{font-size:14px;color:var(--sub);font-weight:700}
-.sub2{font-size:11.5px;color:var(--sub);font-weight:600;margin-top:8px}
-/* hero */
-.hero{background:linear-gradient(150deg,#16a34a,#0d9488);color:#fff}
-.hero .lab{color:rgba(255,255,255,.85)}
-.hero .huge{font-size:62px;font-weight:800;letter-spacing:-3px;margin-top:auto;line-height:.95}
-.hero .huge small{font-size:20px;opacity:.85;font-weight:700}
-.hero .chips{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}
-.hero .chip{font-size:11px;font-weight:700;background:rgba(255,255,255,.18);padding:4px 10px;border-radius:999px}
-/* dark accent card */
-.dark{background:#101418;color:#fff}.dark .lab{color:#8a929c}
-.dark .val{color:#fff}
-/* mini bars */
-.bars{display:flex;align-items:flex-end;gap:8px;height:54px;margin-top:auto}
-.bb{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#34d399,#16a34a)}
-.bb.h{background:linear-gradient(180deg,#fcd34d,#f59e0b)}
-.barx{font-size:10.5px;color:var(--sub);text-align:center;margin-top:5px;font-weight:600}
-.softg{background:#e9f7ee}.softa{background:#fdf3e3}
-.list{display:flex;flex-direction:column;gap:9px;margin-top:12px}
-.li{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600}
-.li span{color:var(--sub)}
-.foot{max-width:1000px;margin:16px auto 0;text-align:center;font-size:11.5px;color:var(--sub)}
-@media(max-width:780px){
- body{padding:14px}.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:108px;gap:11px}
- .big{grid-column:span 2}.wide{grid-column:span 2}.hero .huge{font-size:48px}
-}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',system-ui,'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;-webkit-font-smoothing:antialiased}
+.app{display:flex;min-height:100vh}
+.side{width:218px;flex-shrink:0;background:var(--card2);border-right:1px solid var(--line);padding:20px 14px;display:flex;flex-direction:column;gap:3px}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px 20px}
+.blogo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#34d399,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 0 18px var(--glow)}
+.bn{font-weight:800;font-size:15px}.bs{font-size:10.5px;color:var(--sub)}
+.nav{font-size:13.5px;font-weight:600;color:#8995a6;padding:10px 12px;border-radius:11px;display:flex;align-items:center;gap:11px;cursor:pointer}
+.nav.on{background:linear-gradient(90deg,rgba(52,211,153,.14),transparent);color:#fff;box-shadow:inset 2px 0 0 var(--ac)}
+.nav .ic{width:17px;text-align:center}
+.navh{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;color:#4c5868;padding:16px 12px 6px;font-weight:700}
+.side .pf{margin-top:auto;display:flex;align-items:center;gap:9px;padding-top:14px;border-top:1px solid var(--line)}
+.av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#34d399,#22d3ee)}
+.pf .pn{font-size:12.5px;font-weight:700}.pf .ps{font-size:10.5px;color:var(--sub)}
+.main{flex:1;padding:22px 26px 40px;min-width:0}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.top h1{font-size:22px;font-weight:800;letter-spacing:-.4px}
+.top .c{font-size:12.5px;color:var(--sub);margin-top:2px}
+.season{font-size:12px;font-weight:700;color:#0a0d13;background:linear-gradient(135deg,#34d399,#22d3ee);padding:8px 14px;border-radius:999px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:16px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 17px;position:relative;overflow:hidden}
+.kpi::after{content:"";position:absolute;top:-40px;right:-40px;width:90px;height:90px;border-radius:50%;background:var(--glow);filter:blur(20px)}
+.kl{font-size:12px;color:var(--sub);font-weight:600;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.ki{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;background:#1a2330}
+.kv{font-size:29px;font-weight:800;letter-spacing:-1px;margin-top:13px;line-height:1;position:relative;z-index:1}.kv small{font-size:13px;color:var(--sub);font-weight:700}
+.kd{font-size:11.5px;font-weight:700;margin-top:8px;color:var(--ac);position:relative;z-index:1}
+.grid{display:grid;grid-template-columns:1.6fr 1fr;gap:15px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.pt{font-size:14.5px;font-weight:800}.pm{font-size:11.5px;color:var(--sub)}
+.chart{width:100%;height:172px}
+.brk{display:flex;flex-direction:column;gap:13px}
+.bt{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:6px}
+.bt span{color:var(--sub)}
+.track{height:8px;background:#1a2330;border-radius:999px;overflow:hidden}
+.fill{height:100%;border-radius:999px}
+.ship{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+.sc{border:1px solid var(--line);border-radius:13px;padding:12px 14px;background:var(--card2)}
+.sc .sd{font-size:11px;color:var(--sub);font-weight:700}.sc .sn{font-size:18px;font-weight:800;margin-top:4px}.sc .sn small{font-size:11px;color:var(--sub)}
+.foot{font-size:11.5px;color:var(--sub);margin-top:18px;text-align:center}
+@media(max-width:860px){.side{display:none}.main{padding:16px 14px 34px}.kpis{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.ship{grid-template-columns:1fr 1fr}}
 </style></head><body>
-<div class="head">
-  <div><h1>🌱 栽培ダッシュボード</h1><div class="s">中川農産 · キャベツ／白菜</div></div>
-  <div class="pill">● 2025–26 シーズン</div>
-</div>
-<div class="bento">
-
-  <div class="c big hero">
-    <div class="lab">🌱 苗 総数</div>
-    <div class="huge">641<small> 枚</small></div>
-    <div class="chips"><span class="chip">キャベツ 500</span><span class="chip">白菜 140</span><span class="chip">ブロッコリー 1</span></div>
-  </div>
-
-  <div class="c"><div class="lab">📐 作付面積</div><div class="val">17.2<small> 反</small></div><div class="sub2">キャ12.5＋白4.7</div></div>
-  <div class="c softg"><div class="lab">🔍 品種数</div><div class="val">14<small> 種</small></div><div class="sub2">キャ8/白5/ブ1</div></div>
-
-  <div class="c wide dark">
-    <div class="lab">📦 週間出荷ライン</div>
-    <div class="val">8.3<small> t／週</small></div>
-    <div class="sub2" style="color:#aeb6c0">岩田1,005・ヤオフク3,000・丸西1,005・白菜1,800 kg</div>
-  </div>
-
-  <div class="c tall">
-    <div class="lab">📊 苗 納品（月別・枚）</div>
-    <div class="bars">
-      <div class="bb" style="height:55%"></div><div class="bb" style="height:70%"></div>
-      <div class="bb h" style="height:35%"></div>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><div class="blogo">🌱</div><div><div class="bn">中川農産</div><div class="bs">Farm Console</div></div></div>
+    <div class="nav on"><span class="ic">▦</span>ダッシュボード</div>
+    <div class="nav"><span class="ic">🌱</span>苗・注文</div>
+    <div class="nav"><span class="ic">📐</span>作付け計画</div>
+    <div class="nav"><span class="ic">📦</span>出荷</div>
+    <div class="navh">分析</div>
+    <div class="nav"><span class="ic">🔍</span>品種</div>
+    <div class="nav"><span class="ic">🗓</span>作業カレンダー</div>
+    <div class="pf"><div class="av"></div><div><div class="pn">中川さん</div><div class="ps">オーナー</div></div></div>
+  </aside>
+  <main class="main">
+    <div class="top"><div><h1>栽培ダッシュボード</h1><div class="c">中川農産 · キャベツ／白菜</div></div><div class="season">● 2025–26 シーズン</div></div>
+    <div class="kpis">
+      <div class="kpi"><div class="kl">苗 総数<span class="ki">🌱</span></div><div class="kv">641<small> 枚</small></div><div class="kd">キャベツ500 / 白菜140</div></div>
+      <div class="kpi"><div class="kl">作付面積<span class="ki">📐</span></div><div class="kv">17.2<small> 反</small></div><div class="kd" style="color:var(--sub)">キャ12.5 ＋ 白4.7</div></div>
+      <div class="kpi"><div class="kl">品種数<span class="ki">🔍</span></div><div class="kv">14<small> 種</small></div><div class="kd" style="color:var(--sub)">キャ8 / 白5 / ブ1</div></div>
+      <div class="kpi"><div class="kl">週間出荷<span class="ki">📦</span></div><div class="kv">8.3<small> t/週</small></div><div class="kd">▲ 6本ライン</div></div>
     </div>
-    <div class="barx">7月キャ ／ 8月キャ・白</div>
-    <div class="list"><div class="li">7月<span>220</span></div><div class="li">8月キャ<span>280</span></div><div class="li">8月白<span>140</span></div></div>
-  </div>
-
-  <div class="c wide softa">
-    <div class="lab">🌿 春系キャベツ（新規）</div>
-    <div class="val" style="font-size:26px">3–5<small> 反 ／ 週1t＋ ×月3回</small></div>
-    <div class="sub2">岩田・野村さん｜リレー作付け＝割れ対策｜11月中旬 初出荷</div>
-  </div>
-
-  <div class="c"><div class="lab">🥬 ないと</div><div class="val" style="font-size:26px">180<small> 枚</small></div><div class="sub2">最量 品種</div></div>
-
+    <div class="grid">
+      <div class="panel">
+        <div class="ph"><div class="pt">出荷ペース（月別・参考）</div><div class="pm">トン</div></div>
+        <svg class="chart" viewBox="0 0 560 172" preserveAspectRatio="none">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34d399" stop-opacity=".32"/><stop offset="1" stop-color="#34d399" stop-opacity="0"/></linearGradient></defs>
+          <line x1="0" y1="38" x2="560" y2="38" stroke="#1a2330"/><line x1="0" y1="86" x2="560" y2="86" stroke="#1a2330"/><line x1="0" y1="134" x2="560" y2="134" stroke="#1a2330"/>
+          <path d="M0,150 L62,140 L125,120 L187,96 L250,58 L312,30 L375,46 L437,70 L500,110 L560,150 L560,172 L0,172 Z" fill="url(#g)"/>
+          <path d="M0,150 L62,140 L125,120 L187,96 L250,58 L312,30 L375,46 L437,70 L500,110 L560,150" fill="none" stroke="#34d399" stroke-width="2.5" style="filter:drop-shadow(0 0 6px rgba(52,211,153,.5))"/>
+          <circle cx="312" cy="30" r="4.5" fill="#34d399"/><circle cx="312" cy="30" r="10" fill="#34d399" opacity=".2"/>
+        </svg>
+        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--sub);font-weight:600;margin-top:4px;padding:0 2px">
+          <span>11月</span><span>12月</span><span>1月</span><span>2月</span><span>3月</span></div>
+        <div class="ship">
+          <div class="sc"><div class="sd">岩田・水</div><div class="sn">1,005<small>kg</small></div></div>
+          <div class="sc"><div class="sd">ヤオフク・木金</div><div class="sn">3,000<small>kg</small></div></div>
+          <div class="sc"><div class="sd">丸西・月</div><div class="sn">1,005<small>kg</small></div></div>
+          <div class="sc"><div class="sd">白菜・火</div><div class="sn">1,800<small>kg</small></div></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="ph"><div class="pt">品種別 内訳</div><div class="pm">キャベツ500枚</div></div>
+        <div class="brk">
+          <div><div class="bt">ないと<span>180</span></div><div class="track"><div class="fill" style="width:100%;background:linear-gradient(90deg,#34d399,#22d3ee)"></div></div></div>
+          <div><div class="bt">銀次郎<span>60</span></div><div class="track"><div class="fill" style="width:33%;background:#34d399"></div></div></div>
+          <div><div class="bt">冬藍<span>60</span></div><div class="track"><div class="fill" style="width:33%;background:#2dd4bf"></div></div></div>
+          <div><div class="bt">冬まどか<span>60</span></div><div class="track"><div class="fill" style="width:33%;background:#22d3ee"></div></div></div>
+          <div><div class="bt">そらと / 冬のぼり<span>各40</span></div><div class="track"><div class="fill" style="width:22%;background:#3b82f6"></div></div></div>
+        </div>
+        <div class="ph" style="margin-top:20px"><div class="pt">春系（新規）</div><div class="pm">岩田・野村さん</div></div>
+        <div class="brk">
+          <div><div class="bt">新しい畑<span>3–5反</span></div><div class="track"><div class="fill" style="width:70%;background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div></div>
+          <div><div class="bt">出荷目安<span>週1t＋ ×月3回</span></div><div class="track"><div class="fill" style="width:55%;background:#f59e0b"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot">データ：苗注文Googleシート・出荷先記録 ／ Dark Pro ／ design by AI秘書あいな</div>
+  </main>
 </div>
-<div class="foot">中川農産 · 栽培ダッシュボード（Bento版）— design by AI秘書あいな</div>
 </body></html>

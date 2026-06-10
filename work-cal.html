@@ -34,7 +34,16 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',
 .dc li{padding:2px 0}.dc li b{color:var(--ink)}
 .dc .mon{display:inline-block;min-width:42px;color:var(--sub);font-weight:700}
 .foot{font-size:11.5px;color:var(--sub);margin-top:18px;text-align:center;line-height:1.7}
-@media(max-width:720px){.detail{grid-template-columns:1fr}.top h1{font-size:19px}}
+.mcal{display:none}
+.mrow{display:flex;gap:11px;padding:11px 4px;border-bottom:1px solid #f1f2f4}
+.mrow:last-child{border-bottom:none}
+.mmon{flex-shrink:0;width:42px;font-size:13.5px;font-weight:800;padding-top:2px}
+.mchips{display:flex;flex-wrap:wrap;gap:5px}
+.mchip{font-size:11.5px;font-weight:700;color:#fff;border-radius:7px;padding:3px 9px}
+.mrow.harv{background:#fff5f9;border-radius:11px;padding:11px 8px}
+@media(max-width:720px){.detail{grid-template-columns:1fr}.top h1{font-size:19px}
+.cal{display:none}.lg{display:none}
+.mcal{display:block;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:6px 14px;box-shadow:0 1px 3px rgba(16,20,24,.05)}}
 </style></head><body>
 <div class="wrap">
   <div class="top">
@@ -75,6 +84,18 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',
     <div class="rowlbl"><span class="dot" style="background:var(--harvest)"></span>収穫・出荷</div>
     <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"><div class="bar" style="left:30%;right:0;background:var(--harvest)">畑を順に巡回 →</div></div><div class="cell"><div class="bar" style="left:0;right:0;background:var(--harvest)"></div></div><div class="cell"><div class="bar" style="left:0;right:0;background:var(--harvest)"></div></div><div class="cell"><div class="bar" style="left:0;right:0;background:var(--harvest)">ピーク</div></div><div class="cell"><div class="bar" style="left:0;right:30%;background:var(--harvest)">〜3/16</div></div><div class="cell"></div>
   </div></div>
+
+  <div class="mcal">
+    <div class="mrow"><div class="mmon">7月</div><div class="mchips"><span class="mchip" style="background:var(--seed)">は種 ないと</span></div></div>
+    <div class="mrow"><div class="mmon">8月</div><div class="mchips"><span class="mchip" style="background:var(--bed)">畝立て</span><span class="mchip" style="background:var(--plant)">定植 ないと/銀次郎</span><span class="mchip" style="background:var(--weed)">除草剤</span><span class="mchip" style="background:var(--pest)">防除</span><span class="mchip" style="background:var(--hill)">補植</span></div></div>
+    <div class="mrow"><div class="mmon">9月</div><div class="mchips"><span class="mchip" style="background:var(--plantw)">定植 白菜</span><span class="mchip" style="background:var(--fert)">追肥(畝上)</span><span class="mchip" style="background:var(--hill)">土寄せ</span><span class="mchip" style="background:var(--pest)">防除</span></div></div>
+    <div class="mrow"><div class="mmon">10月</div><div class="mchips"><span class="mchip" style="background:var(--fert)">追肥 NK/尿素</span><span class="mchip" style="background:var(--weed)">草刈り</span><span class="mchip" style="background:var(--pest)">防除</span></div></div>
+    <div class="mrow harv"><div class="mmon">11月</div><div class="mchips"><span class="mchip" style="background:var(--harvest)">🌾 収穫・出荷スタート</span></div></div>
+    <div class="mrow harv"><div class="mmon">12月</div><div class="mchips"><span class="mchip" style="background:var(--harvest)">🌾 収穫・出荷</span></div></div>
+    <div class="mrow harv"><div class="mmon">1月</div><div class="mchips"><span class="mchip" style="background:var(--harvest)">🌾 収穫・出荷（霜対策）</span></div></div>
+    <div class="mrow harv"><div class="mmon">2月</div><div class="mchips"><span class="mchip" style="background:var(--harvest)">🌾 収穫・出荷 ピーク</span></div></div>
+    <div class="mrow harv"><div class="mmon">3月</div><div class="mchips"><span class="mchip" style="background:var(--harvest)">🌾 収穫・出荷 〜3/16 終了</span></div></div>
+  </div>
 
   <div class="lg">
     <span><i style="background:var(--seed)"></i>は種</span><span><i style="background:var(--bed)"></i>畝立て</span><span><i style="background:var(--plant)"></i>定植キャ</span><span><i style="background:var(--plantw)"></i>定植白</span><span><i style="background:var(--weed)"></i>除草剤</span><span><i style="background:var(--pest)"></i>防除</span><span><i style="background:var(--fert)"></i>追肥</span><span><i style="background:var(--hill)"></i>補植土寄</span><span><i style="background:var(--harvest)"></i>収穫出荷</span>
