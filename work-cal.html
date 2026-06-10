@@ -56,6 +56,24 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',
 .wk .wkt{display:flex;flex-wrap:wrap;gap:4px;margin-top:9px}
 .wk .c{font-size:10.5px;font-weight:700;color:#fff;border-radius:6px;padding:2px 8px}
 .wk .c.empty{background:#eef0f3;color:#9aa3ae}
+.acc{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 1px 3px rgba(16,20,24,.05)}
+.mblk{border-bottom:1px solid var(--line)}.mblk:last-child{border-bottom:none}
+.mhead{display:flex;align-items:center;gap:11px;padding:13px 16px;cursor:pointer;user-select:none}
+.mhead:active{background:#fafbfc}
+.mc{font-size:15px;font-weight:800;width:42px;flex-shrink:0}
+.msum{flex:1;font-size:11.5px;color:var(--sub);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.car{font-size:11px;color:#c2cad3;transition:transform .25s}
+.mblk.open .car{transform:rotate(90deg)}
+.mblk.cur .mhead{background:#ecfdf3}.mblk.cur .mc{color:#059669}
+.mbody{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.mblk.open .mbody{max-height:640px}
+.wkrow{display:flex;gap:11px;padding:9px 16px;align-items:flex-start;border-top:1px dashed #f0f1f3}
+.wd{flex-shrink:0;width:74px;font-size:11px;color:var(--sub);font-weight:700;padding-top:2px}
+.wc{display:flex;flex-wrap:wrap;gap:5px}
+.ch{font-size:11px;font-weight:700;color:#fff;border-radius:6px;padding:2px 8px}
+.ch.e{background:#f0f1f3;color:#9aa3ae}
+.wkrow.now{background:#ecfdf3;margin:3px 8px;border-radius:9px;border-top:none}
+.wkrow.now .wd{color:#059669;font-weight:800}
 @media(max-width:720px){.detail{grid-template-columns:1fr}.top h1{font-size:19px}.ahead{grid-template-columns:1fr 1fr}
 .cal{display:none}.lg{display:none}
 .mcal{display:block;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:6px 14px;box-shadow:0 1px 3px rgba(16,20,24,.05)}}
@@ -68,8 +86,8 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',
 
   <div class="weekview">
     <div class="thisweek" id="thisweek"></div>
-    <div class="ahd-h">▸ この先の予定（だんだん先）</div>
-    <div class="ahead" id="ahead"></div>
+    <div class="ahd-h">📅 月別カレンダー（今月は週に展開／他の月はタップで開く）</div>
+    <div class="acc" id="acc"></div>
   </div>
 
   <div class="cal"><div class="grid">
@@ -103,18 +121,6 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',
     <div class="rowlbl"><span class="dot" style="background:var(--harvest)"></span>収穫・出荷</div>
     <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"><div class="bar" style="left:30%;right:0;background:var(--harvest)">畑を順に巡回 →</div></div><div class="cell"><div class="bar" style="left:0;right:0;background:var(--harvest)"></div></div><div class="cell"><div class="bar" style="left:0;right:0;background:var(--harvest)"></div></div><div class="cell"><div class="bar" style="left:0;right:0;background:var(--harvest)">ピーク</div></div><div class="cell"><div class="bar" style="left:0;right:30%;background:var(--harvest)">〜3/16</div></div><div class="cell"></div>
   </div></div>
-
-  <div class="mcal">
-    <div class="mrow"><div class="mmon">7月</div><div class="mchips"><span class="mchip" style="background:var(--seed)">は種 ないと</span></div></div>
-    <div class="mrow"><div class="mmon">8月</div><div class="mchips"><span class="mchip" style="background:var(--bed)">畝立て</span><span class="mchip" style="background:var(--plant)">定植 ないと/銀次郎</span><span class="mchip" style="background:var(--weed)">除草剤</span><span class="mchip" style="background:var(--pest)">防除</span><span class="mchip" style="background:var(--hill)">補植</span></div></div>
-    <div class="mrow"><div class="mmon">9月</div><div class="mchips"><span class="mchip" style="background:var(--plantw)">定植 白菜</span><span class="mchip" style="background:var(--fert)">追肥(畝上)</span><span class="mchip" style="background:var(--hill)">土寄せ</span><span class="mchip" style="background:var(--pest)">防除</span></div></div>
-    <div class="mrow"><div class="mmon">10月</div><div class="mchips"><span class="mchip" style="background:var(--fert)">追肥 NK/尿素</span><span class="mchip" style="background:var(--weed)">草刈り</span><span class="mchip" style="background:var(--pest)">防除</span></div></div>
-    <div class="mrow harv"><div class="mmon">11月</div><div class="mchips"><span class="mchip" style="background:var(--harvest)">🌾 収穫・出荷スタート</span></div></div>
-    <div class="mrow harv"><div class="mmon">12月</div><div class="mchips"><span class="mchip" style="background:var(--harvest)">🌾 収穫・出荷</span></div></div>
-    <div class="mrow harv"><div class="mmon">1月</div><div class="mchips"><span class="mchip" style="background:var(--harvest)">🌾 収穫・出荷（霜対策）</span></div></div>
-    <div class="mrow harv"><div class="mmon">2月</div><div class="mchips"><span class="mchip" style="background:var(--harvest)">🌾 収穫・出荷 ピーク</span></div></div>
-    <div class="mrow harv"><div class="mmon">3月</div><div class="mchips"><span class="mchip" style="background:var(--harvest)">🌾 収穫・出荷 〜3/16 終了</span></div></div>
-  </div>
 
   <div class="lg">
     <span><i style="background:var(--seed)"></i>は種</span><span><i style="background:var(--bed)"></i>畝立て</span><span><i style="background:var(--plant)"></i>定植キャ</span><span><i style="background:var(--plantw)"></i>定植白</span><span><i style="background:var(--weed)"></i>除草剤</span><span><i style="background:var(--pest)"></i>防除</span><span><i style="background:var(--fert)"></i>追肥</span><span><i style="background:var(--hill)"></i>補植土寄</span><span><i style="background:var(--harvest)"></i>収穫出荷</span>
@@ -162,9 +168,21 @@ const wk0=monday(new Date());
 const we0=new Date(wk0);we0.setDate(wk0.getDate()+6);
 const t0=weekTasks(wk0);
 document.getElementById('thisweek').innerHTML='<div class=wh>📍 今週やること</div><div class=wdate>'+fmt(wk0)+' 〜 '+fmt(we0)+'</div>'+(t0.length?'<div class=wtasks>'+t0.map(x=>'<span class=wt>'+x[0]+'</span>').join('')+'</div>':'<div class=none>今週は大きな畑作業はなし（端境期・準備期）。来季の苗注文や計画を進める時期。</div>');
-let ah='';
-for(let w=1;w<=4;w++){const ws=new Date(wk0);ws.setDate(wk0.getDate()+7*w);const we=new Date(ws);we.setDate(ws.getDate()+6);const tt=weekTasks(ws);const lbl=w==1?'来週':w==2?'再来週':(w+'週後');
- ah+='<div class=wk style="opacity:'+(1-w*0.15).toFixed(2)+'"><div class=wkh>'+lbl+'</div><div class=wkd>'+fmt(ws)+'〜'+fmt(we)+'</div><div class=wkt>'+(tt.length?tt.map(x=>'<span class=c style="background:'+x[1]+'">'+x[0]+'</span>').join(''):'<span class="c empty">予定なし</span>')+'</div></div>';}
-document.getElementById('ahead').innerHTML=ah;
+function tog(el){el.parentNode.classList.toggle('open');}
+const DIM=[31,28,31,30,31,30,31,31,30,31,30,31];
+function mWeeks(m){const dim=DIM[m-1];const w=[];for(let s=1;s<=dim;s+=7)w.push([s,Math.min(s+6,dim)]);return w;}
+function rangeTasks(m,s,e){const mp=new Map();for(let d=s;d<=e;d++)for(const it of SCHED)if(inR(m,d,it))mp.set(it.s,it.c);return[...mp];}
+const tdM=new Date().getMonth()+1,tdD=new Date().getDate();
+let acc='';
+for(let i=0;i<12;i++){
+ const m=((tdM-1+i)%12)+1, cur=(m===tdM);
+ const msum=new Map();mWeeks(m).forEach(([s,e])=>rangeTasks(m,s,e).forEach(x=>msum.set(x[0],x[1])));
+ const sumtxt=[...msum.keys()].slice(0,5).join('・')||'予定なし';
+ let body='';
+ mWeeks(m).forEach(([s,e])=>{const tt=rangeTasks(m,s,e),isnow=cur&&tdD>=s&&tdD<=e;
+  body+='<div class="wkrow'+(isnow?' now':'')+'"><div class=wd>'+(isnow?'📍 ':'')+m+'/'+s+'〜'+e+'</div><div class=wc>'+(tt.length?tt.map(x=>'<span class=ch style="background:'+x[1]+'">'+x[0]+'</span>').join(''):'<span class="ch e">予定なし</span>')+'</div></div>';});
+ acc+='<div class="mblk'+(cur?' cur open':'')+'"><div class=mhead onclick="tog(this)"><div class=mc>'+m+'月</div><div class=msum>'+sumtxt+'</div><div class=car>▶</div></div><div class=mbody>'+body+'</div></div>';
+}
+document.getElementById('acc').innerHTML=acc;
 </script>
 </body></html>
