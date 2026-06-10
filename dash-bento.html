@@ -1,0 +1,88 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中川農産 — Bento</title>
+<style>
+:root{--ink:#101418;--sub:#7a828c;--bg:#eef0f3;--card:#fff;--ac:#16a34a;--ac2:#0d9488}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',system-ui,'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;-webkit-font-smoothing:antialiased;padding:22px}
+.head{max-width:1000px;margin:0 auto 16px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:0 4px}
+.head h1{font-size:22px;font-weight:800;letter-spacing:-.4px}
+.head .s{font-size:12.5px;color:var(--sub);margin-top:2px}
+.head .pill{font-size:12px;font-weight:700;color:#0d8a4f;background:#dcf5e6;padding:7px 14px;border-radius:999px}
+.bento{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:118px;gap:14px}
+.c{background:var(--card);border-radius:22px;padding:18px 20px;box-shadow:0 1px 3px rgba(16,20,24,.05);overflow:hidden;position:relative;display:flex;flex-direction:column}
+.c .lab{font-size:12px;color:var(--sub);font-weight:600;display:flex;align-items:center;gap:7px}
+.c .em{font-size:16px}
+.big{grid-column:span 2;grid-row:span 2}
+.wide{grid-column:span 2}
+.tall{grid-row:span 2}
+.val{font-size:34px;font-weight:800;letter-spacing:-1.2px;line-height:1;margin-top:auto}
+.val small{font-size:14px;color:var(--sub);font-weight:700}
+.sub2{font-size:11.5px;color:var(--sub);font-weight:600;margin-top:8px}
+/* hero */
+.hero{background:linear-gradient(150deg,#16a34a,#0d9488);color:#fff}
+.hero .lab{color:rgba(255,255,255,.85)}
+.hero .huge{font-size:62px;font-weight:800;letter-spacing:-3px;margin-top:auto;line-height:.95}
+.hero .huge small{font-size:20px;opacity:.85;font-weight:700}
+.hero .chips{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}
+.hero .chip{font-size:11px;font-weight:700;background:rgba(255,255,255,.18);padding:4px 10px;border-radius:999px}
+/* dark accent card */
+.dark{background:#101418;color:#fff}.dark .lab{color:#8a929c}
+.dark .val{color:#fff}
+/* mini bars */
+.bars{display:flex;align-items:flex-end;gap:8px;height:54px;margin-top:auto}
+.bb{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#34d399,#16a34a)}
+.bb.h{background:linear-gradient(180deg,#fcd34d,#f59e0b)}
+.barx{font-size:10.5px;color:var(--sub);text-align:center;margin-top:5px;font-weight:600}
+.softg{background:#e9f7ee}.softa{background:#fdf3e3}
+.list{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.li{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600}
+.li span{color:var(--sub)}
+.foot{max-width:1000px;margin:16px auto 0;text-align:center;font-size:11.5px;color:var(--sub)}
+@media(max-width:780px){
+ body{padding:14px}.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:108px;gap:11px}
+ .big{grid-column:span 2}.wide{grid-column:span 2}.hero .huge{font-size:48px}
+}
+</style></head><body>
+<div class="head">
+  <div><h1>🌱 栽培ダッシュボード</h1><div class="s">中川農産 · キャベツ／白菜</div></div>
+  <div class="pill">● 2025–26 シーズン</div>
+</div>
+<div class="bento">
+
+  <div class="c big hero">
+    <div class="lab">🌱 苗 総数</div>
+    <div class="huge">641<small> 枚</small></div>
+    <div class="chips"><span class="chip">キャベツ 500</span><span class="chip">白菜 140</span><span class="chip">ブロッコリー 1</span></div>
+  </div>
+
+  <div class="c"><div class="lab">📐 作付面積</div><div class="val">17.2<small> 反</small></div><div class="sub2">キャ12.5＋白4.7</div></div>
+  <div class="c softg"><div class="lab">🔍 品種数</div><div class="val">14<small> 種</small></div><div class="sub2">キャ8/白5/ブ1</div></div>
+
+  <div class="c wide dark">
+    <div class="lab">📦 週間出荷ライン</div>
+    <div class="val">8.3<small> t／週</small></div>
+    <div class="sub2" style="color:#aeb6c0">岩田1,005・ヤオフク3,000・丸西1,005・白菜1,800 kg</div>
+  </div>
+
+  <div class="c tall">
+    <div class="lab">📊 苗 納品（月別・枚）</div>
+    <div class="bars">
+      <div class="bb" style="height:55%"></div><div class="bb" style="height:70%"></div>
+      <div class="bb h" style="height:35%"></div>
+    </div>
+    <div class="barx">7月キャ ／ 8月キャ・白</div>
+    <div class="list"><div class="li">7月<span>220</span></div><div class="li">8月キャ<span>280</span></div><div class="li">8月白<span>140</span></div></div>
+  </div>
+
+  <div class="c wide softa">
+    <div class="lab">🌿 春系キャベツ（新規）</div>
+    <div class="val" style="font-size:26px">3–5<small> 反 ／ 週1t＋ ×月3回</small></div>
+    <div class="sub2">岩田・野村さん｜リレー作付け＝割れ対策｜11月中旬 初出荷</div>
+  </div>
+
+  <div class="c"><div class="lab">🥬 ないと</div><div class="val" style="font-size:26px">180<small> 枚</small></div><div class="sub2">最量 品種</div></div>
+
+</div>
+<div class="foot">中川農産 · 栽培ダッシュボード（Bento版）— design by AI秘書あいな</div>
+</body></html>
