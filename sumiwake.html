@@ -1,0 +1,81 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GPTs と あいな の棲み分け</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f6f5ef;color:#34322a;font-family:system-ui,'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;padding:0 0 44px}
+header{padding:18px 16px 14px;background:linear-gradient(135deg,#ffffff,#eef3f7);border-bottom:1px solid #d3ddea}
+header h1{margin:0;font-size:20px;color:#2f5fa6}
+header .sub{font-size:12.5px;color:#74808f;margin-top:5px;line-height:1.6}
+.wrap{max-width:660px;margin:10px auto 0;padding:12px}
+.heads{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px;position:sticky;top:0;padding:8px 0;background:#f6f5ef;z-index:3}
+.hcol{border-radius:13px;padding:11px 8px;text-align:center;font-weight:900}
+.hcol .e{font-size:22px}
+.hcol .t{font-size:14.5px;margin-top:2px}
+.hcol .s{font-size:10.5px;font-weight:700;margin-top:2px;opacity:.85}
+.h-gpt{background:#fff4e3;color:#c4791a;border:1.5px solid #f0d8b4}
+.h-aina{background:#eaf3e6;color:#3f7d2e;border:1.5px solid #cfe3c2}
+.row{background:#fff;border:1.5px solid #e3dcc8;border-radius:14px;padding:11px 12px;margin-bottom:10px;box-shadow:0 1px 5px rgba(120,110,80,.08)}
+.rlabel{font-size:14.5px;font-weight:900;color:#2c3a22;margin-bottom:8px}
+.cells{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cell{border-radius:10px;padding:7px 9px;font-size:12px;font-weight:700;line-height:1.45;display:flex;gap:6px;align-items:flex-start}
+.mk{font-size:15px;font-weight:900;flex-shrink:0;line-height:1.2}
+.ok{background:#eef7ef}.ok .mk{color:#2f8a3e}.ok{color:#3a6b3a}
+.mid{background:#fff7ec}.mid .mk{color:#cf9020}.mid{color:#8a6a2a}
+.no{background:#fbecec}.no .mk{color:#cf5050}.no{color:#9a5050}
+.sumcard{border-radius:16px;padding:14px;margin-top:6px}
+.sum-gpt{background:#fff4e3;border:1.5px solid #f0d8b4}
+.sum-aina{background:#eaf3e6;border:1.5px solid #cfe3c2;margin-top:12px}
+.sumh{font-size:15.5px;font-weight:900;margin-bottom:5px}
+.sum-gpt .sumh{color:#c4791a}.sum-aina .sumh{color:#3f7d2e}
+.sumb{font-size:13px;line-height:1.65;color:#5a5340}
+.note{max-width:660px;margin:8px auto 0;padding:10px 16px;font-size:12px;color:#7a7258;line-height:1.7}
+</style></head><body>
+<header>
+  <h1>🪧 GPTs と あいな の棲み分け</h1>
+  <div class="sub">無料で配れる「GPTs（プレゼント版）」と、専属でやる「あいな（Claude Code・本格版）」。どこまでできて、どこからができないかを一目で。</div>
+</header>
+<div class="wrap">
+  <div class="heads">
+    <div class="hcol h-gpt"><div class="e">🎁</div><div class="t">GPTs</div><div class="s">プレゼント版・無料配布</div></div>
+    <div class="hcol h-aina"><div class="e">🤖</div><div class="t">あいな</div><div class="s">本格版・Claude Code</div></div>
+  </div>
+
+  <div class="row"><div class="rlabel">① 質問に答える・相談にのる</div>
+    <div class="cells"><div class="cell ok"><span class="mk">◯</span>得意。賢い相談相手</div><div class="cell ok"><span class="mk">◯</span>得意</div></div></div>
+
+  <div class="row"><div class="rlabel">② 文章の整形・計算・アドバイス</div>
+    <div class="cells"><div class="cell ok"><span class="mk">◯</span>できる</div><div class="cell ok"><span class="mk">◯</span>できる</div></div></div>
+
+  <div class="row"><div class="rlabel">③ あなたの農業を“覚え続ける”（長期記憶）</div>
+    <div class="cells"><div class="cell mid"><span class="mk">△</span>最初に入れた分だけ。毎回ほぼリセット、自分で増えない</div><div class="cell ok"><span class="mk">◯</span>永続メモリ。毎回覚えてて、どんどん積み上がる</div></div></div>
+
+  <div class="row"><div class="rlabel">④ アプリ・ダッシュボードを“実際に作る”</div>
+    <div class="cells"><div class="cell no"><span class="mk">✗</span>作れない（作り方は教えられる）</div><div class="cell ok"><span class="mk">◯</span>作って公開までやる（この一覧ページもそう）</div></div></div>
+
+  <div class="row"><div class="rlabel">⑤ PCの記録・スプシ・GitHubを直接読み書き</div>
+    <div class="cells"><div class="cell no"><span class="mk">✗</span>貼られたものしか見れない</div><div class="cell ok"><span class="mk">◯</span>記録・シート・GitHubを直接さわる</div></div></div>
+
+  <div class="row"><div class="rlabel">⑥ 自動化・定期実行・Bot・自動投稿</div>
+    <div class="cells"><div class="cell no"><span class="mk">✗</span>毎回こちらから話しかける必要</div><div class="cell ok"><span class="mk">◯</span>裏で勝手に動く（定期実行・Bot）</div></div></div>
+
+  <div class="row"><div class="rlabel">⑦ 画像・音声・動画の生成、現場ツール</div>
+    <div class="cells"><div class="cell mid"><span class="mk">△</span>画像・音声は一部できる</div><div class="cell ok"><span class="mk">◯</span>画像・音声・動画・図面まで</div></div></div>
+
+  <div class="row"><div class="rlabel">⑧ 計画→実装→公開→改善まで回す（経営拡張）</div>
+    <div class="cells"><div class="cell no"><span class="mk">✗</span>相談・提案どまり</div><div class="cell ok"><span class="mk">◯</span>実際に手を動かして、経営ごと拡張</div></div></div>
+
+  <div class="sumcard sum-gpt">
+    <div class="sumh">🎁 GPTs ＝「賢い相談相手」</div>
+    <div class="sumb">答える・整える・計算する・教える、までが得意。手軽で、無料プレゼントにピッタリ。ただし<b>覚えない・作らない・動かさない</b>。＝“入口”に最適。</div>
+  </div>
+  <div class="sumcard sum-aina">
+    <div class="sumh">🤖 あいな ＝「専属秘書＆実働部隊」</div>
+    <div class="sumb"><b>覚える・作る・動かす・改善する</b>まで全部。記憶が積み上がり、ツール／アプリ／記憶／自動化／経営拡張を毎回まわす。＝“伴走して育てる”本格版。</div>
+  </div>
+</div>
+<div class="note">
+  使い分けの流れ：<b>GPTs（無料プレゼント）で入口</b> → 「ここまでしかできない、もっと任せたい」となったら <b>あいな（本格版）へ</b>。<br>
+  <span style="color:#9a927a">作成：AI秘書あいな ／ 中川農産</span>
+</div>
+</body></html>
