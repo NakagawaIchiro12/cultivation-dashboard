@@ -1,0 +1,102 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>キャベツ 作業カレンダー</title>
+<style>
+:root{--ink:#15181d;--sub:#7c838d;--bg:#f6f7f8;--card:#fff;--line:#eceef0;
+--seed:#a78bfa;--bed:#94a3b8;--plant:#10b981;--plantw:#f59e0b;--weed:#84cc16;--pest:#ef4444;--fert:#0ea5e9;--hill:#14b8a6;--harvest:#e11d76}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI',system-ui,'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;-webkit-font-smoothing:antialiased;padding:22px 16px 50px}
+.wrap{max-width:1000px;margin:0 auto}
+.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.top h1{font-size:22px;font-weight:800;letter-spacing:-.4px}
+.top .s{font-size:12.5px;color:var(--sub);margin-top:3px}
+.badge{font-size:11.5px;font-weight:700;color:#0d8a4f;background:#dcf5e6;padding:6px 12px;border-radius:999px}
+.now{background:#fff7ed;border:1px solid #fde4c8;border-radius:14px;padding:12px 15px;margin:14px 0 16px;font-size:13.5px;line-height:1.6}
+.now b{color:#c2620e}
+.cal{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:8px 6px 14px;overflow-x:auto;box-shadow:0 1px 3px rgba(16,20,24,.05)}
+.grid{min-width:760px;display:grid;grid-template-columns:118px repeat(10,1fr)}
+.gh{font-size:11.5px;font-weight:800;text-align:center;padding:9px 0;color:var(--sub);border-bottom:1px solid var(--line)}
+.gh.lbl{text-align:left;padding-left:12px}
+.gh.cur{color:#c2620e}
+.gh.cur span{background:#fde4c8;border-radius:6px;padding:1px 6px}
+.rowlbl{font-size:12.5px;font-weight:700;padding:11px 0 11px 12px;border-bottom:1px solid #f3f4f5;display:flex;align-items:center;gap:7px}
+.dot{width:9px;height:9px;border-radius:3px;flex-shrink:0}
+.cellrow{display:contents}
+.cell{border-bottom:1px solid #f3f4f5;border-left:1px solid #f6f7f8;position:relative;min-height:42px}
+.cell.junmark{background:linear-gradient(90deg,#fff7ed,#fff7ed)}
+.bar{position:absolute;top:50%;transform:translateY(-50%);height:19px;border-radius:7px;font-size:10.5px;font-weight:800;color:#fff;display:flex;align-items:center;padding:0 8px;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.lg{display:flex;flex-wrap:wrap;gap:9px 14px;margin-top:14px;font-size:11.5px;color:var(--sub);font-weight:600}
+.lg span i{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:5px;vertical-align:middle}
+.detail{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.dc{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px 16px}
+.dc h3{font-size:13.5px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.dc ul{list-style:none;font-size:12.5px;color:#4b5158;line-height:1.75}
+.dc li{padding:2px 0}.dc li b{color:var(--ink)}
+.dc .mon{display:inline-block;min-width:42px;color:var(--sub);font-weight:700}
+.foot{font-size:11.5px;color:var(--sub);margin-top:18px;text-align:center;line-height:1.7}
+@media(max-width:720px){.detail{grid-template-columns:1fr}.top h1{font-size:19px}}
+</style></head><body>
+<div class="wrap">
+  <div class="top">
+    <div><h1>🌱 キャベツ 作業カレンダー</h1><div class="s">中川農産 ｜ 2025年の段取りを主軸（一番最適化された年）</div></div>
+    <div class="badge">● たたき台 v1</div>
+  </div>
+
+  <div class="now">📍 <b>いま（6月）＝端境期＆来季の準備期。</b>苗の注文（6月中旬）・作付け計画・春系キャベツの段取りを決める時期。畑はひと段落、頭は来季へ。</div>
+
+  <div class="cal"><div class="grid">
+    <div class="gh lbl">作業 ＼ 月</div>
+    <div class="gh">7月</div><div class="gh">8月</div><div class="gh">9月</div><div class="gh">10月</div><div class="gh">11月</div><div class="gh">12月</div><div class="gh">1月</div><div class="gh">2月</div><div class="gh">3月</div><div class="gh cur"><span>現在地↩︎</span></div>
+
+    <div class="rowlbl"><span class="dot" style="background:var(--seed)"></span>は種</div>
+    <div class="cell"></div><div class="cell"><div class="bar" style="left:62%;right:6%;background:var(--seed)">ないと</div></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
+    <div class="rowlbl"><span class="dot" style="background:var(--bed)"></span>畝立て</div>
+    <div class="cell"></div><div class="cell"><div class="bar" style="left:4%;right:4%;background:var(--bed)">うずら・新五条・白菜畑</div></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
+    <div class="rowlbl"><span class="dot" style="background:var(--plant)"></span>定植 キャベツ</div>
+    <div class="cell"></div><div class="cell"><div class="bar" style="left:30%;right:2%;background:var(--plant)">ないと/銀次郎</div></div><div class="cell"><div class="bar" style="left:2%;right:60%;background:var(--plant)"></div></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
+    <div class="rowlbl"><span class="dot" style="background:var(--plantw)"></span>定植 白菜</div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"><div class="bar" style="left:4%;right:30%;background:var(--plantw)">きごころ/はれぎ</div></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
+    <div class="rowlbl"><span class="dot" style="background:var(--weed)"></span>除草剤</div>
+    <div class="cell"></div><div class="cell"><div class="bar" style="left:20%;right:2%;background:var(--weed)">ゴーゴーサン</div></div><div class="cell"><div class="bar" style="left:2%;right:40%;background:var(--weed)">ザクサ</div></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
+    <div class="rowlbl"><span class="dot" style="background:var(--pest)"></span>防除（病害虫）</div>
+    <div class="cell"></div><div class="cell"><div class="bar" style="left:30%;right:2%;background:var(--pest)">立枯/害虫</div></div><div class="cell"><div class="bar" style="left:2%;right:2%;background:var(--pest)">継続</div></div><div class="cell"><div class="bar" style="left:2%;right:40%;background:var(--pest)"></div></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
+    <div class="rowlbl"><span class="dot" style="background:var(--fert)"></span>追肥</div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"><div class="bar" style="left:20%;right:2%;background:var(--fert)">畝上</div></div><div class="cell"><div class="bar" style="left:2%;right:30%;background:var(--fert)">NK/尿素</div></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
+    <div class="rowlbl"><span class="dot" style="background:var(--hill)"></span>補植・土寄せ</div>
+    <div class="cell"></div><div class="cell"><div class="bar" style="left:55%;right:2%;background:var(--hill)">補植</div></div><div class="cell"><div class="bar" style="left:2%;right:25%;background:var(--hill)">土寄せ</div></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+
+    <div class="rowlbl"><span class="dot" style="background:var(--harvest)"></span>収穫・出荷</div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"><div class="bar" style="left:30%;right:0;background:var(--harvest)">畑を順に巡回 →</div></div><div class="cell"><div class="bar" style="left:0;right:0;background:var(--harvest)"></div></div><div class="cell"><div class="bar" style="left:0;right:0;background:var(--harvest)"></div></div><div class="cell"><div class="bar" style="left:0;right:0;background:var(--harvest)">ピーク</div></div><div class="cell"><div class="bar" style="left:0;right:30%;background:var(--harvest)">〜3/16</div></div><div class="cell"></div>
+  </div></div>
+
+  <div class="lg">
+    <span><i style="background:var(--seed)"></i>は種</span><span><i style="background:var(--bed)"></i>畝立て</span><span><i style="background:var(--plant)"></i>定植キャ</span><span><i style="background:var(--plantw)"></i>定植白</span><span><i style="background:var(--weed)"></i>除草剤</span><span><i style="background:var(--pest)"></i>防除</span><span><i style="background:var(--fert)"></i>追肥</span><span><i style="background:var(--hill)"></i>補植土寄</span><span><i style="background:var(--harvest)"></i>収穫出荷</span>
+  </div>
+
+  <div class="detail">
+    <div class="dc"><h3>🟢 定植〜活着（8〜9月）</h3><ul>
+      <li><span class="mon">7月末</span>ないと は種</li>
+      <li><span class="mon">8月</span>畝立て→<b>ないと定植(8/14・16・22)</b>→銀次郎(8/25〜)</li>
+      <li><span class="mon">8月</span>定植前 <b>ゴーゴーサン＋フィールドスター</b>／畝間・畦畔 <b>ザクサ＋カーメックス</b></li>
+      <li><span class="mon">8月</span>立枯・害虫 防除（マリンインパクト/スカッシュ/アミスター/グレーシア）＋<b>補植</b>（干上がり分）</li>
+      <li><span class="mon">9月</span><b>白菜定植</b>（きごころ85 9/8・はれぎ 9/10〜）</li>
+    </ul></div>
+    <div class="dc"><h3>🔵 肥培〜収穫（9〜3月）</h3><ul>
+      <li><span class="mon">9月</span>雑草とり・<b>土寄せ</b>・追肥(畝上)＋防除(トップジン/リーフガード)</li>
+      <li><span class="mon">10月</span><b>追肥(NK・尿素)</b>・草刈り・防除継続</li>
+      <li><span class="mon">11月〜</span><b>収穫・出荷スタート</b>（畑を順に：大沢牧場→倉庫→深海養鶏→ヤマト→長い畑→うずら→新五条）</li>
+      <li><span class="mon">12〜2月</span>収穫・出荷ピーク（霜対策）</li>
+      <li><span class="mon">3月</span>収穫・出荷 <b>〜3/16頃 終了</b></li>
+    </ul></div>
+  </div>
+
+  <div class="foot">出典：2025キャベツ植付-管理（実作業ログ456件）を主軸に集約 ／ 2024・2026は参考。<br>※たたき台 v1。違う・足したい所はご主人様の感覚で直します（数字や時期の捏造はしません）。制作：AI秘書あいな</div>
+</div>
+</body></html>
