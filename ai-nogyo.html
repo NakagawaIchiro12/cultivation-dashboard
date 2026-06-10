@@ -1,0 +1,96 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIで便利になったもの 野菜栽培編</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f6f5ef;color:#34322a;font-family:system-ui,'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;padding:0 0 44px}
+header{padding:18px 16px 14px;background:linear-gradient(135deg,#ffffff,#eef6e8);border-bottom:1px solid #d9e7c8}
+header h1{margin:0;font-size:21px;color:#3f7d2e}
+header .sub{font-size:12.5px;color:#7d8a6c;margin-top:5px;line-height:1.6}
+.legend{max-width:660px;margin:12px auto 0;padding:0 14px;display:flex;gap:10px;flex-wrap:wrap;font-size:11.5px;font-weight:700}
+.lg{border-radius:999px;padding:4px 11px}
+.lg.real{background:#eaf3e6;color:#3f7d2e;border:1px solid #cfe3c2}
+.lg.gift{background:#fff1e0;color:#c4791a;border:1px solid #f0d8b4}
+.wrap{max-width:660px;margin:8px auto 0;padding:12px}
+.card{border:1.5px solid #e3dcc8;border-radius:16px;padding:14px;margin:0 0 14px;background:#fff;box-shadow:0 2px 8px rgba(120,110,80,.10)}
+.num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:#4d9438;color:#fff;font-weight:900;font-size:14px;margin-right:8px;flex-shrink:0}
+.ttl{font-size:17.5px;font-weight:900;color:#2c3a22;display:flex;align-items:center;margin-bottom:7px}
+.what{font-size:13.5px;color:#55503f;line-height:1.65;margin:0 0 10px}
+.gift{background:#fff7ec;border:1.5px solid #f0d8b4;border-radius:12px;padding:10px 12px}
+.gift .gh{font-size:12.5px;font-weight:900;color:#c4791a;margin-bottom:3px}
+.gift .gb{font-size:13px;color:#6b5a3a;line-height:1.6}
+.tool{display:inline-block;background:#fbe9cf;color:#9a6512;font-weight:800;font-size:11.5px;border-radius:7px;padding:1px 8px;margin:1px 2px}
+.note{max-width:660px;margin:6px auto 0;padding:12px 16px;font-size:12.5px;color:#7a7258;line-height:1.75}
+.note b{color:#5a5340}
+</style></head><body>
+<header>
+  <h1>🤖🌱 AIで便利になったもの<span style="font-size:14px;color:#7d8a6c">／野菜栽培編</span></h1>
+  <div class="sub">中川農産で実際にAI化したもの一覧。各項目に「カンタンなプレゼント版（無料配布に使えるミニツール）」のアイデア付き。</div>
+</header>
+<div class="legend">
+  <span class="lg real">⚙️ 本格版＝Claude Codeで構築</span>
+  <span class="lg gift">🎁 プレゼント版＝ChatGPT/GPTs/スプレッドシートで簡易化→配布</span>
+</div>
+<div class="wrap">
+
+  <div class="card">
+    <div class="ttl"><span class="num">1</span>📋 記録の即引き出し</div>
+    <div class="what">Discord（品種サーバー）に散らばった記録から、苗の注文・出荷量・畑の面積・品種履歴を一発で集計して出す。「去年の苗注文は？」で即返ってくる。</div>
+    <div class="gift"><div class="gh">🎁 プレゼント版</div><div class="gb">栽培メモを貼ると自動でまとめてくれる<span class="tool">GPTs</span>「農家メモ集計くん」。<span class="tool">ChatGPT</span>に記録を貼って「表にして」だけでも可。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ttl"><span class="num">2</span>🌱 栽培カレンダー＆収穫予測</div>
+    <div class="what">作物ごとの生育タイムライン。播種・定植日から収穫時期の目安を引く（実数ベース）。</div>
+    <div class="gift"><div class="gh">🎁 プレゼント版</div><div class="gb">播種日を入れると収穫日が自動で出る<span class="tool">Googleスプレッドシート</span>「収穫日カレンダー」テンプレ。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ttl"><span class="num">3</span>📦 出荷集計ダッシュボード</div>
+    <div class="what">出荷実績（日付・品目・量）を集計して、月別・出荷先別に見える化。</div>
+    <div class="gift"><div class="gh">🎁 プレゼント版</div><div class="gb">日付と量を入れると月別グラフが自動で出る<span class="tool">Googleスプレッドシート</span>「出荷量 自動集計シート」。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ttl"><span class="num">4</span>🥬 苗 注文まとめページ</div>
+    <div class="what">苗の注文を品種×納品日×枚数で見やすく一覧化＋面積換算（40枚/反など）。今日作ったやつ。</div>
+    <div class="gift"><div class="gh">🎁 プレゼント版</div><div class="gb">注文をコピペすると見やすく整形してくれる<span class="tool">ChatGPT</span>プロンプト、または<span class="tool">スプレッドシート</span>注文テンプレ。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ttl"><span class="num">5</span>📐 作付け計画づくり</div>
+    <div class="what">畑の面積×苗枚数×目標出荷量を試算。割れ対策のリレー作付け（ずらし植え）まで設計。春キャベツ追加の計画で実演。</div>
+    <div class="gift"><div class="gh">🎁 プレゼント版</div><div class="gb">面積と希望出荷量を入れると作付けプランを返す<span class="tool">GPTs</span>「リレー作付けプランナー」。←一番"売り"になる。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ttl"><span class="num">6</span>🔍 品種選定リサーチ</div>
+    <div class="what">条件（大玉・耐病・割れにくい・リレー向き等）に合う品種を調べて候補出し（青龍345など）。</div>
+    <div class="gift"><div class="gh">🎁 プレゼント版</div><div class="gb">欲しい条件を答えるとオススメ品種を出す<span class="tool">GPTs</span>「品種選びアシスタント」。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ttl"><span class="num">7</span>🧪 肥料・農薬の量を自動計算</div>
+    <div class="what">畑の面積から、必要なかんらん化成の袋数や農薬の希釈量を計算（1000㎡＝6袋 ×1.5倍 など）。</div>
+    <div class="gift"><div class="gh">🎁 プレゼント版</div><div class="gb">面積を入れると袋数・希釈量を出す<span class="tool">スプレッドシート</span>または<span class="tool">GPTs</span>「肥料・農薬 計算機」。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ttl"><span class="num">8</span>🐔 生育ステータス共有ボード</div>
+    <div class="what">ハウス・畑ごとの生育状況を一目で。スマホで関係者と共有（ケイトウで運用中・公開）。</div>
+    <div class="gift"><div class="gh">🎁 プレゼント版</div><div class="gb"><span class="tool">Notion</span>または<span class="tool">スプレッドシート</span>の「作物 生育ステータス表」テンプレ。</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ttl"><span class="num">9</span>🎙 音声で農作業相談（今これ！）</div>
+    <div class="what">トラクターに乗りながら声で相談→AIが文字起こし→集計→計画→ページ公開まで一気に。手が空いてなくても進む。</div>
+    <div class="gift"><div class="gh">🎁 プレゼント版</div><div class="gb">スマホの<span class="tool">ChatGPT音声モード</span>で「畑仕事しながらAIに相談する」使い方ガイド１枚。</div></div>
+  </div>
+
+</div>
+<div class="note">
+  <b>使い方アイデア</b>：①〜⑨はそれぞれ"売り"になる。本格版はClaude Codeで内製、<b>カンタン版を無料プレゼント</b>にして配れば、AI×農業の入口（リード獲得）になる。<br>
+  特に <b>⑤リレー作付けプランナー</b>・<b>⑦肥料計算機</b>・<b>⑥品種選び</b> はGPTsで作りやすく、農家に刺さりやすい。<br>
+  <span style="color:#9a927a">作成：AI秘書あいな ／ 中川農産</span>
+</div>
+</body></html>
