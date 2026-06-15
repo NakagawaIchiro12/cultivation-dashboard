@@ -61,6 +61,9 @@ header .sub{font-size:12px;color:#8c8366;margin-top:4px}
 .dlsub{font-size:11px;font-weight:700;color:#8a8266}
 .dl-ok{background:#eef7ef;color:#1f8a47} .dl-warn{background:#fff4e0;color:#c07d00}
 .dl-late{background:#ffeef0;color:#d23d52} .dl-plan{background:#eef3fb;color:#3a6bbf}
+.tgt{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 8px;margin:5px 0 2px;padding:6px 12px;border-radius:10px;font-weight:800;font-size:13px;line-height:1.5}
+.tgt b{font-size:14px}
+.tgt-plan{background:#eef3fb;color:#345f9e} .tgt-late{background:#fff4e0;color:#b5740a} .tgt-rec{background:#f4f4f4;color:#7a7466}
 .tlfold{margin:4px 0 2px} .tlfold>summary{cursor:pointer;font-size:12px;color:#8a8266;font-weight:700;list-style:none;padding:3px 0}
 .tlfold>summary::-webkit-details-marker{display:none}
 .todo{max-width:640px;margin:10px auto 0;padding:11px 14px;background:#fff6f6;border:1.5px solid #f0c9cf;border-radius:14px}
@@ -72,7 +75,7 @@ header .sub{font-size:12px;color:#8c8366;margin-top:4px}
 .finalsow b{color:#b07a16} .finalsow.over{background:#ffeef0;border-color:#f0c9cf;color:#c0394e} .finalsow.over b{color:#c0394e}
 </style></head><body>
 <header><h1>🐔 ケイトウ 生育タイムライン</h1>
-<div class="sub">日付の軸で「今どこ・40cm/50cmに届いてるか・いつ穫れるか」を一目／記録 4/25〜6/14　・　更新 6/15 12:50</div></header>
+<div class="sub">日付の軸で「今どこ・40cm/50cmに届いてるか・いつ穫れるか」を一目／記録 4/25〜6/14　・　更新 6/15 12:58</div></header>
 <div class="summary"><span style="color:#27a857">🟢 順調/出荷 3</span>　<span style="color:#e0a200">🟡 育成中 1</span>　<span style="color:#9aa0b0">⚪ 記録待ち 1</span></div>
 <div class="todo okall"><div class="todoi">✅ 今日は要対応なし（みんな順調）</div></div>
 <div class="finalsow"><b>⏳ ハウス最終播種：9/2まで</b>　あと79日（9月播種は収穫まで約3ヶ月）</div>
@@ -83,6 +86,7 @@ header .sub{font-size:12px;color:#8c8366;margin-top:4px}
   <div class="card house" data-prio="200188" data-seq="3" style="background:#fff7e0;border-color:#e0a200">
     <div class="top"><span class="name">白沢1</span><span class="pill" style="background:#e0a200">🟡 育成中</span></div>
     
+    <div class="tgt tgt-plan">🎯 40cm目標：5/6播種＋40日＝<b>6/15</b>（今日が目標日）｜現在 16cm（目標まであと24cm）</div>
     <div class="cd cd-up"><span class="cdmain">🌱 育成中（これから大きくなります）</span><span class="cdsub">収穫予定はサイズが乗ってきたら算出</span></div>
     <details class="tlfold"><summary>🌿 育ちの流れ（タップで開く）</summary><svg viewBox="0 0 700 92" class="tl"><line x1="18" y1="40" x2="682" y2="40" class="axis"/><line x1="362.9" y1="14" x2="362.9" y2="48" class="todayl"/><text x="362.9" y="11" class="todayt" text-anchor="middle">今日</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌱</text><text x="18.0" y="60" class="mlb" text-anchor="middle">播種</text><text x="18.0" y="72" class="mdt" text-anchor="middle">5/6</text><circle cx="43.9" cy="40" r="5" class="mk"/><text x="43.9" y="30" class="mem" text-anchor="middle">🌿</text><text x="43.9" y="60" class="mlb" text-anchor="middle">発芽(推)</text><text x="43.9" y="72" class="mdt" text-anchor="middle">5/9</text><circle cx="302.6" cy="40" r="5" class="mk g40"/><text x="302.6" y="30" class="mem" text-anchor="middle">📏</text><text x="302.6" y="60" class="mlb" text-anchor="middle">40cm/花芽</text><text x="302.6" y="72" class="mdt" text-anchor="middle">6/8</text><circle cx="561.3" cy="40" r="5" class="mk gh"/><text x="561.3" y="30" class="mem" text-anchor="middle">✂️</text><text x="561.3" y="60" class="mlb" text-anchor="middle">収穫</text><text x="561.3" y="72" class="mdt" text-anchor="middle">7/8</text><circle cx="682.0" cy="40" r="5" class="mk gd"/><text x="682.0" y="30" class="mem" text-anchor="middle">⛔</text><text x="682.0" y="60" class="mlb" text-anchor="middle">期限</text><text x="682.0" y="72" class="mdt" text-anchor="middle">7/22</text></svg></details>
     <div class="gbar">
@@ -96,6 +100,7 @@ header .sub{font-size:12px;color:#8c8366;margin-top:4px}
   <div class="card house" data-prio="300174" data-seq="0" style="background:#eafaef;border-color:#27a857">
     <div class="top"><span class="name">苗ハウス1</span><span class="pill" style="background:#27a857">🟢 順調(40cm)</span></div>
     <div class="dl dl-ok">✅ 40cm 予定どおり<span class="dlsub">予定 5/25 → 実績 5/25</span></div>
+    
     <div class="cd cd-up"><span class="cdmain">✂️ 収穫まで あと9日</span><span class="cdsub">予定 6/24</span></div>
     <details class="tlfold"><summary>🌿 育ちの流れ（タップで開く）</summary><svg viewBox="0 0 700 92" class="tl"><line x1="18" y1="40" x2="682" y2="40" class="axis"/><line x1="475.6" y1="14" x2="475.6" y2="48" class="todayl"/><text x="475.6" y="11" class="todayt" text-anchor="middle">今日</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌿</text><text x="18.0" y="60" class="mlb" text-anchor="middle">発芽(推)</text><text x="18.0" y="72" class="mdt" text-anchor="middle">4/25</text><circle cx="287.2" cy="40" r="5" class="mk g40"/><text x="287.2" y="30" class="mem" text-anchor="middle">📏</text><text x="287.2" y="60" class="mlb" text-anchor="middle">40cm/花芽</text><text x="287.2" y="72" class="mdt" text-anchor="middle">5/25</text><circle cx="556.4" cy="40" r="5" class="mk gh"/><text x="556.4" y="30" class="mem" text-anchor="middle">✂️</text><text x="556.4" y="60" class="mlb" text-anchor="middle">収穫</text><text x="556.4" y="72" class="mdt" text-anchor="middle">6/24</text><circle cx="682.0" cy="40" r="5" class="mk gd"/><text x="682.0" y="30" class="mem" text-anchor="middle">⛔</text><text x="682.0" y="60" class="mlb" text-anchor="middle">期限</text><text x="682.0" y="72" class="mdt" text-anchor="middle">7/8</text></svg></details>
     <div class="gbar">
@@ -109,6 +114,7 @@ header .sub{font-size:12px;color:#8c8366;margin-top:4px}
   <div class="card house" data-prio="300180" data-seq="1" style="background:#eafaef;border-color:#27a857">
     <div class="top"><span class="name">苗ハウス2</span><span class="pill" style="background:#27a857">🟢 順調(40cm)</span></div>
     <div class="dl dl-ok">✅ 40cm 予定どおり<span class="dlsub">予定 5/31 → 実績 5/31</span></div>
+    
     <div class="cd cd-up"><span class="cdmain">✂️ 収穫まで あと15日</span><span class="cdsub">予定 6/30</span></div>
     <details class="tlfold"><summary>🌿 育ちの流れ（タップで開く）</summary><svg viewBox="0 0 700 92" class="tl"><line x1="18" y1="40" x2="682" y2="40" class="axis"/><line x1="435.1" y1="14" x2="435.1" y2="48" class="todayl"/><text x="435.1" y="11" class="todayt" text-anchor="middle">今日</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌱</text><text x="18.0" y="60" class="mlb" text-anchor="middle">播種</text><text x="18.0" y="72" class="mdt" text-anchor="middle">4/27</text><circle cx="52.1" cy="40" r="5" class="mk"/><text x="52.1" y="30" class="mem" text-anchor="middle">🌿</text><text x="52.1" y="60" class="mlb" text-anchor="middle">発芽</text><text x="52.1" y="72" class="mdt" text-anchor="middle">5/1</text><circle cx="307.4" cy="40" r="5" class="mk g40"/><text x="307.4" y="30" class="mem" text-anchor="middle">📏</text><text x="307.4" y="60" class="mlb" text-anchor="middle">40cm/花芽</text><text x="307.4" y="72" class="mdt" text-anchor="middle">5/31</text><circle cx="562.8" cy="40" r="5" class="mk gh"/><text x="562.8" y="30" class="mem" text-anchor="middle">✂️</text><text x="562.8" y="60" class="mlb" text-anchor="middle">収穫</text><text x="562.8" y="72" class="mdt" text-anchor="middle">6/30</text><circle cx="682.0" cy="40" r="5" class="mk gd"/><text x="682.0" y="30" class="mem" text-anchor="middle">⛔</text><text x="682.0" y="60" class="mlb" text-anchor="middle">期限</text><text x="682.0" y="72" class="mdt" text-anchor="middle">7/14</text></svg></details>
     <div class="gbar">
@@ -122,6 +128,7 @@ header .sub{font-size:12px;color:#8c8366;margin-top:4px}
   <div class="card house" data-prio="300190" data-seq="2" style="background:#eafaef;border-color:#27a857">
     <div class="top"><span class="name">苗ハウス3</span><span class="pill" style="background:#27a857">🟢 順調(40cm)</span></div>
     <div class="dl dl-ok">✅ 40cm 予定どおり<span class="dlsub">予定 6/10 → 実績 6/10</span></div>
+    
     <div class="cd cd-up"><span class="cdmain">✂️ 収穫まで あと25日</span><span class="cdsub">予定 7/10</span></div>
     <details class="tlfold"><summary>🌿 育ちの流れ（タップで開く）</summary><svg viewBox="0 0 700 92" class="tl"><line x1="18" y1="40" x2="682" y2="40" class="axis"/><line x1="354.2" y1="14" x2="354.2" y2="48" class="todayl"/><text x="354.2" y="11" class="todayt" text-anchor="middle">今日</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌱</text><text x="18.0" y="60" class="mlb" text-anchor="middle">播種</text><text x="18.0" y="72" class="mdt" text-anchor="middle">5/6</text><circle cx="60.0" cy="40" r="5" class="mk"/><text x="60.0" y="30" class="mem" text-anchor="middle">🌿</text><text x="60.0" y="60" class="mlb" text-anchor="middle">発芽</text><text x="60.0" y="72" class="mdt" text-anchor="middle">5/11</text><circle cx="312.2" cy="40" r="5" class="mk g40"/><text x="312.2" y="30" class="mem" text-anchor="middle">📏</text><text x="312.2" y="60" class="mlb" text-anchor="middle">40cm/花芽</text><text x="312.2" y="72" class="mdt" text-anchor="middle">6/10</text><circle cx="564.3" cy="40" r="5" class="mk gh"/><text x="564.3" y="30" class="mem" text-anchor="middle">✂️</text><text x="564.3" y="60" class="mlb" text-anchor="middle">収穫</text><text x="564.3" y="72" class="mdt" text-anchor="middle">7/10</text><circle cx="682.0" cy="40" r="5" class="mk gd"/><text x="682.0" y="30" class="mem" text-anchor="middle">⛔</text><text x="682.0" y="60" class="mlb" text-anchor="middle">期限</text><text x="682.0" y="72" class="mdt" text-anchor="middle">7/24</text></svg></details>
     <div class="gbar">
@@ -135,6 +142,7 @@ header .sub{font-size:12px;color:#8c8366;margin-top:4px}
   <div class="card house" data-prio="400185" data-seq="4" style="background:#f2f3f6;border-color:#9aa0b0">
     <div class="top"><span class="name">白沢2</span><span class="pill" style="background:#9aa0b0">⚪ 育成中</span></div>
     
+    <div class="tgt tgt-rec">🎯 40cm目標：5/6播種＋40日＝<b>6/15</b>（今日が目標日）｜草丈の記録待ち</div>
     <div class="cd cd-up"><span class="cdmain">🌱 育成中（これから大きくなります）</span><span class="cdsub">収穫予定はサイズが乗ってきたら算出</span></div>
     <details class="tlfold"><summary>🌿 育ちの流れ（タップで開く）</summary><svg viewBox="0 0 700 92" class="tl"><line x1="18" y1="40" x2="682" y2="40" class="axis"/><line x1="376.9" y1="14" x2="376.9" y2="48" class="todayl"/><text x="376.9" y="11" class="todayt" text-anchor="middle">今日</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌱</text><text x="18.0" y="60" class="mlb" text-anchor="middle">播種</text><text x="18.0" y="72" class="mdt" text-anchor="middle">5/6</text><circle cx="18.0" cy="40" r="5" class="mk"/><text x="18.0" y="30" class="mem" text-anchor="middle">🌿</text><text x="18.0" y="60" class="mlb" text-anchor="middle">発芽</text><text x="18.0" y="72" class="mdt" text-anchor="middle">5/6</text><circle cx="287.2" cy="40" r="5" class="mk g40"/><text x="287.2" y="30" class="mem" text-anchor="middle">📏</text><text x="287.2" y="60" class="mlb" text-anchor="middle">40cm/花芽</text><text x="287.2" y="72" class="mdt" text-anchor="middle">6/5</text><circle cx="556.4" cy="40" r="5" class="mk gh"/><text x="556.4" y="30" class="mem" text-anchor="middle">✂️</text><text x="556.4" y="60" class="mlb" text-anchor="middle">収穫</text><text x="556.4" y="72" class="mdt" text-anchor="middle">7/5</text><circle cx="682.0" cy="40" r="5" class="mk gd"/><text x="682.0" y="30" class="mem" text-anchor="middle">⛔</text><text x="682.0" y="60" class="mlb" text-anchor="middle">期限</text><text x="682.0" y="72" class="mdt" text-anchor="middle">7/19</text></svg></details>
     <div class="norec">草丈の記録待ち</div>
