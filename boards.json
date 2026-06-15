@@ -1,0 +1,10 @@
+{
+  "site": "中川農産 ダッシュボード",
+  "updated": "2026-06-15",
+  "boards": [
+    { "file": "keitou.html",    "title": "ケイトウ 生育タイムライン", "emoji": "🐔", "cat": "生育", "desc": "ハウス別の草丈・収穫予測。毎日9:00/18:30に自動更新。", "public": true },
+    { "file": "work-cal.html",  "title": "キャベツ 作業カレンダー",   "emoji": "🗓", "cat": "作業", "desc": "定植〜収穫までの作業の流れ。", "public": true },
+    { "file": "nae.html",       "title": "苗 注文一覧 2025",          "emoji": "🌱", "cat": "計画", "desc": "品種・本数・注文先の一覧。", "public": true },
+    { "file": "ai-nogyo.html",  "title": "AIで便利になったもの 野菜栽培編", "emoji": "🤖", "cat": "AI", "desc": "現場でAIが効いている場面まとめ。", "public": true }
+  ]
+}
