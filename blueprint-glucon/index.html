@@ -1008,9 +1008,20 @@ function sE2(){return `<section class="slide anim-fade-up" data-section="edit-2"
  ${vfull('demo/demo_e2.mp4','demo/poster_e2.jpg','※実際は約9分。待ち時間を省いて要点だけ')}</section>`;}
 
 function sE3(){return `<section class="slide anim-fade-up" data-section="edit-3"
- data-notes="これがブループリントの編集ダッシュボードです。カット、テンプレート、テロップ、スライド、と工程がボタンで並んでいます。">
- <div class="page-header"><span class="chapter">④編集｜ブループリントの編集画面</span></div>
+ data-notes="これが実際のしきい値調整画面、カットピッカーです。波形を見ながら、しきい値・最小無音長・バッファ・言い直し検出を動かして、どこを残すか決めます。さっきの、買った、を復活させたのも、この画面の調整です。">
+ <div class="page-header"><span class="chapter">④編集｜しきい値調整の画面（買ったを復活）</span></div>
  ${vfull('demo/demo_e3.mp4','demo/poster_e3.jpg','※実際は約5分半。要点だけ')}</section>`;}
+
+function sE3b(){return `<section class="slide anim-fade-up" data-section="edit-katta"
+ data-notes="ここが大事な所です。最初のカットで、ブループリント買ったの、買っ、が切れてしまっていました。声が小さく尻すぼみだったので、AIが無音と間違えてカットしたんです。そこで、カットしすぎ、買ったが言えてない、直して、と声で指示。するとAIが、買っ、が全部カットされていたと検出して、しきい値とバッファを調整し、全部の言葉が残るように直しました。声で言うだけで、ここまで直せます。">
+ <div class="page-header"><span class="chapter">④編集｜「買った」が切れた → 声で直す</span></div>
+ <div class="slide-content"><h2><span class="g-primary">「買った」</span>が切れた → 声で直す</h2>
+ <div class="grid-3" style="gap:24px;align-items:stretch;">
+ <div class="card card--hot"><span class="pill pill--hot">Before</span><div class="card-title">「買っ」が消えた</div><div class="card-body">「ブループリント買っ<span class="text-pink">た</span>のに」の<span class="text-pink">"買っ"</span>がカットされてた。声が小さく"無音"と誤判定。</div></div>
+ <div class="card card--accent"><span class="pill pill--primary">声で指示</span><div class="card-title">「直して」と言うだけ</div><div class="card-body">「カットしすぎ、"買った"が言えてない。直して」と<span class="text-blue">声で送る</span>だけ。</div></div>
+ <div class="card card--warm"><span class="pill pill--warm">After</span><div class="card-title">全部の言葉が復活</div><div class="card-body">AIが"買っ"の全カットを検出 → <span class="text-gold">しきい値とバッファを調整</span> → 全部ちゃんと言える。</div></div>
+ </div>
+ <p class="lead mt-24" style="font-size:26px;">声で言うだけで、ここまで直る。↓実際のしきい値調整画面は次へ</p></div></section>`;}
 
 function sE4(){return `<section class="slide anim-fade-up" data-section="edit-4"
  data-notes="実際の指示と、出来上がりの確認をDiscordでしている画面です。">
@@ -1044,7 +1055,7 @@ function s21CTA(){return `<section class="slide hero-slide anim-fade-up" data-se
  <div class="hero-rule"></div><p class="hero-subtitle">編集のボトルネックは消えた。"それ以外"（スマホ完結・外でも台本）をどう解消したか。まずは無料の個別相談から</p>
  <div class="big-index">21</div></div></section>`;}
 
-window.slideFactories=[s01Cover,s02Intro,s03Proof,s04A,s05Aruaru,s06Pay,s07Mind,s08Bridge,s09Map,s10Step1,s11Step2,s12Step3,s13Step4,s14Step5,s14bFull,s14cDemo,s15Step6,s16Step7,s17Step8,s18Core,s19Seika,s20Next,s20bScene,sDemoLead,sDemoMap,sDemoV1,sDemoV2,sDemoV3,sDemoBridge,sE0Lead,sE1,sE2,sE3,sE4,sE5,sE6,sE7,sE8,s21CTA];
+window.slideFactories=[s01Cover,s02Intro,s03Proof,s04A,s05Aruaru,s06Pay,s07Mind,s08Bridge,s09Map,s10Step1,s11Step2,s12Step3,s13Step4,s14Step5,s14bFull,s14cDemo,s15Step6,s16Step7,s17Step8,s18Core,s19Seika,s20Next,s20bScene,sDemoLead,sDemoMap,sDemoV1,sDemoV2,sDemoV3,sDemoBridge,sE0Lead,sE1,sE2,sE3b,sE3,sE4,sE5,sE6,sE7,sE8,s21CTA];
 window.agendaItems=[
  {id:'cover',label:'表紙'},{id:'intro',label:'なぜ聞く価値'},{id:'proof',label:'証拠：落ちない'},
  {id:'a-point',label:'あなたの今'},{id:'aruaru',label:'あるある'},{id:'pay',label:'時給'},
@@ -1056,7 +1067,7 @@ window.agendaItems=[
  {id:'demo-lead',label:'実演：できるまで'},{id:'demo-map',label:'実演5ステップ'},{id:'demo-v1',label:'実演①話しかける'},
  {id:'demo-v2',label:'実演②台本ができる'},{id:'demo-v3',label:'実演③撮影'},{id:'demo-bridge',label:'実演④→⑤へ'},
  {id:'edit-lead',label:'④編集：声で頼む'},{id:'edit-1',label:'④カットして'},{id:'edit-2',label:'④動画が返る'},
- {id:'edit-3',label:'④編集画面'},{id:'edit-4',label:'④指示と確認'},{id:'edit-5',label:'④声で微調整'},
+ {id:'edit-katta',label:'④買ったを直す'},{id:'edit-3',label:'④しきい値調整'},{id:'edit-4',label:'④指示と確認'},{id:'edit-5',label:'④声で微調整'},
  {id:'edit-6',label:'④声で直る'},{id:'edit-7',label:'④仕上げ一気に'},{id:'edit-8',label:'④声で完成へ'},{id:'cta',label:'CTA'}
 ];
 
