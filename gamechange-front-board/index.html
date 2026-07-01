@@ -2176,5 +2176,31 @@ function toggleSlides(btn) {
   activate(0);
 })();
 </script>
+<style id="fsb"></style>
+<div id="fsctl" style="position:fixed;right:10px;bottom:12px;z-index:99999;display:flex;gap:6px;align-items:center;background:rgba(15,20,25,.92);padding:8px 10px;border-radius:30px;font-family:sans-serif;box-shadow:0 3px 14px rgba(0,0,0,.5);">
+  <span style="color:#9fe8c0;font-size:12px;font-weight:700;">文字</span>
+  <button type="button" onclick="fsSet(0)" style="border:0;background:#2b3a44;color:#fff;font-weight:800;font-size:14px;padding:8px 11px;border-radius:8px;">小</button>
+  <button type="button" onclick="fsSet(1)" style="border:0;background:#2b3a44;color:#fff;font-weight:800;font-size:15px;padding:8px 11px;border-radius:8px;">中</button>
+  <button type="button" onclick="fsSet(2)" style="border:0;background:#1f7a4d;color:#fff;font-weight:800;font-size:17px;padding:8px 12px;border-radius:8px;">大</button>
+  <button type="button" onclick="fsSet(3)" style="border:0;background:#1f7a4d;color:#fff;font-weight:800;font-size:19px;padding:8px 12px;border-radius:8px;">特大</button>
+</div>
+<script>
+(function(){
+  var P=[18,26,32,38];   // 読み上げ台本の文字サイズ(px)
+  var T=[18,24,30,36];   // セクション見出し(S#)の文字サイズ(px)
+  var idx=parseInt(localStorage.getItem('gcfs2'),10); if(isNaN(idx))idx=1;
+  var s=document.getElementById('fsb');
+  function apply(){
+    s.textContent='.timeline .script-body p{font-size:'+P[idx]+'px!important;line-height:1.65!important}'
+      +'.timeline .head .title{font-size:'+T[idx]+'px!important}'
+      +'.timeline .body{font-size:'+(P[idx]-2)+'px!important}';
+    localStorage.setItem('gcfs2',idx);
+    var b=document.querySelectorAll('#fsctl button');
+    for(var k=0;k<b.length;k++){ b[k].style.outline = (k===idx)?'2px solid #ffd97d':'none'; }
+  }
+  window.fsSet=function(i){ idx=Math.max(0,Math.min(3,i)); apply(); };
+  apply();
+})();
+</script>
 </body>
 </html>
