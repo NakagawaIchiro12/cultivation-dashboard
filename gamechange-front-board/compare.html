@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>台本 v2→v3 全比較（どこ撮り直すか）</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0b0f0d;color:#f3fff8;font-family:'Hiragino Sans','Noto Sans JP',sans-serif;padding:16px 14px 120px;line-height:1.55}
+  .top{max-width:860px;margin:0 auto 14px}
+  h1{font-size:19px;font-weight:900}
+  .note{font-size:13px;opacity:.85;margin-top:6px;background:#12241a;padding:10px 12px;border-radius:10px;border-left:3px solid #2ecc71}
+  .legend{font-size:12px;margin-top:8px;opacity:.85}
+  .sec{max-width:860px;margin:0 auto 14px;background:#111815;border:1px solid #24352b;border-radius:14px;padding:14px 16px}
+  .same{border-left:5px solid #2ecc71}
+  .minor{border-left:5px solid #e0b83a}
+  .big{border-left:5px solid #ff5a6a}
+  .stitle{font-size:14px;font-weight:800;margin-bottom:4px}
+  .badge{font-size:12px;font-weight:800;padding:2px 8px;border-radius:20px;margin-left:6px}
+  .b-same{background:#134a2c;color:#8affc0}
+  .b-minor{background:#4a3a12;color:#ffe08a}
+  .b-big{background:#4a1620;color:#ff9caa}
+  .script{font-size:30px;font-weight:700;line-height:1.5;margin-top:8px}
+  .old{font-size:12px;opacity:.6;margin-top:8px;padding-top:8px;border-top:1px dashed #33443b}
+  .old b{color:#ff9caa}
+  #fsctl{position:fixed;right:8px;bottom:10px;z-index:99999;display:flex;gap:4px;align-items:center;background:rgba(15,20,25,.94);padding:7px 8px;border-radius:26px;box-shadow:0 3px 14px rgba(0,0,0,.5)}
+  #fsctl span{color:#9fe8c0;font-size:11px;font-weight:700}
+  #fsctl button{border:0;color:#fff;font-weight:800;padding:8px 9px;border-radius:7px}
+</style>
+</head>
+<body>
+  <div class="top">
+    <h1>📊 台本 v2 → v3 全比較（どこを撮り直すか一目で）</h1>
+    <div class="note">正直に言うと、変わったのは撤退ラインだけじゃなかった。全16セクションを照合したよ。<b>緑＝ほぼ同じ（今日の撮影使える）</b>／<b>黄＝少し変更</b>／<b>赤＝大きく変更（撮り直し推奨）</b>。読むのはv3（大きい字）、下の小さいのが旧v2。</div>
+    <div class="legend">🟩 同じ7＝S4/S8/S9/S11/S13/S14/(S16ほぼ)　🟨 少し変更5＝S1/S2/S7/S12/S15　🟥 大きく変更＝S3/S5/S6/S10（特にS10撤退ライン＝体調/線 修正）</div>
+  </div>
+
+  <div class="sec minor"><div class="stitle">S1 フック <span class="badge b-minor">少し変更</span></div><div class="script">苗作りで失敗する人の多くは、温度や水では失敗していません。売り先が決まっていない苗を、たくさん作って失敗しています。僕はこれを、儲からない苗と呼んでいます。今日はこの話をします。</div><div class="old"><b>旧v2:</b> …今日は、儲からない苗を作らないための話をします。（末尾が「儲からない苗と呼んでいます。今日はこの話をします」に）</div></div>
+
+  <div class="sec minor"><div class="stitle">S2 栽培の具体 <span class="badge b-minor">少し変更</span></div><div class="script">良い苗の条件は、はっきりしています。本葉の枚数。根の張り。徒長していないこと。ここは努力がそのまま結果に出るところです。僕も16年、ここは大事にしてきました。</div><div class="old"><b>旧v2:</b> …やればやるほど上手くなります。苗作りそのものは、努力が返ってくる世界です。（言い回し＋「僕も16年」追加）</div></div>
+
+  <div class="sec big"><div class="stitle">S3 ブリッジ <span class="badge b-big">大きく変更</span></div><div class="script">でも僕は、良い苗が作れるようになっても、儲かりませんでした。良い苗と、儲かる苗は、別物だったからです。ここから先は、栽培の腕の話ではなく、順番の話です。</div><div class="old"><b>旧v2:</b> でも、どれだけ良い苗を作っても、行き先が決まっていなければ…良い苗と、儲かる苗は、別の話なんです。（"僕の失敗"に変え＋順番へ橋渡し追加）</div></div>
+
+  <div class="sec same"><div class="stitle">S4 自己紹介 <span class="badge b-same">ほぼ同じ</span></div><div class="script">僕は愛知県で野菜と花を年間100トン出荷している農家です。未経験から16年になります。今は半日の労働で出荷を回して、土日は休んでいます。</div><div class="old"><b>旧v2:</b> …ほぼ同じ。末尾の「今日は、苗を起点に…順番の話をします」の一文だけ削除。</div></div>
+
+  <div class="sec big"><div class="stitle">S5 失敗の構造 <span class="badge b-big">大きく変更（旧S5+S6を統合）</span></div><div class="script">一番怖いのは、苗が足りないことではありません。売り先が決まっていないのに、苗だけが増えていくことです。畑があるから作る。作ってから売り先を探す。そうすると最後は、安くてもいいから、に近づいていきます。失敗の正体は、技術ではなく順番です。</div><div class="old"><b>旧v2は2枚:</b> S5「一番怖いこと」＋S6「失敗の構造」→1つに統合・短縮。撮り直し推奨。</div></div>
+
+  <div class="sec big"><div class="stitle">S6 僕の順番 <span class="badge b-big">大きく変更</span></div><div class="script">僕は逆です。売り先が決まってから、苗の数を決めます。苗の数が決まってから、畑の面積を決めます。</div><div class="old"><b>旧v2:</b> 僕が苗の数を決めるとき、最初に見るのは、種でも床土でもありません。売り先です…（冒頭を「僕は逆です」に短縮）</div></div>
+
+  <div class="sec minor"><div class="stitle">S7 実話（春キャベツ） <span class="badge b-minor">少し変更</span></div><div class="script">最近、春キャベツを丸のまま仕入れたいという話をいただきました。僕が最初に確認したのは、週に1回どれだけ要るのか、何月まで続くのか、です。それが見えてから、初めて苗の数と作付けを検討しました。話が先、苗があと。これを今も実際にやっています。</div><div class="old"><b>旧v2:</b> 今年も、取引先から「春系のキャベツを…」（言い回し短縮・「話が先、苗があと」追加）</div></div>
+
+  <div class="sec same"><div class="stitle">S8 たどり着いた順番 <span class="badge b-same">同じ</span></div><div class="script">売り先が先、苗があと。これは最初からできていたわけじゃありません。16年のあいだに、順番を間違えて失敗したことも何度もあります。そのうえで、やっとたどり着いた順番です。</div><div class="old"><b>旧v2:</b> 同じ（旧S9）。今日の撮影そのまま使える。</div></div>
+
+  <div class="sec same"><div class="stitle">S9 拡大の話 <span class="badge b-same">同じ</span></div><div class="script">順番の話は、規模を広げるときも同じです。拡大を考えるとき、僕が最初に決めるのは売上目標ではありません。撤退ラインです。</div><div class="old"><b>旧v2:</b> 同じ（旧S10）。使える。</div></div>
+
+  <div class="sec big"><div class="stitle">S10 撤退ライン <span class="badge b-big">★大きく変更（旧S11+S12統合・体調/線 修正）</span></div><div class="script">天候も相場も体調も、自分ではコントロールできません。だから、ここまで崩れたらここまで戻す、を先に決めておきます。線を引くのは弱気ではありません。戻す規模が決まっているから、思い切って広げられます。</div><div class="old"><b>旧v2は2枚(古い):</b> S11「天候は崩れます。相場も崩れます。自分の体調も崩れます。どれも…線を先に決めておきます」＋S12「線を決めるのは弱気だからじゃありません…戻る場所が決まっていると…」→ここが今回一番直った所。「戻る場所→戻す規模」。<b>ここは必ず撮り直し。</b></div></div>
+
+  <div class="sec same"><div class="stitle">S11 お金の話 <span class="badge b-same">同じ</span></div><div class="script">もうひとつ、順番を間違えやすいのがお金です。一日中動いて、売上も立っているのに、月末に通帳を見ると残っていない。農業で一番しんどいのは、暇なことではありません。動いているのに、残らないことです。</div><div class="old"><b>旧v2:</b> ほぼ同じ（旧S13）。使える。</div></div>
+
+  <div class="sec minor"><div class="stitle">S12 見る数字 <span class="badge b-minor">少し変更</span></div><div class="script">だから僕が見るのは、売上ではなく、1作で、1反あたり、いくら残るか、です。売上が大きくても、残らない作り方はあります。売上が小さくても、残る作り方もあります。</div><div class="old"><b>旧v2:</b> …「苗の数も、面積も、この数字から逆算します」の一文を削除。ほぼ同じ。</div></div>
+
+  <div class="sec same"><div class="stitle">S13 これからの人へ <span class="badge b-same">同じ</span></div><div class="script">これから農業をはじめる人、副業でやる人ほど、最初の売上目標を大きくしすぎないでください。最初に知るべきなのは、1作・1反でいくら残るかです。この数字がわかってから広げれば、規模は売上ではなく、手残りで増えていきます。</div><div class="old"><b>旧v2:</b> 同じ（旧S15）。使える。</div></div>
+
+  <div class="sec same"><div class="stitle">S14 まとめ <span class="badge b-same">同じ</span></div><div class="script">今日の話をまとめます。ひとつ。良い苗より先に、売り先を決める。ふたつ。拡大の前に、撤退ラインを先に決める。みっつ。売上より先に、1反でいくら残るかを見る。全部、苗から始まって、技術ではなく、判断の順番の話です。</div><div class="old"><b>旧v2:</b> 同じ（旧S16）。使える。</div></div>
+
+  <div class="sec minor"><div class="stitle">S15 CTA <span class="badge b-minor">少し変更</span></div><div class="script">いま、自分の育苗を思い浮かべてみてください。売り先が決まっていない苗は、ありませんか。もし「自分の場合はどうだろう」と思ったら、概要欄のLINEから「次の一手が決まる整理シート」を受け取ってください。自分の状況を書き出して、判断の順番を整理するためのシートです。自分の畑に当てはめたい人は、30分から60分、僕と直接整理することもできます。</div><div class="old"><b>旧v2:</b> …「僕のLINEに登録すると…相談もついています」→「概要欄のLINEから…直接整理することもできます」に。</div></div>
+
+  <div class="sec same"><div class="stitle">S16 締め <span class="badge b-same">ほぼ同じ</span></div><div class="script">必要な人だけ、どうぞ。良い苗を作っても、儲かるとはかぎらない。苗を増やす前に、売り先を決める。この順番だけ、今日持ち帰ってもらえたらうれしいです。それでは、また。</div><div class="old"><b>旧v2:</b> 冒頭「リンクは概要欄に置いておきます。必要な人だけ、受け取ってください」→「必要な人だけ、どうぞ」に短縮。</div></div>
+
+  <div id="fsctl">
+    <span>文字</span>
+    <button type="button" onclick="fsSet(0)" style="background:#2b3a44;font-size:13px">小</button>
+    <button type="button" onclick="fsSet(1)" style="background:#2b3a44;font-size:14px">中</button>
+    <button type="button" onclick="fsSet(2)" style="background:#1f7a4d;font-size:15px">大</button>
+    <button type="button" onclick="fsSet(3)" style="background:#1f7a4d;font-size:16px">特大</button>
+    <button type="button" onclick="fsSet(4)" style="background:#c77d16;font-size:17px">超</button>
+    <button type="button" onclick="fsSet(5)" style="background:#c23b3b;font-size:18px">極</button>
+  </div>
+<script>
+(function(){
+  var P=[20,26,34,44,58,74];
+  var i=parseInt(localStorage.getItem('gccmp'),10); if(isNaN(i))i=2;
+  function apply(){
+    var el=document.querySelectorAll('.script');
+    for(var k=0;k<el.length;k++){el[k].style.fontSize=P[i]+'px';}
+    localStorage.setItem('gccmp',i);
+    var b=document.querySelectorAll('#fsctl button');
+    for(var j=0;j<b.length;j++){b[j].style.outline=(j===i)?'2px solid #ffd97d':'none';}
+  }
+  window.fsSet=function(x){i=Math.max(0,Math.min(5,x));apply();};
+  apply();
+})();
+</script>
+</body>
+</html>
