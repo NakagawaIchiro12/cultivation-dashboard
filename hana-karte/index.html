@@ -48,6 +48,7 @@
   .cmp tr.now{background:rgba(192,57,43,.07)}
   .cmp .tmr{color:var(--now);font-weight:800}
   .cmp .hi{color:var(--k-seed);font-weight:800}
+  .cmp .lo{color:var(--accent);font-weight:800}
   .cmp .s2{display:block;font-size:10px;color:var(--sub);font-weight:600}
   footer{margin-top:28px;color:var(--sub);font-size:11.5px;text-align:center;line-height:1.7}
 </style>
@@ -69,16 +70,16 @@
   <p class="note2">ほぼ2週間おきに播種。追肥＝播種+14日。伸び率＝草丈÷経過日数（地力の目安）。</p>
   <div style="overflow-x:auto">
   <table class="cmp">
-    <thead><tr><th>棟</th><th>播種</th><th>追肥日<br>(+14日)</th><th>草丈</th><th>伸び率<br>cm/日</th></tr></thead>
+    <thead><tr><th>棟</th><th>播種</th><th>追肥日<br>(+14)</th><th>14日目<br>草丈★</th><th>今の<br>草丈</th></tr></thead>
     <tbody>
-      <tr><td>H1</td><td>5/20</td><td>6/3 済</td><td>77cm</td><td class="hi">1.79</td></tr>
-      <tr><td>H2</td><td>6/3</td><td>6/17 済</td><td>41cm</td><td>1.41</td></tr>
-      <tr class="now"><td>H3</td><td>6/17</td><td class="tmr">7/1 今</td><td>6cm</td><td>0.40<span class="s2">初期</span></td></tr>
-      <tr><td>H4</td><td>7/1</td><td>7/15 予定</td><td>発芽</td><td>—</td></tr>
+      <tr><td>H1</td><td>5/20</td><td>6/3 済</td><td class="hi">3.0cm</td><td>77cm</td></tr>
+      <tr><td>H2</td><td>6/3</td><td>6/17 済</td><td class="lo">≈1cm</td><td>41cm</td></tr>
+      <tr class="now"><td>H3</td><td>6/17</td><td class="tmr">7/1 今</td><td class="hi">3.5cm</td><td>6cm</td></tr>
+      <tr><td>H4</td><td>7/1</td><td>7/15 予定</td><td>—</td><td>発芽</td></tr>
     </tbody>
   </table>
   </div>
-  <p class="note2">→ 地力ランキング（現時点の伸び率）＝H1 &gt; H2 &gt; H3。H3は発芽初期で低く出るため、追肥日(14日)時点の草丈で正式比較する。</p>
+  <p class="note2">★<b>公平比較＝「14日目(追肥時点)の草丈」で見る。</b> 今の草丈だけだとH3は小さく見えるが、同じ14日目で揃えると <b>H3(3.5) ≧ H1(3.0) ＞ H2(≈1)</b>。H3は地力弱くない＝順調。立ち上がりが一番遅いのは<b>H2</b>（要注目）。</p>
 
   <h2>圃場ごと</h2>
   <div class="fields" id="fields"></div>
