@@ -21,7 +21,9 @@
   .todo{margin-top:16px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--now);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
   .todo .tag{display:inline-block;background:var(--now);color:#fff;font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px}
   .todo ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
-  .todo li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;font-weight:600}
+  .todo li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;font-weight:600}
+  .todo li b{color:var(--accent)}
+  .src{display:block;font-weight:600;color:var(--sub);font-size:11.5px;margin-top:2px}
   .when{flex:none;font-size:11.5px;font-weight:800;color:#fff;background:var(--k-soil);border-radius:7px;padding:3px 8px;margin-top:1px;white-space:nowrap}
   .when.tmr{background:var(--now)}
   /* 圃場カード */
@@ -47,10 +49,10 @@
   <p class="lede">圃場ごとに「作業・改善・出荷数量・売上」を1画面で。まずは土台＋直近タスク。</p>
 
   <div class="todo">
-    <span class="tag">直近やること</span>
+    <span class="tag">直近やること（過去データから導出）</span>
     <ul>
-      <li><span class="when tmr">明日</span><span>白沢ハウス3　追肥</span></li>
-      <li><span class="when">近日</span><span>露地ケイトウ　元肥（もとひ）散布</span></li>
+      <li><span class="when tmr">追肥期</span><span>白沢ハウス3　追肥 ＝ 888を <b>13.3g/m</b>（白沢は地力強で標準20g/m×2/3）。28m畝≈373g・25m畝≈333g。播種+2週間・H3は今6cm＝ちょうど期。<span class="src">※畝寸法で合計g確定</span></span></li>
+      <li><span class="when">近日</span><span>露地ケイトウ　元肥（もとひ）＝ 1mあたり 硫酸カリウム0.1kg・苦土石灰0.1kg・888 0.04kg（2025実績）。露地①〜㉑=21列×22m。<span class="src">1畝22m＝硫カリ2.2kg/苦土2.2kg/888 0.88kg</span></span></li>
     </ul>
   </div>
 
@@ -69,8 +71,8 @@
 
 <script>
   const F=[
-   {n:"白沢ハウス（1〜4棟）",crop:["ケイトウ","ストック"],meta:"28m×19畝＋25m×1畝・散水口40cmピッチ",now:"H3 追肥（明日）",imp:"H4は草多い→来年バスアミド倍"},
-   {n:"露地ケイトウ ①〜㉑",crop:["ケイトウ露地","菜花"],meta:"21列・1列22m・西(愛知用水)から①",now:"元肥（もとひ）散布・7月は種",imp:"888が花芽に付くと肥料やけ→付着注意"},
+   {n:"白沢ハウス（1〜4棟）",crop:["ケイトウ","ストック"],meta:"28m×19畝＋25m×1畝・草丈=H1:77 H2:41 H3:6 H4:発芽(7/2)",now:"H3追肥＝888を13.3g/m(白沢×2/3)・28m畝≈373g・播種+2週間",imp:"H4は草多い→来年バスアミド倍／白沢は地力強で減量"},
+   {n:"露地ケイトウ ①〜㉑",crop:["ケイトウ露地","菜花"],meta:"21列・1列22m・西(愛知用水)から①・計462m",now:"元肥もとひ＝硫カリ0.1kg/m・苦土0.1kg/m・888 0.04kg/m(2025実績)",imp:"888が花芽に付くと肥料やけ→付着注意"},
    {n:"露地ケイトウ 2",crop:["ケイトウ露地"],meta:"19m×13畝・バスアミド土壌消毒",now:"—",imp:"—"},
    {n:"苗ハウス（1・2・3）",crop:["ストック","ケイトウ"],meta:"20m×8畝・ストック収穫後ケイトウへ切替",now:"—",imp:"来年は全畝 畝立て・肥料1/2〜2/3"},
    {n:"新五条ハウス",crop:["ケイトウ","ストック"],meta:"8列・水没/根腐れ常襲",now:"—",imp:"溝堀(ユンボ)・畝上げ・7月から超換気"},
