@@ -1,0 +1,84 @@
+<title>中川農産 花 圃場カルテ</title>
+<style>
+  :root{
+    --bg:#f6f4ee; --card:#fffdf8; --ink:#23281f; --sub:#5c6353; --line:#e4e0d4;
+    --accent:#c0392b; --k-hana:#e0b400; --k-seed:#4a8f3c; --k-mng:#2b8a89;
+    --k-soil:#a5713a; --k-drug:#d98518; --k-plan:#5b6b8c; --warn:#c0392b;
+    --now:#c0392b; --shadow:0 1px 3px rgba(40,35,20,.08),0 6px 20px rgba(40,35,20,.05);
+  }
+  @media (prefers-color-scheme:dark){:root{--bg:#171814;--card:#20221c;--ink:#eef0e6;--sub:#a3a897;--line:#33362c;--shadow:0 1px 3px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.3)}}
+  :root[data-theme="dark"]{--bg:#171814;--card:#20221c;--ink:#eef0e6;--sub:#a3a897;--line:#33362c;--shadow:0 1px 3px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.3)}
+  :root[data-theme="light"]{--bg:#f6f4ee;--card:#fffdf8;--ink:#23281f;--sub:#5c6353;--line:#e4e0d4;--shadow:0 1px 3px rgba(40,35,20,.08),0 6px 20px rgba(40,35,20,.05)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP","Meiryo",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:760px;margin:0 auto;padding:20px 16px 64px}
+  .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:800}
+  h1{font-size:25px;margin:.15em 0 .1em}
+  .lede{color:var(--sub);font-size:13.5px;margin:0}
+  h2{font-size:17px;margin:26px 0 10px;display:flex;align-items:center;gap:8px}
+  h2::before{content:"";width:5px;height:19px;background:var(--accent);border-radius:3px}
+  /* 直近やること */
+  .todo{margin-top:16px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--now);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+  .todo .tag{display:inline-block;background:var(--now);color:#fff;font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px}
+  .todo ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+  .todo li{display:flex;gap:9px;align-items:flex-start;font-size:14.5px;font-weight:600}
+  .when{flex:none;font-size:11.5px;font-weight:800;color:#fff;background:var(--k-soil);border-radius:7px;padding:3px 8px;margin-top:1px;white-space:nowrap}
+  .when.tmr{background:var(--now)}
+  /* 圃場カード */
+  .fields{display:flex;flex-direction:column;gap:11px}
+  .f{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;box-shadow:var(--shadow)}
+  .f h3{margin:0;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .crop{font-size:11px;font-weight:800;color:#fff;background:var(--k-hana);color:#3a2e00;border-radius:7px;padding:2px 8px}
+  .crop.s{background:var(--k-mng);color:#fff}
+  .meta{color:var(--sub);font-size:12.5px;margin:6px 0 0}
+  .f .row{display:flex;gap:7px;margin-top:8px;font-size:13px}
+  .f .row .lab{flex:none;width:56px;font-weight:800;color:var(--sub);font-size:11.5px;padding-top:2px}
+  .f .row .val{flex:1}
+  .imp{color:var(--accent);font-weight:600}
+  /* 数量売上プレースホルダ */
+  .ph{background:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(120,120,120,.06) 8px,rgba(120,120,120,.06) 16px);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;color:var(--sub);font-size:13px;margin-top:4px}
+  .ph b{color:var(--ink)}
+  footer{margin-top:28px;color:var(--sub);font-size:11.5px;text-align:center;line-height:1.7}
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">中川農産 ｜ 花 圃場カルテ（ケイトウ・ストック・菜花）</div>
+  <h1>圃場カルテ</h1>
+  <p class="lede">圃場ごとに「作業・改善・出荷数量・売上」を1画面で。まずは土台＋直近タスク。</p>
+
+  <div class="todo">
+    <span class="tag">直近やること</span>
+    <ul>
+      <li><span class="when tmr">明日</span><span>白沢ハウス3　追肥</span></li>
+      <li><span class="when">近日</span><span>露地ケイトウ　元肥（もとひ）散布</span></li>
+    </ul>
+  </div>
+
+  <h2>圃場ごと</h2>
+  <div class="fields" id="fields"></div>
+
+  <h2>出荷数量 × 売上</h2>
+  <div class="ph">
+    <b>計測準備中。</b> 出荷報告ch・売上chの実データ（例：ケイトウ「M6 L2」、ストック「Fマリン秀L2」）を圃場×日付で集計して、ここに数量と売上を積み上げます。＝あなたが言った「圃場ごとの出荷数量と売上を計測」の本丸。次の工程で入れます。
+  </div>
+
+  <footer>
+    出典＝栽培サーバーの実記録。現場ノウハウはご主人様・作業者の発言由来のみ・AI補完なし。<br>直近タスクはご主人様の指示（2026-07-05）。出荷数量・売上は集計後に反映。
+  </footer>
+</div>
+
+<script>
+  const F=[
+   {n:"白沢ハウス（1〜4棟）",crop:["ケイトウ","ストック"],meta:"28m×19畝＋25m×1畝・散水口40cmピッチ",now:"H3 追肥（明日）",imp:"H4は草多い→来年バスアミド倍"},
+   {n:"露地ケイトウ ①〜㉑",crop:["ケイトウ露地","菜花"],meta:"21列・1列22m・西(愛知用水)から①",now:"元肥（もとひ）散布・7月は種",imp:"888が花芽に付くと肥料やけ→付着注意"},
+   {n:"露地ケイトウ 2",crop:["ケイトウ露地"],meta:"19m×13畝・バスアミド土壌消毒",now:"—",imp:"—"},
+   {n:"苗ハウス（1・2・3）",crop:["ストック","ケイトウ"],meta:"20m×8畝・ストック収穫後ケイトウへ切替",now:"—",imp:"来年は全畝 畝立て・肥料1/2〜2/3"},
+   {n:"新五条ハウス",crop:["ケイトウ","ストック"],meta:"8列・水没/根腐れ常襲",now:"—",imp:"溝堀(ユンボ)・畝上げ・7月から超換気"},
+  ];
+  document.getElementById("fields").innerHTML=F.map(f=>
+    `<div class="f"><h3>${f.n} ${f.crop.map((c,i)=>`<span class="crop${i>0?' s':''}">${c}</span>`).join("")}</h3>`+
+    `<p class="meta">${f.meta}</p>`+
+    `<div class="row"><div class="lab">直近</div><div class="val">${f.now}</div></div>`+
+    `<div class="row"><div class="lab">改善メモ</div><div class="val imp">${f.imp}</div></div></div>`
+  ).join("");
+</script>
