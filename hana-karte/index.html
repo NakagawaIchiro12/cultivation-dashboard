@@ -40,6 +40,15 @@
   /* 数量売上プレースホルダ */
   .ph{background:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(120,120,120,.06) 8px,rgba(120,120,120,.06) 16px);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;color:var(--sub);font-size:13px;margin-top:4px}
   .ph b{color:var(--ink)}
+  .note2{color:var(--sub);font-size:12.5px;margin:2px 2px 10px}
+  .cmp{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);font-variant-numeric:tabular-nums}
+  .cmp th{background:rgba(120,120,120,.08);color:var(--sub);font-size:11.5px;font-weight:800;padding:8px 6px;text-align:center;line-height:1.25}
+  .cmp td{padding:9px 6px;text-align:center;border-top:1px solid var(--line)}
+  .cmp td:first-child,.cmp th:first-child{font-weight:800}
+  .cmp tr.now{background:rgba(192,57,43,.07)}
+  .cmp .tmr{color:var(--now);font-weight:800}
+  .cmp .hi{color:var(--k-seed);font-weight:800}
+  .cmp .s2{display:block;font-size:10px;color:var(--sub);font-weight:600}
   footer{margin-top:28px;color:var(--sub);font-size:11.5px;text-align:center;line-height:1.7}
 </style>
 
@@ -55,6 +64,21 @@
       <li><span class="when">近日</span><span>露地ケイトウ　元肥（もとひ）＝ 1mあたり 硫酸カリウム0.1kg・苦土石灰0.1kg・888 0.04kg（2025実績）。露地①〜㉑=21列×22m。<span class="src">1畝22m＝硫カリ2.2kg/苦土2.2kg/888 0.88kg</span></span></li>
     </ul>
   </div>
+
+  <h2>白沢ハウス 棟別（地力比較＋追肥カレンダー）</h2>
+  <p class="note2">ほぼ2週間おきに播種。追肥＝播種+14日。伸び率＝草丈÷経過日数（地力の目安）。</p>
+  <div style="overflow-x:auto">
+  <table class="cmp">
+    <thead><tr><th>棟</th><th>播種</th><th>追肥日<br>(+14日)</th><th>草丈</th><th>伸び率<br>cm/日</th></tr></thead>
+    <tbody>
+      <tr><td>H1</td><td>5/20</td><td>6/3 済</td><td>77cm</td><td class="hi">1.79</td></tr>
+      <tr><td>H2</td><td>6/3</td><td>6/17 済</td><td>41cm</td><td>1.41</td></tr>
+      <tr class="now"><td>H3</td><td>6/17</td><td class="tmr">7/1 今</td><td>6cm</td><td>0.40<span class="s2">初期</span></td></tr>
+      <tr><td>H4</td><td>7/1</td><td>7/15 予定</td><td>発芽</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note2">→ 地力ランキング（現時点の伸び率）＝H1 &gt; H2 &gt; H3。H3は発芽初期で低く出るため、追肥日(14日)時点の草丈で正式比較する。</p>
 
   <h2>圃場ごと</h2>
   <div class="fields" id="fields"></div>
