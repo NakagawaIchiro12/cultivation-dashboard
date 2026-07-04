@@ -1,0 +1,148 @@
+<title>中川農産 花 年間作業カレンダー</title>
+<style>
+  :root{
+    --bg:#f6f4ee; --card:#fffdf8; --ink:#23281f; --sub:#5c6353; --line:#e4e0d4;
+    --accent:#c0392b;            /* ケイトウの赤 */
+    --k-hana:#e0b400;            /* 収穫/出荷 = ケイトウ金 */
+    --k-seed:#4a8f3c;            /* 播種/育苗 */
+    --k-mng:#2b8a89;             /* 定植/管理 */
+    --k-soil:#a5713a;            /* 施肥/土壌 */
+    --k-drug:#d98518;            /* 農薬/防除 */
+    --k-plan:#5b6b8c;            /* 計画/反省 */
+    --k-warn:#c0392b;            /* 注意 */
+    --now:#c0392b;
+    --shadow:0 1px 3px rgba(40,35,20,.08),0 6px 20px rgba(40,35,20,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#171814; --card:#20221c; --ink:#eef0e6; --sub:#a3a897; --line:#33362c;
+      --card:#20221c; --shadow:0 1px 3px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.3); }
+  }
+  :root[data-theme="dark"]{ --bg:#171814; --card:#20221c; --ink:#eef0e6; --sub:#a3a897; --line:#33362c; --shadow:0 1px 3px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.3); }
+  :root[data-theme="light"]{ --bg:#f6f4ee; --card:#fffdf8; --ink:#23281f; --sub:#5c6353; --line:#e4e0d4; --shadow:0 1px 3px rgba(40,35,20,.08),0 6px 20px rgba(40,35,20,.05); }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP","Meiryo",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:760px;margin:0 auto;padding:20px 16px 64px}
+  header{padding:8px 4px 4px}
+  .eyebrow{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:800}
+  h1{font-size:26px;margin:.15em 0 .1em;letter-spacing:.01em}
+  .lede{color:var(--sub);font-size:14px;margin:0}
+  /* 今月サマリ */
+  .now-card{margin:18px 0 22px;background:var(--card);border:1px solid var(--line);
+    border-left:5px solid var(--now);border-radius:14px;padding:16px 16px 14px;box-shadow:var(--shadow)}
+  .now-card .tag{display:inline-block;background:var(--now);color:#fff;font-size:12px;font-weight:800;
+    padding:3px 10px;border-radius:999px;letter-spacing:.04em}
+  .now-card h2{margin:.5em 0 .35em;font-size:19px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+  .chip{font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:8px;color:#fff;white-space:nowrap;line-height:1.25}
+  .chip small{font-weight:600;opacity:.9}
+  .c-hana{background:var(--k-hana);color:#3a2e00}
+  .c-seed{background:var(--k-seed)} .c-mng{background:var(--k-mng)}
+  .c-soil{background:var(--k-soil)} .c-drug{background:var(--k-drug);color:#3a2600}
+  .c-plan{background:var(--k-plan)} .c-warn{background:var(--k-warn);box-shadow:0 0 0 2px rgba(192,57,43,.25)}
+  /* 凡例 */
+  .legend{display:flex;flex-wrap:wrap;gap:6px 10px;margin:2px 4px 18px;font-size:12px;color:var(--sub)}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block}
+  /* 月カード */
+  .month{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:13px 14px;margin-bottom:11px;box-shadow:var(--shadow);display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start}
+  .month.is-now{border:1.5px solid var(--now);box-shadow:0 0 0 3px rgba(192,57,43,.10),var(--shadow)}
+  .mnum{font-size:30px;font-weight:800;line-height:.9;color:var(--ink);text-align:center}
+  .mnum small{display:block;font-size:11px;font-weight:700;color:var(--sub);letter-spacing:.1em;margin-top:3px}
+  .is-now .mnum{color:var(--now)}
+  .lanes{display:flex;flex-direction:column;gap:7px;min-width:0}
+  .lane{display:grid;grid-template-columns:78px 1fr;gap:8px;align-items:start}
+  .lane .crop{font-size:11.5px;font-weight:800;color:var(--sub);padding-top:5px;letter-spacing:.02em}
+  /* 改善 */
+  .improve{margin-top:26px}
+  .improve h2{font-size:18px;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+  .improve h2::before{content:"";width:5px;height:20px;background:var(--accent);border-radius:3px;display:inline-block}
+  .improve p.sub{color:var(--sub);font-size:13px;margin:0 0 12px}
+  .imp{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:9px;box-shadow:var(--shadow)}
+  .imp b{color:var(--accent);font-size:14px}
+  .imp p{margin:5px 0 0;font-size:13.5px;color:var(--ink)}
+  .imp .from{color:var(--sub)}
+  footer{margin-top:30px;color:var(--sub);font-size:11.5px;text-align:center;line-height:1.7}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">中川農産 ｜ 花栽培（ケイトウ・ストック・菜花）</div>
+    <h1>花 年間作業カレンダー</h1>
+    <p class="lede">過去の記録から「何月に何をやるか」を一目に。<span id="today"></span></p>
+  </header>
+
+  <div class="now-card" id="nowCard"></div>
+
+  <div class="legend">
+    <span><i class="dot" style="background:var(--k-seed)"></i>播種・育苗</span>
+    <span><i class="dot" style="background:var(--k-mng)"></i>定植・管理</span>
+    <span><i class="dot" style="background:var(--k-soil)"></i>施肥・土壌</span>
+    <span><i class="dot" style="background:var(--k-drug)"></i>農薬・防除</span>
+    <span><i class="dot" style="background:var(--k-hana)"></i>収穫・出荷</span>
+    <span><i class="dot" style="background:var(--k-plan)"></i>計画・反省</span>
+    <span><i class="dot" style="background:var(--k-warn)"></i>要注意</span>
+  </div>
+
+  <div id="months"></div>
+
+  <section class="improve">
+    <h2>年またぎの改善メモ</h2>
+    <p class="sub">「去年こうだった→今年こう変える」＝毎年ここを積み上げる（すべて現場記録より）</p>
+    <div id="improve"></div>
+  </section>
+
+  <footer>
+    出典＝栽培サーバーの実記録（2024〜2026）を抽出。現場ノウハウはご主人様・作業者の発言由来のみ・AI補完なし。<br>
+    ※圃場マップ画像の統合・圃場カルテ（圃場×出荷数量×売上）は次の工程。
+  </footer>
+</div>
+
+<script>
+  const T={seed:"c-seed",mng:"c-mng",soil:"c-soil",drug:"c-drug",hana:"c-hana",plan:"c-plan",warn:"c-warn"};
+  // 月データ：lane=[作物, [[type,ラベル],...]]
+  const DATA=[
+   {m:1,lanes:[["ストック",[["hana","収穫最盛"]]],["菜花",[["mng","ネット上げ・蕾100本"],["hana","収穫開始"]]],["ハウス",[["mng","新ハウス整備・草取り"]]]]},
+   {m:2,lanes:[["ストック",[["hana","収穫ピーク"],["mng","抜き取り開始"]]],["菜花",[["hana","収穫ピーク→2/25終了"],["hana","選別是正"]]],["全体",[["plan","種まき前会議・作付計画"],["soil","新五条 耕運"]]]]},
+   {m:3,lanes:[["ケイトウ",[["seed","は種 3/25"]]],["ストック",[["hana","収穫終盤"],["mng","抜き取り"]]],["菜花",[["mng","抜き取り・片付け"]]],["ハウス",[["soil","白沢 耕運・除草"]]]]},
+   {m:4,lanes:[["苗ハウス",[["soil","耕運・施肥"]]],["露地",[["drug","①②周り 除草剤"]]],["全体",[["plan","世田谷花き 視察"]]]]},
+   {m:5,lanes:[["露地",[["soil","①土壌消毒 バスアミド"],["soil","②畝立て"]]],["白沢H",[["soil","ケイトウ施肥"]]],["ストック",[["plan","反省会・新品種視察"],["mng","ピンチ注意(暑いと分枝×)"]]]]},
+   {m:6,lanes:[["露地",[["soil","②耕運→土壌消毒"],["drug","①バスアミド剥がし→除草剤"],["seed","は種(7月中まで)"]]],["ハウス",[["hana","ケイトウ収穫開始"],["drug","農薬(硬化中心)"],["mng","苗H ストック→ケイトウ切替"]]]]},
+   {m:7,now:true,lanes:[["露地",[["seed","は種1回目 7/15"],["soil","畝立て・ガス抜き"],["mng","発芽管理(ベタがけ・灌水)"]]],["白沢H",[["hana","収穫ピーク(1日1サイズ↑)"]]],["新五条",[["soil","2作目 施肥"]]],["ハウス",[["drug","農薬ルーチン150L"],["seed","白沢4 は種"]]]]},
+   {m:8,lanes:[["露地",[["seed","は種2-3回目"],["soil","追肥888・支柱"],["warn","肥料やけ注意"],["drug","農薬ルーチン"]]],["新五条",[["seed","は種8列"]]],["白沢H",[["hana","収穫終了"]]],["ストック",[["mng","植付(8月末・マリン)"]]]]},
+   {m:9,lanes:[["露地",[["hana","収穫本格化⑦-⑭→①-⑦"],["warn","台風・疫病・立枯れ"],["drug","マグマッハ(Mg欠乏)"]]],["ストック",[["drug","農薬・シグナム(菌核)"],["mng","ピンチ前 増伸"]]]]},
+   {m:10,lanes:[["露地",[["hana","収穫→刈取り・ネット巻き"]]],["ハウス",[["hana","収穫終了"],["mng","硬化(メリット赤+ホストップ)"]]],["全体",[["hana","選別キツく(頭ゆるい)"]]]]},
+   {m:11,lanes:[["菜花",[["seed","は種・発芽・スプリンクラー"],["mng","筋切り・追肥・灌水"]]],["ストック",[["hana","収穫開始・網上げ"]]],["全体",[["plan","来年計画会議"],["mng","新五条 根腐れ対策"]]]]},
+   {m:12,lanes:[["ストック",[["hana","収穫最盛(Fマリン)"]]],["菜花",[["mng","生育測定・追肥"]]],["ケイトウ",[["mng","土上げ・溝掘り"],["plan","種発注(5袋)"]]]]},
+  ];
+  const IMP=[
+   ["新五条ハウスの水没・根腐れ","去年→今年＝外周の溝堀(ユンボ)・中の畝上げ・7月から超換気(前後ビニール剥がす)","ハウスケイトウ2025 / 11-13"],
+   ["9月頭に採れない＝アザミウマ","8月9月にアザミウマ農薬を入れる","出荷反省計画 / 11-21"],
+   ["苗ハウス ケイトウ 全畝畝立て化","畝立て2m/畝なし150cm。来年は全部畝立て・肥料1/2〜2/3","ハウスケイトウ2026 / 07-04"],
+   ["白沢ハウス4 の草","来年はバスアミド倍入れる","ハウスケイトウ2026 / 06-30"],
+   ["収穫キャパ設計","4棟作付したが5/23から週おき3棟で充分／収穫2人・自分を外す","ハウスケイトウ2025 / 07-29"],
+   ["肥料やけ回避","888が花芽に付くと肥料やけ→付着させない・雨後や灌水と合わせる","露地ケイトウ2025 / 08-10"],
+   ["ストックの植え方","ゴーゴーサンはダメ・1つ飛ばしで植える／暑いとピンチ後分枝しない","ケイトウ〜2024 / 08-27・ストック2026 / 05-15"],
+   ["選別の徹底(売上直結)","Lにサイズ違い混入で全箱A降格の実例／10月は頭ゆるく選別キツく","菜の花 / 02-07・ケイトウ〜2024 / 10-26"],
+  ];
+  const MN=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+  const nowM=7; // 2026-07 固定（生成時点）
+  document.getElementById("today").textContent="（いまは 7月）";
+
+  function chips(arr){return arr.map(([t,l])=>`<span class="chip ${T[t]}">${l}</span>`).join("");}
+  // 今月サマリ
+  const nd=DATA.find(d=>d.m===nowM);
+  document.getElementById("nowCard").innerHTML=
+    `<span class="tag">今月 ・ ${nowM}月やること</span><h2>露地は種スタート ＆ ハウス収穫ピーク</h2>`+
+    nd.lanes.map(([c,items])=>`<div class="lane" style="grid-template-columns:78px 1fr;margin-top:6px"><div class="crop">${c}</div><div class="chips">${chips(items)}</div></div>`).join("");
+  // 全月
+  document.getElementById("months").innerHTML=DATA.map(d=>
+    `<div class="month${d.now?' is-now':''}"><div class="mnum">${d.m}<small>${MN[d.m-1]}</small></div>`+
+    `<div class="lanes">`+d.lanes.map(([c,items])=>`<div class="lane"><div class="crop">${c}</div><div class="chips">${chips(items)}</div></div>`).join("")+`</div></div>`
+  ).join("");
+  // 改善
+  document.getElementById("improve").innerHTML=IMP.map(([t,body,from])=>
+    `<div class="imp"><b>${t}</b><p>${body}</p><p class="from">— ${from}</p></div>`).join("");
+</script>
