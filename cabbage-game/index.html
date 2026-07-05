@@ -2,125 +2,162 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>そだてて収穫！わたしのキャベツ｜100t農家イチロウ</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>そだてて、収穫。｜わたしのキャベツ - 100t農家イチロウの畑</title>
 <style>
-  :root{--green:#1f8a3d;--green-d:#0f5a26;--sky:#bfe3f5;--soil:#7a5230;--cream:#f6fbef;--ink:#183020;--gold:#e0a41e;--red:#d9534f}
+  :root{
+    --g1:#2fb35a;--g2:#1c8a41;--g3:#0f5e2b;--leaf:#7fd18a;--leaf-d:#3aa155;
+    --sky1:#bfe9ff;--sky2:#e8f7ff;--field1:#d9f0b8;--field2:#a9dd7e;--soil1:#a4713f;--soil2:#6e4423;
+    --gold:#f2b134;--gold-d:#c9871a;--ink:#1c2b1c;--sub:#5a6b52;--card:rgba(255,255,255,.82);--line:rgba(120,150,110,.25);
+    --pink:#ef86b6;--pink-d:#c95a95;
+  }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-  body{font-family:"Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Meiryo",system-ui,sans-serif;background:linear-gradient(#cfeefb 0%,#e8f7d8 55%,#dcefc5 100%);color:var(--ink);min-height:100svh;overflow-x:hidden;user-select:none}
-  .app{max-width:460px;margin:0 auto;min-height:100svh;position:relative;padding:16px 16px 24px;display:flex;flex-direction:column}
-  .scr{display:none;flex:1;flex-direction:column}
-  .scr.on{display:flex;animation:fade .4s}
-  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
-  h1{font-size:22px;text-align:center;color:var(--green-d);margin:6px 0}
-  .sub{text-align:center;color:#4a6b50;font-size:13.5px;margin-bottom:14px;line-height:1.6}
-  .field{width:100%;border:2px solid #bcd9a8;border-radius:14px;padding:14px 16px;font-size:17px;font-family:inherit;background:#fff;text-align:center;color:var(--ink)}
-  .field:focus{outline:none;border-color:var(--green)}
-  .btn{width:100%;border:none;border-radius:16px;padding:16px;font-size:17px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--green),#2fb24f);box-shadow:0 6px 0 #14702f,0 8px 18px rgba(20,80,30,.25);cursor:pointer;margin-top:14px;letter-spacing:.02em}
-  .btn:active{transform:translateY(3px);box-shadow:0 3px 0 #14702f}
-  .btn.gold{background:linear-gradient(135deg,var(--gold),#c98a12);box-shadow:0 6px 0 #9a6c0c,0 8px 18px rgba(150,110,10,.25)}
-  .btn.ghost{background:#fff;color:var(--green-d);border:2px solid #bcd9a8;box-shadow:0 4px 0 #cfe3bf}
-  /* stage / scene */
-  .hud{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:800;color:#3a5a40;margin-bottom:6px}
-  .name-tag{background:#fff;border:2px solid var(--green);border-radius:999px;padding:4px 12px;color:var(--green-d);max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .meter{height:12px;background:#d7e8cf;border-radius:8px;overflow:hidden;margin:2px 0 10px}
-  .meter i{display:block;height:100%;background:linear-gradient(90deg,#f2c14e,#2fb24f);width:70%;transition:width .5s;border-radius:8px}
-  .scene{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;min-height:300px;background:radial-gradient(120% 80% at 50% 20%,#eaf7ff 0%,transparent 60%);border-radius:20px}
-  .ground{position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(#8a5a34,#6b4423);border-radius:0 0 20px 20px}
-  .ground::before{content:"";position:absolute;top:-8px;left:0;right:0;height:16px;background:repeating-linear-gradient(90deg,#3fa14a 0 14px,#4fb85a 14px 28px);border-radius:8px}
-  .cab{font-size:96px;position:relative;z-index:2;margin-bottom:56px;transition:transform .5s cubic-bezier(.2,1.5,.4,1);filter:drop-shadow(0 6px 6px rgba(0,0,0,.15))}
-  .cab.s0{font-size:40px}.cab.s1{font-size:60px}.cab.s2{font-size:80px}.cab.s3{font-size:104px}
-  .day{position:absolute;top:8px;right:12px;background:#fff;border-radius:10px;padding:3px 10px;font-weight:800;color:var(--green-d);font-size:13px;z-index:3}
-  /* task card (notification) */
-  .task{position:absolute;left:12px;right:12px;top:12px;background:#fff;border:2px solid var(--gold);border-radius:16px;padding:12px 14px;box-shadow:0 8px 20px rgba(0,0,0,.12);z-index:5;display:none;animation:pop .3s}
-  .task.on{display:block}
-  @keyframes pop{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
-  .task .t{font-weight:800;font-size:15px;color:#b9820f;display:flex;align-items:center;gap:6px}
-  .task .d{font-size:12.5px;color:#5a6b50;margin:4px 0 10px;line-height:1.5}
-  .task .acts{display:flex;gap:8px}
-  .task .acts button{flex:1;border:none;border-radius:12px;padding:11px;font-size:14px;font-weight:800;background:#eef6e6;color:var(--green-d);cursor:pointer}
-  .task .acts button:active{transform:translateY(2px)}
-  .fx{position:absolute;font-size:34px;z-index:6;pointer-events:none;animation:rise 1s forwards}
-  @keyframes rise{from{transform:translateY(0);opacity:1}to{transform:translateY(-70px);opacity:0}}
-  .tip{text-align:center;color:#4a6b50;font-size:13px;margin-top:8px;min-height:20px;font-weight:600}
-  /* harvest game */
-  #harvestField{position:relative;height:340px;background:linear-gradient(#eaf7ff,#dff0cf);border-radius:20px;overflow:hidden;border:3px solid #bcd9a8}
-  .veg{position:absolute;font-size:52px;cursor:pointer;transition:transform .1s;z-index:2}
-  .veg:active{transform:scale(.8)}
-  .badv{filter:none}
-  .timer{font-weight:900;font-size:20px;color:var(--green-d);text-align:center}
-  .count{font-weight:900;font-size:20px;color:var(--gold)}
-  .big{font-size:60px;text-align:center;margin:6px 0}
-  .resultN{font-size:52px;font-weight:900;color:var(--gold);text-align:center}
-  .card{background:#fff;border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(20,80,30,.1);text-align:center}
+  body{font-family:"Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Meiryo",system-ui,sans-serif;color:var(--ink);min-height:100svh;overflow-x:hidden;user-select:none;
+    background:linear-gradient(var(--sky1) 0%,var(--sky2) 34%,var(--field1) 60%,var(--field2) 100%);position:relative}
+  /* ambient sky */
+  .sun{position:fixed;top:6%;right:14%;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle,#fff3c4,#ffde7a 60%,#ffd24d);box-shadow:0 0 40px 14px rgba(255,220,110,.55);z-index:0;animation:sun 6s ease-in-out infinite}
+  @keyframes sun{50%{transform:scale(1.06)}}
+  .cloud{position:fixed;z-index:0;background:#fff;border-radius:40px;opacity:.85;filter:blur(.3px)}
+  .cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
+  .c1{width:90px;height:24px;top:10%;left:-100px;animation:drift 34s linear infinite}
+  .c2{width:120px;height:30px;top:20%;left:-140px;animation:drift 48s linear infinite;animation-delay:-12s;opacity:.7}
+  .cloud.c1::before{width:38px;height:38px;top:-16px;left:16px}.cloud.c1::after{width:28px;height:28px;top:-10px;left:48px}
+  .cloud.c2::before{width:46px;height:46px;top:-20px;left:22px}.cloud.c2::after{width:34px;height:34px;top:-12px;left:64px}
+  @keyframes drift{to{transform:translateX(140vw)}}
+  .app{position:relative;z-index:2;max-width:460px;margin:0 auto;min-height:100svh;padding:16px 15px calc(18px + env(safe-area-inset-bottom));display:flex;flex-direction:column}
+  .scr{display:none;flex:1;flex-direction:column;animation:in .45s cubic-bezier(.2,.8,.2,1)}
+  .scr.on{display:flex}
+  @keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1}}
+  .glass{background:var(--card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.6);border-radius:22px;box-shadow:0 10px 34px rgba(30,70,30,.14)}
+  h1{font-size:26px;text-align:center;color:var(--g3);line-height:1.3;letter-spacing:.01em}
+  .sub{text-align:center;color:var(--sub);font-size:13.5px;margin-top:10px;line-height:1.7}
+  .badge{display:inline-block;background:linear-gradient(var(--g1),var(--g2));color:#fff;font-size:11px;font-weight:800;border-radius:999px;padding:5px 14px;letter-spacing:.05em;box-shadow:0 3px 8px rgba(30,120,50,.3)}
+  .field{width:100%;border:2px solid #cfe6b8;border-radius:16px;padding:15px 16px;font-size:17px;font-family:inherit;background:rgba(255,255,255,.9);text-align:center;color:var(--ink);font-weight:700}
+  .field:focus{outline:none;border-color:var(--g1);box-shadow:0 0 0 4px rgba(47,179,90,.18)}
+  .btn{width:100%;border:none;border-radius:18px;padding:16px;font-size:17px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--g1),var(--g2));box-shadow:0 6px 0 var(--g3),0 10px 20px rgba(20,90,40,.28);cursor:pointer;letter-spacing:.02em;position:relative;overflow:hidden}
+  .btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--g3)}
+  .btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold-d));box-shadow:0 6px 0 #9a6c0c,0 10px 20px rgba(150,110,10,.3)}
+  .btn.pink{background:linear-gradient(135deg,var(--pink),var(--pink-d));box-shadow:0 6px 0 #93386c}
+  .btn.ghost{background:rgba(255,255,255,.85);color:var(--g3);border:2px solid #cfe6b8;box-shadow:0 4px 0 #cfe3bf;font-weight:800}
+  .btn .sh{position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-100%);animation:shine 3.2s ease-in-out infinite}
+  @keyframes shine{0%,60%{transform:translateX(-100%)}80%,100%{transform:translateX(100%)}}
+  /* ===== cabbage SVG character ===== */
+  .stage{flex:1;position:relative;min-height:280px;display:flex;align-items:flex-end;justify-content:center}
+  .cabWrap{position:relative;z-index:3;margin-bottom:66px;transition:transform .6s cubic-bezier(.2,1.6,.4,1);transform-origin:bottom center;animation:sway 3.4s ease-in-out infinite}
+  @keyframes sway{0%,100%{transform:rotate(-2.2deg)}50%{transform:rotate(2.2deg)}}
+  .cabWrap svg{display:block;filter:drop-shadow(0 8px 8px rgba(20,60,20,.18))}
+  .soil{position:absolute;bottom:0;left:-4%;width:108%;height:78px;background:linear-gradient(var(--soil1),var(--soil2));border-radius:50% 50% 18px 18px/70% 70% 18px 18px;z-index:2}
+  .soil::before{content:"";position:absolute;top:-9px;left:0;right:0;height:20px;background:repeating-linear-gradient(96deg,var(--leaf-d) 0 12px,var(--leaf) 12px 26px);border-radius:12px;opacity:.9}
+  .day{position:absolute;top:6px;left:0;z-index:4}
+  .sparkle{position:absolute;font-size:20px;z-index:5;pointer-events:none;animation:sp 1.1s ease-out forwards}
+  @keyframes sp{0%{opacity:1;transform:scale(.5)}100%{opacity:0;transform:scale(1.5) translateY(-40px)}}
+  /* hud */
+  .hud{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+  .nameTag{font-weight:800;color:var(--g3);font-size:15px;padding:7px 14px;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .hp{flex:1;max-width:150px}
+  .hp .lab{font-size:10.5px;font-weight:800;color:var(--sub);text-align:right;margin-bottom:2px}
+  .meter{height:12px;background:rgba(255,255,255,.7);border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+  .meter i{display:block;height:100%;background:linear-gradient(90deg,#ffce54,#37c66a);transition:width .5s;border-radius:8px}
+  /* task */
+  .task{position:absolute;left:10px;right:10px;top:8px;z-index:8;padding:14px 15px;display:none}
+  .task.on{display:block;animation:drop .35s cubic-bezier(.2,1.4,.4,1)}
+  @keyframes drop{from{transform:translateY(-16px);opacity:0}to{transform:translateY(0);opacity:1}}
+  .task .tt{font-weight:800;font-size:15.5px;color:var(--gold-d);display:flex;gap:7px;align-items:center}
+  .task .td{font-size:12.5px;color:var(--sub);margin:5px 0 6px;line-height:1.55}
+  .swipe{margin-top:8px;height:60px;border-radius:14px;background:linear-gradient(90deg,#eef6e2,#dff0cf);border:2px dashed #a9cf86;position:relative;overflow:hidden;display:flex;align-items:center;padding:0 6px}
+  .knob{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 3px 8px rgba(20,90,40,.3);position:absolute;left:6px;touch-action:none;z-index:2}
+  .swipe .hint{position:absolute;left:64px;right:12px;font-size:12.5px;color:#6b8355;font-weight:700;text-align:center}
+  .tip{text-align:center;color:var(--g3);font-size:13px;margin-top:8px;min-height:19px;font-weight:700}
+  /* harvest */
+  #field{position:relative;height:340px;border-radius:22px;overflow:hidden;border:2px solid rgba(255,255,255,.6);
+    background:linear-gradient(var(--sky2),var(--field1) 55%,var(--field2))}
+  .veg{position:absolute;cursor:pointer;transition:transform .08s;z-index:2;will-change:transform}
+  .veg:active{transform:scale(.82)}
+  .hstat{display:flex;justify-content:space-between;font-weight:900;font-size:19px;margin:6px 2px 8px}
+  .hstat .t{color:var(--g3)} .hstat .c{color:var(--gold-d)}
+  /* result */
+  .kpi{display:flex;gap:10px;margin:14px 0}
+  .kpi>div{flex:1;border-radius:14px;padding:12px 8px;text-align:center}
+  .kpi .a{background:rgba(47,179,90,.14)} .kpi .b{background:rgba(242,177,52,.16)}
+  .kpi .n{font-size:23px;font-weight:900} .kpi .a .n{color:var(--g2)} .kpi .b .n{color:var(--gold-d)}
+  .kpi .l{font-size:11px;color:var(--sub);font-weight:700}
   .row2{display:flex;gap:10px}
-  .foot{text-align:center;font-size:11px;color:#6b7b60;margin-top:14px}
-  .badge{display:inline-block;background:var(--green);color:#fff;font-size:11px;font-weight:800;border-radius:999px;padding:3px 11px;margin-bottom:8px}
+  .foot{text-align:center;font-size:11px;color:#6b7b60;margin-top:14px;line-height:1.6}
+  .big{font-size:56px;text-align:center;line-height:1}
 </style>
 </head>
 <body>
+<div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div>
+
+<!-- SVG defs: cabbage character -->
+<svg width="0" height="0" style="position:absolute"><defs>
+  <radialGradient id="leafG" cx="42%" cy="35%" r="75%"><stop offset="0%" stop-color="#c8f0b4"/><stop offset="60%" stop-color="#8ed879"/><stop offset="100%" stop-color="#4faf58"/></radialGradient>
+  <radialGradient id="leafG2" cx="45%" cy="40%" r="70%"><stop offset="0%" stop-color="#e6f9d6"/><stop offset="100%" stop-color="#a7e08c"/></radialGradient>
+</defs></svg>
+
 <div class="app">
 
-  <!-- 1. 種まき・命名 -->
+  <!-- 1. TITLE / NAMING -->
   <section class="scr on" id="scr-start">
     <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
-      <div class="badge" style="align-self:center">100t農家イチロウの畑</div>
-      <div class="big">🌱🧑‍🌾</div>
-      <h1>そだてて、収穫！<br>わたしのキャベツ</h1>
-      <p class="sub">タネから育てて、上手に収穫できたら<br><b>本物のキャベツが家に届く</b>。<br>まずは、あなたのキャベツに名前をつけよう。</p>
+      <div style="text-align:center;margin-bottom:6px"><span class="badge">100t農家イチロウの畑</span></div>
+      <div class="cabWrap" id="titleCab" style="margin:8px auto 18px;animation:none"></div>
+      <h1>そだてて、収穫。<br><span style="color:var(--g1)">わたしのキャベツ</span></h1>
+      <p class="sub">タネから育てて、上手に収穫できたら<br><b style="color:var(--g2)">本物のキャベツが家に届く。</b><br>まずは、あなたのキャベツに名前をつけよう。</p>
+      <div style="height:14px"></div>
       <input class="field" id="nameInput" placeholder="例）キャベ子、たろう…" maxlength="12">
-      <button class="btn" onclick="startGrow()">🌱 このキャベツを育てる</button>
+      <div style="height:6px"></div>
+      <button class="btn" onclick="startGrow()"><span class="sh"></span>🌱 このキャベツを育てる</button>
     </div>
-    <div class="foot">プロトタイプ（試作）｜100t農家イチロウ</div>
+    <div class="foot">試作（プロトタイプ）｜100t農家イチロウ</div>
   </section>
 
-  <!-- 2. 育成 -->
+  <!-- 2. GROW -->
   <section class="scr" id="scr-grow">
     <div class="hud">
-      <span class="name-tag" id="tag">わたしのキャベツ</span>
-      <span>元気 <span id="hpNum">100</span>%</span>
+      <span class="nameTag glass" id="tag" style="padding:7px 14px">わたしのキャベツ</span>
+      <div class="hp"><div class="lab">げんき <span id="hpNum">100</span>%</div><div class="meter"><i id="hpBar" style="width:100%"></i></div></div>
     </div>
-    <div class="meter"><i id="hpBar"></i></div>
-    <div class="scene">
-      <span class="day">🗓 <span id="dayNum">1</span>日目 / 収穫まで</span>
-      <div class="task" id="task">
-        <div class="t" id="taskTitle">💧 のどがかわいた！</div>
-        <div class="d" id="taskDesc">水やりのタイミング。お世話してあげよう。</div>
-        <div class="acts" id="taskActs"></div>
+    <div class="stage glass" style="border-radius:22px;overflow:hidden;padding-top:6px">
+      <div class="day"><span class="badge" style="background:linear-gradient(var(--gold),var(--gold-d))">🗓 <span id="dayNum">1</span>日目</span></div>
+      <div class="task glass" id="task">
+        <div class="tt" id="taskT">💧 のどがかわいた！</div>
+        <div class="td" id="taskD">お世話しよう。</div>
+        <div class="swipe" id="swipe"><div class="knob" id="knob">💧</div><div class="hint" id="swHint">→ 右にスワイプでお世話</div></div>
       </div>
-      <div class="cab s0" id="cab">🌱</div>
-      <div class="ground"></div>
+      <div class="cabWrap" id="cab"></div>
+      <div class="soil"></div>
     </div>
     <div class="tip" id="tip">「次の日へ」で育てよう。時々お世話の通知が来るよ。</div>
-    <button class="btn" id="nextBtn" onclick="nextDay()">☀️ 次の日へ</button>
+    <button class="btn" id="nextBtn" onclick="nextDay()"><span class="sh"></span>☀️ 次の日へ</button>
   </section>
 
-  <!-- 3. 収穫体験 -->
+  <!-- 3. HARVEST -->
   <section class="scr" id="scr-harvest">
-    <h1>🧺 収穫体験！</h1>
-    <p class="sub">畑に実ったキャベツ 🥬 をタップして収穫！<br><b>害虫 🐛 はタップしないで！</b><br>収穫できた数だけ、本物を注文できる。</p>
-    <div class="hud" style="font-size:16px"><span>⏱ <span class="timer" id="hTimer">15</span>秒</span><span>収穫 <span class="count" id="hCount">0</span>個</span></div>
-    <div id="harvestField"></div>
-    <div class="foot">ヒント：完熟キャベツをすばやくタップ！</div>
+    <h1 style="font-size:23px">🧺 収穫体験！</h1>
+    <p class="sub">実った <b>キャベツ</b> をタップして収穫！<br><b style="color:var(--pink-d)">害虫 🐛 はタップしないで！</b></p>
+    <div class="hstat"><span class="t">⏱ <span id="hTimer">15</span></span><span class="c">🧺 <span id="hCount">0</span>個</span></div>
+    <div id="field" class="glass"></div>
+    <div class="foot">完熟キャベツをすばやくタップ！ 収穫した数だけ本物を注文できる。</div>
   </section>
 
-  <!-- 4. 結果・注文 -->
+  <!-- 4. RESULT -->
   <section class="scr" id="scr-result">
     <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
-      <div class="card">
-        <div class="big">🎉🥬</div>
-        <div class="resultN"><span id="finalN">0</span> 個 収穫成功！</div>
-        <p class="sub" style="margin-top:8px"><b id="finalName">わたしのキャベツ</b> が育てた<br>キャベツを、<b><span id="orderN">0</span>個</b>まで家に届けられます。</p>
-        <div style="display:flex;gap:8px;margin:12px 0">
-          <div style="flex:1;background:#eef6e6;border-radius:12px;padding:10px"><div style="font-size:11px;color:#5a6b50;font-weight:700">達成率</div><div style="font-size:22px;font-weight:900;color:var(--green)"><span id="rate">0</span>%</div></div>
-          <div style="flex:1;background:#fff6e0;border-radius:12px;padding:10px"><div style="font-size:11px;color:#8a6b20;font-weight:700">育てたコスト</div><div style="font-size:22px;font-weight:900;color:var(--gold)">¥<span id="cost">0</span></div></div>
+      <div class="glass" style="padding:22px 20px;text-align:center">
+        <div class="big">🎉</div>
+        <div style="font-size:30px;font-weight:900;color:var(--gold-d);margin:6px 0"><span id="finalN">0</span>個 収穫成功！</div>
+        <p class="sub" style="margin-top:4px"><b id="finalName">わたしのキャベツ</b> が育てたキャベツを、<br><b><span id="orderN">0</span>個</b>まで家に届けられます。</p>
+        <div class="kpi">
+          <div class="a"><div class="n"><span id="rate">0</span>%</div><div class="l">達成率</div></div>
+          <div class="b"><div class="n">¥<span id="cost">0</span></div><div class="l">育てたコスト</div></div>
         </div>
-        <p style="font-size:12px;color:#6b7b60;margin-bottom:4px">＝1個あたり約 ¥<span id="perCost">0</span>。<b>本物のキャベツを育てる大変さ</b>、伝わったかな？</p>
-        <button class="btn gold" onclick="alert('本番では、ここから住所入力→ご主人様の畑から発送、につながります（試作）')">🚚 収穫したキャベツを注文する</button>
-        <button class="btn" style="background:linear-gradient(135deg,#e07ab0,#c95a95);box-shadow:0 6px 0 #9a3a6c;margin-top:10px" onclick="alert('食べきれない分は、大切な人に送れます（試作）')">🎁 食べきれない分を誰かに送る</button>
+        <p style="font-size:12px;color:var(--sub);margin:-4px 0 12px">1個あたり約 ¥<span id="perCost">0</span>。<b>本物を育てる大変さ</b>、伝わったかな？</p>
+        <button class="btn gold" onclick="alert('本番では、ここから住所入力→イチロウの畑から発送、につながります（試作）')"><span class="sh"></span>🚚 収穫したキャベツを注文する</button>
+        <button class="btn pink" style="margin-top:10px" onclick="alert('食べきれない分は、大切な人に送れます（試作）')">🎁 食べきれない分を誰かに送る</button>
         <div class="row2" style="margin-top:10px">
-          <button class="btn ghost" style="margin-top:0" onclick="location.reload()">🔁 もう一度</button>
-          <button class="btn ghost" style="margin-top:0" onclick="share()">📣 自慢する</button>
+          <button class="btn ghost" onclick="location.reload()">🔁 もう一度</button>
+          <button class="btn ghost" onclick="share()">📣 自慢する</button>
         </div>
       </div>
     </div>
@@ -129,96 +166,91 @@
 </div>
 
 <script>
-var st={name:"わたしのキャベツ",day:1,hp:100,maxDay:6,cared:0,cost:480,taskTotal:0,taskDone:0};
-// cost: 苗+土=¥480からスタート。お世話ごとに肥料/農薬/手間(時給換算)が乗る
-var careCost={"🌾":220,"✨":310,"💧":60};
-var stages=["🌱","🌿","🥬","🥬"];
-function $(id){return document.getElementById(id)}
-function show(id){document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on')});$(id).classList.add('on')}
+// ---- SVG cabbage by stage (0 seed .. 3 full) with cute face ----
+function cabSVG(stage){
+  var size=[70,96,120,150][stage];
+  var face='<g><ellipse cx="0" cy="6" rx="7" ry="8" fill="#fff"/><ellipse cx="20" cy="6" rx="7" ry="8" fill="#fff"/>'+
+    '<circle cx="1.5" cy="8" r="3.4" fill="#2b3a25"/><circle cx="18.5" cy="8" r="3.4" fill="#2b3a25"/>'+
+    '<circle cx="2.6" cy="6.8" r="1.1" fill="#fff"/><circle cx="19.6" cy="6.8" r="1.1" fill="#fff"/>'+
+    '<ellipse cx="-8" cy="14" rx="5" ry="3" fill="#f7a9b8" opacity=".7"/><ellipse cx="28" cy="14" rx="5" ry="3" fill="#f7a9b8" opacity=".7"/>'+
+    '<path d="M4 15 Q10 20 16 15" stroke="#2b3a25" stroke-width="2.2" fill="none" stroke-linecap="round"/></g>';
+  if(stage===0){ // sprout
+    return '<svg viewBox="-40 -60 80 80" width="'+size+'" height="'+size+'">'+
+      '<path d="M0 20 Q-2 0 0 -6" stroke="#4faf58" stroke-width="4" fill="none" stroke-linecap="round"/>'+
+      '<path d="M0 -2 Q-22 -12 -26 -30 Q-6 -26 0 -6" fill="url(#leafG2)"/>'+
+      '<path d="M0 -2 Q22 -12 26 -30 Q6 -26 0 -6" fill="url(#leafG)"/>'+
+      '<g transform="translate(-10,-16) scale(.7)">'+face+'</g></svg>';
+  }
+  // head sizes grow
+  var r=[0,30,40,50][stage];
+  return '<svg viewBox="'+(-r-16)+' '+(-r-26)+' '+((r+16)*2)+' '+((r+26)*2)+'" width="'+size+'" height="'+size+'">'+
+    '<ellipse cx="0" cy="'+(r*.7)+'" rx="'+(r*1.15)+'" ry="'+(r*.5)+'" fill="#3e9e50" opacity=".5"/>'+ // back leaves
+    '<circle cx="0" cy="0" r="'+r+'" fill="url(#leafG)"/>'+
+    '<path d="M'+(-r)+' 0 Q'+(-r*.5)+' '+(-r*.7)+' 0 '+(-r*.55)+' Q'+(r*.5)+' '+(-r*.7)+' '+r+' 0" fill="none" stroke="#59b96a" stroke-width="'+(r*.06)+'" opacity=".5"/>'+
+    '<circle cx="'+(-r*.42)+'" cy="'+(-r*.1)+'" r="'+(r*.5)+'" fill="url(#leafG2)" opacity=".9"/>'+
+    '<circle cx="'+(r*.42)+'" cy="'+(-r*.1)+'" r="'+(r*.5)+'" fill="url(#leafG2)" opacity=".9"/>'+
+    '<circle cx="0" cy="'+(-r*.14)+'" r="'+(r*.6)+'" fill="url(#leafG2)"/>'+
+    '<g transform="translate(-10,'+(-r*.14-8)+') scale('+(0.8+stage*.14)+')">'+face+'</g></svg>';
+}
+function $(i){return document.getElementById(i)}
+function show(i){document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on')});$(i).classList.add('on')}
+$('titleCab').innerHTML=cabSVG(3);
 
-function startGrow(){
-  var n=$('nameInput').value.trim();
-  st.name=n||"わたしのキャベツ";
-  $('tag').textContent=st.name;
-  renderGrow();
-  show('scr-grow');
-}
-function renderGrow(){
-  $('dayNum').textContent=st.day;
-  $('hpNum').textContent=st.hp;
-  $('hpBar').style.width=st.hp+'%';
-  var si=Math.min(3,Math.floor((st.day-1)/2));
-  var cab=$('cab');cab.textContent=stages[si];cab.className='cab s'+si;
-}
+var st={name:"わたしのキャベツ",day:1,hp:100,maxDay:6,cost:480,taskTotal:0,taskDone:0};
+var careCost={"🌾":220,"✨":310,"💧":60};
+function renderGrow(){$('dayNum').textContent=st.day;$('hpNum').textContent=st.hp;$('hpBar').style.width=st.hp+'%';
+  var si=Math.min(3,Math.floor((st.day-1)/2));$('cab').innerHTML=cabSVG(si);}
+function startGrow(){var n=$('nameInput').value.trim();st.name=n||"わたしのキャベツ";$('tag').textContent=st.name;renderGrow();show('scr-grow');}
+
 var tasks=[
-  {t:"💧 のどがかわいた！",d:st=>st.name+"が水をほしがってる。水やりしよう。",ok:"💧 水やりする",oki:"💧"},
-  {t:"🌾 追肥のタイミング！",d:st=>"大きくなる時期。肥料(888)をあげよう。",ok:"🌾 追肥する",oki:"🌾"},
-  {t:"🐛 害虫が来た！",d:st=>"葉に虫が…！ 早く駆除して"+st.name+"を守ろう。",ok:"🥅 駆除する",oki:"✨"}
+ {t:"💧 のどがかわいた！",d:function(){return st.name+"が水をほしがってる。"},ico:"💧",fx:"💧"},
+ {t:"🌾 追肥のタイミング！",d:function(){return "大きくなる時期。肥料(888)をあげよう。"},ico:"🌾",fx:"🌾"},
+ {t:"🐛 害虫が来た！",d:function(){return "葉に虫が…！ "+st.name+"を守ろう。"},ico:"🥅",fx:"✨"}
 ];
+var curTask=null;
 function nextDay(){
   if(st.day>=st.maxDay){startHarvest();return}
-  st.day++;
-  renderGrow();
-  // 2日ごとにお世話タスク
-  if(st.day%2===0 || st.day===st.maxDay-1){ showTask(); }
-  else { $('tip').textContent=["すくすく育ってる！","いい感じ！","もうすぐ収穫期…！"][st.day%3]; }
+  st.day++;renderGrow();
+  if(st.day%2===0||st.day===st.maxDay-1){showTask();}
+  else{$('tip').textContent=["すくすく育ってる！","いい感じ！","もうすぐ収穫期…！"][st.day%3];}
 }
-function showTask(){
-  var task=tasks[(st.day)%tasks.length];
-  $('taskTitle').textContent=task.t;
-  $('taskDesc').textContent=task.d(st);
-  var acts=$('taskActs');acts.innerHTML='';
-  var b=document.createElement('button');b.textContent=task.ok;
-  b.onclick=function(){doCare(task.oki);};
-  var b2=document.createElement('button');b2.textContent="あとで";b2.style.background="#f0e6e6";b2.style.color="#a55";
-  b2.onclick=function(){skipCare();};
-  acts.appendChild(b);acts.appendChild(b2);
-  $('task').classList.add('on');
-  st.taskTotal++;
-  $('nextBtn').disabled=true;$('nextBtn').style.opacity=.5;
-}
-function fx(sym){var e=document.createElement('div');e.className='fx';e.textContent=sym;e.style.left='46%';e.style.bottom='120px';$('cab').parentElement.appendChild(e);setTimeout(function(){e.remove()},1000);}
-function doCare(sym){st.cared++;st.taskDone++;st.cost+=(careCost[sym]||100)+120;/*+手作業時給*/st.hp=Math.min(100,st.hp+6);fx(sym);endTask("えらい！"+st.name+"が喜んでる 🥰");}
-function skipCare(){st.hp=Math.max(20,st.hp-18);endTask("元気が下がっちゃった…次はお世話してね");}
-function endTask(msg){$('task').classList.remove('on');$('tip').textContent=msg;renderGrow();$('nextBtn').disabled=false;$('nextBtn').style.opacity=1;
-  if(st.day>=st.maxDay){$('nextBtn').textContent="🧺 収穫する！";}}
-// ---- harvest game ----
-var hv={count:0,time:15,timer:null,spawn:null};
-function startHarvest(){
-  show('scr-harvest');
-  hv.count=0;hv.time=15;$('hCount').textContent=0;$('hTimer').textContent=15;
-  var f=$('harvestField');f.innerHTML='';
-  hv.timer=setInterval(function(){hv.time--;$('hTimer').textContent=hv.time;if(hv.time<=0)endHarvest();},1000);
-  hv.spawn=setInterval(spawnVeg,620);
-}
-function spawnVeg(){
-  var f=$('harvestField');var bad=Math.random()<0.28;
-  var e=document.createElement('div');e.className='veg';e.textContent=bad?'🐛':'🥬';
-  var w=f.clientWidth-56,h=f.clientHeight-56;
-  e.style.left=(10+Math.random()*w)+'px';e.style.top=(10+Math.random()*h)+'px';
-  e.ontouchstart=e.onclick=function(ev){ev.preventDefault();
-    if(bad){hv.count=Math.max(0,hv.count-1);e.textContent='💥';}
-    else{hv.count++;e.textContent='✨';}
-    $('hCount').textContent=hv.count;e.style.pointerEvents='none';setTimeout(function(){e.remove()},180);
-  };
-  f.appendChild(e);
-  setTimeout(function(){if(e.parentElement)e.remove()},1100);
-}
-function endHarvest(){clearInterval(hv.timer);clearInterval(hv.spawn);
-  $('harvestField').innerHTML='';
+function showTask(){curTask=tasks[st.day%tasks.length];$('taskT').textContent=curTask.t;$('taskD').textContent=curTask.d();
+  $('knob').textContent=curTask.ico;$('swHint').textContent="→ 右にスワイプでお世話";
+  $('knob').style.left="6px";$('task').classList.add('on');st.taskTotal++;$('nextBtn').disabled=true;$('nextBtn').style.opacity=.5;}
+function sparkle(s){var e=document.createElement('div');e.className='sparkle';e.textContent=s;e.style.left='46%';e.style.bottom='120px';$('cab').parentElement.appendChild(e);setTimeout(function(){e.remove()},1100);}
+function doCare(){st.taskDone++;st.cost+=(careCost[curTask.fx]||100)+120;st.hp=Math.min(100,st.hp+6);sparkle(curTask.fx);sparkle("✨");endTask("えらい！"+st.name+"がよろこんでる 🥰");}
+function skipCare(){st.hp=Math.max(20,st.hp-18);endTask("げんきが下がっちゃった…次はお世話してね");}
+function endTask(m){$('task').classList.remove('on');$('tip').textContent=m;renderGrow();$('nextBtn').disabled=false;$('nextBtn').style.opacity=1;if(st.day>=st.maxDay)$('nextBtn').textContent="🧺 収穫する！";}
+// flick to care
+(function(){var knob=$('knob'),drag=false,sx=0;
+  function start(x){drag=true;sx=x;}
+  function move(x){if(!drag)return;var dx=Math.max(0,Math.min(x-sx, $('swipe').clientWidth-58));knob.style.left=(6+dx)+'px';
+    if(dx> $('swipe').clientWidth-72){drag=false;knob.style.left=($('swipe').clientWidth-52)+'px';doCare();}}
+  function end(){if(!drag)return;drag=false;knob.style.transition='left .2s';knob.style.left='6px';setTimeout(function(){knob.style.transition=''},220);}
+  knob.addEventListener('touchstart',function(e){start(e.touches[0].clientX)});
+  knob.addEventListener('touchmove',function(e){e.preventDefault();move(e.touches[0].clientX)},{passive:false});
+  knob.addEventListener('touchend',end);
+  knob.addEventListener('mousedown',function(e){start(e.clientX)});
+  window.addEventListener('mousemove',function(e){move(e.clientX)});
+  window.addEventListener('mouseup',end);
+})();
+// harvest
+var hv={count:0,time:15,t1:null,t2:null};
+function startHarvest(){show('scr-harvest');hv.count=0;hv.time=15;$('hCount').textContent=0;$('hTimer').textContent=15;$('field').innerHTML='';
+  hv.t1=setInterval(function(){hv.time--;$('hTimer').textContent=hv.time;if(hv.time<=0)endHarvest();},1000);
+  hv.t2=setInterval(spawn,600);}
+function spawn(){var f=$('field'),bad=Math.random()<0.28,e=document.createElement('div');e.className='veg';
+  e.innerHTML=bad?'<span style="font-size:46px">🐛</span>':cabSVG(2);e.style.transform='scale(.42)';
+  var w=f.clientWidth-70,h=f.clientHeight-70;e.style.left=(10+Math.random()*w)+'px';e.style.top=(10+Math.random()*h)+'px';
+  e.ontouchstart=e.onclick=function(ev){ev.preventDefault();if(bad){hv.count=Math.max(0,hv.count-1);e.innerHTML='<span style="font-size:40px">💥</span>';}else{hv.count++;e.innerHTML='<span style="font-size:40px">✨</span>';}$('hCount').textContent=hv.count;e.style.pointerEvents='none';setTimeout(function(){e.remove()},170);};
+  f.appendChild(e);setTimeout(function(){if(e.parentElement)e.remove()},1050);}
+function endHarvest(){clearInterval(hv.t1);clearInterval(hv.t2);$('field').innerHTML='';
   $('finalN').textContent=hv.count;$('orderN').textContent=hv.count;$('finalName').textContent=st.name;
-  // 達成率＝お世話の達成 × 元気 の合成（100%上限）
-  var careRate=st.taskTotal? st.taskDone/st.taskTotal : 1;
-  var rate=Math.round(Math.min(100,(careRate*60 + st.hp*0.4)));
-  st.cost+=st.day*90; // 日々の見回り手間
-  var per=hv.count>0?Math.round(st.cost/hv.count):st.cost;
-  $('rate').textContent=rate;
-  $('cost').textContent=st.cost.toLocaleString();
-  $('perCost').textContent=per.toLocaleString();
-  show('scr-result');
-}
-function share(){var t=st.name+"を育てて "+hv.count+"個 収穫できた！🥬 #わたしのキャベツ";
-  if(navigator.share){navigator.share({text:t}).catch(function(){});}else{alert(t);}}
+  var careRate=st.taskTotal?st.taskDone/st.taskTotal:1,rate=Math.round(Math.min(100,careRate*60+st.hp*.4));
+  st.cost+=st.day*90;var per=hv.count>0?Math.round(st.cost/hv.count):st.cost;
+  $('rate').textContent=rate;$('cost').textContent=st.cost.toLocaleString();$('perCost').textContent=per.toLocaleString();
+  show('scr-result');}
+function share(){var t=st.name+"を育てて "+hv.count+"個 収穫できた！🥬 #わたしのキャベツ";if(navigator.share){navigator.share({text:t}).catch(function(){})}else{alert(t)}}
 </script>
 </body>
 </html>
