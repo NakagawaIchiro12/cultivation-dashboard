@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ご感想フォーム</title>
+<style>
+  :root{--bg:#eef2ea;--card:#fff;--ink:#23281f;--sub:#5c6353;--line:#e2e6dc;--green:#1f7a3d;--green2:#2e9b52;--accent:#c0392b}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP","Meiryo",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:640px;margin:0 auto;padding:18px 14px 60px}
+  .card{background:var(--card);border-radius:16px;box-shadow:0 1px 3px rgba(30,40,20,.08),0 8px 26px rgba(30,40,20,.06);overflow:hidden}
+  .head{background:linear-gradient(135deg,#1f7a3d,#2e9b52);color:#fff;padding:26px 22px 22px;text-align:center}
+  .head h1{margin:0 0 6px;font-size:21px;letter-spacing:.02em}
+  .head p{margin:0;font-size:13.5px;opacity:.95;line-height:1.7}
+  .body{padding:20px 20px 8px}
+  .q{margin:0 0 18px}
+  .q label{display:block;font-weight:700;font-size:14.5px;margin-bottom:6px}
+  .q .req{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:700;border-radius:5px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+  .q .opt{display:inline-block;color:var(--sub);font-size:11.5px;margin-left:6px}
+  .q textarea,.q input[type=text],.q input[type=email]{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:15px;font-family:inherit;background:#fcfdfb;color:var(--ink);resize:vertical}
+  .q textarea{min-height:88px}
+  .q textarea:focus,.q input:focus{outline:none;border-color:var(--green2);box-shadow:0 0 0 3px rgba(46,155,82,.15)}
+  .radio{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+  .radio label{display:flex;align-items:center;gap:9px;font-weight:500;font-size:14.5px;background:#f6f9f4;border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+  .radio input{width:18px;height:18px;accent-color:var(--green2)}
+  .note{font-size:12.5px;color:var(--sub);background:#f6f9f4;border-radius:10px;padding:11px 13px;margin:2px 0 18px;line-height:1.7}
+  .btn{width:100%;border:none;border-radius:12px;padding:16px;font-size:16.5px;font-weight:800;color:#fff;background:linear-gradient(135deg,#1f7a3d,#2e9b52);box-shadow:0 6px 16px rgba(31,122,61,.28);cursor:pointer;letter-spacing:.02em}
+  .btn:active{transform:translateY(1px)}
+  .foot{text-align:center;color:var(--sub);font-size:12px;padding:16px 20px 24px;line-height:1.7}
+  .hint{color:var(--sub);font-size:12px;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <form class="card" action="https://formsubmit.co/carot2246@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="【感想フォーム】新しいご感想が届きました">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://dashboard.job555.info/kansou/thanks.html">
+    <input type="hidden" name="_autoresponse" value="ご感想、ありがとうございました！ いただいた内容をもとに、あなたに合わせた「次の一手3選」を作って、後日あらためてLINEでお届けしますね。楽しみに待っていてください。">
+    <input type="text" name="_honey" style="display:none">
+
+    <div class="head">
+      <h1>ご感想フォーム</h1>
+      <p>あなたの感想が、僕には何よりの励みになります。<br>かしこまらず、思ったことをそのままどうぞ。</p>
+    </div>
+
+    <div class="body">
+      <div class="q">
+        <label>Q1. 今の農業で、これから変えたい・整えたいと感じたことは？<span class="req">必須</span></label>
+        <textarea name="Q1_今の農業で変えたい整えたいこと" required placeholder="例）まず売り先を1つ決めてから作物を考えたい"></textarea>
+      </div>
+      <div class="q">
+        <label>Q2. 相談会で一番心に残ったこと・「なるほど」と思ったことは？<span class="req">必須</span></label>
+        <textarea name="Q2_一番心に残ったこと" required placeholder="例）作ることより売り先が先、という順番の話が刺さった"></textarea>
+      </div>
+      <div class="q">
+        <label>Q3. これから「まず何から始めよう」と思いましたか？<span class="req">必須</span></label>
+        <textarea name="Q3_まず何から始めるか" required placeholder="例）近くの直売所に出荷条件を聞いてみる"></textarea>
+      </div>
+
+      <div class="q">
+        <label>感想をSNSでシェアしても良いですか？<span class="req">必須</span></label>
+        <div class="radio">
+          <label><input type="radio" name="SNSシェア可否" value="はい（実名OK）" required>はい（実名OK）</label>
+          <label><input type="radio" name="SNSシェア可否" value="はい（ニックネームで）">はい（ニックネームで）</label>
+          <label><input type="radio" name="SNSシェア可否" value="今回は非公開で">今回は非公開で</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label>お名前・ニックネーム<span class="opt">（SNS掲載時のみ使用・任意）</span></label>
+        <input type="text" name="お名前ニックネーム" placeholder="お名前・ニックネーム">
+      </div>
+
+      <div class="q">
+        <label>（任意）相談会へのご意見・ご要望があれば</label>
+        <textarea name="ご意見ご要望_任意" placeholder="例）ここをもっと聞きたかった、など何でもどうぞ"></textarea>
+      </div>
+
+      <div class="q">
+        <label>確認メールの送り先<span class="req">必須</span></label>
+        <input type="email" name="email" required placeholder="you@example.com">
+        <div class="hint">※ここに「受け付けました」の確認メールが届きます。</div>
+      </div>
+
+      <div class="note">送信いただいた内容をもとに、あなたに合わせた「次の一手3選」を作って、後日あらためて<b>LINE</b>でお届けします。</div>
+
+      <button class="btn" type="submit">感想を送って「次の一手3選」を受け取る</button>
+    </div>
+
+    <div class="foot">100t農家イチロウ｜農業相談会<br>いただいた感想は大切に読ませていただきます。</div>
+  </form>
+</div>
+</body>
+</html>
