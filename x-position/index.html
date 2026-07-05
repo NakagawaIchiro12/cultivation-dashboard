@@ -3,127 +3,200 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>イチロウ｜Xポジション</title>
+<title>イチロウ｜Xポジション戦略</title>
 <style>
-  :root{--green:#1f7a3d;--green2:#2e9b52;--ink:#1e241a;--sub:#5c6353;--cream:#f4f7f0;--card:#fff;--line:#e2e8dc;--gold:#c99a2e;--red:#c0392b}
+  :root{
+    --green:#0c3d22; --green-mid:#14733f; --green-lite:#38a45a;
+    --cream:#f7f4ea; --ink:#17231a; --sub:#5f6a58; --line:#e5e2d4;
+    --gold:#e0a41e; --gold-deep:#b9820f; --card:#fffdf6;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--cream);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP","Meiryo",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-  .slide{display:flex;flex-direction:column;justify-content:center;padding:34px 22px;max-width:680px;margin:0 auto;position:relative;border-bottom:1px solid var(--line)}
-  .hero{padding-top:52px;padding-bottom:44px}
-  .tag{font-size:11.5px;letter-spacing:.16em;font-weight:800;color:var(--green);text-transform:uppercase}
-  .pg{position:absolute;top:22px;right:22px;font-size:12px;font-weight:800;color:var(--sub);opacity:.7}
-  h1{font-size:30px;line-height:1.32;margin:12px 0;letter-spacing:.01em}
-  h2{font-size:22px;line-height:1.4;margin:8px 0 14px}
-  .lead{color:var(--sub);font-size:14.5px}
-  /* hero */
-  .hero{background:linear-gradient(150deg,#1f7a3d,#2e9b52);color:#fff}
-  .hero .tag{color:#d7f0dd}
-  .hero .lead{color:#eafff0;opacity:.95}
-  .hero .usp{margin-top:20px;background:rgba(255,255,255,.14);border-radius:12px;padding:14px 16px;font-size:14px;font-weight:700;line-height:1.7}
-  /* core */
-  .core{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 10px 30px rgba(30,60,25,.08);padding:34px 22px}
-  .core .x{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:14px 0}
-  .core .word{font-size:27px;font-weight:900;color:var(--green);background:#eaf5ec;border-radius:14px;padding:14px 20px}
-  .core .mul{font-size:24px;font-weight:900;color:var(--gold)}
-  .core .desc{color:var(--sub);font-size:14.5px;margin-top:6px}
-  .badge{display:inline-block;background:var(--gold);color:#fff;font-size:11px;font-weight:800;border-radius:999px;padding:3px 12px;letter-spacing:.04em}
-  /* layers */
-  .layers{display:flex;flex-direction:column;gap:11px;margin-top:8px}
-  .layer{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--green);border-radius:13px;padding:14px 16px;box-shadow:0 3px 12px rgba(30,60,25,.05)}
-  .layer .lb{font-size:11.5px;font-weight:800;color:var(--green);letter-spacing:.06em}
-  .layer h3{font-size:16.5px;margin:2px 0 3px}
-  .layer p{font-size:13.5px;color:var(--sub)}
-  .layer.sup{border-left-color:var(--green2)}
-  .layer.base{border-left-color:var(--gold)}
-  .layer.story{border-left-color:#8a6cbf}
-  /* types grid */
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:6px}
-  .t{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:10px 12px;font-size:13.5px;font-weight:700;display:flex;gap:8px;align-items:center}
-  .t .m{flex:none;width:22px;height:22px;border-radius:6px;color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center}
-  .t.use .m{background:var(--green)}
-  .t.mid .m{background:var(--gold)}
-  .t.no{opacity:.72}
-  .t.no .m{background:var(--red)}
-  .t .s{display:block;font-size:11px;font-weight:600;color:var(--sub)}
-  /* out block */
-  .pill{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-  .row{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 15px}
-  .row .k{font-size:11.5px;font-weight:800;color:var(--green);letter-spacing:.06em;margin-bottom:3px}
-  .row .v{font-size:14px}
-  .row .v b{color:var(--green)}
-  .foot{text-align:center;color:var(--sub);font-size:11.5px;padding:26px 20px 40px}
-  .dots{position:fixed;right:10px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:9}
-  .dots a{width:8px;height:8px;border-radius:50%;background:#c7d2c0;display:block}
-  @media(prefers-color-scheme:dark){:root{--cream:#161a13;--card:#20261c;--ink:#eef2e8;--sub:#a6ad9c;--line:#333b2c}}
+  html{scroll-snap-type:y mandatory;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP","Meiryo",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .deck{width:100%}
+  .s{min-height:100svh;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;justify-content:center;padding:52px 26px;position:relative;overflow:hidden}
+  .wrap{width:100%;max-width:640px;margin:0 auto}
+  /* index + kicker */
+  .idx{position:absolute;top:24px;left:26px;font-size:12px;font-weight:800;letter-spacing:.12em;opacity:.6}
+  .idx b{color:var(--gold)}
+  .kick{font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:14px}
+  .s.dark .kick{color:var(--gold)}
+  /* themes */
+  .s.dark{background:radial-gradient(120% 90% at 80% 0%,#155a34 0%,var(--green) 55%);color:#fff}
+  .s.dark .idx{color:#cfe6d5}
+  .s.gold{background:linear-gradient(150deg,var(--gold) 0%,#c98a12 100%);color:#3a2a05}
+  /* type */
+  h1{font-size:clamp(30px,8.5vw,46px);line-height:1.22;font-weight:900;letter-spacing:.01em}
+  h2{font-size:clamp(24px,6.6vw,34px);line-height:1.28;font-weight:900}
+  .big{font-size:clamp(38px,12vw,66px);font-weight:900;line-height:1.05;letter-spacing:.01em}
+  .lead{font-size:clamp(14px,4vw,17px);color:var(--sub);margin-top:14px;line-height:1.75}
+  .s.dark .lead{color:#d8e6da}
+  .g{color:var(--gold-deep)} .s.dark .g{color:var(--gold)}
+  .rule{width:46px;height:5px;border-radius:3px;background:var(--gold);margin:0 0 18px}
+  .s.dark .rule{background:var(--gold)}
+  .usp{margin-top:26px;border-left:4px solid var(--gold);padding:10px 0 10px 16px;font-size:15px;font-weight:700;line-height:1.7}
+  /* core X */
+  .core{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:6px 0}
+  .core .w{font-size:clamp(34px,10vw,58px);font-weight:900}
+  .core .x{font-size:clamp(28px,8vw,46px);font-weight:900;color:var(--gold)}
+  /* layer tag */
+  .role{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.08em;color:#fff;background:var(--green-mid);border-radius:999px;padding:5px 14px;margin-bottom:16px}
+  .role.sup{background:var(--green-lite)} .role.base{background:var(--gold-deep)} .role.story{background:#7a5cae}
+  /* stat row */
+  .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+  .stat{flex:1;min-width:120px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:16px 14px}
+  .stat .n{font-size:clamp(26px,8vw,40px);font-weight:900;color:var(--gold);line-height:1}
+  .stat .t{font-size:12.5px;color:#d8e6da;margin-top:7px;font-weight:600}
+  /* chips */
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+  .chip{font-size:14px;font-weight:800;border-radius:999px;padding:8px 15px;display:flex;gap:7px;align-items:center}
+  .chip.no{background:#fff;border:1.5px solid #e6c9c9;color:#9a3b32}
+  .chip.no .x{color:#c0392b;font-weight:900}
+  .chip .why{font-size:11px;font-weight:600;opacity:.75}
+  /* list */
+  .plist{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+  .pl{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:0 4px 14px rgba(20,60,30,.05)}
+  .pl .k{font-size:11.5px;font-weight:800;letter-spacing:.06em;color:var(--gold-deep);margin-bottom:4px}
+  .pl .v{font-size:14px;font-weight:600;line-height:1.6}
+  .pl .v b{color:var(--green-mid)}
+  /* reveal */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .in .rv{opacity:1;transform:none}
+  .in .rv:nth-child(2){transition-delay:.08s}.in .rv:nth-child(3){transition-delay:.16s}
+  .in .rv:nth-child(4){transition-delay:.24s}.in .rv:nth-child(5){transition-delay:.32s}
+  /* progress dots */
+  .nav{position:fixed;right:12px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:20}
+  .nav a{width:8px;height:8px;border-radius:50%;background:rgba(120,120,110,.4)}
+  .foot{font-size:12px;opacity:.8;margin-top:30px}
+  @media (prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div class="deck">
 
-<section class="slide hero">
-  <div class="tag">Xポジション 戦略</div>
-  <h1>100t農家イチロウ<br>Xでの立ち位置</h1>
-  <p class="lead">沖ケイタ式「13ポジション」を、イチロウの実像に当てはめて決定。</p>
-  <div class="usp">9時-14時の5時間で 年100t 出荷。<br>畑だけで戦わない農業（× AI）。</div>
-</section>
-
-<section class="slide">
-  <span class="pg">01</span>
-  <div class="tag">結論・中核</div>
-  <div class="core">
-    <span class="badge">この2つが軸</span>
-    <div class="x">
-      <span class="word">村一番</span><span class="mul">×</span><span class="word">開拓者</span>
+  <section class="s dark" id="s1">
+    <span class="idx"><b>01</b> / 11</span>
+    <div class="wrap">
+      <div class="kick rv">X Position Strategy</div>
+      <h1 class="rv">100t農家イチロウ<br>Xでの立ち位置</h1>
+      <div class="usp rv">9時-14時の5時間で 年100t 出荷。<br>畑だけで戦わない農業 ×AI。</div>
     </div>
-    <p class="desc">“畑だけで戦わない、超時短ホワイト農業の<b>開拓者</b>。<br>農業 × AI で、この村の<b>一番</b>。”</p>
-    <p class="desc" style="margin-top:10px;font-size:13px">農業×AIはX/Brain界隈にほぼ不在＝<b>一番を取りやすい／誰もやってない新カテゴリ</b>。</p>
-  </div>
-</section>
+  </section>
 
-<section class="slide">
-  <span class="pg">02</span>
-  <div class="tag">複合の配分</div>
-  <h2>4つの層で立体的に</h2>
-  <div class="layers">
-    <div class="layer"><div class="lb">中核</div><h3>村一番 × 開拓者</h3><p>農業×AIでこの村の一番・新カテゴリを拓く</p></div>
-    <div class="layer sup"><div class="lb">補助</div><h3>分析家・翻訳家</h3><p>現場のリアルとAIを“翻訳”して届ける（AIを農家に／泥臭い現場を稼ぎたい層に）</p></div>
-    <div class="layer base"><div class="lb">土台</div><h3>圧倒的実力者</h3><p>9-14時で100t・200t目前の数字を“見せる”だけ（振りかざさない）</p></div>
-    <div class="layer story"><div class="lb">時々</div><h3>主人公</h3><p>逆境→100t→AIの物語（救世主化しない）</p></div>
-  </div>
-</section>
+  <section class="s" id="s2">
+    <span class="idx"><b>02</b> / 11</span>
+    <div class="wrap">
+      <div class="kick rv">Framework</div>
+      <div class="rule rv"></div>
+      <h2 class="rv">沖ケイタ式「13ポジション」を、<br><span class="g">イチロウの実像</span>に当てはめて決めた。</h2>
+      <p class="lead rv">派手な情報商材ではなく、数字オープン・現場リアルで語る立ち位置。</p>
+    </div>
+  </section>
 
-<section class="slide">
-  <span class="pg">03</span>
-  <div class="tag">13型の取捨</div>
-  <h2>使う型 / 外す型</h2>
-  <div class="grid">
-    <div class="t use"><span class="m">◎</span>村一番<span class="s"></span></div>
-    <div class="t use"><span class="m">◎</span>開拓者</div>
-    <div class="t use"><span class="m">○</span>分析家・翻訳家</div>
-    <div class="t use"><span class="m">○</span>主人公</div>
-    <div class="t mid"><span class="m">△</span>圧倒的実力者<span class="s">土台で</span></div>
-    <div class="t mid"><span class="m">△</span>おじさん<span class="s">親近感</span></div>
-    <div class="t no"><span class="m">×</span>教祖<span class="s">怪しい商売感</span></div>
-    <div class="t no"><span class="m">×</span>HARM寄せ<span class="s">不安煽り</span></div>
-    <div class="t no"><span class="m">×</span>批評家<span class="s">批判軸</span></div>
-    <div class="t no"><span class="m">×</span>一番弟子/女性/主婦</div>
-  </div>
-  <p class="lead" style="margin-top:12px">外す基準＝イチロウの文化（数字オープン・現場リアル・派手な情報商材感NG）に反するもの。</p>
-</section>
+  <section class="s dark" id="s3">
+    <span class="idx"><b>03</b> / 11</span>
+    <div class="wrap">
+      <div class="kick rv">結論・中核</div>
+      <div class="core rv"><span class="w">村一番</span><span class="x">×</span><span class="w">開拓者</span></div>
+      <p class="lead rv">“畑だけで戦わない、超時短ホワイト農業の<b style="color:#fff">開拓者</b>。<br>農業 ×AI で、この村の<b style="color:#fff">一番</b>。”</p>
+    </div>
+  </section>
 
-<section class="slide">
-  <span class="pg">04</span>
-  <div class="tag">Xでの出方</div>
-  <h2>プロフィール・柱・導線</h2>
-  <div class="pill">
-    <div class="row"><div class="k">プロフィール固定USP</div><div class="v"><b>9時-14時の5時間で年100t出荷</b>／畑だけで戦わない農業（×AI）</div></div>
-    <div class="row"><div class="k">発信の3柱</div><div class="v">①数字オープンな現場リアル ②農業×AIの実演（記憶して手を動かすAI＝普通のAIとの差） ③物語</div></div>
-    <div class="row"><div class="k">CTA（リストイン）</div><div class="v">喉特典「<b>儲かる野菜×売り先 AI診断</b>」を公式LINEで無料配布 → 登録の理由に直結</div></div>
-  </div>
-</section>
+  <section class="s" id="s4">
+    <span class="idx"><b>04</b> / 11</span>
+    <div class="wrap">
+      <div class="role rv">中核 ①</div>
+      <div class="big g rv">村一番</div>
+      <p class="lead rv">「農業×AI」で、この村（＝界隈）の一番。<br>農業×AIはX/Brainに<b>ほぼ不在</b>＝<b>一番を取りやすい</b>。</p>
+    </div>
+  </section>
 
-<div class="foot">100t農家イチロウ｜Xポジション戦略（2026-07-05）<br>沖ケイタ式13ポジション × イチロウの実像・文化で決定</div>
+  <section class="s" id="s5">
+    <span class="idx"><b>05</b> / 11</span>
+    <div class="wrap">
+      <div class="role rv">中核 ②</div>
+      <div class="big g rv">開拓者</div>
+      <p class="lead rv">「畑だけで戦わない農業」という<b>新カテゴリ</b>を拓く。<br>誰もやっていないから、名前を取れる。</p>
+    </div>
+  </section>
 
-<div class="dots"><a href="#"></a></div>
+  <section class="s" id="s6">
+    <span class="idx"><b>06</b> / 11</span>
+    <div class="wrap">
+      <div class="role sup rv">補助</div>
+      <h2 class="rv">分析家・翻訳家</h2>
+      <p class="lead rv">現場のリアルと AI を <b>“翻訳”</b> して届ける。<br>AIを農家に／泥臭い現場を、稼ぎたい人に。</p>
+    </div>
+  </section>
+
+  <section class="s dark" id="s7">
+    <span class="idx"><b>07</b> / 11</span>
+    <div class="wrap">
+      <div class="role base rv">土台</div>
+      <h2 class="rv">圧倒的実力者は、<span class="g">数字で語る</span>。</h2>
+      <div class="stats">
+        <div class="stat rv"><div class="n">5<span style="font-size:.5em">時間</span></div><div class="t">9時-14時の労働</div></div>
+        <div class="stat rv"><div class="n">100t</div><div class="t">年間出荷量</div></div>
+        <div class="stat rv"><div class="n">200t</div><div class="t">目前</div></div>
+      </div>
+      <p class="lead rv">振りかざさない。<b style="color:#fff">見せるだけ</b>で効く。</p>
+    </div>
+  </section>
+
+  <section class="s" id="s8">
+    <span class="idx"><b>08</b> / 11</span>
+    <div class="wrap">
+      <div class="role story rv">時々</div>
+      <h2 class="rv">主人公</h2>
+      <p class="lead rv">逆境 → 100t → AI の物語で、人が付いてくる。<br>ただし<b>救世主化はしない</b>（怪しくなる）。</p>
+    </div>
+  </section>
+
+  <section class="s" id="s9">
+    <span class="idx"><b>09</b> / 11</span>
+    <div class="wrap">
+      <div class="kick rv">13型の取捨</div>
+      <h2 class="rv">外す型</h2>
+      <div class="chips rv">
+        <span class="chip no"><span class="x">×</span>教祖<span class="why">怪しい商売感</span></span>
+        <span class="chip no"><span class="x">×</span>HARM寄せ<span class="why">不安煽り</span></span>
+        <span class="chip no"><span class="x">×</span>批評家<span class="why">批判軸</span></span>
+      </div>
+      <p class="lead rv">基準＝イチロウの文化（数字オープン・現場リアル・派手NG）に反するものは捨てる。</p>
+    </div>
+  </section>
+
+  <section class="s dark" id="s10">
+    <span class="idx"><b>10</b> / 11</span>
+    <div class="wrap">
+      <div class="kick rv">Xでの出方</div>
+      <div class="plist">
+        <div class="pl rv"><div class="k">プロフィール固定USP</div><div class="v"><b>9時-14時の5時間で年100t出荷</b>／畑だけで戦わない農業（×AI）</div></div>
+        <div class="pl rv"><div class="k">発信の3柱</div><div class="v">①数字オープンな現場リアル ②農業×AIの実演（記憶して手を動かすAI） ③物語</div></div>
+        <div class="pl rv"><div class="k">CTA（リストイン）</div><div class="v">喉特典「<b>儲かる野菜×売り先 AI診断</b>」を公式LINEで無料配布</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s gold" id="s11">
+    <span class="idx" style="color:#5a4408"><b>11</b> / 11</span>
+    <div class="wrap">
+      <div class="kick rv" style="color:#5a4408">Position</div>
+      <div class="core rv" style="justify-content:flex-start"><span class="w">村一番</span><span class="x" style="color:#3a2a05">×</span><span class="w">開拓者</span></div>
+      <p class="lead rv" style="color:#4a3705;font-weight:700">農業×AIで、この村の一番を取りにいく。</p>
+      <div class="foot rv" style="color:#5a4408">100t農家イチロウ｜Xポジション戦略 2026-07-05</div>
+    </div>
+  </section>
+
+</div>
+
+<div class="nav" id="nav"></div>
+<script>
+  var secs=[].slice.call(document.querySelectorAll('.s'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.35});
+  secs.forEach(function(s){io.observe(s)});
+  var nav=document.getElementById('nav');
+  secs.forEach(function(s){var a=document.createElement('a');a.href='#'+s.id;nav.appendChild(a);});
+</script>
 </body>
 </html>
