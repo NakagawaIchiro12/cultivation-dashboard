@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Brain全文コピー｜品質チェッカーへ</title>
+<style>
+  :root{--bg:#0f1216;--card:#1a1f27;--line:#2a313c;--txt:#e9edf3;--sub:#93a0b4;--ac:#22c55e}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{background:var(--bg);color:var(--txt);font-family:"Hiragino Sans","Yu Gothic","Noto Sans JP",system-ui,sans-serif;padding:16px;padding-bottom:100px;line-height:1.7}
+  .head{text-align:center;margin:8px 0 16px}
+  .head h1{font-size:17px;font-weight:800}
+  .head p{font-size:12.5px;color:var(--sub);margin-top:6px;line-height:1.6}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:13px;white-space:pre-wrap;word-break:break-word;max-height:52vh;overflow:auto}
+  .bar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,#0f1216 22%);display:flex;gap:10px}
+  .btn{flex:1;border:none;border-radius:13px;padding:16px;font-size:16px;font-weight:800;font-family:inherit;cursor:pointer;background:linear-gradient(135deg,var(--ac),#16a34a);color:#fff;box-shadow:0 6px 20px rgba(34,197,94,.35)}
+  .btn:active{transform:translateY(1px)}
+  .btn.sub{background:var(--card);color:var(--txt);border:1px solid var(--line);flex:0 0 auto;box-shadow:none;padding:16px 18px}
+  .toast{position:fixed;bottom:86px;left:50%;transform:translateX(-50%);background:#000d;border:1px solid var(--line);color:#fff;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:800;opacity:0;transition:.25s;pointer-events:none}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="head">
+  <h1>📋 Brain全文コピー</h1>
+  <p>下の「全文コピー」を1タップ →<br>ChatGPTの「ブレイン品質チェッカー」に貼り付け（長押し→ペースト）</p>
+</div>
+<div class="card" id="txt"></div>
+<div class="bar">
+  <button class="btn sub" onclick="location.href='https://chatgpt.com'">GPTを開く</button>
+  <button class="btn" id="copy">📋 全文コピー</button>
+</div>
+<div class="toast" id="toast">コピーした！ChatGPTに長押しで貼り付け</div>
+<script>
+const T = `もう打たない。声だけで、仕事が"終わる"。
+── タイピングを捨てた個人事業主の「音声入力×AI」実務術（Brain最終版v3／5,000円）
+
+対象：「言いたいこと・やることは頭にあるのに、"打つ"のが面倒で発信も資料も止まってしまう、個人事業主・農家・副業のあなた」。
+
+■7日後、あなたはこうなっている
+・毎日1本、発信を"声だけ"で出せている
+・提案・見積りの説明文を、口述で作れている
+・AI/人への指示が、迷わせず一発で通っている
+・「打つのが面倒で止まる」感覚が、消えている
+この4つに、7日で到達します。到達できないことは約束しません。
+
+■はじめに ── あなたは今日、"打つ"のをやめる
+やることは分かっている。書きたいことも頭にある。なのに「文字を打つ」一手間が面倒で、発信も資料も後回しにしていませんか。今、僕のアウトプットのほぼ全部は「声」から生まれています。B地点＝「頭に浮かんだことを声に出すだけで、発信・資料・指示・記録が完成物で出てくる状態を、自分の手で再現できる」。
+この教材は 声(全文)→文字起こし→AIに投げた指示(全文)→AI出力(全文)→自分が直した所→完成物 を完全公開で見せます。
+
+■【一次情報】声だけで作った実ログ・完全公開
+実ログ②：声だけで動くツールを作った（一番疑われる所を全部見せる）
+・声(全文)「このスクショに、赤枠がついたり、モザイクができたり、矢印が引っ張る機能を実装して」
+・AI入力(全文)「画像に 赤枠/矢印/モザイク/ペン/文字 を付けられるWeb注釈ツール。スマホ対応、貼付/選択/ドラッグ、モザイクはなぞった範囲を自動ぼかし、保存とコピー両方、UIは商品品質ダーク」
+・AI出力＝Canvasで矩形/矢印/モザイクを描く1ファイルHTML
+・完成物＝実際に動くWebツール（ライブURLあり）
+実ログ①：声「探偵もの縦2本」→AI→脚本→絵→音声→字幕→mp4自動→縦動画2本（約30分）
+実ログ③：声「音声入力の実務Brain 5000円で構成」→この全文。この商品自体が声だけで生まれた。
+
+■第1章 なぜ今 音声入力×実務か（ペイ感＝未来を買う）
+声は指の3倍速い。買うのは時短でなく未来：お金＝発信が止まらず機会損失を止める／精神＝打つ面倒のストレスが消える／能力＝考えながら喋る＝思考整理が作業しながら終わる／AI相性＝声素材は出力の質が上がる。
+
+■第2章 環境ゼロ設定 ── 5分で投稿完成まで
+スマホ1台・無料だけ。5分で 声でメモ→ChatGPTへ→整った投稿完成→1本投稿。開始5分で「もう元取れた」。
+
+■第3章 実務が回る基本＋失敗パターン
+区切って1文／記号は言葉で／固有名詞は後で置換／誤変換は最後にAIで一括。失敗：一気に喋る→崩壊→一息1文／騒音下→静かに／完璧に喋ろうと止まる→まず雑に全部→AIで整える。3章離脱でも価値。
+
+■第4章 発信を声で（プロンプト公開）
+「私が喋ったメモの誤字を直し1つのX投稿(140字)に。結論先頭、理由は箇条書き、最後に一言、煽らず自然に→(声)」失敗：全部盛る→1投稿1メッセージに。
+
+■第5章 資料・提案を声で
+「口述を 現状→課題→提案→効果→費用 の提案書1枚に→(声)」失敗：説明だけ→相手の得を1文入れて喋る。
+
+■第6章 指示・段取りを声で
+「私の声をAI/人が迷わない指示に。誰が何をいつまでに完了条件の4点で→(声)」失敗：曖昧→完了条件を必ず声に。
+
+■第7章 記録・議事録を声で
+声→要約→保存。記録が資産に。失敗：全部残す→決まった事/次やる事だけ。
+
+■第8章 声で考えながら実務（実ログ）
+本当の価値＝思考の外部化。生声「この商品どう売るか…5000円は高いかな、いや実ログがあれば安く…」→この迷いの声がそのまま構成に。
+
+■第9章 声→AIで寝てても実務が進む（最大の武器）
+声素材1つ→AIが 投稿1本＋要約＋タイトル3案＋関連ネタ5つ を一度に。
+無料AIの役割分担：文章整形＝ChatGPT/Claude／音声化＝VOICEVOX／画像＝無料生成／組み立て＝無料ツール。
+★ツールは役割で覚える（教材の寿命を延ばす）：名前は変わる。①整えるAI②声にするTTS③絵にする画像AI④組み立てる無料ツール、の4役割さえ押さえれば一生使える。
+実証＝作者は今日1日 声だけで 動画・漫画・ツール・フォーム・リサーチ を並行で出した。
+
+■第10章 時間を取り戻す（体験談で価値観書き換え）
+昔は企画が頭にあるのに打つ面倒で消えていった。今は散歩しながら喋るだけで家に着く頃には出来ている。打つのをやめた日から頭の中のものが死ななくなった。声＝暗黙知が資産に。
+
+■特典/巻末QA/完走
+特典A=声かけ&AIプロンプト集／B=実ログ完全版集／C=声→AI無料接続手順書。QA=誤変換/方言/騒音/長文崩れ/修正面倒。緩急=重(3,4,8,9)×軽(1,2,7,10)交互＋各章小達成＋7日後ゴールで完走。`;
+document.getElementById('txt').textContent=T;
+function toast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1900);}
+document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(T);toast();}catch(e){const r=document.createRange();r.selectNode(document.getElementById('txt'));getSelection().removeAllRanges();getSelection().addRange(r);document.execCommand('copy');toast();}};
+</script>
+</body>
+</html>
