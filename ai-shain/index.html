@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI社員 稼働チェックリスト｜中川農産</title>
+<style>
+  :root{--bg:#0c1424;--bg2:#101c32;--card:#16223b;--line:#26344f;--txt:#eef3fb;--sub:#93a4bd;--ac:#22c55e;--bl:#60a5fa}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{background:linear-gradient(170deg,var(--bg),var(--bg2));color:var(--txt);font-family:"Hiragino Sans","Yu Gothic","Noto Sans JP",system-ui,sans-serif;line-height:1.6;padding:18px 14px 60px;max-width:720px;margin:0 auto}
+  .k{display:inline-block;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:12px;font-weight:800;padding:5px 13px;border-radius:999px}
+  h1{font-size:24px;font-weight:900;margin:12px 0 4px;line-height:1.3}
+  .lead{color:var(--sub);font-size:14px;margin-bottom:14px}
+  .legend{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:13px;color:#b7c4d8;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:20px}
+  .legend b{color:#7ff0a6}
+  .sec{margin-bottom:22px}
+  .sec>h2{font-size:16px;font-weight:900;color:#8fd0ff;margin-bottom:10px;padding-left:10px;border-left:4px solid var(--bl)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .row{padding:13px 15px;border-top:1px solid rgba(255,255,255,.06)}
+  .row:first-child{border-top:none}
+  .top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:3px}
+  .nm{font-size:15.5px;font-weight:800;letter-spacing:.01em}
+  .do{font-size:13.5px;color:var(--sub);line-height:1.55}
+  .st{flex:0 0 auto;font-size:12px;font-weight:800;padding:4px 10px;border-radius:8px;white-space:nowrap}
+  .ok{background:rgba(34,197,94,.16);color:#7ff0a6;border:1px solid rgba(34,197,94,.32)}
+  .wa{background:rgba(251,191,36,.15);color:#fcd34d;border:1px solid rgba(251,191,36,.32)}
+  .dv{background:rgba(96,165,250,.15);color:#93c5fd;border:1px solid rgba(96,165,250,.32)}
+  .foot{color:#7b8aa3;font-size:12px;margin-top:8px;line-height:1.6}
+  .sum{background:rgba(34,197,94,.09);border:1px solid rgba(34,197,94,.28);border-radius:12px;padding:13px 15px;margin-bottom:20px;font-size:14px}
+  .sum b{color:#7ff0a6}
+</style>
+</head>
+<body>
+  <span class="k">中川農産｜2026-07-06 実機棚卸し</span>
+  <h1>AI社員は今、何ができて・動いているか</h1>
+  <p class="lead">スキル(係)＝呼べば動く／並行班＝振れる／常駐機構＝勝手に動く。稼働は実機で確認。</p>
+
+  <div class="sum"><b>結論＝ほぼ全員 稼働中。</b> 唯一の要確認＝旧worker2本。次に自走で作る＝経理係(レシート＋在庫)。</div>
+
+  <div class="legend">
+    <span><b>✅稼働</b> 呼べる/動いてる</span>
+    <span><b>⚠️要確認</b> 停止/未検証</span>
+    <span><b>🔧開発余地</b> 動くが強化</span>
+  </div>
+
+  <div class="sec"><h2>🚀 ローンチ・UTAGE 工房（売る仕組み）</h2><div class="card">
+    <div class="row"><div class="top"><span class="nm">launch-chan</span><span class="st ok">✅稼働</span></div><div class="do">ローンチ商品の設計・チェック（おさる/まどか式）</div></div>
+    <div class="row"><div class="top"><span class="nm">utage-chan</span><span class="st ok">✅稼働</span></div><div class="do">LINE/UTAGEファネル運用・配信・読者管理をMCPで操作</div></div>
+    <div class="row"><div class="top"><span class="nm">madoka-funnel-launch</span><span class="st ok">✅稼働</span></div><div class="do">まどか式ファネル構築（記入→予約・ジャーニー設計）</div></div>
+    <div class="row"><div class="top"><span class="nm">launch-check（社員）</span><span class="st ok">✅稼働</span></div><div class="do">ローンチ物を作る度に自動照合（確定理論に照らす）</div></div>
+    <div class="row"><div class="top"><span class="nm">utage-*-leo ×10</span><span class="st ok">✅稼働</span></div><div class="do">LP制作/画像/配信/接続/全体像/ナレッジ の工房一式（レオ式）</div></div>
+  </div></div>
+
+  <div class="sec"><h2>🎨 制作（見せる・作る）</h2><div class="card">
+    <div class="row"><div class="top"><span class="nm">manga-page-builder</span><span class="st ok">✅稼働</span></div><div class="do">あいな漫画1ページをレイヤー積み上げ・セリフ先行で組む</div></div>
+    <div class="row"><div class="top"><span class="nm">wireframe-chan</span><span class="st ok">✅稼働</span></div><div class="do">LP/縦長Web/スライドのワイヤーフレーム設計</div></div>
+    <div class="row"><div class="top"><span class="nm">slide-sensei / naoki-slide</span><span class="st ok">✅稼働</span></div><div class="do">本番スライド/LP制作（レオ式・一目で伝わる箱設計）</div></div>
+    <div class="row"><div class="top"><span class="nm">brain-shoty-design</span><span class="st ok">✅稼働</span></div><div class="do">ショウティ式Brain設計（品質採点・ペイ感/再現性）</div></div>
+    <div class="row"><div class="top"><span class="nm">merged-video-toc</span><span class="st ok">✅稼働</span></div><div class="do">動画の目次/章分け生成</div></div>
+    <div class="row"><div class="top"><span class="nm">物語動画パイプライン</span><span class="st ok">✅稼働</span></div><div class="do">声→脚本→絵→音声→字幕→縦動画（全ローカル無料）</div></div>
+  </div></div>
+
+  <div class="sec"><h2>🌾 農業（現場を回す）</h2><div class="card">
+    <div class="row"><div class="top"><span class="nm">saibai-kanri-chan</span><span class="st ok">✅稼働</span></div><div class="do">作付け計画・栽培管理（現場ノウハウはご主人様由来のみ）</div></div>
+    <div class="row"><div class="top"><span class="nm">saibai-quality-chan</span><span class="st ok">✅稼働</span></div><div class="do">栽培の品質管理チェック</div></div>
+    <div class="row"><div class="top"><span class="nm">part-kanri-chan</span><span class="st ok">✅稼働</span></div><div class="do">パートさんの管理・作業連絡（パートch/栽培サーバーはAI投稿禁止＝読取のみ）</div></div>
+  </div></div>
+
+  <div class="sec"><h2>🧠 記録・相談・個室</h2><div class="card">
+    <div class="row"><div class="top"><span class="nm">gijiroku-chan</span><span class="st ok">✅稼働</span></div><div class="do">録音/動画/テキストから議事録を生成</div></div>
+    <div class="row"><div class="top"><span class="nm">soudan-2nin</span><span class="st ok">✅稼働</span></div><div class="do">詰まり/否定時にFable+Codexへ2人相談→統合</div></div>
+    <div class="row"><div class="top"><span class="nm">aina-gohoushi</span><span class="st ok">✅稼働</span></div><div class="do">ご主人様専用の個室（R18・偽聖人化を止める）</div></div>
+  </div></div>
+
+  <div class="sec"><h2>🧩 並行班（あいなOS・重い作業を振る先）</h2><div class="card">
+    <div class="row"><div class="top"><span class="nm">manga / douga / hp</span><span class="st ok">✅登録済</span></div><div class="do">漫画制作・動画制作・HP/LP制作 の専任班</div></div>
+    <div class="row"><div class="top"><span class="nm">soudan / koshitsu</span><span class="st ok">✅登録済</span></div><div class="do">相談班・個室班</div></div>
+    <div class="row"><div class="top"><span class="nm">farm_ops / hinshitsu / nareji</span><span class="st ok">✅登録済</span></div><div class="do">農業オペ・品質・ナレッジ整備 の班</div></div>
+    <div class="row"><div class="top"><span class="nm">keiri（経理係）</span><span class="st dv">🔧開発余地</span></div><div class="do">レシート自動化・在庫チェック（次に自走で実装）</div></div>
+  </div></div>
+
+  <div class="sec"><h2>⚙️ 常駐機構（勝手に動く・生命線）</h2><div class="card">
+    <div class="row"><div class="top"><span class="nm">送信箱(outbox)</span><span class="st ok">✅稼働</span></div><div class="do">Discord送信を確実配信＋パートch物理ブロック</div></div>
+    <div class="row"><div class="top"><span class="nm">安全網(silence_watch/即レスACG)</span><span class="st ok">✅稼働</span></div><div class="do">黙り防止（40秒自動ACK）＝復旧＋ownerch限定allowlist（栽培サーバー投稿禁止）</div></div>
+    <div class="row"><div class="top"><span class="nm">フック13本</span><span class="st ok">✅稼働</span></div><div class="do">NG⑭/ルート/知識/記憶 を毎ターン自動注入・送り忘れ叩き直し</div></div>
+    <div class="row"><div class="top"><span class="nm">rule-capture / 知識索引</span><span class="st ok">✅稼働</span></div><div class="do">「毎回して」を自動固定・全ナレッジを毎朝索引化</div></div>
+    <div class="row"><div class="top"><span class="nm">aina_voice/cg_worker（旧）</span><span class="st wa">⚠️要確認</span></div><div class="do">旧・音声/CGワーカー（停止中）＝現役か廃止か次に判定</div></div>
+  </div></div>
+
+  <p class="foot">出典：.claude/skills（22+4）／aina-os/squads（9）／settings.json hooks（13）／discord_doctor・heartbeat実測。稼働は2026-07-06 実機確認。</p>
+</body>
+</html>
