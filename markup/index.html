@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>スクショ注釈｜赤枠・矢印・モザイク</title>
+<style>
+  :root{--bg:#0f1115;--panel:#191d25;--panel2:#222834;--line:#2c3341;--txt:#e8ecf3;--sub:#93a0b4;--accent:#ff3b3b;--ok:#22c55e}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--txt);font-family:"Hiragino Sans","Yu Gothic","Noto Sans JP",system-ui,sans-serif;display:flex;flex-direction:column;overflow:hidden}
+  header{padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);background:var(--panel)}
+  header h1{font-size:15px;font-weight:800;letter-spacing:.02em}
+  header .tag{font-size:11px;color:var(--sub);font-weight:600}
+  header .sp{flex:1}
+  .btn{border:none;border-radius:10px;padding:9px 13px;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;background:var(--panel2);color:var(--txt);border:1px solid var(--line);white-space:nowrap}
+  .btn:active{transform:translateY(1px)}
+  .btn.p{background:linear-gradient(135deg,#3b82f6,#2563eb);border-color:transparent;color:#fff}
+  .btn.g{background:linear-gradient(135deg,var(--ok),#16a34a);border-color:transparent;color:#fff}
+  /* toolbar */
+  .tools{display:flex;flex-wrap:wrap;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line);background:var(--panel);align-items:center}
+  .tool{width:44px;height:44px;border-radius:11px;border:1px solid var(--line);background:var(--panel2);color:var(--txt);font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+  .tool.on{background:var(--accent);border-color:var(--accent);box-shadow:0 3px 12px rgba(255,59,59,.4)}
+  .tool small{position:absolute;bottom:2px;font-size:8px;font-weight:800;opacity:.85}
+  .sep{width:1px;height:30px;background:var(--line);margin:0 4px}
+  .swatch{width:26px;height:26px;border-radius:50%;border:2px solid #0006;cursor:pointer}
+  .swatch.on{outline:2px solid #fff;outline-offset:2px}
+  .rangewrap{display:flex;align-items:center;gap:6px;color:var(--sub);font-size:11px}
+  input[type=range]{width:80px;accent-color:var(--accent)}
+  /* stage */
+  .stage{flex:1;overflow:auto;display:flex;align-items:center;justify-content:center;padding:14px;position:relative}
+  #wrap{position:relative;box-shadow:0 12px 40px #000a;line-height:0;max-width:100%}
+  canvas{max-width:100%;height:auto;display:block;touch-action:none;border-radius:6px}
+  .drop{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--sub);text-align:center;padding:24px}
+  .drop .big{font-size:52px}
+  .drop b{color:var(--txt);font-size:17px}
+  .drop .hint{font-size:13px;line-height:1.7}
+  .drop .btn{margin-top:6px}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#000d;color:#fff;padding:10px 18px;border-radius:999px;font-size:13px;font-weight:700;opacity:0;transition:.25s;pointer-events:none;border:1px solid var(--line)}
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <h1>🖍 スクショ注釈</h1><span class="tag">赤枠・矢印・モザイク・文字</span>
+  <span class="sp"></span>
+  <button class="btn" id="undo">↩︎ 戻す</button>
+  <button class="btn" id="clear">クリア</button>
+  <button class="btn g" id="save">⬇ 保存</button>
+  <button class="btn p" id="copy">📋 コピー</button>
+</header>
+
+<div class="tools" id="toolbar" style="display:none">
+  <div class="tool on" data-tool="rect" title="赤枠">▭<small>枠</small></div>
+  <div class="tool" data-tool="arrow" title="矢印">↗<small>矢印</small></div>
+  <div class="tool" data-tool="mosaic" title="モザイク">▩<small>隠す</small></div>
+  <div class="tool" data-tool="pen" title="ペン">✎<small>ペン</small></div>
+  <div class="tool" data-tool="text" title="文字">Ａ<small>文字</small></div>
+  <div class="sep"></div>
+  <div class="swatch on" style="background:#ff3b3b" data-c="#ff3b3b"></div>
+  <div class="swatch" style="background:#ffd400" data-c="#ffd400"></div>
+  <div class="swatch" style="background:#22c55e" data-c="#22c55e"></div>
+  <div class="swatch" style="background:#3b82f6" data-c="#3b82f6"></div>
+  <div class="swatch" style="background:#111" data-c="#111111"></div>
+  <div class="swatch" style="background:#fff" data-c="#ffffff"></div>
+  <div class="sep"></div>
+  <div class="rangewrap">太さ<input type="range" id="width" min="2" max="20" value="6"></div>
+  <div class="rangewrap">画像<button class="btn" id="reload">差し替え</button></div>
+</div>
+
+<div class="stage">
+  <div id="wrap">
+    <canvas id="cv" width="900" height="560"></canvas>
+    <div class="drop" id="drop">
+      <div class="big">🖼️</div>
+      <b>スクショをここに貼り付け</b>
+      <div class="hint">スマホ＝下のボタンで写真を選ぶ<br>PC＝Ctrl+V で貼り付け／ドラッグ&ドロップ</div>
+      <button class="btn p" id="pick">📷 画像を選ぶ</button>
+      <input type="file" id="file" accept="image/*" style="display:none">
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+let img=null, tool='rect', color='#ff3b3b', lw=6, anns=[], drawing=false, sx=0, sy=0, cur=null;
+const $=id=>document.getElementById(id);
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),1600);}
+
+function setImage(image){
+  img=image; cv.width=image.naturalWidth||image.width; cv.height=image.naturalHeight||image.height;
+  anns=[]; $('drop').style.display='none'; $('toolbar').style.display='flex'; render();
+}
+function loadFromSrc(src){const i=new Image();i.onload=()=>setImage(i);i.src=src;}
+$('file').onchange=e=>{const f=e.target.files[0];if(f){const r=new FileReader();r.onload=ev=>loadFromSrc(ev.target.result);r.readAsDataURL(f);}};
+$('pick').onclick=()=>$('file').click();
+$('reload').onclick=()=>$('file').click();
+window.addEventListener('paste',e=>{for(const it of e.clipboardData.items){if(it.type.indexOf('image')===0){const f=it.getAsFile();const r=new FileReader();r.onload=ev=>loadFromSrc(ev.target.result);r.readAsDataURL(f);toast('貼り付けたよ');}}});
+const wrap=$('wrap');
+wrap.addEventListener('dragover',e=>e.preventDefault());
+wrap.addEventListener('drop',e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f){const r=new FileReader();r.onload=ev=>loadFromSrc(ev.target.result);r.readAsDataURL(f);}});
+
+// tools
+document.querySelectorAll('.tool').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tool').forEach(x=>x.classList.remove('on'));t.classList.add('on');tool=t.dataset.tool;});
+document.querySelectorAll('.swatch').forEach(s=>s.onclick=()=>{document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('on'));s.classList.add('on');color=s.dataset.c;});
+$('width').oninput=e=>lw=+e.target.value;
+$('undo').onclick=()=>{anns.pop();render();};
+$('clear').onclick=()=>{if(confirm('注釈を全部消す？')){anns=[];render();}};
+
+function pos(e){const r=cv.getBoundingClientRect();const t=e.touches?e.touches[0]:e;return {x:(t.clientX-r.left)*(cv.width/r.width),y:(t.clientY-r.top)*(cv.height/r.height)};}
+function down(e){if(!img)return;e.preventDefault();const p=pos(e);sx=p.x;sy=p.y;drawing=true;
+  if(tool==='text'){const txt=prompt('文字を入力');drawing=false;if(txt){anns.push({t:'text',x:sx,y:sy,txt,color,lw});render();}return;}
+  if(tool==='pen'){cur={t:'pen',pts:[[sx,sy]],color,lw};}
+  else cur={t:tool,x0:sx,y0:sy,x1:sx,y1:sy,color,lw};
+}
+function move(e){if(!drawing||!cur)return;e.preventDefault();const p=pos(e);
+  if(cur.t==='pen')cur.pts.push([p.x,p.y]);else{cur.x1=p.x;cur.y1=p.y;}
+  render();drawAnn(cur);
+}
+function up(){if(!drawing)return;drawing=false;if(cur){if(cur.t==='pen'&&cur.pts.length<2){}else anns.push(cur);}cur=null;render();}
+cv.addEventListener('mousedown',down);cv.addEventListener('mousemove',move);window.addEventListener('mouseup',up);
+cv.addEventListener('touchstart',down,{passive:false});cv.addEventListener('touchmove',move,{passive:false});window.addEventListener('touchend',up);
+
+function drawAnn(a){
+  ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=a.color;ctx.fillStyle=a.color;ctx.lineWidth=a.lw;
+  if(a.t==='rect'){ctx.strokeRect(Math.min(a.x0,a.x1),Math.min(a.y0,a.y1),Math.abs(a.x1-a.x0),Math.abs(a.y1-a.y0));}
+  else if(a.t==='arrow'){const dx=a.x1-a.x0,dy=a.y1-a.y0,ang=Math.atan2(dy,dx),h=Math.max(14,a.lw*3);
+    ctx.beginPath();ctx.moveTo(a.x0,a.y0);ctx.lineTo(a.x1,a.y1);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(a.x1,a.y1);ctx.lineTo(a.x1-h*Math.cos(ang-0.5),a.y1-h*Math.sin(ang-0.5));
+    ctx.lineTo(a.x1-h*Math.cos(ang+0.5),a.y1-h*Math.sin(ang+0.5));ctx.closePath();ctx.fill();}
+  else if(a.t==='pen'){ctx.beginPath();a.pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.stroke();}
+  else if(a.t==='text'){ctx.font='800 '+(Math.max(20,a.lw*4))+'px sans-serif';ctx.textBaseline='top';
+    ctx.lineWidth=Math.max(3,a.lw*.7);ctx.strokeStyle='#000';ctx.strokeText(a.txt,a.x,a.y);ctx.fillStyle=a.color;ctx.fillText(a.txt,a.x,a.y);}
+  else if(a.t==='mosaic'){const x=Math.min(a.x0,a.x1),y=Math.min(a.y0,a.y1),w=Math.abs(a.x1-a.x0),h=Math.abs(a.y1-a.y0);
+    if(w<4||h<4)return;const bs=Math.max(8,Math.round(Math.min(w,h)/8));
+    const tc=document.createElement('canvas');tc.width=Math.max(1,Math.floor(w/bs));tc.height=Math.max(1,Math.floor(h/bs));
+    const tx=tc.getContext('2d');tx.imageSmoothingEnabled=false;tx.drawImage(cv,x,y,w,h,0,0,tc.width,tc.height);
+    ctx.imageSmoothingEnabled=false;ctx.drawImage(tc,0,0,tc.width,tc.height,x,y,w,h);ctx.imageSmoothingEnabled=true;}
+}
+function render(){if(!img)return;ctx.clearRect(0,0,cv.width,cv.height);ctx.drawImage(img,0,0,cv.width,cv.height);anns.forEach(drawAnn);}
+
+$('save').onclick=()=>{if(!img){toast('先に画像を入れてね');return;}const a=document.createElement('a');a.download='markup_'+Date.now()+'.png';a.href=cv.toDataURL('image/png');a.click();toast('保存した');};
+$('copy').onclick=async()=>{if(!img){toast('先に画像を入れてね');return;}try{const blob=await new Promise(r=>cv.toBlob(r));await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);toast('コピーした！そのまま貼れるよ');}catch(e){toast('コピー不可の端末＝保存を使ってね');}};
+</script>
+</body>
+</html>
