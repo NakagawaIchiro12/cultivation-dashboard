@@ -11,7 +11,8 @@
   .head{text-align:center;margin:8px 0 16px}
   .head h1{font-size:17px;font-weight:800}
   .head p{font-size:12.5px;color:var(--sub);margin-top:6px;line-height:1.6}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:13px;white-space:pre-wrap;word-break:break-word;max-height:52vh;overflow:auto}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;font-size:13px;white-space:pre-wrap;word-break:break-word;max-height:48vh;overflow:auto;-webkit-user-select:text;user-select:text;width:100%;color:var(--txt);font-family:inherit;line-height:1.7;resize:none}
+  .hint{font-size:12px;color:var(--sub);text-align:center;margin-top:10px;line-height:1.6}
   .bar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,#0f1216 22%);display:flex;gap:10px}
   .btn{flex:1;border:none;border-radius:13px;padding:16px;font-size:16px;font-weight:800;font-family:inherit;cursor:pointer;background:linear-gradient(135deg,var(--ac),#16a34a);color:#fff;box-shadow:0 6px 20px rgba(34,197,94,.35)}
   .btn:active{transform:translateY(1px)}
@@ -25,7 +26,8 @@
   <h1>📋 Brain全文コピー</h1>
   <p>下の「全文コピー」を1タップ →<br>ChatGPTの「ブレイン品質チェッカー」に貼り付け（長押し→ペースト）</p>
 </div>
-<div class="card" id="txt"></div>
+<textarea class="card" id="txt" readonly></textarea>
+<div class="hint">効かない時は、上の文を長押し →「すべて選択」→「コピー」でもOK</div>
 <div class="bar">
   <button class="btn sub" onclick="location.href='https://chatgpt.com'">GPTを開く</button>
   <button class="btn" id="copy">📋 全文コピー</button>
@@ -107,9 +109,20 @@ const T = `もう打たない。声だけで、仕事が"終わる"。
 
 ■特典/巻末QA/完走
 特典A=声かけ&AIプロンプト集／B=実ログ完全版集（本編で音声全文・AI入力全文・AI出力・修正・完成物URL）／C=声→AI無料接続手順書。QA=誤変換/方言/騒音/長文崩れ/修正面倒。緩急=重(3,4,8,9)×軽(1,2,7,10)交互＋各章小達成＋7日後ゴール＋7日間ロードマップで完走。`;
-document.getElementById('txt').textContent=T;
-function toast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1900);}
-document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(T);toast();}catch(e){const r=document.createRange();r.selectNode(document.getElementById('txt'));getSelection().removeAllRanges();getSelection().addRange(r);document.execCommand('copy');toast();}};
+const ta=document.getElementById('txt'); ta.value=T;
+function toast(msg){const t=document.getElementById('toast');if(msg)t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2100);}
+document.getElementById('copy').onclick=async()=>{
+  let ok=false;
+  // 1) textareaを選択(スマホ最重要・execCommandの前提)
+  ta.readOnly=false; ta.focus(); ta.select(); try{ta.setSelectionRange(0,999999);}catch(e){}
+  // 2) clipboard API（HTTPS+ジェスチャで最優先）
+  try{ await navigator.clipboard.writeText(T); ok=true; }catch(e){}
+  // 3) execCommand（webview用フォールバック）
+  if(!ok){ try{ ok=document.execCommand('copy'); }catch(e){} }
+  ta.readOnly=true;
+  if(ok){ toast('コピーした！ChatGPTに長押しで貼り付け'); }
+  else { toast('上の文を長押し→全選択→コピーしてね'); }
+};
 </script>
 </body>
 </html>
