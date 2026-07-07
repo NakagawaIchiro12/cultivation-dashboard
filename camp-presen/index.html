@@ -94,6 +94,14 @@
   .tag.now{background:#e8f3ec;color:var(--green-mid)}
   .tag.prep{background:#faf0d8;color:var(--gold-deep)}
   .tag.run{background:#eae3f6;color:var(--plum)}
+  /* source badge (出典＝どの録音で出たか) */
+  .card .meta{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:2px}
+  .card .src{font-size:10.5px;font-weight:800;color:#0c3d22;background:#dcefe1;border:1px solid #bcdcc6;
+    border-radius:7px;padding:3px 8px 3px 6px;letter-spacing:.01em;line-height:1.3;white-space:nowrap}
+  .card .src b{color:var(--green-mid);font-weight:900;margin-right:1px}
+  .t7 .src{display:inline-block;margin-top:8px;margin-left:7px;font-size:11px;font-weight:800;color:#0c3d22;
+    background:#dcefe1;border:1px solid #bcdcc6;border-radius:999px;padding:4px 11px}
+  .t7 .src b{color:var(--green-mid);font-weight:900}
 
   /* ===== RECORDS ===== */
   .recs{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:15px}
@@ -149,6 +157,9 @@
     </div>
     <div class="sumgrid" id="sumgrid"></div>
     <div class="jump" id="jump"></div>
+    <div style="margin-top:26px;background:rgba(224,164,30,.14);border:1px solid rgba(224,164,30,.45);border-radius:14px;padding:14px 18px;font-size:13.5px;font-weight:700;line-height:1.6;color:#eaf3ec">
+      各アイデアの <b class="hl">🎙️出典バッジ</b> ＝ そのアイデアが「いつ・どの録音の・どんな話」で出たか（Plaud全文でウラ取り済み）。<b class="hl">録音①〜⑪</b> は下の「<b class="hl">記録11本</b>」と同じ番号・日付です。「あの話の時に出たやつ」がすぐ辿れます。
+    </div>
   </div>
 </section>
 
@@ -202,13 +213,13 @@ const SUM=[
 ];
 
 const TOP7=[
- {ic:'🎙️',tt:'音声入力Brain 5,000円',ds:'今日から作れる。農家Brain1位で権威づけ、農家に強く刺さる第一号候補。',ref:'#28'},
- {ic:'📉',tt:'VSL改善（維持率を測る）',ds:'審査申込10%がボトルネック。Claude CodeでVSL維持率をHTML可視化して即着手。',ref:'#41'},
- {ic:'🌱',tt:'「伸びる人」に刺す農業AI講座',ds:'本命商品。対象を01層でなく改善意欲層に。12月ローンチ→8月植付を逆算設計。',ref:'#30・#31'},
- {ic:'📺',tt:'台本読むだけYouTube 新ch',ds:'既存知見で即開設可。検索資産＋広告収入 月10〜20万＋教育導線。',ref:'#1'},
- {ic:'🏕️',tt:'1dayキャンプをBrain化',ds:'29,800→上限69,800円。競合が出始め＝早くポジションを取る非属人型商品。',ref:'#29'},
- {ic:'🔧',tt:'NG100＋Fableで総点検',ds:'生成品質の安定とスキル体系の整理。石田さんの点検プロンプトを実行するだけ。',ref:'#48・#49'},
- {ic:'🥬',tt:'キャベツ育成アプリ',ds:'唯一無二の商品。“購入”でなく“自分が育てた体験”を売る。7/14種まきに間に合わせる価値。',ref:'#63'},
+ {ic:'🎙️',tt:'音声入力Brain 5,000円',ds:'今日から作れる。農家Brain1位で権威づけ、農家に強く刺さる第一号候補。',ref:'#28',src:'録音⑧ 7/5夜 採用支援×農業DX'},
+ {ic:'📉',tt:'VSL改善（維持率を測る）',ds:'審査申込10%がボトルネック。Claude CodeでVSL維持率をHTML可視化して即着手。',ref:'#41',src:'録音⑥ 7/5 農業支援×VSL(ナオキ)'},
+ {ic:'🌱',tt:'「伸びる人」に刺す農業AI講座',ds:'本命商品。対象を01層でなく改善意欲層に。12月ローンチ→8月植付を逆算設計。',ref:'#30・#31',src:'録音⑥ 7/5 農業支援×VSL(ナオキ)'},
+ {ic:'📺',tt:'台本読むだけYouTube 新ch',ds:'既存知見で即開設可。検索資産＋広告収入 月10〜20万＋教育導線。',ref:'#1',src:'録音② 7/5 講座販売導線'},
+ {ic:'🏕️',tt:'1dayキャンプをBrain化',ds:'29,800→上限69,800円。競合が出始め＝早くポジションを取る非属人型商品。',ref:'#29',src:'録音⑩ 7/6 動画編集×仕組み化'},
+ {ic:'🔧',tt:'NG100＋Fableで総点検',ds:'生成品質の安定とスキル体系の整理。石田さんの点検プロンプトを実行するだけ。',ref:'#48・#49',src:'録音⑧ 7/5夜 ＋ 録音⑩ 7/6'},
+ {ic:'🥬',tt:'キャベツ育成アプリ',ds:'唯一無二の商品。“購入”でなく“自分が育てた体験”を売る。7/14種まきに間に合わせる価値。',ref:'#63',src:'録音③ 7/5 熱海交流会・農業'},
 ];
 
 const CATS=[
@@ -386,6 +397,26 @@ const RECS=[
  ]},
 ];
 
+/* ===== 出典（各アイデア→どの録音で出たか。transcriptで裏取り済み） ===== */
+// 録音番号（丸数字）→ 日付＋短いセッション名（「記録11本」セクションと対応）
+const REC={
+ '①':'7/5 広告×YT×SNS戦略','②':'7/5 講座販売導線','③':'7/5 熱海交流会・農業',
+ '④':'7/5 おさる基調','⑤':'7/5 情報交換イベント','⑥':'7/5 農業支援×VSL(ナオキ)',
+ '⑦':'7/5 沖ケイタ ポジショニング','⑧':'7/5夜 採用支援×農業DX','⑨':'7/6 おさる高単価講義',
+ '⑩':'7/6 動画編集×仕組み化','⑪':'7/6 お猿村構想・帰路',
+};
+// アイデア番号 → 録音番号
+const SRC={
+ 1:'②',2:'①',3:'①',4:'①',5:'①',6:'②',7:'⑥',8:'②',9:'⑤',10:'②',11:'⑧',12:'⑧',13:'⑩',14:'⑩',
+ 15:'③',16:'②',17:'⑧',18:'⑧',19:'⑧',20:'⑥',21:'⑦',22:'⑦',23:'⑦',24:'⑨',25:'②',26:'②',27:'⑥',
+ 28:'⑧',29:'⑩',30:'⑥',31:'⑥',32:'⑥',33:'⑨',34:'⑨',35:'⑨',36:'⑨',37:'②',38:'②',39:'②',40:'②',
+ 41:'⑥',42:'⑩',43:'⑨',44:'②',45:'②',46:'②',47:'⑪',
+ 48:'⑧',49:'⑩',50:'⑧',51:'⑧',52:'⑧',53:'⑧',54:'⑧',55:'⑧',56:'⑧',57:'⑤',58:'⑧',59:'⑧',60:'⑩',61:'⑩',62:'⑩',
+ 63:'③',64:'⑧',65:'⑧',66:'③',67:'③',68:'⑪',69:'⑩',70:'⑥',
+ 71:'⑪',72:'⑪',73:'⑩',74:'⑨',
+ 75:'⑪',76:'⑪',77:'⑤',78:'⑧',
+};
+
 /* ===== RENDER ===== */
 const $=s=>document.querySelector(s);
 const FLAT=location.search.indexOf('flat')>-1;
@@ -402,16 +433,19 @@ $('#jump').innerHTML=`<a href="#top7">⭐ トップ7</a>`+
 // top7
 $('#top7grid').innerHTML=TOP7.map((x,i)=>
  `<div class="t7 rv"><div class="rk">${i+1}</div><div class="ic">${x.ic}</div>
-   <div class="tt">${x.tt}</div><div class="ds">${x.ds}</div><div class="ref">${x.ref}</div></div>`).join('');
+   <div class="tt">${x.tt}</div><div class="ds">${x.ds}</div>
+   <div><span class="ref">${x.ref}</span><span class="src"><b>🎙️出典</b> ${x.src}</span></div></div>`).join('');
 
 // categories
 const TAGLABEL={now:'即',prep:'要準備',run:'即・稼働中'};
 $('#cats').innerHTML=CATS.map(c=>{
  const cards=c.items.map(it=>{
   const[n,ic,tt,ds,tag]=it;
+  const s=SRC[n];
+  const srcbadge=s?`<span class="src"><b>🎙️${s}</b> ${REC[s]}</span>`:'';
   return `<div class="card rv"><div class="row"><div class="cn">${n}</div><div class="ci">${ic}</div></div>
     <div class="tt">${tt}</div><div class="ds">${ds}</div>
-    <div class="tag ${tag=='run'?'run':tag}">${TAGLABEL[tag]}</div></div>`;
+    <div class="meta"><span class="tag ${tag=='run'?'run':tag}">${TAGLABEL[tag]}</span>${srcbadge}</div></div>`;
  }).join('');
  return `<section class="sec ${c.dark?'dark':''}" id="${c.id}"><div class="wrap">
    <div class="head"><div class="hi">${c.icon}</div>
@@ -421,10 +455,11 @@ $('#cats').innerHTML=CATS.map(c=>{
    <div class="grid">${cards}</div></div></section>`;
 }).join('');
 
-// records
+// records（各録音の日付を頭に付ける＝アイデアの🎙️出典バッジと対応）
+const RECDATE={'①':'7/5','②':'7/5','③':'7/5','④':'7/5','⑤':'7/5','⑥':'7/5','⑦':'7/5','⑧':'7/5夜〜6','⑨':'7/6','⑩':'7/6','⑪':'7/6'};
 $('#recsgrid').innerHTML=RECS.map(r=>
  `<div class="rec rv"><div class="rh"><div class="rn">${r.n}</div>
-   <div><div class="rt">${r.t}</div><div class="rs">${r.s}</div></div></div>
+   <div><div class="rt">${r.t}</div><div class="rs">📅 2026-${RECDATE[r.n]}｜${r.s}</div></div></div>
    <ul>${r.pts.map(p=>`<li>${p}</li>`).join('')}</ul></div>`).join('');
 
 /* flat mode for screenshot / reduced motion */
