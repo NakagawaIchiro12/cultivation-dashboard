@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>熱海合宿 2026｜アイデア78＋記録11</title>
+<style>
+  :root{
+    --green:#0c3d22; --green-mid:#14733f; --green-lite:#38a45a;
+    --cream:#f7f4ea; --ink:#17231a; --sub:#5f6a58; --line:#e5e2d4;
+    --gold:#e0a41e; --gold-deep:#b9820f; --card:#fffdf6;
+    --plum:#7a5cae;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP","Meiryo",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{width:100%;max-width:1000px;margin:0 auto;padding:0 20px}
+  b.hl{color:var(--gold-deep);font-weight:900}
+  .dark b.hl{color:#ffd873}
+
+  /* ===== HERO ===== */
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    background:linear-gradient(180deg,#0a3a20 0%,#0c3d22 100%);color:#fff;position:relative;overflow:hidden;padding:60px 22px;
+    border-top:8px solid var(--gold)}
+  .hero::before{content:"🥬";position:absolute;font-size:52vh;opacity:.05;bottom:-9vh;left:-5vw;transform:rotate(-12deg)}
+  .hero::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(60% 40% at 50% 30%,rgba(56,164,90,.32) 0%,rgba(56,164,90,0) 70%)}
+  .hero>*{position:relative;z-index:2}
+  .hero .kick{display:inline-block;font-size:clamp(11px,3vw,14px);font-weight:900;letter-spacing:.22em;color:#3a2a05;
+    background:var(--gold);padding:8px 18px;border-radius:999px;margin-bottom:24px;box-shadow:0 6px 16px rgba(200,140,20,.4)}
+  .hero h1{font-size:clamp(40px,11vw,80px);font-weight:900;line-height:1.06;letter-spacing:.01em;
+    text-shadow:0 6px 26px rgba(0,0,0,.35)}
+  .hero h1 .y{color:var(--gold)}
+  .hero .date{margin-top:22px;font-size:clamp(14px,4vw,19px);font-weight:800;color:#eaf3ec}
+  .hero .bigcount{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;justify-content:center}
+  .hero .bc{background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.04));
+    border:1.5px solid rgba(224,164,30,.5);border-top:5px solid var(--gold);border-radius:16px;padding:18px 26px;min-width:150px;
+    box-shadow:0 12px 30px rgba(0,0,0,.28)}
+  .hero .bc .n{font-size:clamp(42px,12vw,66px);font-weight:900;color:var(--gold);line-height:1;text-shadow:0 4px 14px rgba(0,0,0,.3)}
+  .hero .bc .t{font-size:13px;font-weight:800;color:#eaf3ec;margin-top:8px;letter-spacing:.1em}
+  .hero .scroll{position:absolute;bottom:22px;font-size:12px;letter-spacing:.2em;color:#bcd4c2;z-index:2}
+
+  /* ===== SECTION SHELL ===== */
+  .sec{padding:64px 0 40px}
+  .sec.dark{background:radial-gradient(120% 80% at 82% 0%,#155a34 0%,var(--green) 62%);color:#fff}
+  .sec.gold{background:linear-gradient(150deg,var(--gold) 0%,#c98a12 100%);color:#3a2a05}
+  .head{display:flex;align-items:center;gap:16px;margin-bottom:26px;padding-left:16px;border-left:8px solid var(--gold)}
+  .sec.gold .head{border-left-color:#3a2a05}
+  .head .hi{font-size:clamp(42px,10vw,62px);line-height:1;filter:drop-shadow(0 5px 8px rgba(0,0,0,.2))}
+  .head .ht{flex:1}
+  .head .kick{font-size:12px;font-weight:800;letter-spacing:.22em;color:var(--gold-deep);text-transform:uppercase}
+  .sec.dark .head .kick{color:var(--gold)}
+  .head h2{font-size:clamp(24px,6.4vw,38px);font-weight:900;line-height:1.2;margin-top:4px}
+  .head .cnt{background:var(--gold);color:#3a2a05;font-weight:900;font-size:clamp(18px,5vw,26px);border-radius:14px;padding:8px 16px;white-space:nowrap;box-shadow:0 6px 16px rgba(200,140,20,.35)}
+  .rule{width:52px;height:6px;border-radius:3px;background:var(--gold);margin-bottom:22px}
+
+  /* ===== SUMMARY GRID ===== */
+  .sumgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .sbox{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:20px 16px;text-align:center;position:relative;overflow:hidden}
+  .sbox .ci{font-size:clamp(34px,9vw,46px);line-height:1}
+  .sbox .cn{font-size:clamp(30px,8vw,46px);font-weight:900;color:var(--gold);line-height:1;margin-top:8px}
+  .sbox .ct{font-size:13px;font-weight:800;margin-top:8px;color:#eaf3ec;line-height:1.35}
+  .sbox .cnum{position:absolute;top:8px;left:10px;font-size:12px;font-weight:900;color:rgba(255,255,255,.35)}
+
+  /* jump chips */
+  .jump{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px;justify-content:center}
+  .jump a{font-size:12.5px;font-weight:800;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;
+    border-radius:999px;padding:8px 14px;text-decoration:none}
+  .jump a:hover{background:var(--gold);color:#3a2a05}
+
+  /* ===== TOP7 ===== */
+  .top7{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .t7{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 18px 18px;position:relative;
+    box-shadow:0 8px 22px rgba(20,60,30,.08);overflow:hidden}
+  .t7::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--green-mid),var(--green-lite))}
+  .t7 .rk{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;background:var(--gold);color:#3a2a05;
+    font-weight:900;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 12px rgba(200,140,20,.4)}
+  .t7 .ic{font-size:46px;line-height:1;margin-bottom:10px}
+  .t7 .tt{font-size:clamp(19px,4.6vw,23px);font-weight:900;color:var(--ink);line-height:1.25;padding-right:44px}
+  .t7 .ds{font-size:14px;font-weight:600;color:var(--sub);margin-top:9px;line-height:1.6}
+  .t7 .ref{display:inline-block;margin-top:12px;font-size:11px;font-weight:800;color:var(--green-mid);background:#e8f3ec;border-radius:999px;padding:4px 11px}
+
+  /* ===== IDEA GRID ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:13px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:15px 15px 14px;position:relative;
+    box-shadow:0 4px 14px rgba(20,60,30,.06);display:flex;flex-direction:column;gap:6px;border-top:4px solid var(--green-lite)}
+  .card .row{display:flex;align-items:center;gap:11px}
+  .card .cn{width:32px;height:32px;flex:none;border-radius:9px;background:var(--gold);color:#3a2a05;font-weight:900;font-size:15px;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(200,140,20,.35)}
+  .card .ci{font-size:32px;line-height:1}
+  .card .tt{font-size:17px;font-weight:900;color:var(--ink);line-height:1.25}
+  .card .ds{font-size:12.5px;font-weight:600;color:#4a5a4c;line-height:1.5}
+  .card .tag{align-self:flex-start;margin-top:2px;font-size:11px;font-weight:800;border-radius:999px;padding:3px 11px}
+  .tag.now{background:#e8f3ec;color:var(--green-mid)}
+  .tag.prep{background:#faf0d8;color:var(--gold-deep)}
+  .tag.run{background:#eae3f6;color:var(--plum)}
+
+  /* ===== RECORDS ===== */
+  .recs{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:15px}
+  .rec{background:rgba(255,255,255,.085);border:1px solid rgba(255,255,255,.16);border-radius:16px;overflow:hidden}
+  .rec .rh{display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(90deg,rgba(20,115,63,.65),rgba(15,61,34,.35));border-bottom:2px solid rgba(224,164,30,.35)}
+  .rec .rn{width:42px;height:42px;flex:none;border-radius:12px;background:var(--gold);color:#3a2a05;font-weight:900;font-size:20px;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+  .rec .rt{font-size:16px;font-weight:900;line-height:1.25;color:#fff}
+  .rec .rs{font-size:11.5px;font-weight:800;color:#bcd4c2;margin-top:3px}
+  .rec ul{list-style:none;display:flex;flex-direction:column;gap:9px;padding:15px 16px 17px}
+  .rec li{font-size:13px;font-weight:700;color:#eef4ef;line-height:1.5;padding-left:20px;position:relative}
+  .rec li::before{content:"▸";position:absolute;left:0;color:var(--gold);font-weight:900;font-size:14px}
+
+  /* ===== CLOSING ===== */
+  .close{min-height:70svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 22px}
+  .close .big{font-size:clamp(28px,7vw,48px);font-weight:900;color:#3a2a05;line-height:1.2}
+  .close .sub{font-size:clamp(15px,4vw,19px);font-weight:700;color:#5a4408;margin-top:18px}
+  .close .foot{font-size:12px;color:#5a4408;margin-top:34px;font-weight:700;letter-spacing:.08em}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+  .in .rv{opacity:1;transform:none}
+  .in .rv:nth-child(2){transition-delay:.05s}.in .rv:nth-child(3){transition-delay:.1s}
+  .in .rv:nth-child(4){transition-delay:.15s}
+  @media (prefers-reduced-motion:reduce){.rv{transition:none;opacity:1;transform:none}}
+
+  /* top progress bar */
+  #bar{position:fixed;top:0;left:0;height:4px;background:var(--gold);width:0;z-index:50}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="kick">おさる講座 熱海合宿 REPORT</div>
+  <h1>熱海合宿<br><span class="y">2026</span></h1>
+  <div class="date">2026年 7月5日 〜 6日｜Plaud録音 全11本</div>
+  <div class="bigcount">
+    <div class="bc"><div class="n">78</div><div class="t">アイデア</div></div>
+    <div class="bc"><div class="n">11</div><div class="t">録音の記録</div></div>
+    <div class="bc"><div class="n">7</div><div class="t">カテゴリ</div></div>
+  </div>
+  <div class="scroll">SCROLL ↓</div>
+</section>
+
+<!-- SUMMARY -->
+<section class="sec dark" id="summary">
+  <div class="wrap">
+    <div class="head">
+      <div class="hi">🗂️</div>
+      <div class="ht"><div class="kick">Summary</div><h2>アイデアの全体像</h2></div>
+    </div>
+    <div class="sumgrid" id="sumgrid"></div>
+    <div class="jump" id="jump"></div>
+  </div>
+</section>
+
+<!-- TOP7 -->
+<section class="sec" id="top7">
+  <div class="wrap">
+    <div class="head">
+      <div class="hi">⭐</div>
+      <div class="ht"><div class="kick">Best 7</div><h2>すぐ効く トップ7</h2></div>
+      <div class="cnt">TOP 7</div>
+    </div>
+    <div class="rule"></div>
+    <div class="top7" id="top7grid"></div>
+  </div>
+</section>
+
+<!-- CATEGORY SECTIONS render here -->
+<div id="cats"></div>
+
+<!-- RECORDS -->
+<section class="sec dark" id="records">
+  <div class="wrap">
+    <div class="head">
+      <div class="hi">🎙️</div>
+      <div class="ht"><div class="kick">Records</div><h2>何を話したか｜録音11本</h2></div>
+      <div class="cnt">11</div>
+    </div>
+    <div class="recs" id="recsgrid"></div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="sec gold">
+  <div class="close">
+    <div class="big rv">78のアイデアを、<br>1つずつ、形にする。</div>
+    <div class="sub rv">まず動くのは — 音声入力Brain・VSL改善・農業AI講座。</div>
+    <div class="foot rv">熱海合宿 2026-07-05〜06｜中川農産 100t農家イチロウ｜担当＝プレゼン制作班</div>
+  </div>
+</section>
+
+<script>
+/* ===== DATA ===== */
+const SUM=[
+ {i:'📺',n:14,t:'YouTube / 動画',id:'c1'},
+ {i:'🐦',n:13,t:'SNS / X 発信',id:'c2'},
+ {i:'🎯',n:20,t:'商品設計 / ローンチ',id:'c3'},
+ {i:'⚙️',n:15,t:'AI活用 / 仕組み化',id:'c4'},
+ {i:'🥬',n:8, t:'農業ビジネス',id:'c5'},
+ {i:'🐒',n:4, t:'お猿村 / 場',id:'c6'},
+ {i:'💡',n:4, t:'その他の種',id:'c7'},
+];
+
+const TOP7=[
+ {ic:'🎙️',tt:'音声入力Brain 5,000円',ds:'今日から作れる。農家Brain1位で権威づけ、農家に強く刺さる第一号候補。',ref:'#28'},
+ {ic:'📉',tt:'VSL改善（維持率を測る）',ds:'審査申込10%がボトルネック。Claude CodeでVSL維持率をHTML可視化して即着手。',ref:'#41'},
+ {ic:'🌱',tt:'「伸びる人」に刺す農業AI講座',ds:'本命商品。対象を01層でなく改善意欲層に。12月ローンチ→8月植付を逆算設計。',ref:'#30・#31'},
+ {ic:'📺',tt:'台本読むだけYouTube 新ch',ds:'既存知見で即開設可。検索資産＋広告収入 月10〜20万＋教育導線。',ref:'#1'},
+ {ic:'🏕️',tt:'1dayキャンプをBrain化',ds:'29,800→上限69,800円。競合が出始め＝早くポジションを取る非属人型商品。',ref:'#29'},
+ {ic:'🔧',tt:'NG100＋Fableで総点検',ds:'生成品質の安定とスキル体系の整理。石田さんの点検プロンプトを実行するだけ。',ref:'#48・#49'},
+ {ic:'🥬',tt:'キャベツ育成アプリ',ds:'唯一無二の商品。“購入”でなく“自分が育てた体験”を売る。7/14種まきに間に合わせる価値。',ref:'#63'},
+];
+
+const CATS=[
+ {id:'c1',icon:'📺',kick:'Category 01',title:'YouTube / 動画自動化',cnt:14,dark:false,items:[
+  [1,'📺','台本読むだけYouTube','新chで検索資産化・広告収入 月10〜20万','now'],
+  [2,'🎯','マス8：教育2の配分','伸びる動画で認知・売れる動画で教育','now'],
+  [3,'📈','維持率50%の台本テンプレ','OP30秒で本題・お客様の生の言葉を台本に','now'],
+  [4,'📸','サムネは日常感','宣材NG・畑のワンシーン・企画ごと撮影','now'],
+  [5,'🔎','vidIQで企画リサーチ','再生が登録数2倍超をベンチマーク','now'],
+  [6,'✂️','AI動画編集パイプライン','台本→カット→テロップ→スライド自動','run'],
+  [7,'📱','横長→縦長ショート変換','長尺を中央切抜きで再利用（ナオキ機能）','prep'],
+  [8,'🧑‍💻','HeyGenで顔・声クローン','話さず動画量産・顔出し苦手でも成立','prep'],
+  [9,'🗣️','キャラ会話型 自動動画','ずんだもん型・機械音声は維持率高い','prep'],
+  [10,'🎭','スカッと系ショートドラマ','嫁姑・50〜60代女性が10万再生級','prep'],
+  [11,'🕵️','探偵もの縦型ショート漫画','1画面完結・素材10秒でAIが2本生成','now'],
+  [12,'😴','睡眠導入 / 朗読動画','20分朗読で5万再生・著作権切れ作品','prep'],
+  [13,'🎞️','「この雰囲気で」再現AI編集','参考動画で指示・Codexに映像解析','prep'],
+  [14,'👏','2カメ「手パンパン」ルール','カチンコ役で音声同期の基準に','now'],
+ ]},
+ {id:'c2',icon:'🐦',kick:'Category 02',title:'SNS / X・発信・ポジショニング',cnt:13,dark:true,items:[
+  [15,'🪑','農業×教育でポジ取り','体系的に教育を売る人が少ない空き椅子','now'],
+  [16,'🏷️','「〇〇式」独自メソッド命名','キャラが立ち新手法に見える','now'],
+  [17,'🐦','X自動投稿 1日7件の型','メイン2・漫画2・ニュース+意見3','now'],
+  [18,'🤝','有力者リポスト＋交流','5,000〜1万まで・本人RTで5万人に届く','now'],
+  [19,'⏰','投稿時刻に揺らぎ','7:50〜8:10ランダムで凍結回避','now'],
+  [20,'🎚️','オプトイン直後の段階選択','回答率40〜60%・相談の質が上がる','now'],
+  [21,'🥇','狭く切って1位を取る','作物×地域×手法・村一番（13分類）','now'],
+  [22,'🎖️','属性を武器にする','一代目・100t・16年・会社組織化','now'],
+  [23,'🤖','添削/商品設計/比較GPT','GPTで平均点→人の添削で80〜90点','prep'],
+  [24,'📲','Instagramは認知→LINE反復','数万再生でも1%＝100リスト','now'],
+  [25,'📖','ストーリーズだけは回す','受講生やり取り・日常が申込の決め手','now'],
+  [26,'💬','CVコンテンツ強化','対談・受講生の声・内部の見える化','prep'],
+  [27,'⚙️','X発信を役割分担・仕組み化','「息するように集客」の負荷を軽減','prep'],
+ ]},
+ {id:'c3',icon:'🎯',kick:'Category 03',title:'商品設計 / 高単価 / ローンチ / 導線',cnt:20,dark:false,items:[
+  [28,'🎙️','音声入力Brain 5,000円','農家Brain1位で権威・強く刺さる','now'],
+  [29,'🏕️','1dayキャンプBrain化','29,800→上限69,800円・早くポジション','now'],
+  [30,'🌱','「伸びる人」に刺す農業AI講座','01層でなく育てている改善意欲層に','now'],
+  [31,'📅','作物ライフサイクル逆算設計','12月ローンチ→8月植付・段取り9割','now'],
+  [32,'📊','入口は「栽培」から','収量・売上・利益を数字で見せられる','now'],
+  [33,'🛡️','高単価は審査制・デポジット型','低単価→上位→買わぬ人にダウンセル','prep'],
+  [34,'🎓','0→1層に必要性を教育','「20万なら」層に伴走の価値を伝える','now'],
+  [35,'🎁','最強オファーは見せる','最高い商品購入者に渡す＝入る理由','now'],
+  [36,'🎬','ローンチは期待値設計','出し切らない・ドキュメンタリー型','prep'],
+  [37,'🔼','引き上げセミナー 月4回','悩み別・段階別・壁打ち会','prep'],
+  [38,'😟','恐怖を言語化する発信','失敗しないか/続けられるか/今さら遅くないか','now'],
+  [39,'🚪','エバーに本物の期間限定感','1.5ヶ月に1回・土日2日で本当に止める','prep'],
+  [40,'🔍','VSEO（検索キーワード動画）','検索経由は悩み明確・成約率が高い','now'],
+  [41,'📉','VSL改善（維持率を測る）','審査申込10%が壁・HTMLで可視化','now'],
+  [42,'🎀','特典の作り分け','ボリューム型＋企画ごとの訴求特典','now'],
+  [43,'🧲','大市場で集め狭い高単価へ','パニック障害→治療家養成の農業版','prep'],
+  [44,'🤲','JV（相性の良い発信者と）','1企画5,000〜8,000万・しおりさんJV','prep'],
+  [45,'📢','広告Meta中心・後ろで回収','月8,000円サブスクでシェア奪取','prep'],
+  [46,'💭','オープンチャットを前段に','企画前に一気に熱量・思想的価値','now'],
+  [47,'🏃','ランニング＝継続・習慣・マインド','6ヶ月50万のマインド講座の型','prep'],
+ ]},
+ {id:'c4',icon:'⚙️',kick:'Category 04',title:'AI活用 / 仕組み化 / 自動化',cnt:15,dark:true,items:[
+  [48,'✅','YES100・NG100ルール','80点が出たら悪い要素をNG化','now'],
+  [49,'🔧','Fableでローンチ+スキル総点検','抜け漏れ指摘・スキル数を削減','now'],
+  [50,'📝','音声を全文文字起こしでナレッジ化','要約で痩せさせない・2,000件蓄積','now'],
+  [51,'🖼️','スクショ保存で自動読取','指定フォルダに入れた瞬間AI処理','prep'],
+  [52,'💴','Lark移行でツール費削減','月約1,700円・Zoom代替で月4〜5千円減','prep'],
+  [53,'🧾','freee×Claude API連携','複式簿記不要・経理係の実装','prep'],
+  [54,'📏','農業のAI測定（0.5cm/1g）','写真→成長グラフ・肥料量を算出','now'],
+  [55,'🗂️','実務をなくす優先順位','1日5回/20分以上/必須から自動化','now'],
+  [56,'🎬','AIは監督型で運用','ゴール逆算・10段階分解・褒めて型化','now'],
+  [57,'📊','Fableは先に「何%使うか」','メーターのスクショで確認','now'],
+  [58,'🌐','Xリサーチは無料方法','MCP/ブラウザ・有料API禁止','now'],
+  [59,'🧑‍💼','「いちさん」型AI社員Brain','自分の分身を作る投資','prep'],
+  [60,'🔀','役割分担 Claude/Codex/GPT','運用・開発・映像理解を使い分け','now'],
+  [61,'🔔','更新情報は通知＋動画で届く','文字10行でなく動画で解説','prep'],
+  [62,'📚','AI教材はAIに読ませて使う','本編・特典をナレッジ化（約2時間）','now'],
+ ]},
+ {id:'c5',icon:'🥬',kick:'Category 05',title:'農業ビジネス / 支援',cnt:8,dark:false,items:[
+  [63,'🥬','キャベツ育成アプリ','育て収穫成功で本物が届く・体験を売る','prep'],
+  [64,'🌏','農業人材を輸入するビジネス','農地+古家+仕事パッケージ・採用支援','prep'],
+  [65,'🧑‍🌾','農業版タイミー＋説明力','「なぜ草取りが必要か」まで伝える','prep'],
+  [66,'🗾','勝てる地域×作物×規模の選定','好きより求められるものを安定供給','now'],
+  [67,'🏢','企業直販（惣菜企業）への販路','歩留まり・大きいキャベツ・週10〜15t','now'],
+  [68,'🐒','農業を体験型に（お猿村接続）','農園型・区画型・場を先に押さえる','prep'],
+  [69,'🤖','フィジカルAI/ドローンで設計側へ','重労働を機械化・薄利構造を打開','prep'],
+  [70,'🏗️','会社組織化を既存農家に伝える','パート中心で回る体制・背中を押す','now'],
+ ]},
+ {id:'c6',icon:'🐒',kick:'Category 06',title:'お猿村構想 / コミュニティ・場',cnt:4,dark:true,items:[
+  [71,'🐒','おさる村に農業で関わる','優勝案・合宿場/リトリート/農園構築講座','prep'],
+  [72,'🔥','自分でも「場」を作る','少人数でも続けるから増える','prep'],
+  [73,'📦','オフ会は「型」を持ち帰る場','編集プロファイル共有・限定特典','prep'],
+  [74,'🏛️','商工会議所・経営者団体に入る','企業決裁者の場・ToB紹介ルート','prep'],
+ ]},
+ {id:'c7',icon:'💡',kick:'Category 07',title:'その他・派生の種',cnt:4,dark:false,items:[
+  [75,'🔗','AIサービスのマッチングPF','個人開発AIと利用者を成果報酬で','prep'],
+  [76,'🧞','AI秘書/執事/相談役キャラ','農家向けAIアプリの原点','prep'],
+  [77,'👓','AI時代に疲れた人向けBrain','目の疲れ軽減・眼精疲労グッズ','prep'],
+  [78,'🎯','ニッチ商品を10個持つ','2〜3万を複数買う人・面で広げる','prep'],
+ ]},
+];
+
+const RECS=[
+ {n:'①',t:'広告・YouTube・SNSと売上戦略',s:'ディベート型セミナー＋モエゾYouTube講座',pts:[
+  '議題1「1年後の売上は広告かYouTubeか」→ <b class="hl">広告が勝利</b>（50万→300万の複利）',
+  '議題2「テンプレか自分の言葉か」→ 自分の言葉が勝利',
+  '決勝「個人ブランドか売却できる会社か」→ 個人ブランド優勝（最強は両方）',
+  'モエゾ＝登録40万・ローンチで個別相談 <b class="hl">約700件</b>／1日31件対応',
+  'ジャンルで9割決まる・サムネは日常感・維持率50%台本',
+ ]},
+ {n:'②',t:'講座販売導線・YouTube集客・AI編集',s:'最も情報量が多い回',pts:[
+  '課題は成約でなく<b class="hl">引き上げ導線</b>（登録13万・月20相談・成約50%）',
+  '集客順＝YouTube・X・広告・JV・オープンチャット',
+  '実績＝藤井さん看護国試 <b class="hl">ROAS1231%</b>・成約率100%',
+  'イチロウAI動画編集の詳細（ローカル・2〜5分を5本まとめ生成）',
+  '農業ch「ハッピーベジタブル」＝台本読むだけで登録3万',
+ ]},
+ {n:'③',t:'熱海交流会・農業ビジネス・AI活用',s:'イチロウの農業リアル',pts:[
+  '農家発信のポジション空き（ローンチまでやる人が少ない）',
+  '導線を分ける（0→1はまどか／既存はレオ）',
+  'イチロウ＝週<b class="hl">10〜15t</b>出荷・取引先は年商100〜200億',
+  '愛知はキャベツ出荷量日本一・大きいキャベツの価値上昇',
+  'キャベツ育成アプリ構想（7/14種まき・11月後半収穫）',
+ ]},
+ {n:'④',t:'SNS運用・AI活用・事業成長戦略',s:'おさる基調（約500名合宿）',pts:[
+  '信頼は会う前から設計・成約に至らぬ相手にも再ギブ',
+  'チャンスを掴む＝2015年AI参入決断→年末 <b class="hl">9.4億円</b>',
+  'チャンスに賞味期限は約1年・複数収益源を持つ',
+  '0点を80点に素早く（80→100は5〜10倍の労力）',
+  '沖さん＝Brain 24時間で<b class="hl">3,436万円</b>の最高記録',
+ ]},
+ {n:'⑤',t:'AI・YouTube自動化と収益化導線',s:'参加者の情報交換',pts:[
+  'モエゾ講座の視聴維持率50%に驚きの声',
+  'VOICEVOX・PSDでキャラ会話動画を自動化',
+  'Fable運用＝依頼時に最初に「何%使うか」を聞く',
+  '<b class="hl">7/7頃に課金体系が変わる可能性</b>への焦り→急ぐ',
+  'AI作業で目が疲れる→「疲れた人向けBrain」アイデア',
+ ]},
+ {n:'⑥',t:'AI×農業支援・VSL改善・発信導線',s:'ナオキ×イチロウ｜事業に最も直結',pts:[
+  'VSL改善が最重要＝34分VSLで審査申込 <b class="hl">約10%</b>',
+  '見る指標4つ＝クリック率/維持率/完走率/完走後申込率',
+  'AI×農業は「始める人」より「伸びる人」に刺す',
+  '農業は段取りが9割＝12月ローンチ→8月植付で逆算',
+  'オプトイン段階選択の回答率 <b class="hl">40〜60%</b>（まどか基準30%超）',
+ ]},
+ {n:'⑦',t:'Xアカウント設計とポジショニング',s:'沖ケイタ',pts:[
+  'SNSはアカウント設計でほぼ決まる＝勝てる椅子に座る',
+  'Xのポジションを13種類に分類・「村一番」を狙う',
+  '事例＝地方AI副業／二代目三代目経営者／ワーママ×AI',
+  '沖ケイタ自身＝Webライター向けで1位・教材 <b class="hl">約1,800万</b>',
+  'Xマネタイズ講座30万・約50名・限定GPT付属',
+ ]},
+ {n:'⑧',t:'地方企業のAI活用・採用支援・農業DX',s:'姫路の採用支援者＋イチロウAI詳細｜最長',pts:[
+  '農業人材を輸入するビジネス（農地+古家+仕事パッケージ）',
+  '採用支援は制作から設計へ・1.5ヶ月で設計図',
+  '音声はAI資産＝AI壁打ちだけで<b class="hl">約2,000件</b>のナレッジ',
+  '農業AI測定 0.5cm単位・NG100/YES100ルール',
+  '音声指示講座の商品化＝価格 <b class="hl">5,000円前後</b>（1位で権威）',
+ ]},
+ {n:'⑨',t:'高単価商品設計とローンチ・集客導線',s:'おさる講義＋公開コンサル',pts:[
+  'オファーは見せる・単体では売らない（入る理由）',
+  'ローンチはノウハウ公開でなく期待値設計・ドキュメンタリー型',
+  '大きな市場で集め、狭い高単価へ',
+  '高単価は審査制・デポジット型（0→1向け30万講座）',
+  '0→1層には必要性を教育してから売る（イチロウの相談課題）',
+ ]},
+ {n:'⑩',t:'AI動画編集・イベント運営・仕組み化',s:'ナオキ×イチロウ｜制作設計',pts:[
+  '更新情報は文字でなく動画で「届く」形に',
+  'オフ会は完成物でなく「型」を持ち帰る場に',
+  '役割分担＝Claude運用・Codex開発・映像解析',
+  '1dayキャンプをBrain化（29,800→上限69,800円）',
+  '利用枠リセットは<b class="hl">7/7朝9時頃</b>と見て残り時間を使う',
+ ]},
+ {n:'⑪',t:'事業設計とお猿村構想',s:'2日目ワーク＋帰路',pts:[
+  'ランニング系＝継続・習慣・マインド軸で高単価化',
+  '音声記録を資産に（全文文字起こし・要約はニュアンス削る）',
+  'Lark導入で月4〜5千円削減・宴は導線可視化に強い',
+  'ワーク「5年後にお猿が買いたくなる会社を設計」',
+  '<b class="hl">おさる村（泉さん）が優勝</b>＝自給自足を加えた点・農業を先取り',
+ ]},
+];
+
+/* ===== RENDER ===== */
+const $=s=>document.querySelector(s);
+const FLAT=location.search.indexOf('flat')>-1;
+
+// summary
+$('#sumgrid').innerHTML=SUM.map((x,i)=>
+ `<a href="#${x.id}" class="sbox rv" style="text-decoration:none;color:inherit">
+   <div class="cnum">0${i+1}</div><div class="ci">${x.i}</div>
+   <div class="cn">${x.n}</div><div class="ct">${x.t}</div></a>`).join('');
+$('#jump').innerHTML=`<a href="#top7">⭐ トップ7</a>`+
+ CATS.map(c=>`<a href="#${c.id}">${c.icon} ${c.title.split(' /')[0].split('・')[0]}</a>`).join('')+
+ `<a href="#records">🎙️ 記録11</a>`;
+
+// top7
+$('#top7grid').innerHTML=TOP7.map((x,i)=>
+ `<div class="t7 rv"><div class="rk">${i+1}</div><div class="ic">${x.ic}</div>
+   <div class="tt">${x.tt}</div><div class="ds">${x.ds}</div><div class="ref">${x.ref}</div></div>`).join('');
+
+// categories
+const TAGLABEL={now:'即',prep:'要準備',run:'即・稼働中'};
+$('#cats').innerHTML=CATS.map(c=>{
+ const cards=c.items.map(it=>{
+  const[n,ic,tt,ds,tag]=it;
+  return `<div class="card rv"><div class="row"><div class="cn">${n}</div><div class="ci">${ic}</div></div>
+    <div class="tt">${tt}</div><div class="ds">${ds}</div>
+    <div class="tag ${tag=='run'?'run':tag}">${TAGLABEL[tag]}</div></div>`;
+ }).join('');
+ return `<section class="sec ${c.dark?'dark':''}" id="${c.id}"><div class="wrap">
+   <div class="head"><div class="hi">${c.icon}</div>
+     <div class="ht"><div class="kick">${c.kick}</div><h2>${c.title}</h2></div>
+     <div class="cnt">${c.cnt}件</div></div>
+   <div class="rule"></div>
+   <div class="grid">${cards}</div></div></section>`;
+}).join('');
+
+// records
+$('#recsgrid').innerHTML=RECS.map(r=>
+ `<div class="rec rv"><div class="rh"><div class="rn">${r.n}</div>
+   <div><div class="rt">${r.t}</div><div class="rs">${r.s}</div></div></div>
+   <ul>${r.pts.map(p=>`<li>${p}</li>`).join('')}</ul></div>`).join('');
+
+/* flat mode for screenshot / reduced motion */
+if(FLAT){
+ const st=document.createElement('style');
+ st.textContent='.rv{opacity:1!important;transform:none!important;transition:none!important}.hero{min-height:640px!important}.close{min-height:440px!important}';
+ document.head.appendChild(st);
+}
+/* observers + progress */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+document.querySelectorAll('.sec,.hero,.close').forEach(s=>io.observe(s));
+// reveal individual rv inside sections that are already in view
+const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.05});
+document.querySelectorAll('.grid,.top7,.sumgrid,.recs').forEach(g=>io2.observe(g));
+window.addEventListener('scroll',()=>{
+ const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight);
+ $('#bar').style.width=(p*100)+'%';
+},{passive:true});
+// force-reveal helper: mark container .in reveals children
+document.addEventListener('DOMContentLoaded',()=>{
+ document.querySelectorAll('.grid,.top7,.sumgrid,.recs').forEach(g=>{
+  const io3=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.rv').forEach(r=>r.style.transitionDelay='0s')}}),{threshold:.02});
+  io3.observe(g);
+ });
+});
+</script>
+</body>
+</html>
