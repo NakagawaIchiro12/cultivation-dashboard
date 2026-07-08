@@ -22,6 +22,11 @@ h3.subsec{font-size:17px;font-weight:800;color:var(--green-d);margin:26px 0 4px;
      padding-left:12px;border-left:4px solid var(--green);}
 hr.sep{border:0;border-top:1px dashed var(--line);margin:26px 0;}
 p{font-size:16px;margin:12px 0;}
+/* ふりがな（ルビ）＝親字より小さく・地名で迷わないよう金色で目立たせる */
+ruby{ruby-align:center;}
+rt{font-size:.52em;font-weight:700;color:var(--gold);letter-spacing:.02em;line-height:1;
+   transform:translateY(.1em);}
+.scard-title rt{color:#a9781f;}
 .wrap>p:first-of-type{color:#42513e;}
 ul.pts{list-style:none;margin:12px 0;display:flex;flex-direction:column;gap:8px;}
 ul.pts li{font-size:16px;padding-left:1.4em;position:relative;}
@@ -82,15 +87,16 @@ details.notes[open]>summary::before{transform:rotate(90deg);}
   <p>2026-07-08 20:00・Google Meet ／ 大きい見出し＝スライド、緑の本文＝そのまま読む口頭トーク</p>
 </header>
 <div class="wrap">
-<h1 class="doc-h1">個別相談 読み上げ台本 — 三上結城さん（2026-07-08 20:00・Google Meet）</h1>
+<h1 class="doc-h1">個別相談 読み上げ台本 — 三上<ruby>結城<rt>ゆうき</rt></ruby>さん（2026-07-08 20:00・Google Meet）</h1>
 <div class="note-callout"><p>ご主人様（イチロウ）が面談中に読み上げる用。スライド（`三上_スライド.html`）はこの台本に沿っています。</p>
 <p><strong>ベース＝岸さんv3本番台本</strong>を、三上さんの事前アンケート実データに合わせて調整。</p>
 <p>⚠️ <strong>今回の方針＝お金／価格の押しは弱く。</strong> 三上さんは「お金がない」。説明はするが、クロージングは軽め。不安を消す・寄り添うのが中心。ローンチ自体は否定しない（&quot;売り込みません&quot;の宣言はしない＝誠実に不安に答えること自体が売り）。</p>
-<p><strong>「■発表者ノート」は三上さんに見せない</strong>（画面共有では出さない・スライドのNキーで自分だけ確認）。</p></div>
+<p><strong>「■発表者ノート」は三上さんに見せない</strong>（画面共有では出さない・スライドのNキーで自分だけ確認）。</p>
+<p>🔤 <strong>読み方（ふりがな）</strong>：<strong><ruby>島根県<rt>しまねけん</rt></ruby><ruby>邑智郡<rt>おおちぐん</rt></ruby><ruby>邑南町<rt>おおなんちょう</rt></ruby><ruby>鱒淵<rt>ますぶち</rt></ruby>＝しまねけん・おおちぐん・おおなんちょう・ますぶち</strong>。<ruby>邑南町<rt>おおなんちょう</rt></ruby>＝おおなんちょう／<ruby>邑智郡<rt>おおちぐん</rt></ruby>＝おおちぐん／<ruby>鱒淵<rt>ますぶち</rt></ruby>＝ますぶち（<strong><ruby>鱒淵<rt>ますぶち</rt></ruby>＝集落名。読み確度が微妙なら面談冒頭で本人に確認</strong>）。公開ページ（`mikami-daihon`）は該当地名に `&lt;ruby&gt;` でふりがな表示済み。</p></div>
 <hr class="sep">
 <h2 class="sec">📋 三上さんの事前アンケート — 逐語（UTAGE実データ・原文ママ・改変なし）</h2>
-<div class="note-callout"><p>取得元＝UTAGE アカウント`QmoVfAuh5Wdz`／シナリオ`s6d3KpJo9Sad`（個別相談時ヒアリングシート提出）／三上結城さん reader `7oCezejhbRvx`（提出 2026-06-29 22:14）。設問名・回答とも<strong>そのまま</strong>。改行も本人記入どおり（複数行）。</p></div>
-<div class="tbl-wrap"><table><tr><th>設問（原文）</th><th>三上さんの回答（逐語・原文ママ）</th></tr><tr><td>1）あなたの現状を教えてください</td><td>0. まだ始める前 ※段階選択（`free36`）。この読者のヒアリングフォーム側では空欄で、段階はLINE診断側の記録。テキスト設問（下記free8〜17）が逐語本体</td></tr><tr><td>畑の都道府県（市区町村まで分かれば）を教えてください。</td><td>島根県邑智郡邑南町鱒淵</td></tr><tr><td>今、一番頭を抱えていることは何ですか？</td><td>脱サラする事に勇気が出ない<br>中2と小6の子供がいて生活の事もあるし⋯</td></tr><tr><td>1年後、どんな状態になっていたいですか？</td><td>脱サラして農業していたい</td></tr><tr><td>育てたい・育てている作物は何ですか？</td><td>キャベツ、青ネギ</td></tr><tr><td>今使える農地はどのくらいですか？</td><td>20アールぐらい<br>近所の方が田んぼを辞めたので借りれます</td></tr><tr><td>今使える資金はどのくらいですか？</td><td>無いに等しい</td></tr><tr><td>農業でいくら稼ぎたいですか？（年間）</td><td>年200万</td></tr><tr><td>一人でやる予定ですか？家族やスタッフと一緒ですか？</td><td>一人</td></tr><tr><td>今の販売状況を教えてください</td><td>青ネギ、長ネギ、玉ねぎ、キャベツ<br>は商品になりそうな物は近くの道の駅に出荷していた（１年前）<br>今は転勤になり難しくなった</td></tr><tr><td>農業で本気で稼ぐために、どのくらい力を注げますか？</td><td>自分でイメージできたらすぐにでもやりたいです。土いじってる時が1番最後なんです。<br>家族50%、農業50%</td></tr></table></div>
+<div class="note-callout"><p>取得元＝UTAGE アカウント`QmoVfAuh5Wdz`／シナリオ`s6d3KpJo9Sad`（個別相談時ヒアリングシート提出）／三上<ruby>結城<rt>ゆうき</rt></ruby>さん reader `7oCezejhbRvx`（提出 2026-06-29 22:14）。設問名・回答とも<strong>そのまま</strong>。改行も本人記入どおり（複数行）。</p></div>
+<div class="tbl-wrap"><table><tr><th>設問（原文）</th><th>三上さんの回答（逐語・原文ママ）</th></tr><tr><td>1）あなたの現状を教えてください</td><td>0. まだ始める前 ※段階選択（`free36`）。この読者のヒアリングフォーム側では空欄で、段階はLINE診断側の記録。テキスト設問（下記free8〜17）が逐語本体</td></tr><tr><td>畑の都道府県（市区町村まで分かれば）を教えてください。</td><td><ruby>島根県<rt>しまねけん</rt></ruby><ruby>邑智郡<rt>おおちぐん</rt></ruby><ruby>邑南町<rt>おおなんちょう</rt></ruby><ruby>鱒淵<rt>ますぶち</rt></ruby></td></tr><tr><td>今、一番頭を抱えていることは何ですか？</td><td>脱サラする事に勇気が出ない<br>中2と小6の子供がいて生活の事もあるし⋯</td></tr><tr><td>1年後、どんな状態になっていたいですか？</td><td>脱サラして農業していたい</td></tr><tr><td>育てたい・育てている作物は何ですか？</td><td>キャベツ、青ネギ</td></tr><tr><td>今使える農地はどのくらいですか？</td><td>20アールぐらい<br>近所の方が田んぼを辞めたので借りれます</td></tr><tr><td>今使える資金はどのくらいですか？</td><td>無いに等しい</td></tr><tr><td>農業でいくら稼ぎたいですか？（年間）</td><td>年200万</td></tr><tr><td>一人でやる予定ですか？家族やスタッフと一緒ですか？</td><td>一人</td></tr><tr><td>今の販売状況を教えてください</td><td>青ネギ、長ネギ、玉ねぎ、キャベツ<br>は商品になりそうな物は近くの道の駅に出荷していた（１年前）<br>今は転勤になり難しくなった</td></tr><tr><td>農業で本気で稼ぐために、どのくらい力を注げますか？</td><td>自分でイメージできたらすぐにでもやりたいです。土いじってる時が1番最後なんです。<br>家族50%、農業50%</td></tr></table></div>
 <div class="note-callout"><p>⚠️ 最後の設問の「<strong>土いじってる時が1番最後なんです</strong>」は原文ママ（入力の揺れと思われるが、勝手に「幸せ」等へ改変しない＝事実を曲げない）。文脈上「農業が心から好き」という意味に読める、が断定しない。</p></div>
 <h3 class="subsec">三上さんを一言で（要約・上の逐語が一次。以下は解釈）</h3>
 <ul class="pts">
@@ -110,7 +116,7 @@ details.notes[open]>summary::before{transform:rotate(90deg);}
 <section class="scard"><div class="scard-head"><span class="scard-no">S5</span><span class="scard-title">一番の悩みは「勇気が出ない」こと</span></div><div class="scard-talk">頭を抱えていることに、「脱サラする勇気が出ない、中2と小6のお子さんがいて生活のこともあるし」と書いてくれましたね。これ、正直に書いてくれて本当にありがとうございます。ひとつ、僕の見立てを言わせてください。勇気が出ないのは、三上さんの性格が弱いからじゃないんです。<strong>まだ農業で&quot;稼げてない&quot;から、「選べない」だけ</strong>なんですよ。もし農業でちゃんと稼げていたら、「副業のまま続ける」のも「思い切って専業に移る」のも、三上さんが自分で選べる。でも今はまだそこに届いてないから、辞めるのも続けるのも怖い。だから今日ほどくのは、&quot;勇気&quot;じゃなくて、この「選べる状態」に近づく順番なんです。まず、いちばん怖いのはどこですか。収入が途切れること？家族の反対？失敗？</div></section>
 <section class="scard"><div class="scard-head"><span class="scard-no">S5b</span><span class="scard-title">〔見える化スライド〕“勇気が出ない”の正体を分解します</span></div><div class="scard-talk">三上さんの「勇気が出ない」を分解すると、正体はこの2つなんです（画面）。1つ目、お金——資金は「無いに等しい」。2つ目、家族——中2と小6のお子さん2人の生活。この2つが重いから、飛べない。当然です。でも、ここが肝心。<strong>この2つが重く感じるのは、まだ農業で稼げてなくて「選べない」から</strong>なんです。もし農業の収入のあてがあれば、この2つは今ほど怖くない。逆に言えば、&quot;稼げる形&quot;が見えてくるほど、この不安は勝手に軽くなる。そして3つ目、見てください。「土いじってる時が1番…」って書いてくれた。三上さんの夢は、本物なんですよ。だから今日やるのは、夢を諦めることじゃなくて、&quot;選べる状態&quot;に近づく順番を作って、この左の2つの不安を小さくすること。それだけです。（※スライドは核の悩みを大タイポ＋3枚のカードで見える化）</div></section>
 <section class="scard"><div class="scard-head"><span class="scard-no">S6</span><span class="scard-title">でも、三上さんはゼロじゃない</span></div><div class="scard-talk">ここ、大事なので言わせてください。三上さんはゼロから始める人じゃないんです。畑は20アール借りられる。作りたい作物（キャベツ・青ネギ）も決まってる。そして——1年前、道の駅に青ネギや玉ねぎを出荷していた。もう&quot;作って売った&quot;経験があるんですよ。転勤で中断しただけ。ここ、自分では当たり前に思ってません？</div></section>
-<section class="scard"><div class="scard-head"><span class="scard-no">S7</span><span class="scard-title">今の販売状況を、もう少し</span></div><div class="scard-talk">道の駅に出していた頃、手応えってどうでしたか。売れ行き、値段、続けられそうだった感覚。——それが転勤で出せなくなった、って書いてくれましたね。せっかく回りかけてた売り先が切れたのって、正直けっこう悔しかったんじゃないですか。今の場所（邑南町）でも、近くに道の駅や直売所ってありますか。そこがまた&quot;売り先&quot;に戻せるかどうか、が地味に大きいんです。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S7</span><span class="scard-title">今の販売状況を、もう少し</span></div><div class="scard-talk">道の駅に出していた頃、手応えってどうでしたか。売れ行き、値段、続けられそうだった感覚。——それが転勤で出せなくなった、って書いてくれましたね。せっかく回りかけてた売り先が切れたのって、正直けっこう悔しかったんじゃないですか。今の場所（<ruby>邑南町<rt>おおなんちょう</rt></ruby>）でも、近くに道の駅や直売所ってありますか。そこがまた&quot;売り先&quot;に戻せるかどうか、が地味に大きいんです。</div></section>
 <section class="scard"><div class="scard-head"><span class="scard-no">S8</span><span class="scard-title">お金のことを、正直に</span></div><div class="scard-talk">資金は「無いに等しい」と書いてくれましたね。ここ、隠さず話してくれて助かります。今日はお金の話も逃げずにします。正直に言うと——資金が&quot;無いに等しい&quot;まま、いきなり全部を始めるのは、けっこう大変です。ここは煽らずに本当のことを言いますね。だからこそ大事なのが2つ。ひとつは&quot;お金をかけない始め方&quot;を選ぶこと。もうひとつは、場合によっては&quot;まず少し資金を貯めるところから&quot;も、立派な順番のひとつだということ。無理にゼロのまま飛ばなくていいんです。今、ざっくりで大丈夫なので、初期にどのくらいなら無理なく動かせそうですか。</div></section>
 <section class="scard"><div class="scard-head"><span class="scard-no">S9</span><span class="scard-title">このまま「迷ったまま」だと、どうなる？</span></div><div class="scard-talk">もし今のまま、やりたい気持ちはあるけど踏み出せない、が1年続いたら。三上さん、どんな気持ちでいると思いますか。畑を借りられるチャンスも、道の駅の記憶も、少しずつ遠くなる。焦らせたいわけじゃないです。ただ&quot;迷い続けること自体&quot;にもコストがある、という話です。</div></section>
 <section class="scard"><div class="scard-head"><span class="scard-no">S10</span><span class="scard-title">本当は、どんな働き方をしたいですか</span></div><div class="scard-talk">脱サラして専業、が理想ですよね。その先に、どんな1日を描いてますか。子供と過ごす時間、畑に出る時間、収入。正解を決める場じゃなくて、&quot;選べる状態&quot;を作るのが今日の狙いです。</div></section>
@@ -127,7 +133,7 @@ details.notes[open]>summary::before{transform:rotate(90deg);}
 <section class="scard"><div class="scard-head"><span class="scard-no">S17</span><span class="scard-title">僕の失敗談</span></div><div class="scard-talk">正直に言います。最初、僕は順番を逆にしました。売り先を先に作ろうとして、いざ納品2週間前に出せる量が半分しかなくて、取引先に電話するのに手が震えました。補助金も投資に回せず生活費に消えた。人参をほぼ腐らせて、病気の名前すら知らなかった。……怖くて当然なんですよ。だから、あなたには同じ順番の間違いをしてほしくない。</div></section>
 <section class="scard"><div class="scard-head"><span class="scard-no">S18</span><span class="scard-title">1日実働約5時間で、年間100t超</span></div><div class="scard-talk">それでも続けて、今は農業歴16年、年間100t超を1日実働約5時間で回しています。朝9時から14時。根性じゃなくて、仕組みです。正しい順番で積み上げた結果です。</div></section>
 <section class="scard"><div class="scard-head"><span class="scard-no">S19</span><span class="scard-title">大不作の年でも、3日で1ヶ月分</span></div><div class="scard-talk">2024年の大不作でも、3日間で1ヶ月分の売上を回収しました。運じゃなくて、作る前・売る前・届ける前の準備があったからです。</div></section>
-<section class="scard"><div class="scard-head"><span class="scard-no">S20</span><span class="scard-title">産地化と表彰</span></div><div class="scard-talk">愛知で初めて有機JASのニンジンを産地化して、別の作物で3年連続表彰、発芽率も70%から95%以上に。順番と改善の積み重ねです。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S20</span><span class="scard-title">産地化と表彰</span></div><div class="scard-talk">愛知で初めて有機JASのニンジンを産地化して、別の作物で3年連続表彰、<ruby>発芽率<rt>はつがりつ</rt></ruby>も70%から95%以上に。順番と改善の積み重ねです。</div></section>
 <h2 class="sec">信頼性強化（相談者の声）※実際の感想のみ・表記指定を厳守</h2>
 <section class="scard"><div class="scard-head"><span class="scard-no">S21</span><span class="scard-title">1年前、ゼロから始めた方</span><span class="scard-tag">匿名</span></div><div class="scard-talk">（デパート営業から農業へ。稼ぎ方を教えてくれる人がいなかった不安を代弁）</div></section>
 <section class="scard"><div class="scard-head"><span class="scard-no">S22</span><span class="scard-title">現場で学べた安心感</span><span class="scard-tag">匿名</span></div><div class="scard-talk">（知識でなく現場で・失敗まで共有してもらえた安心）</div></section>
@@ -166,7 +172,7 @@ details.notes[open]>summary::before{transform:rotate(90deg);}
 <h2 class="sec">クロージング（★実クロージングは岸さん版と同等＝&quot;進めたいですか&quot;まで言う。押しの加減は現場で）</h2>
 <section class="scard"><div class="scard-head"><span class="scard-no">S45</span><span class="scard-title">今日の判断基準</span></div><div class="scard-talk">今日の判断は、この3つで。やりたい気持ちを、迷ったまま置いていいのか。一人で解決できるのか。伴走を使いながら進めた方が早いのか。</div></section>
 <section class="scard"><div class="scard-head"><span class="scard-no">S46</span><span class="scard-title">最終確認</span></div><div class="scard-talk">三上さんに必要なのは、勇気を無理に出すことじゃなくて、怖くない順番で確かめること。畑もある、作物も決まってる、売った経験もある。僕はかなり力になれると感じています。ここから一緒に進めていきたいですか？</div></section>
-<section class="scard"><div class="scard-head"><span class="scard-no">S47</span><span class="scard-title">今日の一歩</span></div><div class="scard-talk">（この場で決めても、持ち帰るとしても）今日の一歩を1つ決めましょう。おすすめは——「邑南町の近くの道の駅か直売所を1つ、青ネギかキャベツの出荷条件だけ調べてみる」。三上さんは一度やってるから、これはすぐできます。ここが動くと、次が見えてきます。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S47</span><span class="scard-title">今日の一歩</span></div><div class="scard-talk">（この場で決めても、持ち帰るとしても）今日の一歩を1つ決めましょう。おすすめは——「<ruby>邑南町<rt>おおなんちょう</rt></ruby>の近くの道の駅か直売所を1つ、青ネギかキャベツの出荷条件だけ調べてみる」。三上さんは一度やってるから、これはすぐできます。ここが動くと、次が見えてきます。</div></section>
 <section class="scard"><div class="scard-head"><span class="scard-no">S48</span><span class="scard-title">参加後の流れ／最後に</span></div><div class="scard-talk">進める場合の流れは、お申し込み→初回日程を決めて→初回で現状診断と最初の宿題、です。支払い方法のご相談もこの場で。……農業は、作るだけじゃなくて選ばれ続ける仕組みがあって初めて安定します。三上さんは始める材料をもう持ってる人。怖いのは条件が足りないからじゃなくて、順番がまだ見えてないだけ。安定・売り先・拡大、一緒に整えましょう。今日はありがとうございました。</div></section>
 <hr class="sep">
 
@@ -214,15 +220,15 @@ details.notes[open]>summary::before{transform:rotate(90deg);}
 <li>三上さんの数字（20アール／年200万／資金無いに等しい／道の駅出荷経験／子供中2・小6）＝<strong>本人のアンケート実回答</strong>。面談で使ってよい。</li>
 <li>「20アール（≒600坪）」は岸さんの20坪と桁が違う＝畑の規模は&quot;ある方&quot;。ただし<strong>「20アールあれば脱サラできる」は憶測＝断定しない</strong>（ご主人様2026-07-08「畑規模を過大評価させるな・話を聞きながら現実的な線を引く」）。<strong>トーン＝&quot;順番を踏めば脱サラは可能／でも飛ばすと生活が的中して危険&quot;</strong>（煽らない）。年200万も&quot;順番を踏めば射程&quot;だが、<strong>資金&quot;無いに等しい&quot;のままだと初期投資も生活の谷も相当きつい</strong>＝お金をかけない始め方＋必要なら資金を貯める期間＋いきなり専業でなく関わりながら稼ぐ（S14b）で現実的に設計する。畑の広さだけで「いける」と言い切らない＝ここは相談で三上さんの数字を聞きながら一緒に線を引く。</li>
 </ul>
-<h2 class="sec">📊 邑南町（邑智郡）の産地情報 — 一次調べ・出典明記（面談で数字を語る材料）</h2>
-<div class="note-callout"><p>ご主人様2026-07-08「邑南町のキャベツ・青ネギが産地か・産地規模を一次で」。WebSearchで確認できた範囲＝以下。<strong>確認できた事実</strong>と<strong>未確認</strong>を分けて記載（憶測禁止）。</p></div>
+<h2 class="sec">📊 <ruby>邑南町<rt>おおなんちょう</rt></ruby>（<ruby>邑智郡<rt>おおちぐん</rt></ruby>）の産地情報 — 一次調べ・出典明記（面談で数字を語る材料）</h2>
+<div class="note-callout"><p>ご主人様2026-07-08「<ruby>邑南町<rt>おおなんちょう</rt></ruby>のキャベツ・青ネギが産地か・産地規模を一次で」。WebSearchで確認できた範囲＝以下。<strong>確認できた事実</strong>と<strong>未確認</strong>を分けて記載（憶測禁止）。</p></div>
 <ul class="pts">
-<li>✅ <strong>白ねぎ＝三上さんの郡（邑智郡）が島根県の主産地</strong>：「島根県では中国山地に位置する<strong>邑智郡が白ねぎの主産地</strong>。雪が積もる過酷な環境で栽培し、12月以降は甘みが増す。5・6月を除く年10ヶ月出荷」。出典＝JAしまね 特産品（野菜） ja-shimane.jp/tokusan/vegetable/ 。⇒ <strong>三上さんの地元（邑智郡邑南町）は&quot;白ねぎの産地の只中&quot;＝地の利がある</strong>。面談で「邑智郡は白ねぎの産地ですよね」は事実として言える。</li>
-<li class="sub">⚠️ ただし三上さんが書いたのは「<strong>青ネギ</strong>」。白ねぎ（軟白栽培・長ネギ系）と青ネギ（葉ネギ系）は別品目。<strong>&quot;青ネギ&quot;単独の邑南町産地データは今回未確認</strong>。地元が白ねぎ産地＝ネギ栽培の下地・技術・出荷ルートがある可能性は高いが、青ネギで語るなら道の駅の実売で確かめるのが確実（三上さんは道の駅出荷経験あり）。</li>
-<li>✅ <strong>キャベツ＝島根県は周年生産・出荷</strong>：「春／初夏どり／夏秋／冬キャベツで周年生産出荷。冬キャベツは県内・広島市場・大阪市場へ出荷」。出典＝JAしまね（同上）／作物統計（maff・ALIC）。⇒ 島根でキャベツは&quot;売り先ルートが確立している作物&quot;。</li>
-<li>⚠️ <strong>邑南町&quot;単独&quot;の品目別 農業産出額（売上金額ベース）＝未確認</strong>。存在源＝農水省「市町村別農業産出額（推計）」／e-Stat「生産農業所得統計」に邑南町の数値があるはずだが、今回のWebSearchでは具体的な金額まで到達できず。<strong>数字で語りたい場合は e-Stat の市町村別農業産出額（推計）で&quot;邑南町&quot;を直接引くのが一次</strong>（未取得＝正直に&quot;未確認&quot;）。</li>
+<li>✅ <strong>白ねぎ＝三上さんの郡（<ruby>邑智郡<rt>おおちぐん</rt></ruby>）が<ruby>島根県<rt>しまねけん</rt></ruby>の主産地</strong>：「<ruby>島根県<rt>しまねけん</rt></ruby>では中国山地に位置する<strong><ruby>邑智郡<rt>おおちぐん</rt></ruby>が白ねぎの主産地</strong>。雪が積もる過酷な環境で栽培し、12月以降は甘みが増す。5・6月を除く年10ヶ月出荷」。出典＝JAしまね 特産品（野菜） ja-shimane.jp/tokusan/vegetable/ 。⇒ <strong>三上さんの地元（<ruby>邑智郡<rt>おおちぐん</rt></ruby><ruby>邑南町<rt>おおなんちょう</rt></ruby>）は&quot;白ねぎの産地の只中&quot;＝地の利がある</strong>。面談で「<ruby>邑智郡<rt>おおちぐん</rt></ruby>は白ねぎの産地ですよね」は事実として言える。</li>
+<li class="sub">⚠️ ただし三上さんが書いたのは「<strong>青ネギ</strong>」。白ねぎ（<ruby>軟白栽培<rt>なんぱくさいばい</rt></ruby>・長ネギ系）と青ネギ（葉ネギ系）は別品目。<strong>&quot;青ネギ&quot;単独の<ruby>邑南町<rt>おおなんちょう</rt></ruby>産地データは今回未確認</strong>。地元が白ねぎ産地＝ネギ栽培の下地・技術・出荷ルートがある可能性は高いが、青ネギで語るなら道の駅の実売で確かめるのが確実（三上さんは道の駅出荷経験あり）。</li>
+<li>✅ <strong>キャベツ＝<ruby>島根県<rt>しまねけん</rt></ruby>は周年生産・出荷</strong>：「春／初夏どり／夏秋／冬キャベツで周年生産出荷。冬キャベツは県内・広島市場・大阪市場へ出荷」。出典＝JAしまね（同上）／作物統計（maff・ALIC）。⇒ 島根でキャベツは&quot;売り先ルートが確立している作物&quot;。</li>
+<li>⚠️ <strong><ruby>邑南町<rt>おおなんちょう</rt></ruby>&quot;単独&quot;の品目別 農業産出額（売上金額ベース）＝未確認</strong>。存在源＝農水省「市町村別農業産出額（推計）」／e-Stat「生産農業所得統計」に<ruby>邑南町<rt>おおなんちょう</rt></ruby>の数値があるはずだが、今回のWebSearchでは具体的な金額まで到達できず。<strong>数字で語りたい場合は e-Stat の市町村別農業産出額（推計）で&quot;<ruby>邑南町<rt>おおなんちょう</rt></ruby>&quot;を直接引くのが一次</strong>（未取得＝正直に&quot;未確認&quot;）。</li>
 <li>出典URL：JAしまね特産品(野菜) https://ja-shimane.jp/tokusan/vegetable/ ／ALIC野菜情報 https://vegetable.alic.go.jp/ ／農水省 市町村別農業産出額(推計) https://www.maff.go.jp/j/tokei/kouhyou/sityoson_sansyutu/index.html ／e-Stat 生産農業所得統計 https://www.e-stat.go.jp/stat-search/files?toukei=00500206 。</li>
-<li><strong>使い方（面談）</strong>：「邑智郡は白ねぎの産地ですよね。ネギの下地がある土地なんです」＝地の利を肯定して自己効力感UP。ただし&quot;青ネギの産出額が◯円&quot;のような未確認の数字は言わない（憶測禁止）。数字は道の駅の実売（三上さんの経験）で確かめる方が確実、と現場で言う。</li>
+<li><strong>使い方（面談）</strong>：「<ruby>邑智郡<rt>おおちぐん</rt></ruby>は白ねぎの産地ですよね。ネギの下地がある土地なんです」＝地の利を肯定して自己効力感UP。ただし&quot;青ネギの産出額が◯円&quot;のような未確認の数字は言わない（憶測禁止）。数字は道の駅の実売（三上さんの経験）で確かめる方が確実、と現場で言う。</li>
 </ul>
   </div>
 </details>
