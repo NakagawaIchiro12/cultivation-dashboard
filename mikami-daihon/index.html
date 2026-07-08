@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>個別相談 読み上げ台本（三上結城さん）</title>
+<style>
+:root{--green:#2e7d32;--green-d:#1b5e20;--ink:#1c2b1e;--paper:#f6f8f3;--gold:#b8892b;--line:#dfe6d8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+     background:var(--paper);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;}
+header.top{position:sticky;top:0;z-index:20;background:linear-gradient(120deg,#1b5e20,#2e7d32);
+     color:#fff;padding:16px 20px;border-bottom:4px solid var(--gold);box-shadow:0 3px 14px rgba(0,0,0,.15);}
+header.top h1{font-size:20px;font-weight:900;letter-spacing:.01em;line-height:1.4;}
+header.top p{font-size:13px;color:#d5f2d9;margin-top:5px;font-weight:600;}
+.wrap{max-width:820px;margin:0 auto;padding:20px 18px 120px;}
+.doc-h1{display:none;} /* top md title already in header */
+h2.sec{font-size:21px;font-weight:900;color:var(--green-d);margin:40px 0 6px;
+     padding:10px 16px;background:#eaf3e6;border-left:7px solid var(--gold);border-radius:0 10px 10px 0;}
+h3.subsec{font-size:17px;font-weight:800;color:var(--green-d);margin:26px 0 4px;
+     padding-left:12px;border-left:4px solid var(--green);}
+hr.sep{border:0;border-top:1px dashed var(--line);margin:26px 0;}
+p{font-size:16px;margin:12px 0;}
+.wrap>p:first-of-type{color:#42513e;}
+ul.pts{list-style:none;margin:12px 0;display:flex;flex-direction:column;gap:8px;}
+ul.pts li{font-size:16px;padding-left:1.4em;position:relative;}
+ul.pts li::before{content:"";position:absolute;left:.2em;top:.62em;width:.5em;height:.5em;border-radius:50%;background:var(--gold);}
+ul.pts li.sub{padding-left:2.6em;font-size:15px;color:#4a5847;}
+ul.pts li.sub::before{left:1.4em;background:var(--green);width:.4em;height:.4em;}
+.note-callout{background:#fbfcf9;border:1px solid var(--line);border-left:5px solid var(--green);
+     border-radius:0 12px 12px 0;padding:12px 16px;margin:16px 0;font-size:14.5px;color:#3c4a38;}
+.note-callout p{font-size:14.5px;margin:7px 0;}
+.note-callout strong{color:var(--green-d);}
+/* score / talk cards */
+.scard{background:#fff;border:1px solid var(--line);border-radius:14px;
+     padding:16px 18px;margin:14px 0;box-shadow:0 5px 18px rgba(30,60,25,.06);}
+.scard-head{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:9px;
+     padding-bottom:9px;border-bottom:1px solid #eef2ea;}
+.scard-no{background:var(--green-d);color:#fff;font-weight:900;font-size:15px;
+     border-radius:8px;padding:3px 12px;min-width:46px;text-align:center;letter-spacing:.02em;}
+.scard-title{font-size:17px;font-weight:900;color:var(--green-d);flex:1;min-width:60%;line-height:1.4;}
+.scard-tag{background:#fbeede;color:var(--gold);font-weight:800;font-size:12px;border-radius:999px;padding:3px 11px;}
+.scard-talk{font-size:16.5px;color:#222c22;font-weight:500;line-height:1.85;}
+.scard-talk strong{color:var(--green-d);font-weight:800;}
+/* table */
+.tbl-wrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;min-width:480px;background:#fff;border-radius:10px;overflow:hidden;
+     box-shadow:0 4px 16px rgba(30,60,25,.06);font-size:14.5px;}
+th,td{border:1px solid #e3eadd;padding:9px 12px;text-align:left;vertical-align:top;line-height:1.7;}
+th{background:#1b5e20;color:#fff;font-weight:800;}
+tr:nth-child(even) td{background:#f7faf5;}
+/* presenter notes fold */
+.notes-fold{margin-top:44px;border-top:3px dashed var(--gold);}
+details.notes{margin-top:16px;background:#f2f4ef;border:1px solid #d9e0d2;border-radius:12px;padding:4px 4px;}
+details.notes>summary{cursor:pointer;list-style:none;padding:14px 18px;font-size:16px;font-weight:900;
+     color:#5a6a55;display:flex;align-items:center;gap:10px;}
+details.notes>summary::-webkit-details-marker{display:none;}
+details.notes>summary::before{content:"▶";font-size:12px;color:var(--gold);transition:transform .2s;}
+details.notes[open]>summary::before{transform:rotate(90deg);}
+.notes-body{padding:6px 18px 22px;color:#5c6a57;font-size:14.5px;}
+.notes-body h2.sec{background:#e7ebe2;color:#4b5a46;border-left-color:#9aa892;font-size:18px;margin-top:26px;}
+.notes-body h3.subsec{color:#5a6a55;border-left-color:#9aa892;}
+.notes-body p{font-size:14.5px;color:#5c6a57;}
+.notes-body ul.pts li{font-size:14.5px;color:#5c6a57;}
+.notes-body .scard{background:#fafbf8;box-shadow:none;}
+.notes-body .note-callout{background:#edf0e9;border-left-color:#9aa892;}
+.notes-body table{font-size:13.5px;}
+.privacy{font-size:12px;color:#8a9784;text-align:center;margin-top:40px;padding-top:16px;border-top:1px solid var(--line);}
+@media(max-width:600px){
+  header.top h1{font-size:17px;}
+  .wrap{padding:16px 14px 100px;}
+  .scard-title{min-width:100%;font-size:16px;}
+  .scard-talk{font-size:16px;}
+  p{font-size:15.5px;}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>🎙 個別相談 読み上げ台本 — 三上結城さん</h1>
+  <p>2026-07-08 20:00・Google Meet ／ 大きい見出し＝スライド、緑の本文＝そのまま読む口頭トーク</p>
+</header>
+<div class="wrap">
+<h1 class="doc-h1">個別相談 読み上げ台本 — 三上結城さん（2026-07-08 20:00・Google Meet）</h1>
+<div class="note-callout"><p>ご主人様（イチロウ）が面談中に読み上げる用。スライド（`三上_スライド.html`）はこの台本に沿っています。</p>
+<p><strong>ベース＝岸さんv3本番台本</strong>を、三上さんの事前アンケート実データに合わせて調整。</p>
+<p>⚠️ <strong>今回の方針＝お金／価格の押しは弱く。</strong> 三上さんは「お金がない」。説明はするが、クロージングは軽め。不安を消す・寄り添うのが中心。ローンチ自体は否定しない（&quot;売り込みません&quot;の宣言はしない＝誠実に不安に答えること自体が売り）。</p>
+<p><strong>「■発表者ノート」は三上さんに見せない</strong>（画面共有では出さない・スライドのNキーで自分だけ確認）。</p></div>
+<hr class="sep">
+<h2 class="sec">📋 三上さんの事前アンケート — 逐語（UTAGE実データ・原文ママ・改変なし）</h2>
+<div class="note-callout"><p>取得元＝UTAGE アカウント`QmoVfAuh5Wdz`／シナリオ`s6d3KpJo9Sad`（個別相談時ヒアリングシート提出）／三上結城さん reader `7oCezejhbRvx`（提出 2026-06-29 22:14）。設問名・回答とも<strong>そのまま</strong>。改行も本人記入どおり（複数行）。</p></div>
+<div class="tbl-wrap"><table><tr><th>設問（原文）</th><th>三上さんの回答（逐語・原文ママ）</th></tr><tr><td>1）あなたの現状を教えてください</td><td>0. まだ始める前 ※段階選択（`free36`）。この読者のヒアリングフォーム側では空欄で、段階はLINE診断側の記録。テキスト設問（下記free8〜17）が逐語本体</td></tr><tr><td>畑の都道府県（市区町村まで分かれば）を教えてください。</td><td>島根県邑智郡邑南町鱒淵</td></tr><tr><td>今、一番頭を抱えていることは何ですか？</td><td>脱サラする事に勇気が出ない<br>中2と小6の子供がいて生活の事もあるし⋯</td></tr><tr><td>1年後、どんな状態になっていたいですか？</td><td>脱サラして農業していたい</td></tr><tr><td>育てたい・育てている作物は何ですか？</td><td>キャベツ、青ネギ</td></tr><tr><td>今使える農地はどのくらいですか？</td><td>20アールぐらい<br>近所の方が田んぼを辞めたので借りれます</td></tr><tr><td>今使える資金はどのくらいですか？</td><td>無いに等しい</td></tr><tr><td>農業でいくら稼ぎたいですか？（年間）</td><td>年200万</td></tr><tr><td>一人でやる予定ですか？家族やスタッフと一緒ですか？</td><td>一人</td></tr><tr><td>今の販売状況を教えてください</td><td>青ネギ、長ネギ、玉ねぎ、キャベツ<br>は商品になりそうな物は近くの道の駅に出荷していた（１年前）<br>今は転勤になり難しくなった</td></tr><tr><td>農業で本気で稼ぐために、どのくらい力を注げますか？</td><td>自分でイメージできたらすぐにでもやりたいです。土いじってる時が1番最後なんです。<br>家族50%、農業50%</td></tr></table></div>
+<div class="note-callout"><p>⚠️ 最後の設問の「<strong>土いじってる時が1番最後なんです</strong>」は原文ママ（入力の揺れと思われるが、勝手に「幸せ」等へ改変しない＝事実を曲げない）。文脈上「農業が心から好き」という意味に読める、が断定しない。</p></div>
+<h3 class="subsec">三上さんを一言で（要約・上の逐語が一次。以下は解釈）</h3>
+<ul class="pts">
+<li><strong>本気で脱サラ→専業農家になりたい。夢はハッキリある。</strong>（「土いじってる時が1番…」と書くほど農業が好き）</li>
+<li>でも<strong>踏み出す勇気が出ない</strong>。理由＝<strong>子供2人（中2・小6）の生活</strong>と<strong>お金（資金は無いに等しい）</strong>。</li>
+<li><strong>でもゼロじゃない</strong>：畑は20アール借りられる／作りたい作物（キャベツ・青ネギ）は決まってる／<strong>過去に道の駅へ出荷した経験がある</strong>（転勤で中断しただけ）。</li>
+<li>⇒ <strong>今日のゴール＝「怖さ」を分解して、&quot;辞めなくても・お金をかけなくても踏み出せる順番&quot;を1つ渡す。</strong> 15万を今日決めさせるのが目的ではない。「聞いてよかった／この人になら」を残す。</li>
+</ul>
+<hr class="sep">
+<h1 class="doc-h1">【客の画面用】見出し＋口頭トーク</h1>
+<h2 class="sec">導入</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S1</span><span class="scard-title">個別相談へようこそ</span></div><div class="scard-talk">三上さん、本日はお時間ありがとうございます。今日は、三上さんが「脱サラして農業をやりたい」その一歩を、少しでも軽くするための時間です。今の状況を整理して、次に何をすればいいかを一緒に明確にします。いきなり何かを売る場ではありません、まずは三上さんの話を聞かせてください。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S2</span><span class="scard-title">今日のゴール</span></div><div class="scard-talk">今日のゴールは3つです。今の不安を「見える形」に整理する／脱サラの前に&quot;確かめる&quot;順番を知る／今日の一歩を1つ持ち帰る。これだけで、だいぶ気持ちが軽くなります。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S3</span><span class="scard-title">今日の進め方</span></div><div class="scard-talk">まず三上さんの話を聞かせてください。そのあと、必要なら僕の考え方や解決策をお伝えします。合わないと感じたら無理には案内しません。役に立てる時だけ提案します。</div></section>
+<h2 class="sec">現状確認（アンケート済み＝ゼロから聞かず、確認と深掘り）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S4</span><span class="scard-title">三上さんの夢を、確認させてください</span></div><div class="scard-talk">アンケート読みました。「脱サラして農業していたい」「土いじってる時が1番…」——三上さんが書いてくれたこの言葉、すごく大事だと思いました。まず教えてください。三上さんが農業で暮らしていきたいと思ったきっかけって、何だったんですか。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S5</span><span class="scard-title">一番の悩みは「勇気が出ない」こと</span></div><div class="scard-talk">頭を抱えていることに、「脱サラする勇気が出ない、中2と小6のお子さんがいて生活のこともあるし」と書いてくれましたね。これ、正直に書いてくれて本当にありがとうございます。ひとつ、僕の見立てを言わせてください。勇気が出ないのは、三上さんの性格が弱いからじゃないんです。<strong>まだ農業で&quot;稼げてない&quot;から、「選べない」だけ</strong>なんですよ。もし農業でちゃんと稼げていたら、「副業のまま続ける」のも「思い切って専業に移る」のも、三上さんが自分で選べる。でも今はまだそこに届いてないから、辞めるのも続けるのも怖い。だから今日ほどくのは、&quot;勇気&quot;じゃなくて、この「選べる状態」に近づく順番なんです。まず、いちばん怖いのはどこですか。収入が途切れること？家族の反対？失敗？</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S5b</span><span class="scard-title">〔見える化スライド〕“勇気が出ない”の正体を分解します</span></div><div class="scard-talk">三上さんの「勇気が出ない」を分解すると、正体はこの2つなんです（画面）。1つ目、お金——資金は「無いに等しい」。2つ目、家族——中2と小6のお子さん2人の生活。この2つが重いから、飛べない。当然です。でも、ここが肝心。<strong>この2つが重く感じるのは、まだ農業で稼げてなくて「選べない」から</strong>なんです。もし農業の収入のあてがあれば、この2つは今ほど怖くない。逆に言えば、&quot;稼げる形&quot;が見えてくるほど、この不安は勝手に軽くなる。そして3つ目、見てください。「土いじってる時が1番…」って書いてくれた。三上さんの夢は、本物なんですよ。だから今日やるのは、夢を諦めることじゃなくて、&quot;選べる状態&quot;に近づく順番を作って、この左の2つの不安を小さくすること。それだけです。（※スライドは核の悩みを大タイポ＋3枚のカードで見える化）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S6</span><span class="scard-title">でも、三上さんはゼロじゃない</span></div><div class="scard-talk">ここ、大事なので言わせてください。三上さんはゼロから始める人じゃないんです。畑は20アール借りられる。作りたい作物（キャベツ・青ネギ）も決まってる。そして——1年前、道の駅に青ネギや玉ねぎを出荷していた。もう&quot;作って売った&quot;経験があるんですよ。転勤で中断しただけ。ここ、自分では当たり前に思ってません？</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S7</span><span class="scard-title">今の販売状況を、もう少し</span></div><div class="scard-talk">道の駅に出していた頃、手応えってどうでしたか。売れ行き、値段、続けられそうだった感覚。——それが転勤で出せなくなった、って書いてくれましたね。せっかく回りかけてた売り先が切れたのって、正直けっこう悔しかったんじゃないですか。今の場所（邑南町）でも、近くに道の駅や直売所ってありますか。そこがまた&quot;売り先&quot;に戻せるかどうか、が地味に大きいんです。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S8</span><span class="scard-title">お金のことを、正直に</span></div><div class="scard-talk">資金は「無いに等しい」と書いてくれましたね。ここ、隠さず話してくれて助かります。今日はお金の話も逃げずにします。正直に言うと——資金が&quot;無いに等しい&quot;まま、いきなり全部を始めるのは、けっこう大変です。ここは煽らずに本当のことを言いますね。だからこそ大事なのが2つ。ひとつは&quot;お金をかけない始め方&quot;を選ぶこと。もうひとつは、場合によっては&quot;まず少し資金を貯めるところから&quot;も、立派な順番のひとつだということ。無理にゼロのまま飛ばなくていいんです。今、ざっくりで大丈夫なので、初期にどのくらいなら無理なく動かせそうですか。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S9</span><span class="scard-title">このまま「迷ったまま」だと、どうなる？</span></div><div class="scard-talk">もし今のまま、やりたい気持ちはあるけど踏み出せない、が1年続いたら。三上さん、どんな気持ちでいると思いますか。畑を借りられるチャンスも、道の駅の記憶も、少しずつ遠くなる。焦らせたいわけじゃないです。ただ&quot;迷い続けること自体&quot;にもコストがある、という話です。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S10</span><span class="scard-title">本当は、どんな働き方をしたいですか</span></div><div class="scard-talk">脱サラして専業、が理想ですよね。その先に、どんな1日を描いてますか。子供と過ごす時間、畑に出る時間、収入。正解を決める場じゃなくて、&quot;選べる状態&quot;を作るのが今日の狙いです。</div></section>
+<h2 class="sec">テストクロージング①（軽く）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S11</span><span class="scard-title">その不安を消す&quot;順番&quot;、興味ありますか？</span></div><div class="scard-talk">今、三上さんに必要なのは、いきなり全部を賭けることじゃなくて、&quot;怖くない順番&quot;で確かめながら進むことだと思っています。その順番の話、聞いてみたいですか？（&quot;はい&quot;を得てから次へ・押さない）</div></section>
+<h2 class="sec">価値提供（教育）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S12</span><span class="scard-title">踏み出せないのは、勇気が足りないからじゃない</span></div><div class="scard-talk">三上さんが踏み出せないのは、勇気が足りないからじゃありません。&quot;何をどの順番でやれば安全に確かめられるか&quot;が見えてないから、全部を賭けるように感じて怖いだけなんです。順番が見えれば、怖さはかなり減ります。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S13</span><span class="scard-title">脱サラは「一気に飛ぶ」ものじゃない</span></div><div class="scard-talk">ここ、いちばん伝えたいところ。脱サラ＝いきなり会社を辞めて全部を農業に賭ける、じゃなくていいんです。今の仕事を続けたまま、小さく作って・小さく売って、&quot;これなら食べていけそうだ&quot;を確かめてから飛ぶ。順番を踏めば、脱サラは十分できます。ただ——<strong>ここを飛ばすと、三上さんが一番怖がってる&quot;生活のこと&quot;が、本当に的中します</strong>。稼げる形を確かめる前に会社を辞めると、収入が途切れて、子供2人の生活が一気に苦しくなる。だから「一足飛び」だけは、絶対にしない。順番を踏めば夢に届く、でも飛ばすと危ない——この両方が本当です。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S14</span><span class="scard-title">順番は「安定 → 売り先 → 拡大」</span></div><div class="scard-talk">順番を間違えると苦しくなります。まず安定して作れる、次に売り先、最後に拡大。三上さんはもう作物も畑も売り先の記憶もある。あとはこれを&quot;順番に&quot;つなぐだけなんです。逆に、この順番を飛ばして&quot;いきなり専業&quot;に賭けると、さっき言った生活のことが的中する。飛ばさないことが、いちばんの家族を守る保険なんです。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S14b</span><span class="scard-title">いきなり専業じゃなく「関わりながら稼ぐ」道もある</span></div><div class="scard-talk">もうひとつ、大事な選択肢を渡させてください。三上さんは「家族50%・農業50%」って書いてくれましたよね。だったら、いきなり100%専業に飛ぶ必要はないんです。農業に関わりながら収入を切らさない道は、実は何本もある。①今の仕事を続けながら副業で小さく農業をやる。②近くの農業法人に雇ってもらって、給料をもらいながら現場を学ぶ。③繁忙期だけ農業バイトに入って、体で覚える。どれも&quot;収入を途切れさせずに農業に近づく&quot;やり方です。専業は最後のゴールに置いておいて、まずはこの中のどれかで「農業で1円でも稼ぐ」を先に作る。ここが、生活を守りながら夢に近づく現実的な入り口です。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S15</span><span class="scard-title">お金がないからこそ、順番が命</span></div><div class="scard-talk">資金が少ないと不利、と思いがちですが逆です。お金がないからこそ、大きな投資を先にしちゃいけない。小さく作れる作物から、お金をかけずに始めて、売れると分かってから広げる。この順番なら、少ない資金でも失敗が&quot;小さく&quot;済みます。それでも足りないなら——さっきも言いましたが、&quot;まず少し資金を貯めてから始める&quot;のも、逃げじゃなくて立派な順番です。ゼロのまま無理に飛ぶより、そのほうが結局早いことも多い。補助金の当てにしすぎも危ない、これは僕自身が痛い目を見ました。</div></section>
+<h2 class="sec">権威性＋僕の始まりの物語（三上さんの不安に接地）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S16</span><span class="scard-title">僕も、1代目・ゼロから始めました</span></div><div class="scard-talk">偉そうに言ってますが、僕も1代目、ゼロから始めた農家です。今のすごい農家はほとんど親から継いでる。僕は継いでません。だから、三上さんの&quot;怖さ&quot;、よく分かります。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S17</span><span class="scard-title">僕の失敗談</span></div><div class="scard-talk">正直に言います。最初、僕は順番を逆にしました。売り先を先に作ろうとして、いざ納品2週間前に出せる量が半分しかなくて、取引先に電話するのに手が震えました。補助金も投資に回せず生活費に消えた。人参をほぼ腐らせて、病気の名前すら知らなかった。……怖くて当然なんですよ。だから、あなたには同じ順番の間違いをしてほしくない。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S18</span><span class="scard-title">1日実働約5時間で、年間100t超</span></div><div class="scard-talk">それでも続けて、今は農業歴16年、年間100t超を1日実働約5時間で回しています。朝9時から14時。根性じゃなくて、仕組みです。正しい順番で積み上げた結果です。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S19</span><span class="scard-title">大不作の年でも、3日で1ヶ月分</span></div><div class="scard-talk">2024年の大不作でも、3日間で1ヶ月分の売上を回収しました。運じゃなくて、作る前・売る前・届ける前の準備があったからです。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S20</span><span class="scard-title">産地化と表彰</span></div><div class="scard-talk">愛知で初めて有機JASのニンジンを産地化して、別の作物で3年連続表彰、発芽率も70%から95%以上に。順番と改善の積み重ねです。</div></section>
+<h2 class="sec">信頼性強化（相談者の声）※実際の感想のみ・表記指定を厳守</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S21</span><span class="scard-title">1年前、ゼロから始めた方</span><span class="scard-tag">匿名</span></div><div class="scard-talk">（デパート営業から農業へ。稼ぎ方を教えてくれる人がいなかった不安を代弁）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S22</span><span class="scard-title">現場で学べた安心感</span><span class="scard-tag">匿名</span></div><div class="scard-talk">（知識でなく現場で・失敗まで共有してもらえた安心）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S23</span><span class="scard-title">「この人がいけるなら、私もいけるかも」</span><span class="scard-tag">匿名</span></div><div class="scard-talk">（実際にできている人と接すると景色が変わる＝三上さんの&quot;勇気&quot;に効かせる）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S24</span><span class="scard-title">100万 → 300万 → 1000万</span><span class="scard-tag">匿名</span></div><div class="scard-talk">（いきなりでなく階段で。※受講生本人の言葉。こちらから稼げる保証はしない）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S25</span><span class="scard-title">始める前から、利益設計で悩んでいた方</span><span class="scard-tag">鈴木さん・実名OK</span></div><div class="scard-talk">（三上さんと同じ&quot;始める前&quot;の方が疑問を解消できた実例）</div></section>
+<h2 class="sec">利益が残る3要素</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S26</span><span class="scard-title">利益が残る農業の3要素</span></div><div class="scard-talk">必要なのは3つだけ。安定して作れる／買ってくれる相手がいる／利益が出る形で続く。これを順番に整えます。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S27</span><span class="scard-title">まず「安定」</span></div><div class="scard-talk">発芽・収量・品質・作業が安定しないと、売り先を作っても約束を守れない。ここが土台。三上さんはまずキャベツ・青ネギで、ここを固めるところから。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S28</span><span class="scard-title">次に「売り先」</span></div><div class="scard-talk">誰に・なぜ選ばれ・どの価格で続くか。三上さんは道の駅の経験がある。そこを&quot;また&quot;つなぐのが最短です。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S29</span><span class="scard-title">最後に「拡大」</span></div><div class="scard-talk">安定と売り先ができてから拡大。ここまで来て初めて、脱サラして専業、の絵がリアルになります。</div></section>
+<h2 class="sec">テストクロージング②（商品説明の許可・軽く）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S30</span><span class="scard-title">ここからは、続けたい方への話です</span></div><div class="scard-talk">ここから先は、&quot;独学で悩み続けるより、順番を一緒に整えたい&quot;という方への話になります。そういう伴走の仕組みがあるので、中身だけお話ししてもいいですか？（&quot;はい&quot;を得てから・無理には進めない）</div></section>
+<h2 class="sec">商品説明（伴走プログラム）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S31</span><span class="scard-title">稼げる農業の仕組み化 伴走プログラム</span></div><div class="scard-talk">利益が残る農業の仕組みを、一緒に作る3ヶ月の伴走型プログラムです。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S32</span><span class="scard-title">①宿題（実践課題）で手を動かす</span></div><div class="scard-talk">学んで終わりにしません。毎回あなたに宿題を出します。知識でなく、実際に畑と販路が動くように。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S33</span><span class="scard-title">②月4回の課題チェック＋月1回ミーティング</span></div><div class="scard-talk">提出いただいた課題を月4回、僕が直接チェックして修正します。月1回のミーティングで、あなたの状況に合わせて次の一手を一緒に決めます。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S34</span><span class="scard-title">③3ヶ月で、終わりにしません</span></div><div class="scard-talk">契約は3ヶ月です。でも、3ヶ月が過ぎても、あなたの質問には期限なくずっと答え続けます。僕がこの教育をやめる日が来るまで、ずっとです。売って終わりにはしません。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S35</span><span class="scard-title">進め方（安定→売り先→利益→拡大）</span></div><div class="scard-talk">最初に現状診断。そこから安定設計→売り先設計→利益設計→拡大設計の順で、あなたの畑に落とし込みます。三上さんの畑・作物・道の駅、全部使って設計します。</div></section>
+<h2 class="sec">価格提示（★岸さん版と同一に戻す＝押しの加減は現場でご主人様が。スライドで弱めない）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S36</span><span class="scard-title">価格・期間・サポート内容</span></div><div class="scard-talk">期間は3ヶ月。価格は15万円です。内容は、宿題＋月4回の課題チェック＋月1回のミーティング。そして3ヶ月後も、質問には無期限でお答えし続けます。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S37</span><span class="scard-title">判断基準は「安いか高いか」ではない</span></div><div class="scard-talk">判断基準は金額だけではありません。今の悩みを放置して時間だけ使い続けるのか、順番を整えて次の一手を明確にするのか。この比較で考えてください。やりたい気持ちを迷ったまま1年立ち止まる方が、結果的に高くつくことがあります。</div></section>
+<h2 class="sec">お約束（免責・そのまま）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S38</span><span class="scard-title">お約束できること・できないこと</span></div><div class="scard-talk">正直に。「必ず稼げる」とは約束しません。約束するのは、本気の伴走をやり切ること。成果は、伴走とあなたの実行が合わさって初めて出ます。</div></section>
+<h2 class="sec">適合（★岸さん版と同一＝性格で線引き）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S39</span><span class="scard-title">このプログラムが向いている人・向いていない人</span></div><div class="scard-talk">向いているのは、正しい順番で地道に実行できる方、素直に試して改善できる方。逆に向いていないのは、楽して稼ぎたい方、学んでも行動しない方、うまくいかないのを人や環境のせいにする方です。農業は現実の仕事なので、手を動かす方にだけ、僕も全力で伴走します。三上さんは「土いじってる時が1番…」と書くくらい農業が好きな人。手を動かす側だと思っています。</div></section>
+<h2 class="sec">行動喚起（★岸さん版と同一＝緊急性・限定・初回イメージ）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S40a</span><span class="scard-title">今、始める理由</span></div><div class="scard-talk">農業は季節があります。作付け・土づくり・販路づくりは、始めるのが遅れるほど次のタイミングも遅れます。焦って決める必要はありませんが、先送りで解決する課題ではありません。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S40b</span><span class="scard-title">今回の募集条件</span></div><div class="scard-talk">一人ひとり課題を直接チェックするので、一度に見られる人数には限りがあります。今回は10名限定、締切は本日から3日後、枠が埋まり次第終了でお受けします。絞るのは、売るためではなく、成果を出してもらうためです。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S40c</span><span class="scard-title">初回でやること</span></div><div class="scard-talk">参加を決めたら、まず初回で現状診断をします。今の作物・土地・時間・資金・売り先を整理して、最初の宿題（次の一手）をその場で決めます。動き出しは早いです。</div></section>
+<h2 class="sec">よくある不安（三上さん向けに厚く・ここが本番＝軸は&quot;脱サラ/お金/子供&quot;）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S41</span><span class="scard-title">「お金が不安」な方へ</span></div><div class="scard-talk">いちばん大事なので、ゆっくり話します。お金の不安は自然です。でも、やりたいのに何もしないまま1年、2年と過ぎる方が、時間も気持ちも消耗する。正直に言うと——資金が&quot;無いに等しい&quot;まま全部を一気に始めるのは、相当大変です。ここは誇張しません。だからこそ、お金をかけない始め方を選ぶ。必要なら&quot;まず少し資金を貯める期間&quot;も、ちゃんと設計に入れる。小さく作って、道の駅で売って、回収できると分かってから次に進む。——&quot;資金ゼロで今すぐ飛べます&quot;とは言いません。そこは正直に。でも、回収できる形を一緒に作って、そこに近づくことはできる。そこで見てほしいんです。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S42</span><span class="scard-title">「脱サラする勇気が出ない・家族が心配」な方へ</span></div><div class="scard-talk">三上さんが一番書きたかったのは、たぶんここですよね。中2と小6のお子さんがいて、生活がある。だから怖い。当たり前です。でも——いきなり会社を辞める必要はないんです。今の仕事を続けながら、小さく作って・小さく売って、&quot;これなら食べていける&quot;を数字で確かめてから飛べばいい。ご家族には、「今の課題／なぜやりたいか／どうリスクを抑えるか」を数字と順番で見せられれば、反対は&quot;相談&quot;に変わります。勢いで辞める応援はしません。壊さずに夢に近づく設計を一緒にします。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S43</span><span class="scard-title">「時間がない」方へ</span></div><div class="scard-talk">今の仕事があるから時間がない、当然です。だからこそ小さく始める。僕自身、今は1日実働約5時間で年100t超。増やすのは時間じゃなくて、順番と設計です。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S44</span><span class="scard-title">「自信がない」方へ</span></div><div class="scard-talk">自信は先に持つものじゃなくて、正しい一手を実行した後についてきます。三上さんはもう道の駅に出した経験がある。ゼロから自信を作るんじゃなくて、&quot;もうある経験&quot;を思い出すところから始めましょう。</div></section>
+<h2 class="sec">クロージング（★実クロージングは岸さん版と同等＝&quot;進めたいですか&quot;まで言う。押しの加減は現場で）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S45</span><span class="scard-title">今日の判断基準</span></div><div class="scard-talk">今日の判断は、この3つで。やりたい気持ちを、迷ったまま置いていいのか。一人で解決できるのか。伴走を使いながら進めた方が早いのか。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S46</span><span class="scard-title">最終確認</span></div><div class="scard-talk">三上さんに必要なのは、勇気を無理に出すことじゃなくて、怖くない順番で確かめること。畑もある、作物も決まってる、売った経験もある。僕はかなり力になれると感じています。ここから一緒に進めていきたいですか？</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S47</span><span class="scard-title">今日の一歩</span></div><div class="scard-talk">（この場で決めても、持ち帰るとしても）今日の一歩を1つ決めましょう。おすすめは——「邑南町の近くの道の駅か直売所を1つ、青ネギかキャベツの出荷条件だけ調べてみる」。三上さんは一度やってるから、これはすぐできます。ここが動くと、次が見えてきます。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S48</span><span class="scard-title">参加後の流れ／最後に</span></div><div class="scard-talk">進める場合の流れは、お申し込み→初回日程を決めて→初回で現状診断と最初の宿題、です。支払い方法のご相談もこの場で。……農業は、作るだけじゃなくて選ばれ続ける仕組みがあって初めて安定します。三上さんは始める材料をもう持ってる人。怖いのは条件が足りないからじゃなくて、順番がまだ見えてないだけ。安定・売り先・拡大、一緒に整えましょう。今日はありがとうございました。</div></section>
+<hr class="sep">
+
+<div class="notes-fold">
+<details class="notes">
+  <summary>📕 発表者ノート（自分用・面談中は開かない／三上さんに見せない）</summary>
+  <div class="notes-body">
+<h2 class="sec">今回の大方針（岸さんとの違い）※2026-07-08 ご主人様の修正を反映</h2>
+<ul class="pts">
+<li>岸さん＝販路が悩み・副業・作物未定・資金20万。 → <strong>三上さん＝&quot;脱サラの勇気&quot;が悩み・専業志向・作物と畑と販路経験あり・資金&quot;無いに等しい&quot;・子供2人。</strong></li>
+<li><strong>🆕2026-07-08 ご主人様口述の&quot;三上さんへの読み&quot;を反映（実発言ベース・憶測禁止）：</strong></li>
+</ul>
+<p>  1. <strong>&quot;勇気が出ない&quot;の核＝結局&quot;稼げてない&quot;から「選べない」</strong>（稼げていれば副業継続も専業移行も選べる／今は選べないから辞めるのも怖い）。→ S5・S5bの核をこの因果で言い換え済み。</p>
+<p>  2. <strong>脱サラは可能・でもステップを飛ばすと&quot;生活のこと&quot;が的中する＝一足飛び禁止を強調</strong>（S13・S14に追記）。</p>
+<p>  3. <strong>「20アールあれば脱サラできる」は憶測＝安全側に正す</strong>（畑規模を過大評価させない・断定しない・相談で現実的な線を一緒に引く）。発表者ノート下部のトーンを&quot;順番を踏めば可能／飛ばすと危険&quot;に調整済み。</p>
+<p>  4. <strong>資金&quot;無いに等しい&quot;まま始めるのは相当難しい＝お金をかけない始め方＋&quot;まず資金を貯める&quot;も現実的な選択肢</strong>（S8・S15・S41に追記。&quot;資金ゼロで今すぐ飛べる&quot;とは言わない＝現実を正す。ただしお金への寄り添いは残す）。</p>
+<p>  5. <strong>家族50%農業50%＝収入設計が要る＝いきなり専業でなく「農業法人に雇ってもらう／副業で農業バイト」も選択肢</strong>（新スライドS14b＝&quot;農業に関わりながら稼ぐ&quot;複数ルートを提示）。</p>
+<p>  6. <strong>転勤で道の駅に出せなくなった＝そこが苦しいと読み取れる</strong>（S7で汲む＝売り先が切れた悔しさを言語化）。</p>
+<ul class="pts">
+<li class="sub">方針：<strong>過度な期待を煽らない・資金は現実的・雇用/副業の選択肢を追加・一足飛び禁止。ただし夢は否定しない（&quot;順番を踏めば可能&quot;は残す）。</strong> お金の&quot;寄り添い&quot;は残すが&quot;資金ゼロで飛べる&quot;とは言わない。&quot;売り込みません&quot;宣言はしない（[[feedback_launch_mindset_no_antisell_read_context]]）。</li>
+<li><strong>🔧価格スライドは岸さん版と同一に戻した</strong>（ご主人様2026-07-08「価格の押しの加減は俺が現場でやる＝スライドで弱めるんじゃない」）。S36-37価格／S39適合（性格で線引き）／S40b希少性（10名限定・締切本日から3日後・枠埋まり次第）／S45-46実クロージング（&quot;進めていきたいですか&quot;まで言う）＝<strong>すべて岸版どおり・事実は一切曲げない</strong>。私が前回入れた&quot;今日は決めなくて大丈夫/柔らかく&quot;の価格緩衝は撤去済み。<strong>加減はご主人様が口頭で調整する。</strong></li>
+<li><strong>軸は&quot;販路&quot;でなく&quot;脱サラの勇気・お金・子供の生活&quot;</strong>（維持）。不安を消す・寄り添うは S5b見える化／S41（お金）／S42（脱サラ・家族）で担保（これは価格の緩め方でなく&quot;悩みへの誠実な回答&quot;＝売りそのもの）。<strong>&quot;売り込みません&quot;の宣言はしない</strong>（[[feedback_launch_mindset_no_antisell_read_context]]）。</li>
+<li><strong>不安を消す・寄り添うが主役</strong>：S5b（核の悩み見える化）・S41（お金）・S42（脱サラ・家族）が本番のクライマックス。ここを一番丁寧に。</li>
+</ul>
+<h2 class="sec">フェーズ・狙い</h2>
+<ul class="pts">
+<li>S1-3 導入＝警戒解除／夢の肯定 ／ S4-S5b 現状確認＋<strong>核の悩み見える化</strong>（アンケート済み＝ゼロから聞かず&quot;確認＋深掘り&quot;／S5b＝勇気が出ないの正体を&quot;お金×家族×でも夢は本物&quot;の3枚で図解＋核の因果＝&quot;稼げてないから選べない&quot;）／ S6-10 深掘り（S7＝転勤で売り先が切れた悔しさを汲む／迷い続けるコスト）／ S11 テストクロージング①／ S12-15＋<strong>S14b</strong> 価値観の転換（脱サラ＝一気に飛ぶ物でない・<strong>一足飛び禁止＝飛ばすと生活が的中</strong>・S14b＝いきなり専業でなく&quot;関わりながら稼ぐ&quot;複数ルート・お金ないほど順番が命／資金を貯めるも選択肢）／ S16-20 権威＋オリジンストーリー（イチロウのゼロからの失敗談で&quot;怖さ&quot;に接地）／ S21-25 信頼性／ S26-29 利益の順番／ S30 テストクロージング②／ S31-35 商品説明／ <strong>S36-37 価格（岸版どおり・放置コスト対比）／ S38 免責／ S39 適合（性格で線引き・岸版）／ S40a-c 行動喚起（緊急性・10名限定/締切3日・初回イメージ・岸版）</strong> ／ S41-44 反論処理（お金・脱サラ・時間・自信＝軸は核の悩み）／ <strong>S45-48 クロージング（岸版と同等の実クロージング＝&quot;進めていきたいですか&quot;／今日の一歩／参加後の流れ）</strong></li>
+</ul>
+<h2 class="sec">三上さんに効く核フレーズ（そのまま口頭）</h2>
+<ul class="pts">
+<li>「勇気が出ないのは性格じゃない。まだ稼げてなくて&quot;選べない&quot;だけ。稼げれば副業のままも専業も選べる」＝<strong>核の因果（勇気の再定義）</strong>。S5・S5bで最初に効かせる。</li>
+<li>「三上さんはゼロから始める人じゃない。畑も作物も、売った経験もある。足りないのは順番と、確かめる勇気だけ」＝<strong>自己効力感の核</strong>。S6・S46で必ず効かせる。</li>
+<li>「脱サラ＝いきなり全部を賭けることじゃない。今の仕事を続けたまま、小さく確かめてから飛べばいい。でも飛ばすと生活が的中する＝一足飛びは禁止」＝<strong>恐怖の分解＋一足飛び禁止</strong>。S13・S14・S42で。</li>
+<li>「いきなり専業に飛ばなくていい。副業農業／農業法人に雇われる／農業バイトで、収入を切らさず関わりながら稼ぐ道もある」＝<strong>収入設計の複数ルート</strong>（家族50%農業50%に接地）。S14bで。</li>
+<li>「お金がないからこそ、順番が命。大きな投資を先にしない。足りなければ&quot;まず資金を貯める&quot;も立派な順番。ただし資金ゼロで今すぐ飛べるとは言わない」＝S8・S15・S41。</li>
+<li>「僕も1代目ゼロから。順番を間違えて、取引先に電話するのに手が震えた」＝オリジンストーリー（S16-17）。三上さんの&quot;勇気が出ない&quot;に最も刺さる。事実ベース（[[reference_ichiro_origin_story]]）。</li>
+</ul>
+<h2 class="sec">成約導線（★押しの加減はご主人様が現場で・スライドは事実提示）</h2>
+<p>商品説明を急がない。三上さんの口から「順番が見えてなかった」「辞めなくてもいいのか」を引き出す。S11/S30の&quot;興味ありますか&quot;で&quot;はい&quot;を得てから商品へ。価格・希少性・クロージングは<strong>岸版どおりの強さで提示</strong>（弱めない）。そのうえで、<strong>今日決めさせるか／持ち帰らせるかの押し引きはご主人様が三上さんの温度を見て口頭で調整</strong>する（資金&quot;無いに等しい&quot;＝ご主人様が「無理させたくない」と思えば現場で緩められる。逆にやる気があれば通常どおり締める）。私（スライド／台本）の役目は、事実を曲げず・寄り添いパートを厚くして&quot;この人になら任せたい&quot;を作ること（[[feedback_launch_mindset_no_antisell_read_context]]）。</p>
+<h2 class="sec">相談者の声＝実素材のみ・表記厳守</h2>
+<p>S21-24＝匿名。S25＝鈴木さん（実名OK）。<strong>捏造しない</strong>。スライド側は岸版と同じ確定テキストを流用（本物）。稼げる保証はこちらから言わない（S24は受講生本人の言葉）。</p>
+<h2 class="sec">事実の扱い（憶測禁止）</h2>
+<ul class="pts">
+<li>権威データ（16年・100t・9-14時・大不作3日・有機JAS）＝確定。オリジンの失敗談＝記録で裏取り済（[[reference_ichiro_origin_story]]）。</li>
+<li>三上さんの数字（20アール／年200万／資金無いに等しい／道の駅出荷経験／子供中2・小6）＝<strong>本人のアンケート実回答</strong>。面談で使ってよい。</li>
+<li>「20アール（≒600坪）」は岸さんの20坪と桁が違う＝畑の規模は&quot;ある方&quot;。ただし<strong>「20アールあれば脱サラできる」は憶測＝断定しない</strong>（ご主人様2026-07-08「畑規模を過大評価させるな・話を聞きながら現実的な線を引く」）。<strong>トーン＝&quot;順番を踏めば脱サラは可能／でも飛ばすと生活が的中して危険&quot;</strong>（煽らない）。年200万も&quot;順番を踏めば射程&quot;だが、<strong>資金&quot;無いに等しい&quot;のままだと初期投資も生活の谷も相当きつい</strong>＝お金をかけない始め方＋必要なら資金を貯める期間＋いきなり専業でなく関わりながら稼ぐ（S14b）で現実的に設計する。畑の広さだけで「いける」と言い切らない＝ここは相談で三上さんの数字を聞きながら一緒に線を引く。</li>
+</ul>
+<h2 class="sec">📊 邑南町（邑智郡）の産地情報 — 一次調べ・出典明記（面談で数字を語る材料）</h2>
+<div class="note-callout"><p>ご主人様2026-07-08「邑南町のキャベツ・青ネギが産地か・産地規模を一次で」。WebSearchで確認できた範囲＝以下。<strong>確認できた事実</strong>と<strong>未確認</strong>を分けて記載（憶測禁止）。</p></div>
+<ul class="pts">
+<li>✅ <strong>白ねぎ＝三上さんの郡（邑智郡）が島根県の主産地</strong>：「島根県では中国山地に位置する<strong>邑智郡が白ねぎの主産地</strong>。雪が積もる過酷な環境で栽培し、12月以降は甘みが増す。5・6月を除く年10ヶ月出荷」。出典＝JAしまね 特産品（野菜） ja-shimane.jp/tokusan/vegetable/ 。⇒ <strong>三上さんの地元（邑智郡邑南町）は&quot;白ねぎの産地の只中&quot;＝地の利がある</strong>。面談で「邑智郡は白ねぎの産地ですよね」は事実として言える。</li>
+<li class="sub">⚠️ ただし三上さんが書いたのは「<strong>青ネギ</strong>」。白ねぎ（軟白栽培・長ネギ系）と青ネギ（葉ネギ系）は別品目。<strong>&quot;青ネギ&quot;単独の邑南町産地データは今回未確認</strong>。地元が白ねぎ産地＝ネギ栽培の下地・技術・出荷ルートがある可能性は高いが、青ネギで語るなら道の駅の実売で確かめるのが確実（三上さんは道の駅出荷経験あり）。</li>
+<li>✅ <strong>キャベツ＝島根県は周年生産・出荷</strong>：「春／初夏どり／夏秋／冬キャベツで周年生産出荷。冬キャベツは県内・広島市場・大阪市場へ出荷」。出典＝JAしまね（同上）／作物統計（maff・ALIC）。⇒ 島根でキャベツは&quot;売り先ルートが確立している作物&quot;。</li>
+<li>⚠️ <strong>邑南町&quot;単独&quot;の品目別 農業産出額（売上金額ベース）＝未確認</strong>。存在源＝農水省「市町村別農業産出額（推計）」／e-Stat「生産農業所得統計」に邑南町の数値があるはずだが、今回のWebSearchでは具体的な金額まで到達できず。<strong>数字で語りたい場合は e-Stat の市町村別農業産出額（推計）で&quot;邑南町&quot;を直接引くのが一次</strong>（未取得＝正直に&quot;未確認&quot;）。</li>
+<li>出典URL：JAしまね特産品(野菜) https://ja-shimane.jp/tokusan/vegetable/ ／ALIC野菜情報 https://vegetable.alic.go.jp/ ／農水省 市町村別農業産出額(推計) https://www.maff.go.jp/j/tokei/kouhyou/sityoson_sansyutu/index.html ／e-Stat 生産農業所得統計 https://www.e-stat.go.jp/stat-search/files?toukei=00500206 。</li>
+<li><strong>使い方（面談）</strong>：「邑智郡は白ねぎの産地ですよね。ネギの下地がある土地なんです」＝地の利を肯定して自己効力感UP。ただし&quot;青ネギの産出額が◯円&quot;のような未確認の数字は言わない（憶測禁止）。数字は道の駅の実売（三上さんの経験）で確かめる方が確実、と現場で言う。</li>
+</ul>
+  </div>
+</details>
+</div>
+
+<p class="privacy">中川農産・個別相談 面談準備資料（非公開・関係者のみ）</p>
+</div>
+</body>
+</html>
