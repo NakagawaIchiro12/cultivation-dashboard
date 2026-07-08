@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>収穫 労働効率 ダッシュボード</title>
+<style>
+  :root{
+    --bg:#0c1016; --card:#161d2b; --card2:#1b2434; --line:#26314a;
+    --tx:#e8edf6; --sub:#93a1bd; --mut:#6b7690;
+    --green:#22c983; --green-d:#0f3d2a; --amber:#ffb02e; --blue:#5aa9ff;
+    --pink:#ff7ab6; --violet:#a78bfa; --shadow:0 10px 34px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",system-ui,sans-serif;
+    background:radial-gradient(1200px 700px at 50% -10%, #16233a 0%, var(--bg) 55%);
+    color:var(--tx); line-height:1.5; -webkit-font-smoothing:antialiased;
+    padding:clamp(14px,4vw,34px) clamp(12px,4vw,26px) 60px;
+  }
+  .wrap{max-width:920px;margin:0 auto}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#f0a020 0%,#e07a12 48%,#b8560c 100%);
+    border-radius:24px;padding:clamp(20px,5vw,34px);box-shadow:var(--shadow);
+    position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:230px;height:230px;
+    background:radial-gradient(circle,rgba(255,255,255,.22),transparent 70%);border-radius:50%}
+  .hero .eyebrow{font-size:13px;letter-spacing:.14em;color:#fff3e0;font-weight:700;opacity:.95}
+  .hero h1{font-size:clamp(26px,7vw,42px);font-weight:800;color:#fff;margin-top:6px}
+  .hero p.lead{color:#fff6ea;font-size:clamp(13px,3.4vw,16px);font-weight:600;margin-top:4px}
+  .stamp{margin-top:16px;font-size:12px;color:#ffe9cf}
+
+  /* today big card */
+  .today{display:grid;gap:12px;margin-top:22px}
+  .tcard{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--amber);
+    border-radius:18px;padding:16px 18px}
+  .tcard .lbl{font-size:12px;color:var(--sub);font-weight:700;letter-spacing:.06em}
+  .tcard .who{font-size:clamp(18px,5vw,24px);font-weight:800;margin-top:4px}
+  .tcard .meta{font-size:13px;color:var(--sub);margin-top:3px}
+  .kpis{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .kpi{background:var(--card2);border:1px solid var(--line);border-radius:14px;
+    padding:12px 14px;flex:1;min-width:96px;text-align:center}
+  .kpi .n{font-size:clamp(24px,7vw,34px);font-weight:800;line-height:1;color:#fff}
+  .kpi .n.big{color:var(--amber)}
+  .kpi .u{font-size:12px;color:var(--sub);font-weight:600;margin-top:5px}
+  .tnote{margin-top:12px;font-size:13px;color:var(--sub);line-height:1.6;
+    background:#0d131f;border-radius:12px;padding:10px 13px}
+  .tnote b{color:var(--amber)}
+
+  /* sections */
+  section{margin-top:30px}
+  .sec-h{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-h .ic{font-size:20px}
+  .sec-h h2{font-size:clamp(16px,4.2vw,20px);font-weight:800}
+  .sec-h .tag{margin-left:auto;font-size:12px;color:var(--sub);font-weight:600}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px 4px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--sub);font-size:12px;font-weight:700;letter-spacing:.03em}
+  tr:last-child td{border-bottom:none}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  td.bph{font-weight:800;color:var(--amber)}
+  .wtag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;
+    background:#132339;color:var(--blue)}
+
+  /* rank */
+  .rank{display:grid;gap:10px}
+  .rrow{display:flex;align-items:center;gap:13px;background:var(--card);
+    border:1px solid var(--line);border-radius:14px;padding:12px 15px}
+  .rrow .medal{font-size:20px;width:26px;text-align:center}
+  .rrow .nm{font-weight:800;font-size:15px}
+  .rrow .sub{font-size:12px;color:var(--sub);margin-top:2px}
+  .rrow .val{margin-left:auto;text-align:right}
+  .rrow .val .b{font-size:20px;font-weight:800;color:var(--amber)}
+  .rrow .val .u{font-size:11px;color:var(--sub)}
+
+  .empty{background:var(--card);border:1px dashed var(--line);border-radius:14px;
+    padding:22px 16px;text-align:center;color:var(--mut);font-size:13.5px;line-height:1.7}
+  .empty b{color:var(--sub)}
+
+  .note{margin-top:26px;font-size:12px;color:var(--mut);text-align:center;line-height:1.7}
+  .foot{margin-top:8px;font-size:11px;color:#4c566e;text-align:center}
+  code{font-family:ui-monospace,monospace;background:#0d131f;padding:1px 6px;border-radius:5px;
+    color:#bcd0ef;font-size:11.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">中川農産 ・ 収穫 労働効率</div>
+    <h1>🧺 だれに頼めば速いか</h1>
+    <p class="lead">収穫の「時間 × 袋数」を記録して、袋/時で見える化。数字は本人の実申告のみ。</p>
+    <div class="stamp" id="stamp"></div>
+  </div>
+
+  <!-- 今日/最新 -->
+  <section>
+    <div class="sec-h"><span class="ic">📌</span><h2>いちばん新しい記録</h2></div>
+    <div class="today" id="today"></div>
+  </section>
+
+  <!-- ランキング -->
+  <section>
+    <div class="sec-h"><span class="ic">🏃</span><h2>担当ごとの平均（袋/時）</h2>
+      <span class="tag">記録が増えるほど正確に</span></div>
+    <div class="rank" id="rank"></div>
+  </section>
+
+  <!-- 全記録 -->
+  <section>
+    <div class="sec-h"><span class="ic">📒</span><h2>これまでの記録</h2>
+      <span class="tag" id="cnt"></span></div>
+    <div class="card"><div style="overflow-x:auto">
+      <table>
+        <thead><tr>
+          <th>日付</th><th>担当</th><th>作目</th>
+          <th class="num">時間</th><th class="num">袋</th><th class="num">袋/時</th><th>メモ</th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div></div>
+  </section>
+
+  <p class="note">
+    「1.4袋/時」などの数字は<b>速い・遅いの評価ではなく事実の記録</b>です。<br>
+    同じ人・同じ作目で日をまたいで見比べる（本人比較・過去比較）ために貯めています。
+  </p>
+  <p class="foot">明日から <code>python log_efficiency.py add</code> で「時間と袋数」を足すだけ。パートさんの分も同じ形で貯まります。</p>
+</div>
+
+<script>
+const DATA = [{"date": "2026-07-08", "worker": "イチロウ", "task": "収穫", "crop": "露地ケイトウ", "start": "9:00", "end": "14:00", "hours": 5.0, "bags": 7, "sizes": "2L→L・L→M中心", "bags_per_hour": 1.4, "note": "腰(後進症)がしんどく1袋ごとに休憩"}];
+
+const esc = s => (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const num = v => (v==null||v==='')?'—':v;
+
+// stamp
+document.getElementById('stamp').textContent =
+  '最終更新: ' + new Date().toLocaleString('ja-JP',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}) +
+  '　/　記録 ' + DATA.length + '件';
+
+// 最新カード
+const t = document.getElementById('today');
+if(DATA.length===0){
+  t.innerHTML = '<div class="empty">まだ記録がありません。<br><b>「今日は誰が・何時間で・何袋」</b>を1件入れると、ここに出ます。</div>';
+}else{
+  const r = DATA[0];
+  const timeStr = (r.start&&r.end)? (r.start+'〜'+r.end) : (num(r.hours)+'時間');
+  t.innerHTML =
+    '<div class="tcard">'+
+      '<div class="lbl">'+esc(r.date)+'　'+esc(r.task||'収穫')+'</div>'+
+      '<div class="who">'+esc(r.worker)+'</div>'+
+      '<div class="meta">'+esc(r.crop||'')+'　/　'+esc(timeStr)+(r.sizes?('　/　サイズ '+esc(r.sizes)):'')+'</div>'+
+      '<div class="kpis">'+
+        '<div class="kpi"><div class="n">'+num(r.hours)+'</div><div class="u">時間</div></div>'+
+        '<div class="kpi"><div class="n">'+num(r.bags)+'</div><div class="u">袋</div></div>'+
+        '<div class="kpi"><div class="n big">'+num(r.bags_per_hour)+'</div><div class="u">袋 / 時</div></div>'+
+      '</div>'+
+      (r.note? '<div class="tnote">📝 '+esc(r.note)+'</div>':'')+
+    '</div>';
+}
+
+// ランキング（担当ごと平均・記録2件以上のときのみ順位表示）
+const byW = {};
+DATA.forEach(r=>{ (byW[r.worker]=byW[r.worker]||[]).push(r); });
+const workers = Object.keys(byW).map(w=>{
+  const rs=byW[w];
+  const h=rs.reduce((s,x)=>s+(+x.hours||0),0);
+  const b=rs.reduce((s,x)=>s+(+x.bags||0),0);
+  return {w, n:rs.length, h:Math.round(h*100)/100, b, avg: h? Math.round(b/h*100)/100 : 0};
+}).sort((a,b)=>b.avg-a.avg);
+
+const rank = document.getElementById('rank');
+if(workers.length<=1){
+  const w = workers[0];
+  rank.innerHTML = '<div class="empty">担当が'+(w?'1人':'0人')+'ぶんの記録です。'+
+    (w? '<br><b>'+esc(w.w)+'</b> の平均 <b>'+w.avg+' 袋/時</b>（'+w.n+'回）':'')+
+    '<br>パートさんの分が増えると、ここに「誰が速いか」の順位が出ます。</div>';
+}else{
+  const medals=['🥇','🥈','🥉'];
+  rank.innerHTML = workers.map((x,i)=>
+    '<div class="rrow"><div class="medal">'+(medals[i]||(i+1))+'</div>'+
+      '<div><div class="nm">'+esc(x.w)+'</div><div class="sub">'+x.n+'回 / 合計'+x.h+'時間 / '+x.b+'袋</div></div>'+
+      '<div class="val"><span class="b">'+x.avg+'</span> <span class="u">袋/時</span></div>'+
+    '</div>').join('');
+}
+
+// 全記録テーブル
+document.getElementById('cnt').textContent = DATA.length + '件';
+document.getElementById('tbody').innerHTML = DATA.map(r=>
+  '<tr>'+
+    '<td>'+esc(r.date)+'</td>'+
+    '<td><span class="wtag">'+esc(r.worker)+'</span></td>'+
+    '<td>'+esc(r.crop||r.task||'')+'</td>'+
+    '<td class="num">'+num(r.hours)+'</td>'+
+    '<td class="num">'+num(r.bags)+'</td>'+
+    '<td class="num bph">'+num(r.bags_per_hour)+'</td>'+
+    '<td style="color:var(--sub)">'+esc(r.note||'')+'</td>'+
+  '</tr>').join('');
+</script>
+</body>
+</html>
