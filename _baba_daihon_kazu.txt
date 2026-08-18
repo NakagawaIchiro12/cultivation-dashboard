@@ -1,5 +1,5 @@
 file=C:\Users\carot\cult-pub\baba-daihon\index.html
-bytes=116490
+bytes=119356
 枚数(N / 62 の見出し)=76
 ruby=267
 連絡先「masaebaba18@gmail.com」がページに在るか=False
@@ -9,5 +9,5 @@ ruby=267
 他のお客様の実名「小谷」=0件
 他のお客様の実名「岸さん」=0件
 他のお客様の実名「鈴木」=0件
-出典（出典＝の行）=31件
+出典（出典＝の行）=33件
 URL=20件
