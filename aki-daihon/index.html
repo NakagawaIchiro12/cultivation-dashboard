@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>個別相談 読み上げ台本（菊池隆昭さん）</title>
+<style>
+:root{--green:#2e7d32;--green-d:#1b5e20;--ink:#1c2b1e;--paper:#f6f8f3;--gold:#b8892b;--line:#dfe6d8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+     background:var(--paper);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;}
+header.top{position:sticky;top:0;z-index:20;background:linear-gradient(120deg,#1b5e20,#2e7d32);
+     color:#fff;padding:16px 20px;border-bottom:4px solid var(--gold);box-shadow:0 3px 14px rgba(0,0,0,.15);}
+header.top h1{font-size:20px;font-weight:900;letter-spacing:.01em;line-height:1.4;}
+header.top p{font-size:13px;color:#d5f2d9;margin-top:5px;font-weight:600;}
+.wrap{max-width:820px;margin:0 auto;padding:20px 18px 120px;}
+.doc-h1{display:none;} /* top md title already in header */
+h2.sec{font-size:21px;font-weight:900;color:var(--green-d);margin:40px 0 6px;
+     padding:10px 16px;background:#eaf3e6;border-left:7px solid var(--gold);border-radius:0 10px 10px 0;}
+h3.subsec{font-size:17px;font-weight:800;color:var(--green-d);margin:26px 0 4px;
+     padding-left:12px;border-left:4px solid var(--green);}
+hr.sep{border:0;border-top:1px dashed var(--line);margin:26px 0;}
+p{font-size:16px;margin:12px 0;}
+/* ふりがな（ルビ）＝親字より小さく・地名で迷わないよう金色で目立たせる */
+ruby{ruby-align:center;}
+rt{font-size:.52em;font-weight:700;color:var(--gold);letter-spacing:.02em;line-height:1;
+   transform:translateY(.1em);}
+.scard-title rt{color:#a9781f;}
+.wrap>p:first-of-type{color:#42513e;}
+ul.pts{list-style:none;margin:12px 0;display:flex;flex-direction:column;gap:8px;}
+ul.pts li{font-size:16px;padding-left:1.4em;position:relative;}
+ul.pts li::before{content:"";position:absolute;left:.2em;top:.62em;width:.5em;height:.5em;border-radius:50%;background:var(--gold);}
+ul.pts li.sub{padding-left:2.6em;font-size:15px;color:#4a5847;}
+ul.pts li.sub::before{left:1.4em;background:var(--green);width:.4em;height:.4em;}
+.note-callout{background:#fbfcf9;border:1px solid var(--line);border-left:5px solid var(--green);
+     border-radius:0 12px 12px 0;padding:12px 16px;margin:16px 0;font-size:14.5px;color:#3c4a38;}
+.note-callout p{font-size:14.5px;margin:7px 0;}
+.note-callout strong{color:var(--green-d);}
+/* score / talk cards */
+.scard{background:#fff;border:1px solid var(--line);border-radius:14px;
+     padding:16px 18px;margin:14px 0;box-shadow:0 5px 18px rgba(30,60,25,.06);}
+.scard-head{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:9px;
+     padding-bottom:9px;border-bottom:1px solid #eef2ea;}
+.scard-no{background:var(--green-d);color:#fff;font-weight:900;font-size:15px;
+     border-radius:8px;padding:3px 12px;min-width:46px;text-align:center;letter-spacing:.02em;}
+.scard-title{font-size:17px;font-weight:900;color:var(--green-d);flex:1;min-width:60%;line-height:1.4;}
+.scard-tag{background:#fbeede;color:var(--gold);font-weight:800;font-size:12px;border-radius:999px;padding:3px 11px;}
+.scard-talk{font-size:16.5px;color:#222c22;font-weight:500;line-height:1.85;}
+.scard-talk strong{color:var(--green-d);font-weight:800;}
+/* table */
+.tbl-wrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;min-width:480px;background:#fff;border-radius:10px;overflow:hidden;
+     box-shadow:0 4px 16px rgba(30,60,25,.06);font-size:14.5px;}
+th,td{border:1px solid #e3eadd;padding:9px 12px;text-align:left;vertical-align:top;line-height:1.7;}
+th{background:#1b5e20;color:#fff;font-weight:800;}
+tr:nth-child(even) td{background:#f7faf5;}
+/* presenter notes fold */
+.notes-fold{margin-top:44px;border-top:3px dashed var(--gold);}
+details.notes{margin-top:16px;background:#f2f4ef;border:1px solid #d9e0d2;border-radius:12px;padding:4px 4px;}
+details.notes>summary{cursor:pointer;list-style:none;padding:14px 18px;font-size:16px;font-weight:900;
+     color:#5a6a55;display:flex;align-items:center;gap:10px;}
+details.notes>summary::-webkit-details-marker{display:none;}
+details.notes>summary::before{content:"▶";font-size:12px;color:var(--gold);transition:transform .2s;}
+details.notes[open]>summary::before{transform:rotate(90deg);}
+.notes-body{padding:6px 18px 22px;color:#5c6a57;font-size:14.5px;}
+.notes-body h2.sec{background:#e7ebe2;color:#4b5a46;border-left-color:#9aa892;font-size:18px;margin-top:26px;}
+.notes-body h3.subsec{color:#5a6a55;border-left-color:#9aa892;}
+.notes-body p{font-size:14.5px;color:#5c6a57;}
+.notes-body ul.pts li{font-size:14.5px;color:#5c6a57;}
+.notes-body .scard{background:#fafbf8;box-shadow:none;}
+.notes-body .note-callout{background:#edf0e9;border-left-color:#9aa892;}
+.notes-body table{font-size:13.5px;}
+.privacy{font-size:12px;color:#8a9784;text-align:center;margin-top:40px;padding-top:16px;border-top:1px solid var(--line);}
+@media(max-width:600px){
+  header.top h1{font-size:17px;}
+  .wrap{padding:16px 14px 100px;}
+  .scard-title{min-width:100%;font-size:16px;}
+  .scard-talk{font-size:16px;}
+  p{font-size:15.5px;}
+}
+</style><style>
+.wrap p, .note-callout p, ul.pts li, .scard-talk{overflow-wrap:anywhere;word-break:break-word;}
+</style><body>
+<header class="top"><h1>個別相談 読み上げ台本</h1><p>菊池 隆昭さん／2026-08-20 20:00　※このページは本人には見せません</p></header>
+<div class="wrap">
+<div class="note-callout"><p>この1枚に全部 入っています。スライドに出る文と、口で話す台本。</p></div>
+<h2 class="sec">本番の使い方</h2>
+<ul class="pts"><li>画面共有＝`<ruby>菊池<rt>きくち</rt></ruby>_スライド_スマホ.html`（← → でめくる）</li></ul>
+<ul class="pts"><li>Nキーは押さない（画面共有だと台本が相手に見える）</li></ul>
+<ul class="pts"><li>台本＝このページを手元で読む／スマホなら `<ruby>菊池<rt>きくち</rt></ruby>_スライド＋台本_合わせ版.pdf`</li></ul>
+<h2 class="sec">★この回は、前の回と作りが1つだけ違います</h2>
+<p>前の回の方は、整理シートに 面積・時間・品目・使えるお金・目標まで書いてくださっていました。</p>
+<p>だから、そのまま読み上げて「もう答えを書いてくださっていました」と返せました。</p>
+<p><ruby>菊池<rt>きくち</rt></ruby>さんの回は、そこが在りません。</p>
+<p>申込フォームの設問は1問だけで、お答えは「1. 生産の安定」の1行です。</p>
+<p>＝だから この回は「聞く」が主役です。前半に、聞いて埋める枚を厚く置きました。</p>
+<p>こちらの推測で埋めた文は 1つも置いていません。空欄は〔当日 記入〕のまま残しています。</p>
+<h2 class="sec">ご本人について、UTAGEの実データで確かめた事（2026-08-18 取得）</h2>
+<ul class="pts"><li>LINE表示名＝Aki.K／お名前＝<ruby>菊池<rt>きくち</rt></ruby> <ruby>隆昭<rt>たかあき</rt></ruby></li></ul>
+<ul class="pts"><li>予約＝2026-08-20 20:00（イベント参加日時の欄）</li></ul>
+<ul class="pts"><li>読者ID `8bsQs6I5jfk5`／アカウント `QmoVfAuh5Wdz`／シナリオ `rSN2GdqeAUcn`</li></ul>
+<ul class="pts"><li>ラベル＝「02_動画視聴済み」（8/16 23:26）／「個別相談申込者」（8/16 23:30）</li></ul>
+<ul class="pts"><li>動き＝2026-08-14 12:03 友だち追加 → 8/16 18:31 動画が届く → 8/16 23:26 視聴済み → 8/16 23:30 申込</li></ul>
+<h2 class="sec">★整理シートの中身（要約せず そのまま・全文）</h2>
+<p>設問「1）あなたの現状を教えてください」</p>
+<div class="note-callout"><p>1. 生産の安定</p></div>
+<p>このシートに、これ以外の設問はありません。</p>
+<p>（free31〜35 は「相談前の悩み」「なるほどと思った所」「やってみようと思った事」「SNSでシェアしてよいか」「SNSに載せる名前」＝面談のあとに書いてもらう感想フォームの欄で、いまは5つとも 空です。整理シートの項目ではありません）</p>
+<h2 class="sec">★確認できなかった事（推測で埋めていません）</h2>
+<p>畑がどこに在るか＝分かりませんでした</p>
+<ul class="pts"><li>UTAGEの住所の欄（郵便番号・都道府県・市区町村・番地）＝4つとも空</li></ul>
+<ul class="pts"><li>1対1トークの記録＝全7件。そのうち ご本人からの発言は0件（友だち追加の合図のみ）</li></ul>
+<ul class="pts"><li>こちらから6通 送っていますが、返信は来ていません</li></ul>
+<ul class="pts"><li>＝だから この回に 地域の数字は 1つも入れていません。前の回の方の地域の数字（他県・他市の<ruby>産出額<rt>さんしゅつがく</rt></ruby>や品目）を そのまま当てはめる事は していません</li></ul>
+<p>畑の広さ／作っている品目／<ruby>出荷<rt>しゅっか</rt></ruby>先／1日に畑へ入れる時間／使えるお金／目標の金額</p>
+<ul class="pts"><li>＝6つとも 記録にありません。当日、本人に聞いて埋めます（スライドの「6つだけ聞かせてください」の枚）</li></ul>
+<h2 class="sec">★前の回（同じ「1. 生産の安定」の方）と、どこを変えたか</h2>
+<p>1. 「もう答えを書いてくださっていました」の枚 → 「先に、正直に言っておきます」の枚に変えた</p>
+<p>   前はこう＝本人がシートに書いた1行を引用で読み上げて始めた。</p>
+<p>   後はこう＝「設問が1問だけだったので、<ruby>菊池<rt>きくち</rt></ruby>さんの畑のことをまだ何も知りません」と先に言う。</p>
+<p>2. 詰まっている所を3つ並べる枚 → いま居る場所を6つ聞く枚 2つに変えた</p>
+<p>   前はこう＝本人が書いた3つの困り（道具・時間・畑）をカードで見せた。</p>
+<p>   後はこう＝広さ・品目・<ruby>出荷<rt>しゅっか</rt></ruby>先／時間・お金・目標 の6つをカードにして、その場で埋める。</p>
+<p>3. 地域の数字4枚（市の<ruby>産出額<rt>さんしゅつがく</rt></ruby>・農協の取扱高・地域の品目・受け皿）→ 2枚に変えた</p>
+<p>   前はこう＝その市の実数を出典つきで4枚 並べた。</p>
+<p>   後はこう＝「地域が分かっていないので今日は入れていない」と正直に置く枚1つと、「地域が分からなくても受け皿の型は4つ」の枚1つ。実数は 地域が分かってから。</p>
+<p>4. 「よくある不安」を3つ → 4つに増やした</p>
+<p>   前はこう＝お金・時間・自信の3つ（本人の書いた事に紐づけていた）。</p>
+<p>   後はこう＝お金・時間・自信 に「一人でもできるのでは」を足した4つ。本人の事情に紐づけない形にした。</p>
+<p>5. 目標の金額を こちらから書かない形にした</p>
+<p>   前はこう＝本人が書いた金額を見出しに入れていた。</p>
+<p>   後はこう＝「目標」とだけ書いて、金額は〔当日 記入〕。うちの記録に<ruby>菊池<rt>きくち</rt></ruby>さんの金額は在りません。</p>
+<hr class="sep">
+<hr class="sep">
+<h2 class="sec">1 / 78</h2>
+<p>農業相談会</p>
+<h3 class="subsec">今日は、いま居る場所を はっきりさせて帰る時間です</h3>
+<p>選んでくださったのは「生産の安定」。今日は、その中身を一緒に言葉にして、次にやる事を1つ決めて帰ります。</p>
+<p>［農業相談会］</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>菊池<rt>きくち</rt></ruby>さん、本日はお時間ありがとうございます。今日は、いま<ruby>菊池<rt>きくち</rt></ruby>さんが居る場所をはっきりさせて、次にやる事を1つ決めて帰っていただく時間です。いきなり何かを売る場ではありません。前半はほとんど、僕が聞く時間にします。というのも、<ruby>菊池<rt>きくち</rt></ruby>さんの畑のことを、僕はまだ何も知らないんです。今日はそこから教えてください。</p>
+</div></div><h2 class="sec">2 / 78</h2>
+<p>はじめに</p>
+<h3 class="subsec">今日のゴール</h3>
+<ul class="pts"><li>いま居る場所を、数字で置いてみる</li></ul>
+<ul class="pts"><li>「安定」の中身を、言葉にして共有する</li></ul>
+<ul class="pts"><li>次にやる事を、1つだけ決める</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>今日のゴールは3つです。1つ、いま居る場所を数字で置いてみる。2つ、安定の中身を言葉にして共有する。3つ、次にやる事を1つだけ決める。この3つが揃うと、帰ってから何をすればいいかが はっきりします。逆に、たくさん持って帰ろうとすると、どれも動きません。</p>
+</div></div><h2 class="sec">3 / 78</h2>
+<p>はじめに</p>
+<h3 class="subsec">今日の進め方</h3>
+<p>前半は、僕がひたすら聞きます。1つずつ深く。そのあとで、僕の考え方をお伝えします。合わなければ無理に案内しません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>進め方です。前半は僕がひたすら聞きます。1つずつ深く聞かせてください。そのあとで僕の考え方をお伝えします。合わないと感じられたら、無理に案内はしません。役に立てる時だけ提案します。</p>
+</div></div><h2 class="sec">4 / 78</h2>
+<p>はじめに</p>
+<h3 class="subsec">先に、正直に言っておきます</h3>
+<p>申込のときの設問は1問だけでした。だから僕は、<ruby>菊池<rt>きくち</rt></ruby>さんの畑のことを まだ何も知りません。今日は、そこを埋めるところから始めます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>先に正直に言っておきます。申込のときにお答えいただいた設問は1問だけで、<ruby>菊池<rt>きくち</rt></ruby>さんは『生産の安定』を選んでくださいました。それ以外は、こちらに情報がありません。畑の広さも、作っている物も、どこへ出しているかも、まだ知りません。ですので今日は、そこを埋めるところから始めます。答えづらい所は飛ばして大丈夫です。</p>
+</div></div><h2 class="sec">5 / 78</h2>
+<p>自己紹介</p>
+<h3 class="subsec"><ruby>中川一郎<rt>なかがわ いちろう</rt></ruby>農業歴16年・順番を決めて広げてきました</h3>
+<p>根性で量を出しているのではありません。順番を決めて、そのつど仕組みに変えて広げてきました。</p>
+<ul class="pts"><li>1代目・親から継がずに始めた</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>本題の前に少しだけ自己紹介を。農業歴16年です。親から継いでいません。1代目で、何も持っていない所から始めました。今は1日実働 約5時間で、年間100t超。2026年は200tも視野に入っています。根性で量を出しているのではなくて、順番を決めて、そのつど仕組みに変えてきた結果です。今日お話しするのは、その順番の話です。</p>
+</div></div><h2 class="sec">6 / 78</h2>
+<p>自己紹介</p>
+<ul class="pts"><li>いまは1日実働 約5時間</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>本題の前に少しだけ自己紹介を。農業歴16年です。親から継いでいません。1代目で、何も持っていない所から始めました。今は1日実働 約5時間で、年間100t超。2026年は200tも視野に入っています。根性で量を出しているのではなくて、順番を決めて、そのつど仕組みに変えてきた結果です。今日お話しするのは、その順番の話です。</p>
+</div></div><h2 class="sec">7 / 78</h2>
+<p>自己紹介</p>
+<ul class="pts"><li>年間100t超（2026年は200tも視野）</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>本題の前に少しだけ自己紹介を。農業歴16年です。親から継いでいません。1代目で、何も持っていない所から始めました。今は1日実働 約5時間で、年間100t超。2026年は200tも視野に入っています。根性で量を出しているのではなくて、順番を決めて、そのつど仕組みに変えてきた結果です。今日お話しするのは、その順番の話です。</p>
+</div></div><h2 class="sec">8 / 78</h2>
+<p>自己紹介</p>
+<ul class="pts"><li>繁忙期は、学びに来る方も受け入れる側</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>本題の前に少しだけ自己紹介を。農業歴16年です。親から継いでいません。1代目で、何も持っていない所から始めました。今は1日実働 約5時間で、年間100t超。2026年は200tも視野に入っています。根性で量を出しているのではなくて、順番を決めて、そのつど仕組みに変えてきた結果です。今日お話しするのは、その順番の話です。</p>
+</div></div><h2 class="sec">9 / 78</h2>
+<p>確認させてください</p>
+<h3 class="subsec">選んでくださったのは、これでした</h3>
+<p>※申込フォームでお答えいただいた言葉、そのままです</p>
+<div class="note-callout"><p>「1. 生産の安定」</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>最初に、これを読ませてください。申込のときに選んでくださった答えです。『1. 生産の安定』。——この選び方をされる方は、もう作り始めている方です。これから始める方は、だいたい別の答えを選びます。なので、まずそこを確かめさせてください。<ruby>菊池<rt>きくち</rt></ruby>さんは今、もう作っておられますよね。</p>
+</div></div><h2 class="sec">10 / 78</h2>
+<p>確認させてください</p>
+<h3 class="subsec">「安定」を選んだのは、どの場面で そう思われましたか</h3>
+<p>同じ「安定」でも、量が読めない・値が読めない・時間が読めない、で打つ手が変わります。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>『生産の安定』を選ばれたとき、どの場面が頭にありましたか。——ここ、大事なんです。同じ『安定』でも、中身は3つくらいに分かれます。量が読めない。値が読めない。時間が読めない。どれかで、打つ手が全然 変わります。<ruby>菊池<rt>きくち</rt></ruby>さんの場合は、どれが近いですか。※答えを誘導しない。本人の言葉が出るまで待つ。</p>
+</div></div><h2 class="sec">11 / 78</h2>
+<p>今日いちばん聞きたいこと</p>
+<h3 class="subsec">いま居る場所を、6つだけ聞かせてください</h3>
+<p>これが揃うと、次にやる事が自動的に決まります。答えづらい所は飛ばして大丈夫です。</p>
+<ul class="pts"><li>【カード】① 広さ畑は何アール使えているのは</li></ul>
+<ul class="pts"><li>【カード】② 品目いま何をいくつ作っているか</li></ul>
+<ul class="pts"><li>【カード】③ <ruby>出荷<rt>しゅっか</rt></ruby>先どこへ出しているか</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>では、いま居る場所を6つだけ聞かせてください。この6つが揃うと、次にやる事はほぼ自動的に決まります。まず前半の3つ。①畑の広さ。全部で何アールで、そのうち今 実際に使えているのは何アールですか。②品目。いま何を、いくつ作っておられますか。③<ruby>出荷<rt>しゅっか</rt></ruby>先。どこへ出しておられますか。——1つずつ、ゆっくりで大丈夫です。〔当日 記入〕この3つは こちらの記録に無い。推測で埋めない。</p>
+</div></div><h2 class="sec">12 / 78</h2>
+<p>今日いちばん聞きたいこと</p>
+<h3 class="subsec">残りの3つも、聞かせてください</h3>
+<ul class="pts"><li>【カード】④ 時間1日 何時間畑に入れるか</li></ul>
+<ul class="pts"><li>【カード】⑤ お金畑に使えるのは月いくらか</li></ul>
+<ul class="pts"><li>【カード】⑥ 目標農業でいくら稼ぎたいか</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>後半の3つです。④時間。1日、何時間くらい畑に入れていますか。お勤めをされているかどうかでも変わります。⑤お金。畑に使えるお金は、月にどのくらいですか。⑥目標。農業で年間いくら稼ぎたいですか。——⑤と⑥は答えづらいと思うので、ざっくりで大丈夫です。桁だけでも構いません。〔当日 記入〕推測で埋めない。</p>
+</div></div><h2 class="sec">13 / 78</h2>
+<p>深掘り ①</p>
+<h3 class="subsec">その中で、いちばん手が止まるのはどこですか</h3>
+<p>手が止まる場面が分かると、直す所と、直さなくていい所が分かれます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>6つ聞かせていただいた中で、いちばん手が止まるのはどこですか。時間が足りない、なのか。作った物が思ったように採れない、なのか。作れたけど売り先が無い、なのか。——手が止まる場面が分かると、直す所と、直さなくていい所が はっきり分かれます。ここは具体で聞かせてください。</p>
+</div></div><h2 class="sec">14 / 78</h2>
+<p>深掘り ②</p>
+<h3 class="subsec">去年、いちばんうまくいかなかったのは何ですか</h3>
+<p>うまくいかなかった物の中に、いちばん大きい改善が眠っています。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>次に、去年いちばん うまくいかなかったのは何でしたか。作物でも、時期でも、売り方でも構いません。——ここ、聞きにくい所ですけど、いちばん大きい改善が眠っている所なんです。うまくいった物を伸ばすより、落ちた物を戻す方が、たいてい効きます。※本人が言い淀んだら『言いたくなければ飛ばして大丈夫です』と受ける。</p>
+</div></div><h2 class="sec">15 / 78</h2>
+<p>深掘り ③</p>
+<h3 class="subsec">逆に、いちばん手応えがあったのは何ですか</h3>
+<p>手応えのあった物は、次の主役の候補です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>逆に、いちばん手応えがあったのは何ですか。よく採れた、思ったより高く売れた、作りやすかった。何でも構いません。——ここで出てきた物が、あとで話す『主役を1つ決める』の候補になります。覚えておいてください。</p>
+</div></div><h2 class="sec">16 / 78</h2>
+<p>確認させてください</p>
+<h3 class="subsec">1年後、どうなっていたら「安定した」と言えますか</h3>
+<p>ここが決まらないと、何をやっても「まだ足りない」になります。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>最後にもう1つ。1年後、どうなっていたら『安定した』と言えますか。——ここ、意外と決めていない方が多いんです。決まっていないと、何をやっても『まだ足りない』になってしまう。数字でも、状態でも構いません。<ruby>菊池<rt>きくち</rt></ruby>さんの言葉で言ってみてください。〔当日 記入〕</p>
+</div></div><h2 class="sec">17 / 78</h2>
+<p>ポイント</p>
+<h3 class="subsec">ここまで聞かせていただいた分、順番を決めれば外せます</h3>
+<p>新しい道具を足す話ではありません。いま持っているものを、どの順で触るかの話です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ありがとうございます。ここまで聞かせていただいた分で、だいたい見えました。この先は、僕の考え方をお話しします。先に言っておくと、新しい道具を買う話ではありません。いま持っているものを、どの順で触るかの話です。聞いてみますか。</p>
+</div></div><h2 class="sec">18 / 78</h2>
+<p>考え方</p>
+<h3 class="subsec">悩みは、3つのどれかに仕分けるところから</h3>
+<ul class="pts"><li>安定 … 読める量が作れているか</li></ul>
+<ul class="pts"><li>売り先 … 誰に・なぜ選ばれ・続くか</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>農業の悩みは、突き詰めると3つのどれかに入ります。安定、売り先、拡大。安定は、読める量が作れているか。売り先は、誰に・なぜ選ばれて・それが続くか。拡大は、面積・人・設備です。この3つは順番が決まっていて、飛ばすと必ず戻されます。<ruby>菊池<rt>きくち</rt></ruby>さんは『安定』を選ばれた。これは いちばん最初の場所で、正しい選び方です。</p>
+</div></div><h2 class="sec">19 / 78</h2>
+<p>考え方</p>
+<ul class="pts"><li>拡大 … 面積・人・設備</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>農業の悩みは、突き詰めると3つのどれかに入ります。安定、売り先、拡大。安定は、読める量が作れているか。売り先は、誰に・なぜ選ばれて・それが続くか。拡大は、面積・人・設備です。この3つは順番が決まっていて、飛ばすと必ず戻されます。<ruby>菊池<rt>きくち</rt></ruby>さんは『安定』を選ばれた。これは いちばん最初の場所で、正しい選び方です。</p>
+</div></div><h2 class="sec">20 / 78</h2>
+<p>考え方</p>
+<h3 class="subsec">行きたい場所ではなく、いま居る場所を見る</h3>
+<p>目標も、選んだ番号も「行きたい場所」。決め手になるのは、いま居る場所です。そして現在地は、自分が一番見えません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここで1つ、大事な話を。目標も、選んでいただいた番号も、実は『行きたい場所』なんです。決め手になるのは、いま居る場所の方です。そして現在地って、自分が一番見えないんですよ。毎日そこに居るので。だから今日、前半であれだけ聞かせていただきました。外から見てもらうのが、いちばん早いんです。</p>
+</div></div><h2 class="sec">21 / 78</h2>
+<p>ここを考えたいです</p>
+<h3 class="subsec">「安定」って、何と何でできていますか</h3>
+<p>【大きい字】安定 ＝ ？ ＋ ？</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>では、ここを一緒に考えたいです。『安定』って、何と何でできていると思いますか。——<ruby>菊池<rt>きくち</rt></ruby>さんなら、この2つに何を入れますか。少し考えてみてください。※必ず本人に答えてもらう。すぐ答えを出さない。沈黙は待つ。</p>
+</div></div><h2 class="sec">22 / 78</h2>
+<p>僕の答えです</p>
+<h3 class="subsec">僕は、この2つでできていると思っています</h3>
+<p>【大きい字】安定 ＝ <ruby>反収<rt>たんしゅう</rt></ruby>向上 ＋ <ruby>反収<rt>たんしゅう</rt></ruby>の安定</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>僕の答えです。安定は、<ruby>反収<rt>たんしゅう</rt></ruby>向上と、<ruby>反収<rt>たんしゅう</rt></ruby>の安定、この2つでできています。<ruby>反収<rt>たんしゅう</rt></ruby>というのは、10アールあたりどれだけ採れるか。それを上げることと、毎年ブレなくすること。この2つです。——面積を増やすことも、道具を増やすことも、安定そのものではありません。ここが逆になっている方が、本当に多いんです。</p>
+</div></div><h2 class="sec">23 / 78</h2>
+<p>ここが山です</p>
+<h3 class="subsec">「もっと作れば安定する」——順番が逆です</h3>
+<p>品目を足したり、面積を広げたりする前に、いま在る畑で読める量を作る。そこから、必要な物がはっきりします。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここが今日の山です。『もっと作れば安定する』——これ、順番が逆なんです。品目を足したり、面積を広げたりする前に、まず いま在る畑で読める量を作る。読めるようになると、次に何が足りないかが自分で分かります。道具も、面積も、その後で決まります。先に増やすと、増えた分だけ ブレも増えます。</p>
+</div></div><h2 class="sec">24 / 78</h2>
+<p>考え方</p>
+<h3 class="subsec">品目が多いほど、<ruby>反収<rt>たんしゅう</rt></ruby>は読めなくなります</h3>
+<p>1つ1つに手を掛ける時間が割れて、どれも「去年どうだったか」が残りません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>もう1つ。品目が多いほど、<ruby>反収<rt>たんしゅう</rt></ruby>は読めなくなります。1つ1つに手を掛ける時間が割れて、どれも中途半端になる。そして何より、どれも『去年どうだったか』が残らないんです。記録が残らないと、次に活かせない。<ruby>菊池<rt>きくち</rt></ruby>さんは今、いくつ作っておられましたか。——そこが多いようでしたら、そこが最初の手です。</p>
+</div></div><h2 class="sec">25 / 78</h2>
+<p>ここが いちばん厳しい所</p>
+<h3 class="subsec">収益の上がらない作物に分散していること自体が、厳しい</h3>
+<p>そのままでは、伸びません。ここは正直に置かせてください。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここは正直に置かせてください。作れない作物、収益の上がらない作物を たくさん出そうとして分散していること自体が、まず かなり厳しいんです。そのままでは、全然 伸びません。——<ruby>菊池<rt>きくち</rt></ruby>さんがそうだと言っているわけではありません。ただ、安定が課題の方の8割は、ここに引っかかっています。あとで一緒に確かめさせてください。</p>
+</div></div><h2 class="sec">26 / 78</h2>
+<p>考え方</p>
+<h3 class="subsec">横ばいは、現状維持ではなく下がっています</h3>
+<p>だから「何を足すか」より、「今年やらないことを何にするか」の方が効きます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>それと、これも言っておきます。横ばいは、現状維持ではありません。資材も燃料も上がっているので、同じ事をしていたら 実質は下がっています。だから『何を足すか』より、『今年やらないことを何にするか』の方が効くんです。やらない事を決めるのは、勇気が要りますけどね。</p>
+</div></div><h2 class="sec">27 / 78</h2>
+<p>実績</p>
+<h3 class="subsec">1日実働 約5時間。長く働いた結果ではありません</h3>
+<p>朝9時から14時。順番を決めて、そのつど仕組みに変えてきた結果です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>僕の話を少しだけ。今、1日の実働は約5時間です。朝9時から14時くらい。長く働いた結果ではありません。順番を決めて、そのつど仕組みに変えてきた結果です。最初からこうだったわけではなくて、昔は朝から晩まで畑に居ました。</p>
+</div></div><h2 class="sec">28 / 78</h2>
+<p>実績</p>
+<h3 class="subsec">年間100t超。2026年は200tも視野に</h3>
+<p>最初から100tだったわけではありません。読める量を作るところから始めています。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>出荷<rt>しゅっか</rt></ruby>量は年間100t超で、2026年は200tも視野に入っています。ただ、最初から100tだったわけではありません。読める量を作るところから始めて、読めるようになってから広げました。順番はこれだけです。</p>
+</div></div><h2 class="sec">29 / 78</h2>
+<p>実績</p>
+<h3 class="subsec">大不作の年でも、3日で1ヶ月分を回収</h3>
+<p>2024年、全国的な大不作の年。多くの生産者が出せない中で、3日間で1ヶ月分の売上を回収しました。運ではありません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>2024年、全国的な大不作の年がありました。多くの生産者が出せない中で、僕は3日間で1ヶ月分の売上を回収しました。これは運ではありません。読める量が作れていたから、出せる側に回れたんです。安定というのは、こういう時に効いてきます。</p>
+</div></div><h2 class="sec">30 / 78</h2>
+<p>実績</p>
+<h3 class="subsec"><ruby>産地化<rt>さんちか</rt></ruby>と、3年連続の表彰</h3>
+<p>愛知で初めて有機JASのニンジンを<ruby>産地化<rt>さんちか</rt></ruby>。別の作物で3年連続の表彰。発芽率は70%から95%以上へ。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>それと、愛知で初めて有機JASのニンジンを<ruby>産地化<rt>さんちか</rt></ruby>しました。別の作物で3年連続の表彰もいただいています。発芽率も70%から95%以上に上げました。——この発芽率の話が、まさに<ruby>反収<rt>たんしゅう</rt></ruby>の安定です。同じ種を撒いても、揃うかどうかで量が変わる。</p>
+</div></div><h2 class="sec">31 / 78</h2>
+<p>僕の話</p>
+<h3 class="subsec">僕も、順番を間違えて10年 遠回りしました</h3>
+<p>売り先を先に作ろうとして、納品2週間前に量が半分。取引先に電話するのに手が震えました。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>正直に言うと、僕も順番を間違えて10年 遠回りしました。売り先を先に作ろうとしたんです。契約は取れました。でも納品2週間前に、量が半分しかなかった。取引先に電話するのに、手が震えました。——安定が先だと痛い目で分かったのが、その時です。だから<ruby>菊池<rt>きくち</rt></ruby>さんには、同じ回り道をしてほしくないんです。</p>
+</div></div><h2 class="sec">32 / 78</h2>
+<p>目標の話</p>
+<h3 class="subsec">目標の金額。まず、いまいくらですか</h3>
+<p>目標だけがあると、遠すぎて動けません。現在地の数字を一度、口に出して置いてみてください。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【必ず本人に数字を言ってもらう】さきほど、農業でいくら稼ぎたいかを聞かせていただきました。いい目標です。ただ、目標だけがあると遠すぎて動けないんですよ。なので一度、現在地を教えてください。今、月にどのくらいになっていますか。——数字が出たら否定も評価もしない。『分かりました、ではそこからのやる順番を作りましょう』と受ける。数字を言いたくない様子なら『ざっくりで大丈夫です、桁だけでも』と言い換える。〔当日 記入〕この数字は こちらの記録には無い。推測で埋めない。</p>
+</div></div><h2 class="sec">33 / 78</h2>
+<p>目標の話</p>
+<h3 class="subsec">目標には、一度には届きません</h3>
+<ul class="pts"><li>【カード】いま〔当日記入〕</li></ul>
+<ul class="pts"><li>【カード】1つ目？</li></ul>
+<ul class="pts"><li>【カード】2つ目？</li></ul>
+<ul class="pts"><li>【カード】その先目標</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>目標には、一度には届きません。順番に分ける必要があります。いま ここ、次はここ、その次はここ、そして目標。この順番を、今日 一緒に引きます。大事なのは、次にやる事をいくらに置くかです。いきなり目標を見ずに、次にやる事だけを見る。※空欄は当日 本人の数字で埋める。こちらから金額を提案しない（うちの記録に<ruby>菊池<rt>きくち</rt></ruby>さんの数字は無い）。</p>
+</div></div><h2 class="sec">34 / 78</h2>
+<p>やる順番</p>
+<h3 class="subsec">1つ目にやる事は「1品目の<ruby>反収<rt>たんしゅう</rt></ruby>を上げる」。では、その1品目をどう決めるか</h3>
+<p>ここが、今日いちばんお伝えしたい所です。1品目は、当てずっぽうでは決まりません。</p>
+<ul class="pts"><li>【カード】①売上のデータを取る</li></ul>
+<ul class="pts"><li>【カード】②いまと違う<ruby>出荷<rt>しゅっか</rt></ruby>先を見つける</li></ul>
+<ul class="pts"><li>【カード】③<ruby>出荷<rt>しゅっか</rt></ruby>先が決まると作る1品目が決まる</li></ul>
+<ul class="pts"><li>【カード】④その1品目の<ruby>反収<rt>たんしゅう</rt></ruby>を上げる</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>1つ目にやる事は、1品目の<ruby>反収<rt>たんしゅう</rt></ruby>を上げること。ここは変わりません。ただ、今日いちばんお伝えしたいのは、その1品目を いかに決めるか、なんです。順番はこの4つです。①まず、売上のデータを取る。②いまと違う<ruby>出荷<rt>しゅっか</rt></ruby>先を見つける。③<ruby>出荷<rt>しゅっか</rt></ruby>先が決まると、作る1品目が決まる。④その1品目の<ruby>反収<rt>たんしゅう</rt></ruby>を上げる。——④だけ先にやろうとすると、どの品目に賭けるかが勘になります。①から順に行きます。1枚ずつ見ていきましょう。</p>
+</div></div><h2 class="sec">35 / 78</h2>
+<p>① データを取る</p>
+<h3 class="subsec">まず、売上のデータを取ります</h3>
+<p>何が・いくらで・いつ売れたか。この3つだけ。ここが無いと、あとの話が全部 勘になります。</p>
+<ul class="pts"><li>何が売れたか（品目）</li></ul>
+<ul class="pts"><li>いくらで売れたか（単価と金額）</li></ul>
+<ul class="pts"><li>いつ売れたか（曜日・時期）</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>①です。まず、売上のデータを取ってください。これは僕が持っていない数字で、<ruby>菊池<rt>きくち</rt></ruby>さんにしか出せません。何が・いくらで・いつ売れたか。この3つだけでいいです。<ruby>直売所<rt>ちょくばいじょ</rt></ruby>の精算書でも、伝票でも、手書きのノートでも構いません。——これ、今日の帰りからできます。ここが無いまま『何を作ろうか』を考えると、全部 勘になるんです。次の面談までに、この3つを持ってきていただけますか。※本人に出してもらう数字。こちらで作らない。</p>
+</div></div><h2 class="sec">36 / 78</h2>
+<p>② <ruby>出荷<rt>しゅっか</rt></ruby>先を見つける</p>
+<h3 class="subsec">次に、いまと違う<ruby>出荷<rt>しゅっか</rt></ruby>先を見つけます</h3>
+<p>いまの出し先を続けるのは、全然いいんです。ただ、それだけで先が見えるかどうか。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>②です。次に、いまと違う<ruby>出荷<rt>しゅっか</rt></ruby>先を見つけます。——先に言っておくと、いまの出し先をやめる話ではありません。続けるのは全然いいんです。ただ、それだけで先が見えるかどうか、なんです。1本しか無いと、そこの都合で全部が決まってしまう。2本目があると、こちらが選べるようになります。</p>
+</div></div><h2 class="sec">37 / 78</h2>
+<p>② の材料</p>
+<h3 class="subsec">ここで、本当は地域の数字をお見せしたいのですが</h3>
+<p><ruby>菊池<rt>きくち</rt></ruby>さんの畑がどこに在るか、こちらでは分かっていません。住所の欄が空のままでした。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここで本当は、<ruby>菊池<rt>きくち</rt></ruby>さんの地域の数字をお見せしたい所です。その市で何がいくら売れているか、地元の農協が何を扱っているか。——ただ、正直に言います。<ruby>菊池<rt>きくち</rt></ruby>さんの畑がどこに在るか、こちらでは分かっていません。お申込みのときの住所の欄が、空のままなんです。よその方の地域の数字を そのまま当てはめるのは、いちばんやってはいけない事だと思っているので、今日は入れていません。まず、どちらでやっておられるか教えていただけますか。</p>
+</div></div><h2 class="sec">38 / 78</h2>
+<p>② の材料</p>
+<h3 class="subsec">地域を教えていただければ、その場でお調べします</h3>
+<p>市の農業<ruby>産出額<rt>さんしゅつがく</rt></ruby>・地元の農協が扱っている品目・その地域の主な農産物。この3つは、公表されている数字です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>地域さえ教えていただければ、この3つは公表されている数字なので、その場でお調べできます。1つ、その市の農業<ruby>産出額<rt>さんしゅつがく</rt></ruby>。何がいちばん大きいか。2つ、地元の農協が何をいくら扱っているか。3つ、その地域の主な農産物は何か。——この3つが分かると、『何を作ろうか』が当てずっぽうでなくなります。買ってくれる所がある物から決められるようになる。次の面談までにお調べして、お持ちします。</p>
+</div></div><h2 class="sec">39 / 78</h2>
+<p>② の材料</p>
+<h3 class="subsec">地域が分からなくても、受け皿の型は4つです</h3>
+<p><ruby>直売所<rt>ちょくばいじょ</rt></ruby>以外の受け皿は、どの地域にも だいたいこの4つが在ります。</p>
+<ul class="pts"><li>学校給食（市町村の給食センター）</li></ul>
+<ul class="pts"><li>加工（農産加工・業務用）</li></ul>
+<ul class="pts"><li>ふるさと納税（返礼品）</li></ul>
+<ul class="pts"><li>産直EC（ネットで直接 売る）</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>地域が分からなくても、これはお伝えできます。<ruby>直売所<rt>ちょくばいじょ</rt></ruby>以外の受け皿は、どの地域にも だいたい この4つが在ります。1つ、学校給食。市町村の給食センターです。2つ、加工。業務用に回す道です。3つ、ふるさと納税の返礼品。4つ、産直EC。ネットで直接 売る道です。——この4つのどれが<ruby>菊池<rt>きくち</rt></ruby>さんの地域に在るか、次の面談までに一緒に確かめましょう。※ここの全国の数字は 次の枚に出典つきで置く。</p>
+</div></div><h2 class="sec">40 / 78</h2>
+<p>③ 1品目が決まる</p>
+<h3 class="subsec"><ruby>出荷<rt>しゅっか</rt></ruby>先が決まると、作る1品目が決まります</h3>
+<p>「作りたい物」から決めるのではなく、「買ってくれる所がある物」から決める。順番はこちらです。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>③です。<ruby>出荷<rt>しゅっか</rt></ruby>先が決まると、作る1品目が決まります。——ここ、逆にやってしまう方が多いんです。作りたい物から決めて、あとで売り先を探す。それだと、売れなかった時にまるまる残ります。買ってくれる所がある物から決める。順番はこちらです。</p>
+</div></div><h2 class="sec">41 / 78</h2>
+<p>④ <ruby>反収<rt>たんしゅう</rt></ruby>を上げる</p>
+<h3 class="subsec">④ その1品目の<ruby>反収<rt>たんしゅう</rt></ruby>を上げる——これが1つ目にやる事です</h3>
+<p>いま在る畑の中で、主役を1つ。そこの量を読めるようにする。面積を増やすのは、その後です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>④です。その1品目の<ruby>反収<rt>たんしゅう</rt></ruby>を上げる。これが、1つ目にやる事です。いま在る畑の中で、主役を1つだけ決める。そこの量を読めるようにする。——面積を増やすのは、その後です。1つでも読めるようになると、2つ目からは早いです。型が分かるので。</p>
+</div></div><h2 class="sec">42 / 78</h2>
+<p>正直に言います</p>
+<h3 class="subsec"><ruby>直売所<rt>ちょくばいじょ</rt></ruby>だけでは、収益は上がりません</h3>
+<p><ruby>直売所<rt>ちょくばいじょ</rt></ruby>へ出すのを続けるのは、全然いいんです。ただ、それで先が見えるかどうか。</p>
+<ul class="pts"><li><ruby>直売所<rt>ちょくばいじょ</rt></ruby>は「置いた分だけ」で、こちらから量を決められない</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここも正直に言います。<ruby>直売所<rt>ちょくばいじょ</rt></ruby>だけでは、収益は上がりません。——<ruby>直売所<rt>ちょくばいじょ</rt></ruby>へ出すのを続けるのは、全然いいんです。ただ、それで先が見えるかどうか。<ruby>直売所<rt>ちょくばいじょ</rt></ruby>は『置いた分だけ』で、こちらから量を決められません。売れ残りは持ち出しです。そして<ruby>出荷<rt>しゅっか</rt></ruby>先が1本だと、値も量も向こう任せになる。だから②で、2本目を作るんです。</p>
+</div></div><h2 class="sec">43 / 78</h2>
+<p>正直に言います</p>
+<ul class="pts"><li>売れ残りは、こちらの持ち出しになる</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここも正直に言います。<ruby>直売所<rt>ちょくばいじょ</rt></ruby>だけでは、収益は上がりません。——<ruby>直売所<rt>ちょくばいじょ</rt></ruby>へ出すのを続けるのは、全然いいんです。ただ、それで先が見えるかどうか。<ruby>直売所<rt>ちょくばいじょ</rt></ruby>は『置いた分だけ』で、こちらから量を決められません。売れ残りは持ち出しです。そして<ruby>出荷<rt>しゅっか</rt></ruby>先が1本だと、値も量も向こう任せになる。だから②で、2本目を作るんです。</p>
+</div></div><h2 class="sec">44 / 78</h2>
+<p>正直に言います</p>
+<ul class="pts"><li><ruby>出荷<rt>しゅっか</rt></ruby>先が1本だと、値も量も向こう任せになる</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここも正直に言います。<ruby>直売所<rt>ちょくばいじょ</rt></ruby>だけでは、収益は上がりません。——<ruby>直売所<rt>ちょくばいじょ</rt></ruby>へ出すのを続けるのは、全然いいんです。ただ、それで先が見えるかどうか。<ruby>直売所<rt>ちょくばいじょ</rt></ruby>は『置いた分だけ』で、こちらから量を決められません。売れ残りは持ち出しです。そして<ruby>出荷<rt>しゅっか</rt></ruby>先が1本だと、値も量も向こう任せになる。だから②で、2本目を作るんです。</p>
+</div></div><h2 class="sec">45 / 78</h2>
+<p>ポイント</p>
+<h3 class="subsec">ここからは、順番を一緒に整えたい方への話です</h3>
+<p>独学で悩み続けるより、順番を一緒に整えたい——という方への<ruby>伴走<rt>ばんそう</rt></ruby>の仕組みがあります。中身だけ、お話ししてもいいですか？</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここまでが、今日お伝えしたかった考え方です。ここからは、順番を一緒に整えたい方への話になります。独学で悩み続けるより、一緒に整えたいという方への<ruby>伴走<rt>ばんそう</rt></ruby>の仕組みがあります。中身だけ、お話ししてもいいですか。——合わなければ、無理に案内はしません。</p>
+</div></div><h2 class="sec">46 / 78</h2>
+<p>プログラム</p>
+<h3 class="subsec">稼げる農業の<ruby>仕組み化<rt>しくみか</rt></ruby><ruby>伴走<rt>ばんそう</rt></ruby>プログラム</h3>
+<p>利益が残る農業の仕組みを、一緒に作る3ヶ月の<ruby>伴走<rt>ばんそう</rt></ruby>型プログラムです。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>名前は『稼げる農業の<ruby>仕組み化<rt>しくみか</rt></ruby><ruby>伴走<rt>ばんそう</rt></ruby>プログラム』です。利益が残る農業の仕組みを、一緒に作る3ヶ月の<ruby>伴走<rt>ばんそう</rt></ruby>型です。学んで終わりではなくて、実際に畑が動くところまでやります。</p>
+</div></div><h2 class="sec">47 / 78</h2>
+<p>プログラム</p>
+<h3 class="subsec">① 宿題で、手を動かします</h3>
+<p>学んで終わりにしません。毎回 宿題を出します。知識ではなく、実際に畑が動くように。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>1つ目。宿題を出します。毎回です。学んで終わりにしないためです。知識を入れるだけだと、畑は1ミリも動かないので。<ruby>菊池<rt>きくち</rt></ruby>さんの場合、最初の宿題はおそらく、さっきの①の売上データになります。</p>
+</div></div><h2 class="sec">48 / 78</h2>
+<p>プログラム</p>
+<h3 class="subsec">② 月4回の課題チェック＋ 月1回のミーティング</h3>
+<p>提出いただいた課題を月4回、僕が直接チェックして修正します。月1回のミーティングで、次の一手を一緒に決めます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>2つ目。提出いただいた課題を月4回、僕が直接チェックして修正します。誰かに任せることはしません。それと月1回のミーティングで、次の一手を一緒に決めます。</p>
+</div></div><h2 class="sec">49 / 78</h2>
+<p>プログラム</p>
+<h3 class="subsec">③ 進め方は、この順です</h3>
+<ul class="pts"><li>現状診断</li></ul>
+<ul class="pts"><li>安定設計（読める量を作る）</li></ul>
+<ul class="pts"><li>売り先設計</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>3つ目。進め方はこの順です。現状診断、安定設計、売り先設計、利益設計、拡大設計。——今日 前半でやったのが、現状診断の入口です。<ruby>菊池<rt>きくち</rt></ruby>さんは『安定』の場所に居られるので、2つ目の安定設計に一番 時間を使うことになります。</p>
+</div></div><h2 class="sec">50 / 78</h2>
+<p>プログラム</p>
+<ul class="pts"><li>利益設計</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>3つ目。進め方はこの順です。現状診断、安定設計、売り先設計、利益設計、拡大設計。——今日 前半でやったのが、現状診断の入口です。<ruby>菊池<rt>きくち</rt></ruby>さんは『安定』の場所に居られるので、2つ目の安定設計に一番 時間を使うことになります。</p>
+</div></div><h2 class="sec">51 / 78</h2>
+<p>プログラム</p>
+<ul class="pts"><li>拡大設計（面積・人・設備）</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>3つ目。進め方はこの順です。現状診断、安定設計、売り先設計、利益設計、拡大設計。——今日 前半でやったのが、現状診断の入口です。<ruby>菊池<rt>きくち</rt></ruby>さんは『安定』の場所に居られるので、2つ目の安定設計に一番 時間を使うことになります。</p>
+</div></div><h2 class="sec">52 / 78</h2>
+<p>プログラム</p>
+<h3 class="subsec">④ 3ヶ月で、終わりにしません</h3>
+<p>契約は3ヶ月。でも3ヶ月が過ぎても、質問には期限なく答え続けます。農業は10年単位で信用を作る仕事なので。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>4つ目。契約は3ヶ月ですが、3ヶ月で終わりにはしません。過ぎても質問には期限なく答え続けます。農業は10年単位で信用を作る仕事なので、3ヶ月で切れる関係にしたくないんです。</p>
+</div></div><h2 class="sec">53 / 78</h2>
+<p>プログラム</p>
+<h3 class="subsec"><ruby>菊池<rt>きくち</rt></ruby>さんの場合、3ヶ月で何ができているか</h3>
+<ul class="pts"><li>主役の品目が1つ決まり、量が読める</li></ul>
+<ul class="pts"><li>いまと違う<ruby>出荷<rt>しゅっか</rt></ruby>先の候補が、具体で挙がっている</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>菊池<rt>きくち</rt></ruby>さんの場合、3ヶ月でここまで行きます。1つ、主役の品目が1つ決まって、量が読める。2つ、いまと違う<ruby>出荷<rt>しゅっか</rt></ruby>先の候補が、具体で挙がっている。3つ、今年やらないことが決まっている。4つ、目標までのやる順番の、1つ目が決まっている。——この4つが揃うと、来年の見積りが立つようになります。</p>
+</div></div><h2 class="sec">54 / 78</h2>
+<p>プログラム</p>
+<ul class="pts"><li>今年やらないことが、決まっている</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>菊池<rt>きくち</rt></ruby>さんの場合、3ヶ月でここまで行きます。1つ、主役の品目が1つ決まって、量が読める。2つ、いまと違う<ruby>出荷<rt>しゅっか</rt></ruby>先の候補が、具体で挙がっている。3つ、今年やらないことが決まっている。4つ、目標までのやる順番の、1つ目が決まっている。——この4つが揃うと、来年の見積りが立つようになります。</p>
+</div></div><h2 class="sec">55 / 78</h2>
+<p>プログラム</p>
+<ul class="pts"><li>目標までのやる順番の、1つ目が決まっている</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>菊池<rt>きくち</rt></ruby>さんの場合、3ヶ月でここまで行きます。1つ、主役の品目が1つ決まって、量が読める。2つ、いまと違う<ruby>出荷<rt>しゅっか</rt></ruby>先の候補が、具体で挙がっている。3つ、今年やらないことが決まっている。4つ、目標までのやる順番の、1つ目が決まっている。——この4つが揃うと、来年の見積りが立つようになります。</p>
+</div></div><h2 class="sec">56 / 78</h2>
+<p>価格</p>
+<h3 class="subsec">ちなみに、これいくらだと思いますか？</h3>
+<p>【大きい字】？ 円</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ちなみに、これ いくらだと思いますか。——3ヶ月で、宿題があって、月4回チェックして、月1回ミーティングして、その後も無期限で質問に答える。※必ず本人に言ってもらう。すぐ答えを出さない。沈黙は待つ。</p>
+</div></div><h2 class="sec">57 / 78</h2>
+<p>価格</p>
+<h3 class="subsec">3ヶ月 15万円</h3>
+<ul class="pts"><li>宿題（毎回）</li></ul>
+<ul class="pts"><li>月4回の課題チェック</li></ul>
+<ul class="pts"><li>月1回のミーティング</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>3ヶ月で15万円です。中身は、毎回の宿題、月4回の課題チェック、月1回のミーティング、そして3ヶ月後も無期限で質問に答える。——月に直すと5万円です。</p>
+</div></div><h2 class="sec">58 / 78</h2>
+<p>価格</p>
+<ul class="pts"><li>3ヶ月後も、質問には無期限で回答</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>3ヶ月で15万円です。中身は、毎回の宿題、月4回の課題チェック、月1回のミーティング、そして3ヶ月後も無期限で質問に答える。——月に直すと5万円です。</p>
+</div></div><h2 class="sec">59 / 78</h2>
+<p>価格</p>
+<h3 class="subsec">お約束できること・できないこと</h3>
+<ul class="pts"><li>必ず稼げる、とは約束しません</li></ul>
+<ul class="pts"><li>約束するのは、本気の<ruby>伴走<rt>ばんそう</rt></ruby>をやり切ること</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>先に、できないことを言っておきます。必ず稼げる、とは約束しません。天気もありますし、<ruby>菊池<rt>きくち</rt></ruby>さんが動かなければ何も変わりません。約束するのは、本気の<ruby>伴走<rt>ばんそう</rt></ruby>をやり切ることです。成果は、<ruby>伴走<rt>ばんそう</rt></ruby>と、<ruby>菊池<rt>きくち</rt></ruby>さんの実行の掛け算で出ます。</p>
+</div></div><h2 class="sec">60 / 78</h2>
+<p>価格</p>
+<ul class="pts"><li>成果は、<ruby>伴走<rt>ばんそう</rt></ruby> ＋ <ruby>菊池<rt>きくち</rt></ruby>さんの実行で出ます</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>先に、できないことを言っておきます。必ず稼げる、とは約束しません。天気もありますし、<ruby>菊池<rt>きくち</rt></ruby>さんが動かなければ何も変わりません。約束するのは、本気の<ruby>伴走<rt>ばんそう</rt></ruby>をやり切ることです。成果は、<ruby>伴走<rt>ばんそう</rt></ruby>と、<ruby>菊池<rt>きくち</rt></ruby>さんの実行の掛け算で出ます。</p>
+</div></div><h2 class="sec">61 / 78</h2>
+<p>価格</p>
+<h3 class="subsec">判断基準は「安いか高いか」ではありません</h3>
+<p>いまのやり方を、もう1年 置くのか。順番を決めて、次の一手をはっきりさせるのか。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>判断基準は、安いか高いかではないと思っています。いまのやり方を、もう1年 置くのか。それとも順番を決めて、次の一手をはっきりさせるのか。——1年 置くと、来年の今ごろも同じ話をしていることになります。それが いちばん もったいない。</p>
+</div></div><h2 class="sec">62 / 78</h2>
+<p>こんな方へ</p>
+<h3 class="subsec">向いている人・向いていない人</h3>
+<ul class="pts"><li>○ 正しい順番で地道に実行できる方</li></ul>
+<ul class="pts"><li>○ 素直に試して改善できる方／報告できる方</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>向いている方と、向いていない方をはっきり言います。向いているのは、正しい順番で地道に実行できる方。素直に試して改善して、報告できる方。向いていないのは、楽して稼ぎたい方、学んでも行動しない方。それと、うまくいかないのを人や環境のせいにする方です。——ここは、厳しめに言っておきます。</p>
+</div></div><h2 class="sec">63 / 78</h2>
+<p>こんな方へ</p>
+<ul class="pts"><li>× 楽して稼ぎたい方／学んでも行動しない方</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>向いている方と、向いていない方をはっきり言います。向いているのは、正しい順番で地道に実行できる方。素直に試して改善して、報告できる方。向いていないのは、楽して稼ぎたい方、学んでも行動しない方。それと、うまくいかないのを人や環境のせいにする方です。——ここは、厳しめに言っておきます。</p>
+</div></div><h2 class="sec">64 / 78</h2>
+<p>こんな方へ</p>
+<ul class="pts"><li>× うまくいかないのを人や環境のせいにする方</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>向いている方と、向いていない方をはっきり言います。向いているのは、正しい順番で地道に実行できる方。素直に試して改善して、報告できる方。向いていないのは、楽して稼ぎたい方、学んでも行動しない方。それと、うまくいかないのを人や環境のせいにする方です。——ここは、厳しめに言っておきます。</p>
+</div></div><h2 class="sec">65 / 78</h2>
+<p>ご案内</p>
+<h3 class="subsec">なぜ、人数を絞るのか</h3>
+<ul class="pts"><li>宿題を出し、月4回チェックし、月1回ミーティングをする</li></ul>
+<ul class="pts"><li>一人ひとり本気で見るので、同時に見られる人数には物理的な限りがある</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>人数を絞っている理由です。宿題を出して、月4回チェックして、月1回ミーティングをする。一人ひとり本気で見るので、同時に見られる人数には物理的な限りがあります。10名限定で、締切は本日8月20日、埋まり次第 終了です。——絞るのは、売るためではなくて、成果を出してもらうためです。</p>
+</div></div><h2 class="sec">66 / 78</h2>
+<p>ご案内</p>
+<ul class="pts"><li>10名限定／締切 8月20日(木)／埋まり次第 終了</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>人数を絞っている理由です。宿題を出して、月4回チェックして、月1回ミーティングをする。一人ひとり本気で見るので、同時に見られる人数には物理的な限りがあります。10名限定で、締切は本日8月20日、埋まり次第 終了です。——絞るのは、売るためではなくて、成果を出してもらうためです。</p>
+</div></div><h2 class="sec">67 / 78</h2>
+<p>ご案内</p>
+<ul class="pts"><li>絞るのは、売るためではなく、成果を出してもらうため</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>人数を絞っている理由です。宿題を出して、月4回チェックして、月1回ミーティングをする。一人ひとり本気で見るので、同時に見られる人数には物理的な限りがあります。10名限定で、締切は本日8月20日、埋まり次第 終了です。——絞るのは、売るためではなくて、成果を出してもらうためです。</p>
+</div></div><h2 class="sec">68 / 78</h2>
+<p>ご案内</p>
+<h3 class="subsec">参加を決めたら、初回でやること</h3>
+<p>まず現状診断。畑の中身・いまの品目・1日に入れる時間・使えるお金・売れ方。そこから最初の宿題を決めます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>参加を決めていただいたら、初回でやることは現状診断です。畑の中身、いまの品目、1日に入れる時間、使えるお金、売れ方。今日 前半で聞かせていただいた分を、もっと細かく詰めます。そこから最初の宿題を決めます。動き出しは早いです。</p>
+</div></div><h2 class="sec">69 / 78</h2>
+<p>よくある不安</p>
+<h3 class="subsec">「お金に余裕が無い」</h3>
+<p>今日の①〜④は、1円もかからない打ち手です。データを取るのも、<ruby>出荷<rt>しゅっか</rt></ruby>先を探すのも、やらない事を決めるのも、お金は要りません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>よくいただく不安に、先に答えておきます。1つ目、お金に余裕が無い。——今日お話しした①から④は、1円もかからない打ち手です。売上のデータを取るのも、<ruby>出荷<rt>しゅっか</rt></ruby>先を探すのも、今年やらない事を決めるのも、お金は要りません。お金が要るのは、面積を先に増やす時と、大きい設備を買う時だけです。</p>
+</div></div><h2 class="sec">70 / 78</h2>
+<p>よくある不安</p>
+<h3 class="subsec">「時間が取れるか不安」</h3>
+<p>増やすのは時間ではなく、順番です。やらない事が決まると、時間は勝手に空きます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>2つ目、時間が取れるか不安。——増やすのは時間ではなくて、順番です。品目を絞ると、手を掛ける先が減るので、時間は勝手に空きます。実際、僕は今 1日5時間です。時間を足して量を出しているわけではありません。</p>
+</div></div><h2 class="sec">71 / 78</h2>
+<p>よくある不安</p>
+<h3 class="subsec">「また、うまくいかなかったらどうしよう」</h3>
+<p>うまくいかなかった原因が残っていないと、次に活かせません。記録が残るようになると、失敗が材料に変わります。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>3つ目、また うまくいかなかったらどうしよう。——これ、いちばん多い不安です。ただ、うまくいかなかった事そのものより、原因が残っていない事の方が問題なんです。記録が残るようになると、失敗が次の材料に変わります。だから①のデータを取る所から始めるんです。</p>
+</div></div><h2 class="sec">72 / 78</h2>
+<p>よくある不安</p>
+<h3 class="subsec">「一人でもできるのでは」</h3>
+<p>できます。ただ、現在地は自分がいちばん見えません。そこだけ外から見てもらう、という使い方でも構いません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>4つ目、一人でもできるのでは。——できます。実際、今日お話しした順番は、そのまま持ち帰って一人でやれます。ただ1つだけ、現在地は自分がいちばん見えないんです。そこだけ外から見てもらう、という使い方でも構いません。</p>
+</div></div><h2 class="sec">73 / 78</h2>
+<p>ご案内</p>
+<h3 class="subsec">今、始める理由</h3>
+<p>秋に何を作るかを、これから決められる所です。決めてから動くのと、動きながら決めるのでは、来年の見積りが変わります。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>今、始める理由です。ちょうど今、秋に何を作るかを これから決められる時期です。決めてから動くのと、動きながら決めるのでは、来年の見積りが変わります。ここを逃すと、次に順番を組み直せるのは1年後になります。</p>
+</div></div><h2 class="sec">74 / 78</h2>
+<p>まとめ</p>
+<h3 class="subsec">今日の判断基準</h3>
+<ul class="pts"><li>このやり方を、もう1年 置いていいのか</li></ul>
+<ul class="pts"><li>一人で解決できるのか</li></ul>
+<ul class="pts"><li><ruby>伴走<rt>ばんそう</rt></ruby>を使いながら進めた方が早いのか</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>今日の判断基準は、この3つです。このやり方を、もう1年 置いていいのか。一人で解決できるのか。<ruby>伴走<rt>ばんそう</rt></ruby>を使いながら進めた方が早いのか。——どれを選んでも構いません。ただ、今日 決めていただいた方が、動き出しは早いです。</p>
+</div></div><h2 class="sec">75 / 78</h2>
+<p>まとめ</p>
+<h3 class="subsec">最終確認</h3>
+<p><ruby>菊池<rt>きくち</rt></ruby>さんに必要なのは、新しい道具ではなく、順番を決めることです。畑も、時間も、もう持っておられます。ここから一緒に進めていきたいですか？</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>最終確認です。<ruby>菊池<rt>きくち</rt></ruby>さんに必要なのは、新しい道具ではなく、順番を決めることだと思っています。畑も、時間も、もう持っておられる。足りないのは、どれを先に触るかだけです。ここから一緒に進めていきたいですか。——ここで沈黙が来ても、こちらから埋めない。待つ。</p>
+</div></div><h2 class="sec">76 / 78</h2>
+<p>まとめ</p>
+<h3 class="subsec">今日の一歩</h3>
+<p>「いま作っている中から、量を読めるようにする主役を1つ決める」。決まったら、その品目で“何袋 出せたか”を、毎日1行だけ書いてみてください。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>今日の一歩です。いま作っている中から、量を読めるようにする主役を1つ決めてください。決まったら、その品目で何袋 出せたかを、毎日1行だけ書く。それだけです。1ヶ月続くと、去年には無かった物が手元に残ります。</p>
+</div></div><h2 class="sec">77 / 78</h2>
+<p>まとめ</p>
+<h3 class="subsec">参加後の流れ</h3>
+<p>お申し込み → 初回日程を決定 → 初回で現状診断と最初の宿題。動き出しは早いです。お支払い方法のご相談も、この場で。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>参加後の流れです。お申し込みいただいたら、初回の日程を決めて、初回で現状診断と最初の宿題を出します。動き出しは早いです。お支払い方法のご相談も、この場でできます。</p>
+</div></div><h2 class="sec">78 / 78</h2>
+<p>最後に</p>
+<h3 class="subsec">詰まっているのは、順番が決まっていないからです</h3>
+<p>畑も、時間も、<ruby>菊池<rt>きくち</rt></ruby>さんはもう持っておられます。足りないのは、どれを先に触るかだけ。安定・売り先・拡大、一緒に並べ直しましょう。</p>
+<p>［稼げる農業の<ruby>仕組み化<rt>しくみか</rt></ruby> <ruby>伴走<rt>ばんそう</rt></ruby>プログラム］</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>最後に。詰まっているのは、力が足りないからでも、才能が無いからでもありません。順番が決まっていないからです。畑も、時間も、<ruby>菊池<rt>きくち</rt></ruby>さんはもう持っておられます。足りないのは、どれを先に触るかだけ。安定・売り先・拡大、一緒に並べ直しましょう。本日はありがとうございました。</p>
+</div></div><p class="privacy">この台本は本人に見せません。画面共有中は開かないでください。</p>
+</div></body></html>
