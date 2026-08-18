@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>個別相談 読み上げ台本（藤原美智子さん）</title>
+<style>
+:root{--green:#2e7d32;--green-d:#1b5e20;--ink:#1c2b1e;--paper:#f6f8f3;--gold:#b8892b;--line:#dfe6d8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+     background:var(--paper);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;}
+header.top{position:sticky;top:0;z-index:20;background:linear-gradient(120deg,#1b5e20,#2e7d32);
+     color:#fff;padding:16px 20px;border-bottom:4px solid var(--gold);box-shadow:0 3px 14px rgba(0,0,0,.15);}
+header.top h1{font-size:20px;font-weight:900;letter-spacing:.01em;line-height:1.4;}
+header.top p{font-size:13px;color:#d5f2d9;margin-top:5px;font-weight:600;}
+.wrap{max-width:820px;margin:0 auto;padding:20px 18px 120px;}
+.doc-h1{display:none;} /* top md title already in header */
+h2.sec{font-size:21px;font-weight:900;color:var(--green-d);margin:40px 0 6px;
+     padding:10px 16px;background:#eaf3e6;border-left:7px solid var(--gold);border-radius:0 10px 10px 0;}
+h3.subsec{font-size:17px;font-weight:800;color:var(--green-d);margin:26px 0 4px;
+     padding-left:12px;border-left:4px solid var(--green);}
+hr.sep{border:0;border-top:1px dashed var(--line);margin:26px 0;}
+p{font-size:16px;margin:12px 0;}
+/* ふりがな（ルビ）＝親字より小さく・地名で迷わないよう金色で目立たせる */
+ruby{ruby-align:center;}
+rt{font-size:.52em;font-weight:700;color:var(--gold);letter-spacing:.02em;line-height:1;
+   transform:translateY(.1em);}
+.scard-title rt{color:#a9781f;}
+.wrap>p:first-of-type{color:#42513e;}
+ul.pts{list-style:none;margin:12px 0;display:flex;flex-direction:column;gap:8px;}
+ul.pts li{font-size:16px;padding-left:1.4em;position:relative;}
+ul.pts li::before{content:"";position:absolute;left:.2em;top:.62em;width:.5em;height:.5em;border-radius:50%;background:var(--gold);}
+ul.pts li.sub{padding-left:2.6em;font-size:15px;color:#4a5847;}
+ul.pts li.sub::before{left:1.4em;background:var(--green);width:.4em;height:.4em;}
+.note-callout{background:#fbfcf9;border:1px solid var(--line);border-left:5px solid var(--green);
+     border-radius:0 12px 12px 0;padding:12px 16px;margin:16px 0;font-size:14.5px;color:#3c4a38;}
+.note-callout p{font-size:14.5px;margin:7px 0;}
+.note-callout strong{color:var(--green-d);}
+/* score / talk cards */
+.scard{background:#fff;border:1px solid var(--line);border-radius:14px;
+     padding:16px 18px;margin:14px 0;box-shadow:0 5px 18px rgba(30,60,25,.06);}
+.scard-head{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:9px;
+     padding-bottom:9px;border-bottom:1px solid #eef2ea;}
+.scard-no{background:var(--green-d);color:#fff;font-weight:900;font-size:15px;
+     border-radius:8px;padding:3px 12px;min-width:46px;text-align:center;letter-spacing:.02em;}
+.scard-title{font-size:17px;font-weight:900;color:var(--green-d);flex:1;min-width:60%;line-height:1.4;}
+.scard-tag{background:#fbeede;color:var(--gold);font-weight:800;font-size:12px;border-radius:999px;padding:3px 11px;}
+.scard-talk{font-size:16.5px;color:#222c22;font-weight:500;line-height:1.85;}
+.scard-talk strong{color:var(--green-d);font-weight:800;}
+/* table */
+.tbl-wrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;min-width:480px;background:#fff;border-radius:10px;overflow:hidden;
+     box-shadow:0 4px 16px rgba(30,60,25,.06);font-size:14.5px;}
+th,td{border:1px solid #e3eadd;padding:9px 12px;text-align:left;vertical-align:top;line-height:1.7;}
+th{background:#1b5e20;color:#fff;font-weight:800;}
+tr:nth-child(even) td{background:#f7faf5;}
+/* presenter notes fold */
+.notes-fold{margin-top:44px;border-top:3px dashed var(--gold);}
+details.notes{margin-top:16px;background:#f2f4ef;border:1px solid #d9e0d2;border-radius:12px;padding:4px 4px;}
+details.notes>summary{cursor:pointer;list-style:none;padding:14px 18px;font-size:16px;font-weight:900;
+     color:#5a6a55;display:flex;align-items:center;gap:10px;}
+details.notes>summary::-webkit-details-marker{display:none;}
+details.notes>summary::before{content:"▶";font-size:12px;color:var(--gold);transition:transform .2s;}
+details.notes[open]>summary::before{transform:rotate(90deg);}
+.notes-body{padding:6px 18px 22px;color:#5c6a57;font-size:14.5px;}
+.notes-body h2.sec{background:#e7ebe2;color:#4b5a46;border-left-color:#9aa892;font-size:18px;margin-top:26px;}
+.notes-body h3.subsec{color:#5a6a55;border-left-color:#9aa892;}
+.notes-body p{font-size:14.5px;color:#5c6a57;}
+.notes-body ul.pts li{font-size:14.5px;color:#5c6a57;}
+.notes-body .scard{background:#fafbf8;box-shadow:none;}
+.notes-body .note-callout{background:#edf0e9;border-left-color:#9aa892;}
+.notes-body table{font-size:13.5px;}
+.privacy{font-size:12px;color:#8a9784;text-align:center;margin-top:40px;padding-top:16px;border-top:1px solid var(--line);}
+@media(max-width:600px){
+  header.top h1{font-size:17px;}
+  .wrap{padding:16px 14px 100px;}
+  .scard-title{min-width:100%;font-size:16px;}
+  .scard-talk{font-size:16px;}
+  p{font-size:15.5px;}
+}
+</style><body>
+<header class="top"><h1>個別相談 読み上げ台本</h1><p>藤原 美智子さん／2026-08-19 20:00　※このページは本人には見せません</p></header>
+<div class="wrap">
+<div class="note-callout"><p>この1枚に全部 入っています。スライドに出る文と、口で話す台本。</p></div>
+<div class="note-callout"><p>元＝2026-08-18 08:12 に作った<ruby>藤原<rt>ふじわら</rt></ruby>さん版（61枚）。それを土台にして 2026-08-18 夜に直した。</p></div>
+<h2 class="sec">本番の使い方</h2>
+<ul class="pts"><li>画面共有＝公開ページ https://dashboard.job555.info/fujiwara-slide/（← → でめくる）</li></ul>
+<ul class="pts"><li>Nキーは押さない（画面共有だと台本が相手に見える）</li></ul>
+<ul class="pts"><li>台本＝https://dashboard.job555.info/fujiwara-daihon/ を手元のスマホで読む</li></ul>
+<h2 class="sec">相手（UTAGEの実データ・2026-08-18 08:20 取得）</h2>
+<ul class="pts"><li><ruby>藤原<rt>ふじわら</rt></ruby> <ruby>美智子<rt>みちこ</rt></ruby>（ふじわら みちこ）さん／LINE表示名 <ruby>藤原<rt>ふじわら</rt></ruby><ruby>美智子<rt>みちこ</rt></ruby></li></ul>
+<ul class="pts"><li>日時＝2026-08-19(水) 20:00〜21:00　担当＝100t農家のイチロウ</li></ul>
+<ul class="pts"><li>友だち追加＝2026-08-11 05:36　整理シート提出＝2026-08-15 18:57:18　予約＝2026-08-16 19:02</li></ul>
+<ul class="pts"><li>参加状況＝参加予定　成約状況＝未登録</li></ul>
+<ul class="pts"><li>LINEで本人が書いた文章は1件も無い（受信は友だち追加だけ）</li></ul>
+<ul class="pts"><li>※メールアドレスと電話番号は 公開ページに出さないため ここには書かない</li></ul>
+<h2 class="sec">本人が書いた事（1文字も直していない）</h2>
+<ul class="pts"><li>現状＝0. まだ始める前</li></ul>
+<ul class="pts"><li>畑＝「<ruby>京都市伏見区深草<rt>きょうとし ふしみく ふかくさ</rt></ruby>」</li></ul>
+<ul class="pts"><li>一番頭を抱えている事＝「やっと、作業が出来る畑が出来たので、そこで準に手掛けて作業して行くのは、わかっているのですが、体力がやってみないとどこまで出来るのかが分からない。」</li></ul>
+<ul class="pts"><li>1年後＝「どれだけの作業が出来るのかを自分自身、<ruby>把握<rt>はあく</rt></ruby>する。」</li></ul>
+<ul class="pts"><li>作物＝「これからです。秋に種を撒くのが良い野菜から育ててみたいです。」</li></ul>
+<ul class="pts"><li>農地＝「テニスコート2つ分を数名が使って行く。」</li></ul>
+<ul class="pts"><li>使える資金＝「使える資金としては殆ど無いです。」</li></ul>
+<ul class="pts"><li>目標＝「月5万が稼げるのか？稼げるとしたら、体力共相談しながら増やして行きたい。」</li></ul>
+<ul class="pts"><li>誰とやるか＝「一人」</li></ul>
+<ul class="pts"><li>販売＝「まだ無し。」</li></ul>
+<ul class="pts"><li>注げる力＝「最初は、体の慣れの為に週２、3日。慣れれば増やしていきたいです。」</li></ul>
+<h2 class="sec">決まっている数字</h2>
+<ul class="pts"><li><ruby>伴走<rt>ばんそう</rt></ruby>プログラム＝3ヶ月 15万円</li></ul>
+<ul class="pts"><li>10名限定／締切 8月20日(木)／枠が埋まり次第 終了</li></ul>
+<p>  〔要確認〕相談会が8/19なので、締切がその翌日になります。日を動かすなら</p>
+<p>  スライドの「なぜ、人数を絞るのか」1枚だけ直す。</p>
+<ul class="pts"><li>参加リンク＝UTAGEのリマインダが当日8:00に自動で出す方（手で別のリンクを送らない）</li></ul>
+<h2 class="sec">★この回の いちばんの注意</h2>
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんは「使える資金は殆ど無い」と書いておられます。目標も月5万です。</p>
+<p>だから価格を 押さない。「お金が不安な方へ」の1枚を必ず通して、</p>
+<p>今日 決めなくてよい、と こちらから言う形にしてあります。</p>
+<p>断られたら気持ちよく引く——そこまでを台本に入れました。</p>
+<h2 class="sec">こちらで足した数字は3つだけ（どれも出どころを画面に出しています）</h2>
+<p>1. 月5万 ÷ 30日 ≒ 1日 1,700円 ／ 月5万 ÷ 月およそ10日 ＝ 出す日1日 5,000円ぶん</p>
+<p>   （元＝本人が書いた「月5万」と「週2、3日」だけ。単価も売れる量も こちらでは決めていない）</p>
+<p>2. テニスコート1面（ダブルス）＝23.77m × 10.97m ＝ 約260.7㎡／2面分＝約521㎡＝約5.2アール</p>
+<p>   出どころ＝国際テニス連盟（ITF）Rules of Tennis コート寸法／日本テニス協会 コート規格</p>
+<p>   〔要確認〕何名で分けるか・<ruby>藤原<rt>ふじわら</rt></ruby>さんの受け持ちが何㎡かは 当日 本人に聞く</p>
+<p>3. <ruby>中川一郎<rt>なかがわ いちろう</rt></ruby>の実績の数字（1日実働 約5時間／年間100t超／2024年 大不作の年に3日で1ヶ月分／</p>
+<p>   有機JASニンジンの<ruby>産地化<rt>さんちか</rt></ruby>／3年連続の表彰／発芽率70%→95%以上）</p>
+<p>★農薬・肥料の名前や量は、こちらから1つも足していません。</p>
+<p>★他のお客様の実名・電話番号・メールアドレスは 1件も載せていません。</p>
+<p>★ご主人様が 2026-08-18 に禁じた言い方は 0か所です（機械で数えました）。</p>
+<h2 class="sec">2026-08-18 夜に【直した所】（前＝朝8:12の版）</h2>
+<ul class="pts"><li>前＝ご主人様が禁じた言い方が29か所（数の数え方・話の区切りの言い方・深さの言い方）</li></ul>
+<p>  → 後＝0か所。「1つ目」「その先」「やる順番」「1つずつ 深く」に言い換えた。</p>
+<ul class="pts"><li>前＝相談者の声が0枚（同じ「0. まだ始める前」の見本の回には4枚あった）→ 後＝4枚 足した。</li></ul>
+<p>  すべて お名前は伏せている（実名OKと書かれていた方も 伏せた）。</p>
+<ul class="pts"><li>前＝「利益が残る農業」の章が無かった（安定→売り先→拡大の3つ）→ 後＝4枚 足した。</li></ul>
+<ul class="pts"><li>前＝よくある不安が「お金」1枚だけ→ 後＝体力／時間／自信／一人でやるのが不安 の4枚を足した。</li></ul>
+<ul class="pts"><li>前＝畑の広さが言葉のまま（「テニスコート2つ分」）→ 後＝アールに直して3枚 足した</li></ul>
+<p>  （広さの数字／狭いのは始める時はむしろ有利／ただし月5万を続けるなら いずれ広さは要る）。</p>
+<ul class="pts"><li>前＝「今、始める理由」が無かった→ 後＝1枚 足した（秋に撒く物は秋にしか撒けない）。</li></ul>
+<ul class="pts"><li>前＝「もうひとつの道」が無かった→ 後＝1枚 足した（一人で全部を背負わなくていい）。</li></ul>
+<h2 class="sec">章の名前と順番は 見本の回（同じ「0. まだ始める前」）に合わせました</h2>
+<p>表紙 → はじめに → 自己紹介 → 確認させてください → 本当の悩みの分解 → ここ、大事です →</p>
+<p>深掘り①②③ → ポイント（1回目の確認）→ 考え方 → 畑の広さ → もうひとつの道 →</p>
+<p>僕の話・実績 → 相談者の声 → 利益が残る農業 → 月5万の話 → ポイント（2回目の確認）→</p>
+<p>プログラム → 価格 → こんな方へ → ご案内 → よくある不安 → まとめ → 最後に</p>
+<hr class="sep">
+<h2 class="sec">1 / 88</h2>
+<p>農業相談会</p>
+<h3 class="subsec">今日は、始める前の不安を ひとつ軽くする時間です</h3>
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんが書いてくださった「体力がやってみないとどこまで出来るのかが分からない」——ここを、今日その場で並べ直します。</p>
+<p>［農業相談会］</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さん、本日はお時間ありがとうございます。今日は、<ruby>藤原<rt>ふじわら</rt></ruby>さんがシートに書いてくださった今の不安を、その場で並べ直して、いま困っている所・詰まっている所はクリアできる、というところまで持って帰っていただく時間です。いきなり何かを売る場ではありません。前半はほとんど、僕が聞く時間にします。</p>
+</div></div><h2 class="sec">2 / 88</h2>
+<p>はじめに</p>
+<h3 class="subsec">今日のゴール</h3>
+<ul class="pts"><li>いま不安な所を、その場で仕分ける</li></ul>
+<ul class="pts"><li>「始める順番」を、言葉にして共有する</li></ul>
+<ul class="pts"><li>月5万までの道のりの、最初の1つを決める</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>今日のゴールは3つです。1つ、いま不安な所を その場で仕分ける。2つ、始める順番を言葉にして共有する。3つ、月5万までの道のりの、最初の1つを決める。この3つが揃うと、いま困っている所はクリアできる、という感覚を持って帰っていただけると思っています。</p>
+</div></div><h2 class="sec">3 / 88</h2>
+<p>はじめに</p>
+<h3 class="subsec">今日の進め方</h3>
+<p>前半は、僕がひたすら聞きます。書いてくださった内容を、1つずつ深く。そのあとで、僕の考え方をお伝えします。合わなければ無理に案内しません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>進め方です。前半は僕がひたすら聞きます。シートに書いてくださった内容を、1つずつ深く聞かせてください。そのあとで僕の考え方をお伝えします。合わないと感じられたら、無理に案内はしません。役に立てる時だけ提案します。</p>
+</div></div><h2 class="sec">4 / 88</h2>
+<p>自己紹介</p>
+<h3 class="subsec"><ruby>中川一郎<rt>なかがわ いちろう</rt></ruby>農業歴16年・1代目です</h3>
+<p>親から継いでいません。何も持っていない所から始めました。だから「始める前」の話が、いちばんできると思っています。</p>
+<ul class="pts"><li>1代目・親から継がずに始めた</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>本題の前に少しだけ自己紹介を。農業歴16年の1代目です。親から継いでいません。畑も、道具も、売り先も、何も持っていない所から始めました。今は1日実働 約5時間で、年間100t超。2026年は200tも視野に入っています。<ruby>藤原<rt>ふじわら</rt></ruby>さんは今『まだ始める前』と書いてくださっていて、そこは僕が一番よく分かる場所です。</p>
+</div></div><h2 class="sec">5 / 88</h2>
+<p>自己紹介</p>
+<ul class="pts"><li>いまは1日実働 約5時間</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>本題の前に少しだけ自己紹介を。農業歴16年の1代目です。親から継いでいません。畑も、道具も、売り先も、何も持っていない所から始めました。今は1日実働 約5時間で、年間100t超。2026年は200tも視野に入っています。<ruby>藤原<rt>ふじわら</rt></ruby>さんは今『まだ始める前』と書いてくださっていて、そこは僕が一番よく分かる場所です。</p>
+</div></div><h2 class="sec">6 / 88</h2>
+<p>自己紹介</p>
+<ul class="pts"><li>年間100t超（2026年は200tも視野）</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>本題の前に少しだけ自己紹介を。農業歴16年の1代目です。親から継いでいません。畑も、道具も、売り先も、何も持っていない所から始めました。今は1日実働 約5時間で、年間100t超。2026年は200tも視野に入っています。<ruby>藤原<rt>ふじわら</rt></ruby>さんは今『まだ始める前』と書いてくださっていて、そこは僕が一番よく分かる場所です。</p>
+</div></div><h2 class="sec">7 / 88</h2>
+<p>自己紹介</p>
+<ul class="pts"><li>繁忙期は、学びに来る方を受け入れる側</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>本題の前に少しだけ自己紹介を。農業歴16年の1代目です。親から継いでいません。畑も、道具も、売り先も、何も持っていない所から始めました。今は1日実働 約5時間で、年間100t超。2026年は200tも視野に入っています。<ruby>藤原<rt>ふじわら</rt></ruby>さんは今『まだ始める前』と書いてくださっていて、そこは僕が一番よく分かる場所です。</p>
+</div></div><h2 class="sec">8 / 88</h2>
+<p>確認させてください</p>
+<h3 class="subsec"><ruby>藤原<rt>ふじわら</rt></ruby>さんが、もう答えを書いてくださっていました</h3>
+<p>※シートに書いてくださった言葉、そのままです</p>
+<div class="note-callout"><p>「体力がやってみないとどこまで出来るのかが分からない」</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>最初に、これを読ませてください。シートに書いてくださった言葉です。『体力がやってみないとどこまで出来るのかが分からない』。——これ、正しいんです。やってみないと分かりません。僕も分かりませんでした。今日やることは、その不安を消すことではなくて、『やってみないと分からない』を、どうやって小さく試すか、に置き換えることです。※不安を否定しない。『分からなくて当然』の温度で受ける。</p>
+</div></div><h2 class="sec">9 / 88</h2>
+<p>確認させてください</p>
+<h3 class="subsec">畑が、もう在るのがいちばん大きいです</h3>
+<p>「やっと、作業が出来る畑が出来た」——ここまで来ている方は、そう多くありません。始める前のいちばん高い壁は、もう越えておられます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>もうひとつ、読ませてください。『やっと、作業が出来る畑が出来たので』。——この『やっと』に、たぶん時間がかかっていますよね。農地は、お金があれば借りられるものではありません。僕も土地の信用を作るのに10年かかりました。始める前のいちばん高い壁は、実はここなんです。<ruby>藤原<rt>ふじわら</rt></ruby>さんは、もうそこを越えておられる。まず聞きたいのですが、その畑、どうやって手に入りましたか。</p>
+</div></div><h2 class="sec">10 / 88</h2>
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんの、本当の悩み</p>
+<h3 class="subsec">「やってみないと分からない」を、分解します</h3>
+<ul class="pts"><li>【カード】① からだ体力がどこまでもつか分からない</li></ul>
+<ul class="pts"><li>【カード】② 作る物何を作るかはこれから</li></ul>
+<ul class="pts"><li>【カード】③ でも「やっと 畑が出来た」＝もう動いておられる</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんの『やってみないと分からない』を分解すると、中身は2つの分からない、です。1つ、体力がどこまでもつか。2つ、何を作るか。——ここが肝心なんですが、この2つは どちらも『考えても出ない』種類の分からない、なんです。頭で答えが出ない。やって数えるしか出ない。そして右の1枚がいちばん大事で、<ruby>藤原<rt>ふじわら</rt></ruby>さんはもう畑を用意して、週2〜3日から始めると決めておられる。もう動いておられるんです。だから今日やるのは、不安を消すことではなくて、その2つを どう数えるかを決めることです。</p>
+</div></div><h2 class="sec">11 / 88</h2>
+<p>ここ、大事です</p>
+<h3 class="subsec"><ruby>藤原<rt>ふじわら</rt></ruby>さんは、ゼロじゃありません</h3>
+<ul class="pts"><li>作業ができる畑が、もう在る</li></ul>
+<ul class="pts"><li>週2〜3日、出られる時間が在る</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここ、大事なので言わせてください。<ruby>藤原<rt>ふじわら</rt></ruby>さんはゼロから始める方ではありません。作業ができる畑がもう在る。週2〜3日、出られる時間が在る。そして畑を一緒に使う方が近くに居られる。——この3つが揃っている方って、実はそんなに多くないんです。ご自分では当たり前に思っておられませんか。</p>
+</div></div><h2 class="sec">12 / 88</h2>
+<p>ここ、大事です</p>
+<ul class="pts"><li>一緒に畑を使う方が、近くに居る</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここ、大事なので言わせてください。<ruby>藤原<rt>ふじわら</rt></ruby>さんはゼロから始める方ではありません。作業ができる畑がもう在る。週2〜3日、出られる時間が在る。そして畑を一緒に使う方が近くに居られる。——この3つが揃っている方って、実はそんなに多くないんです。ご自分では当たり前に思っておられませんか。</p>
+</div></div><h2 class="sec">13 / 88</h2>
+<p>今日いちばん聞きたいこと</p>
+<h3 class="subsec">不安な所を、1つずつ聞かせてください</h3>
+<ul class="pts"><li>【カード】① からだ体力がどこまでもつか</li></ul>
+<ul class="pts"><li>【カード】② 作る物何を作るかはこれから</li></ul>
+<ul class="pts"><li>【カード】③ お金使える資金はほとんど無い</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>シートを読ませていただいて、不安な所が3つ見えました。1つ、体力がどこまでもつか分からない。2つ、作る物はこれから。3つ、使える資金はほとんど無い。この3つを、1つずつ、少し細かく聞かせてください。ここが今日の前半の中心です。ゆっくりで大丈夫です。※ここから3枚、15分ほど使って聞く。答えを返そうとしない・遮らない。</p>
+</div></div><h2 class="sec">14 / 88</h2>
+<p>深掘り ①</p>
+<h3 class="subsec">体力は今、どこまで やれていますか</h3>
+<p>週2〜3日から、と書いてくださいました。1日どのくらい 畑に出られていますか。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【深掘りの問い・3つ】① 今、畑には週に何日、1日どのくらい出ておられますか。② やってみて『これはきつい』と感じた作業は、どれでしたか。③ 逆に『これは平気だった』作業はありますか。 ——さらに聞けるなら：畑は家からどのくらいですか／お仕事や他のご予定との兼ね合いはどうですか／体のどこがいちばん先にきますか（腰・膝・手）。 ★『頑張りましょう』と言わない。今 やれている量を数字で出してもらう所が目的。ここが後半の『小さく測る』の土台になる。</p>
+</div></div><h2 class="sec">15 / 88</h2>
+<p>深掘り ②</p>
+<h3 class="subsec">秋に撒く物で、気になっている野菜はありますか</h3>
+<p>何を作るかは これから、と書いてくださいました。今 頭に浮かんでいる物を教えてください。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【深掘りの問い・3つ】① 今、頭に浮かんでいる野菜はありますか。名前が出なくても『こういう物』でいいです。② ご自分で食べたい物ですか、それとも売れそうな物ですか。③ 周りの方、畑を一緒に使っている方は、何を作っておられますか。 ——さらに聞けるなら：畑の土はどんな感じですか／水は近くにありますか／日当たりはどうですか。 ★ここで品種名を こちらから並べない。本人の頭に在る物を出してもらう。作物の決め方は後で。</p>
+</div></div><h2 class="sec">16 / 88</h2>
+<p>深掘り ③</p>
+<h3 class="subsec">資金が無くても、始められます</h3>
+<p>お金が無いことは、始めない理由になりません。ただし、順番を間違える余裕も無い、ということです。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【深掘りの問い・3つ】① 今、種や苗、道具に かけられるのは月にどのくらいですか。ざっくりで大丈夫です。② 今 持っている道具は何がありますか。③ 畑を一緒に使っている方から借りられる物はありますか。 ——さらに聞けるなら：<ruby>出荷<rt>しゅっか</rt></ruby>先の候補、<ruby>直売所<rt>ちょくばいじょ</rt></ruby>や道の駅は近くにありますか。 ★金額を評価しない。『少ない』と言わない。お金が無いからこそ順番が命、という話に橋を架ける。</p>
+</div></div><h2 class="sec">17 / 88</h2>
+<p>確認させてください</p>
+<h3 class="subsec">1年後の願いが、とても具体的でした</h3>
+<div class="note-callout"><p>「どれだけの作業が出来るのかを自分自身、<ruby>把握<rt>はあく</rt></ruby>する。」</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>1年後どうなっていたいか、で こう書いてくださいました。『どれだけの作業が出来るのかを自分自身、<ruby>把握<rt>はあく</rt></ruby>する』。——これ、実はすごく良い目標です。多くの方は『いくら稼ぐ』と書かれるんですが、<ruby>藤原<rt>ふじわら</rt></ruby>さんは『自分がどれだけできるかを知る』と書かれた。これは、農業では一番 先に要る物なんです。今日はこの言葉を軸にして話をさせてください。</p>
+</div></div><h2 class="sec">18 / 88</h2>
+<p>確認させてください</p>
+<h3 class="subsec">「このまま」だと、1年後どうなっていますか</h3>
+<p>焦らせたいわけではありません。ただ、決めないまま置いておくことにも、時間という費用がかかります。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>少し意地悪な質問をさせてください。もし今のまま、何を作るかも、どのくらい動けるかも決めないまま1年 経ったら、<ruby>藤原<rt>ふじわら</rt></ruby>さんはどんな気持ちでおられると思いますか。——畑って、使わないと荒れます。そして一緒に使っておられる方との関係も、動いている人の所に集まります。焦らせたいわけではありません。ただ、決めないまま置いておくことにも、時間という費用がかかっている、という話です。※ここは深追いしない。1つ聞いて、答えを受けたら次へ。</p>
+</div></div><h2 class="sec">19 / 88</h2>
+<p>確認させてください</p>
+<h3 class="subsec">本当は、どんな1日を思い描いておられますか</h3>
+<p>月5万が稼げて、体と相談しながら少しずつ増やしていく——その先に、どんな1日がありますか。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>もう1つ聞かせてください。『月5万が稼げるのか、稼げるとしたら体力共相談しながら増やして行きたい』と書いてくださいました。その先に、どんな1日を思い描いておられますか。朝どのくらいに畑に出て、どのくらいで帰って、残りの時間で何をしていたいか。——正解を決める場ではありません。ここを言葉にしておくと、今日の後半の順番の話が、ぐっと自分ごとになります。</p>
+</div></div><h2 class="sec">20 / 88</h2>
+<p>確認させてください</p>
+<h3 class="subsec">いま居る場所は、ここで合っていますか</h3>
+<p>申込では「0. まだ始める前」を選んでくださいました。シートの中身も、そこを指しています。ここは、ずれていません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ここ、今日いちばん大事な確認です。申込のときに『0. まだ始める前』を選んでくださいました。そしてシートの中身、体力のこと、作る物のこと、販売はまだ無し。全部そこを指しています。つまり<ruby>藤原<rt>ふじわら</rt></ruby>さんは、行きたい場所と、いま居る場所が、ずれていません。これは強いです。順番を間違える方の多くは、行きたい場所ばかり見て、いま居る場所を見ていないからです。現在地って、自分が一番見えないんですよ。<ruby>藤原<rt>ふじわら</rt></ruby>さんはそこが見えている。だから今日は、その先の順番の話ができます。</p>
+</div></div><h2 class="sec">21 / 88</h2>
+<p>ポイント</p>
+<h3 class="subsec">この3つ、順番を決めれば軽くなります。聞いてみますか？</h3>
+<p>新しく何かを買う話ではありません。どれを先にやるか、の話です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【テストクロージング①・軽く】ここまで聞かせていただいて、この3つは順番を決めれば軽くなる、と僕は思っています。新しく何かを買う話ではなくて、どれを先にやるか、という話です。その順番の話、聞いてみますか？——『はい』をいただいてから次へ。押さない。</p>
+</div></div><h2 class="sec">22 / 88</h2>
+<p>ここが山です</p>
+<h3 class="subsec">分からないのは正しい。だから小さく作って、数える</h3>
+<p>体力は、考えても分かりません。1週間 やってみて、何時間 動けたかを数える。それが一番早くて、一番安い答えです。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【今日いちばん伝えたい所・ゆっくり】『体力がやってみないと分からない』——これは本当にその通りです。考えても出ません。だから、答えを出す方法は1つしかないんです。小さくやってみて、数える。たとえば1週間、畑に出た日と、1日に動けた時間を紙に書く。それだけで『自分はこのくらいできる』が数字になります。1年後の願いに書かれた『どれだけの作業が出来るのかを自分自身、<ruby>把握<rt>はあく</rt></ruby>する』——それ、1年かからないんです。数え始めた日から分かり始めます。ここが、今日いちばん持って帰っていただきたいところです。</p>
+</div></div><h2 class="sec">23 / 88</h2>
+<p>考え方</p>
+<h3 class="subsec">悩みは、3つのどれかに仕分けるところから</h3>
+<ul class="pts"><li>安定 … 読める量が作れているか</li></ul>
+<ul class="pts"><li>売り先 … 誰に・なぜ選ばれ・続くか</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>次に、順番の話です。出てきた悩みを、そのまま打ち手にしないことです。『これは安定の話か、売り先の話か、拡大の話か』に置き直す。<ruby>藤原<rt>ふじわら</rt></ruby>さんの場合は、まだ売り先も無くて、面積を増やす所でもありません。ですから、やることは全部『安定』に入ります。ここが分かると、今 やらなくていい事がはっきりします。</p>
+</div></div><h2 class="sec">24 / 88</h2>
+<p>考え方</p>
+<ul class="pts"><li>拡大 … 面積・人・設備</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>次に、順番の話です。出てきた悩みを、そのまま打ち手にしないことです。『これは安定の話か、売り先の話か、拡大の話か』に置き直す。<ruby>藤原<rt>ふじわら</rt></ruby>さんの場合は、まだ売り先も無くて、面積を増やす所でもありません。ですから、やることは全部『安定』に入ります。ここが分かると、今 やらなくていい事がはっきりします。</p>
+</div></div><h2 class="sec">25 / 88</h2>
+<p>考え方</p>
+<h3 class="subsec">行きたい場所ではなく、いま居る場所を見る</h3>
+<p>目標も、選んだ番号も「行きたい場所」。決め手になるのは、いま居る場所です。そして現在地は、自分が一番見えません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>目標も、選んだ番号も、行きたい場所です。決め手になるのは、いま居る場所。そして現在地は本人が一番見えない。僕自身も最初は一人で考えて、順番を間違えて10年 遠回りしました。知識も情報もあったんです。でもそれを自分の畑に、自分に合う形にできなかった。だから他人と突き合わせる意味があります。</p>
+</div></div><h2 class="sec">26 / 88</h2>
+<p>考え方</p>
+<h3 class="subsec">お金が無いからこそ、順番が命です</h3>
+<p>買って試す、が使えません。だから「やってみて数える」が、いちばん安くて確実な打ち手になります。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>お金の話も逃げずにします。使える資金がほとんど無いと書いてくださいました。ということは、『買って試す』が使えません。僕自身、50万・100万を投じて使えなかった機械が倉庫に眠っています。場所も取るし、売れないし、雨ざらしにすれば朽ちる。知らないまま買うと、時間もお金も失います。<ruby>藤原<rt>ふじわら</rt></ruby>さんの場合は、お金をかけずにできる打ち手——やってみて数える——が、いちばん強い手になります。これは、お金がある方より有利な所かもしれません。</p>
+</div></div><h2 class="sec">27 / 88</h2>
+<p>ここを考えたいです</p>
+<h3 class="subsec">月5万って、どのくらいの量だと思いますか</h3>
+<p>【大きい字】月5万 ＝ ？</p>
+<div class="note-callout"><p><ruby>藤原<rt>ふじわら</rt></ruby>さんなら、どのくらいの量を思い浮かべますか。</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【2枚組の1枚目・ここは必ず本人に答えさせる】ちょっと質問させてください。『月5万が稼げるのか』と書いてくださいました。この月5万、どのくらいの量だと思われますか。——先に答えを言わない。10秒でも20秒でも待つ。出てきた答えは否定せず、そのまま拾って次の1枚へ。</p>
+</div></div><h2 class="sec">28 / 88</h2>
+<p>僕の答えです</p>
+<h3 class="subsec">月5万は、1日ぶんの量ではありません</h3>
+<p>【大きい字】月5万 ＝ 1日 約1,700円</p>
+<div class="note-callout"><p>週2〜3日なら、出す日1日あたり 約5,000円ぶん。</p></div>
+<div class="note-callout"><p>計算＝本人が書いた「月5万」÷30日≒1,700円／本人が書いた「週2、3日」＝月およそ10日として 5万÷10日＝5,000円。単価も売れる量も、こちらでは決めていません。</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【2枚組の2枚目・答え】月5万を30日で割ると、1日あたり約1,700円です。<ruby>藤原<rt>ふじわら</rt></ruby>さんは週2〜3日と書かれていますから、出す日で数えると1日あたり5,000円ぶん。——ここ、大事なので言い方に気をつけます。『たったこれだけ』とは言いません。ゼロから5,000円を毎回きちんと出すのは、簡単ではありません。でも『月5万』という言葉よりは、ずっと形が見えると思うんです。何を何袋 出せばそこに届くのか、それを今日 一緒に置いてみましょう。※単価はこちらから決めない。<ruby>直売所<rt>ちょくばいじょ</rt></ruby>の値は地域で違うので『実際いくらで売れているか』は本人に確認する。〔当日 記入〕</p>
+</div></div><h2 class="sec">29 / 88</h2>
+<p>畑の広さの話</p>
+<h3 class="subsec">テニスコート2面分は、だいたい5アールです</h3>
+<p>「テニスコート2つ分を数名が使って行く」と書いてくださいました。ここを数字にしておくと、月5万までの道のりが見えます。</p>
+<ul class="pts"><li>テニスコート1面（ダブルス）＝23.77m × 10.97m ＝ 約260.7㎡</li></ul>
+<div class="note-callout"><p>出典＝国際テニス連盟（ITF）「Rules of Tennis」コートの寸法（ダブルス 78ft × 36ft ＝ 23.77m × 10.97m）／日本テニス協会 コート規格。〔要確認〕何名で分けるか・<ruby>藤原<rt>ふじわら</rt></ruby>さんの受け持ちが何㎡かは、当日 本人に聞く。</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>広さの話を、数字にさせてください。テニスコート1面は、ダブルスの大きさで23.77メートル×10.97メートル、約260平方メートルです。2面分でおよそ521平方メートル、5.2アールになります。それを数名で分けられる。——ここで聞きたいのですが、何名で使われる予定ですか。<ruby>藤原<rt>ふじわら</rt></ruby>さんの受け持ちは、そのうちどのくらいになりそうですか。★ここは絶対に『狭いですね』と言わない。次の1枚で『だから小さく確かめるのに向いている』へ持っていく。</p>
+</div></div><h2 class="sec">30 / 88</h2>
+<p>畑の広さの話</p>
+<ul class="pts"><li>2面分 ＝ 約521㎡ ＝ 約5.2アール（1アール＝100㎡）</li></ul>
+<div class="note-callout"><p>出典＝国際テニス連盟（ITF）「Rules of Tennis」コートの寸法（ダブルス 78ft × 36ft ＝ 23.77m × 10.97m）／日本テニス協会 コート規格。〔要確認〕何名で分けるか・<ruby>藤原<rt>ふじわら</rt></ruby>さんの受け持ちが何㎡かは、当日 本人に聞く。</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>広さの話を、数字にさせてください。テニスコート1面は、ダブルスの大きさで23.77メートル×10.97メートル、約260平方メートルです。2面分でおよそ521平方メートル、5.2アールになります。それを数名で分けられる。——ここで聞きたいのですが、何名で使われる予定ですか。<ruby>藤原<rt>ふじわら</rt></ruby>さんの受け持ちは、そのうちどのくらいになりそうですか。★ここは絶対に『狭いですね』と言わない。次の1枚で『だから小さく確かめるのに向いている』へ持っていく。</p>
+</div></div><h2 class="sec">31 / 88</h2>
+<p>畑の広さの話</p>
+<ul class="pts"><li>それを数名で分ける ＝ <ruby>藤原<rt>ふじわら</rt></ruby>さんの受け持ちは その何分の1か</li></ul>
+<div class="note-callout"><p>出典＝国際テニス連盟（ITF）「Rules of Tennis」コートの寸法（ダブルス 78ft × 36ft ＝ 23.77m × 10.97m）／日本テニス協会 コート規格。〔要確認〕何名で分けるか・<ruby>藤原<rt>ふじわら</rt></ruby>さんの受け持ちが何㎡かは、当日 本人に聞く。</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>広さの話を、数字にさせてください。テニスコート1面は、ダブルスの大きさで23.77メートル×10.97メートル、約260平方メートルです。2面分でおよそ521平方メートル、5.2アールになります。それを数名で分けられる。——ここで聞きたいのですが、何名で使われる予定ですか。<ruby>藤原<rt>ふじわら</rt></ruby>さんの受け持ちは、そのうちどのくらいになりそうですか。★ここは絶対に『狭いですね』と言わない。次の1枚で『だから小さく確かめるのに向いている』へ持っていく。</p>
+</div></div><h2 class="sec">32 / 88</h2>
+<p>考え方</p>
+<h3 class="subsec">狭いのは、始める時には むしろ有利です</h3>
+<p>広い畑をいきなり任されると、手が回らず荒れます。小さい畑は「1周 やり切れる」——これが最初の1年でいちばん効きます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>広さを聞いて『狭いな』と思われたかもしれません。でも、始める時に限っては、これは有利なんです。広い畑をいきなり預かった方は、まず草に負けます。手が回らないまま荒れて、自信をなくして辞めていかれる。小さい畑は、1周 やり切れるんです。撒いて、育てて、穫って、出して、片付けて、また撒く。この1周を通せた人だけが『自分はどれだけできるか』を持てます。<ruby>藤原<rt>ふじわら</rt></ruby>さんが書かれた1年後の願いは、この1周の中に在ります。※ただし、月5万を続けていくなら、いずれ広さは要る。そこは正直に次の話で。</p>
+</div></div><h2 class="sec">33 / 88</h2>
+<p>正直に言います</p>
+<h3 class="subsec">月5万をずっと続けるなら、いずれ広さは要ります</h3>
+<p>今の広さで1周を通し切る。そのうえで、増やすかどうかを決める。順番はこれです。——「増やせない」ではなく「まだ そこじゃない」です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>正直な所も言っておきます。5アールを数名で分けた広さで、月5万を毎月ずっと、というのは簡単ではありません。いずれ広さは要ります。ただ、今それを心配しても答えは出ません。順番はこうです。まず今の広さで1周を通し切って、自分が何をどれだけできるかを数字にする。その数字が出てから、増やすかどうかを決める。——『増やせない』ではなくて、『まだ そこじゃない』という話です。畑は、動いている人の所に集まってきます。僕も、土地の信用を作るのに10年かかりました。</p>
+</div></div><h2 class="sec">34 / 88</h2>
+<p>もうひとつの道</p>
+<h3 class="subsec">一人で全部を背負わなくていい道もあります</h3>
+<ul class="pts"><li>① 近くの農家さんの繁忙期を手伝って、体で覚える</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>それから、これも置いておきます。『一人』と書いてくださいました。でも、一人で全部を背負う必要はありません。1つ、近くの農家さんの忙しい時期を手伝わせてもらう。体力の答えが、自分の畑より早く出ます。2つ、一緒に畑を使っておられる方と、道具や重い作業を分け合う。3つ、すでに<ruby>直売所<rt>ちょくばいじょ</rt></ruby>へ出しておられる方に、出し方だけ聞く。——どれもお金がかかりません。始める前の方にとって、これはかなり強い手です。※具体的にどこ、は当日 本人の地元の話を聞いてから。こちらから店の名前を出さない。</p>
+</div></div><h2 class="sec">35 / 88</h2>
+<p>もうひとつの道</p>
+<ul class="pts"><li>② 一緒に畑を使う方と、道具や作業を分け合う</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>それから、これも置いておきます。『一人』と書いてくださいました。でも、一人で全部を背負う必要はありません。1つ、近くの農家さんの忙しい時期を手伝わせてもらう。体力の答えが、自分の畑より早く出ます。2つ、一緒に畑を使っておられる方と、道具や重い作業を分け合う。3つ、すでに<ruby>直売所<rt>ちょくばいじょ</rt></ruby>へ出しておられる方に、出し方だけ聞く。——どれもお金がかかりません。始める前の方にとって、これはかなり強い手です。※具体的にどこ、は当日 本人の地元の話を聞いてから。こちらから店の名前を出さない。</p>
+</div></div><h2 class="sec">36 / 88</h2>
+<p>もうひとつの道</p>
+<ul class="pts"><li>③ <ruby>直売所<rt>ちょくばいじょ</rt></ruby>へ出しておられる方に、出し方だけ聞く</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>それから、これも置いておきます。『一人』と書いてくださいました。でも、一人で全部を背負う必要はありません。1つ、近くの農家さんの忙しい時期を手伝わせてもらう。体力の答えが、自分の畑より早く出ます。2つ、一緒に畑を使っておられる方と、道具や重い作業を分け合う。3つ、すでに<ruby>直売所<rt>ちょくばいじょ</rt></ruby>へ出しておられる方に、出し方だけ聞く。——どれもお金がかかりません。始める前の方にとって、これはかなり強い手です。※具体的にどこ、は当日 本人の地元の話を聞いてから。こちらから店の名前を出さない。</p>
+</div></div><h2 class="sec">37 / 88</h2>
+<p>僕の話</p>
+<h3 class="subsec">僕も、順番を間違えて10年 遠回りしました</h3>
+<p>売り先を先に作ろうとして、納品2週間前に量が半分。取引先に電話するのに手が震えました。怖くて当然なんです。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>偉そうに言っていますが、僕も最初は順番を間違えました。売り先を先に作ろうとして、納品2週間前に出せる量が半分しかなくて、取引先に謝る電話をするとき手が震えました。補助金も投資に回せず生活費に消えた。ニンジンをほぼ腐らせて、その病気の名前すら知らなかった。一人で考えて10年 遠回りしました。だから、同じ間違いをしてほしくないんです。</p>
+</div></div><h2 class="sec">38 / 88</h2>
+<p>実績</p>
+<h3 class="subsec">1日実働 約5時間。長く働いた結果ではありません</h3>
+<p>朝9時から14時。順番を決めて、そのつど仕組みに変えてきた結果です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>今、1日実働 約5時間です。朝9時から14時。長く働いた結果ではなくて、準備・販路・技術改善を、そのつど仕組みに変えてきた結果です。体力で押し切っているわけではありません。ここは、体力を心配されている<ruby>藤原<rt>ふじわら</rt></ruby>さんに、いちばんお伝えしたい所です。</p>
+</div></div><h2 class="sec">39 / 88</h2>
+<p>実績</p>
+<h3 class="subsec">年間100t超。2026年は200tも視野に</h3>
+<p>最初から100tだったわけではありません。読める量を作るところから始めています。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>量で言うと、年間100t超まで来ました。2026年は200tも視野に入っています。ただ、最初から100tだったわけではありません。まず読める量を作る、そこからです。</p>
+</div></div><h2 class="sec">40 / 88</h2>
+<p>実績</p>
+<h3 class="subsec">大不作の年でも、3日で1ヶ月分を回収</h3>
+<p>2024年、全国的な大不作の年。多くの生産者が出せない中で、3日間で1ヶ月分の売上を回収しました。運ではありません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>2024年、全国的な大不作の年がありました。多くの生産者が出せない中で、3日間で1ヶ月分の売上を回収しました。運ではなくて、作る前・売る前・届ける前に準備が整っていたからです。</p>
+</div></div><h2 class="sec">41 / 88</h2>
+<p>実績</p>
+<h3 class="subsec"><ruby>産地化<rt>さんちか</rt></ruby>と、3年連続の表彰</h3>
+<p>愛知で初めて有機JASのニンジンを<ruby>産地化<rt>さんちか</rt></ruby>。別の作物で3年連続の表彰。発芽率は70%から95%以上へ。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>愛知で初めて有機JASのニンジンを<ruby>産地化<rt>さんちか</rt></ruby>しました。表彰は、それとは別に、ニンジン・白菜・キャベツで3年連続いただいています。発芽率も70%から95%以上に上げました。順番と改善の積み重ねです。</p>
+</div></div><h2 class="sec">42 / 88</h2>
+<p>相談者の声</p>
+<h3 class="subsec">1年前、ゼロから始めた方</h3>
+<p>※お名前は伏せています</p>
+<div class="note-callout"><p>「今まで私はデパートの営業をしていたんですけど、親の土地を相続したのがきっかけで、体力的にもきつくて、農業で生活していくしかないなと思ったんです。最初は自然農をやろうと思っていました。でも自然農や有機で野菜をやっている方に会っても、どうやって稼ぐかを教えてくれる人がいなかったんです。具体的な売上の作り方が出てこない。そこがずっと不安でした。」</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>ゼロから始めた受講生の声です。お名前は伏せています。『どうやって稼ぐかを教えてくれる人がいなかった』——<ruby>藤原<rt>ふじわら</rt></ruby>さんの『やってみないと分からない』と、地続きだと思っています。</p>
+</div></div><h2 class="sec">43 / 88</h2>
+<p>相談者の声</p>
+<h3 class="subsec">現場で学べた、という安心感</h3>
+<p>※お名前は伏せています</p>
+<div class="note-callout"><p>「このハウスを建てるまでの半年、イチローさんが栽培している作物を触って、<ruby>出荷<rt>しゅっか</rt></ruby>までやってみて、リアルに学べたのが大きかったです。イチローさんが失敗した話を全部してくれたから、失敗してもどう建て直すかが分かる、という安心感がありました。」</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>知識だけでなく、現場で触って覚えられた、という声です。うまくいった話だけでなく、失敗した話まで出すようにしています。失敗してもどう建て直すかが分かると、動けるようになります。</p>
+</div></div><h2 class="sec">44 / 88</h2>
+<p>相談者の声</p>
+<h3 class="subsec">「この人がいけるなら、私もいけるかも」</h3>
+<p>※お名前は伏せています</p>
+<div class="note-callout"><p>「実際に、イチローさんが売っているのを見ているから、“売り上げいけるんだ”って実感できます。“この人がいけるなら、私もいけるかも”って。“農業しかない”という気合いしかなかった私が、先の見通しを立てて、ハウスまで建てられたのは、一郎さんのおかげです。やると決めたら、意外と早かったです。」</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>実際にできている人と接すると、景色が変わる、という声です。『やると決めたら意外と早かった』——ここは<ruby>藤原<rt>ふじわら</rt></ruby>さんにも同じことが起きると思っています。</p>
+</div></div><h2 class="sec">45 / 88</h2>
+<p>相談者の声</p>
+<h3 class="subsec">始める前から、利益設計で悩んでいた方</h3>
+<p>※お名前は伏せています。まだ始めておられない時期の方です。</p>
+<div class="note-callout"><p>「まず安定させることが一番だなと。認定を取らないとブランド化も難しいのかなと気づきました。費用や認定業者の選び方まで質問して、全部答えてもらえたのでとてもよくわかりました。」</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんと同じ『まだ始める前』の方の声です。まだ始めていないからこそ、まず安定させることが一番だと気づかれた。分からない所を、その場で全部 聞ける——そこが役に立った、と言っていただきました。※この方の書かれた言葉をそのまま読み上げています。</p>
+</div></div><h2 class="sec">46 / 88</h2>
+<p>利益が残る農業</p>
+<h3 class="subsec">利益が残るのは、この3つが揃った時です</h3>
+<ul class="pts"><li>安定して作れる</li></ul>
+<ul class="pts"><li>買ってくれる相手がいる</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>利益が残る農業に要るのは、この3つです。安定して作れる。買ってくれる相手がいる。利益が出る形で続く。この順番に整えます。逆にすると、僕が10年やった遠回りになります。</p>
+</div></div><h2 class="sec">47 / 88</h2>
+<p>利益が残る農業</p>
+<ul class="pts"><li>利益が出る形で続く</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>利益が残る農業に要るのは、この3つです。安定して作れる。買ってくれる相手がいる。利益が出る形で続く。この順番に整えます。逆にすると、僕が10年やった遠回りになります。</p>
+</div></div><h2 class="sec">48 / 88</h2>
+<p>利益が残る農業</p>
+<h3 class="subsec">まず「安定」</h3>
+<p>芽が出る・穫れる・品質がそろう・作業が回る。ここが定まらないと、売り先を作っても約束を守れません。<ruby>藤原<rt>ふじわら</rt></ruby>さんは まず ここだけです。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>まず安定です。芽が出る、穫れる、品質がそろう、作業が回る。ここが安定しないと、売り先を作っても約束を守れません。約束を守れないと、次から声がかからない。<ruby>藤原<rt>ふじわら</rt></ruby>さんが今 やることは、ほぼ全部ここに入ります。秋に1つか2つを撒いて、穫って、出す。この1周です。</p>
+</div></div><h2 class="sec">49 / 88</h2>
+<p>利益が残る農業</p>
+<h3 class="subsec">次に「売り先」</h3>
+<p>誰に・なぜ選ばれ・どの価格で続くか。<ruby>藤原<rt>ふじわら</rt></ruby>さんは「販売はまだ無し」——ここは、これから作る所です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>次が売り先です。誰に、なぜ選ばれ、どの価格で続くか。<ruby>藤原<rt>ふじわら</rt></ruby>さんは『販売はまだ無し』と書かれました。だから ここは、これから作る所です。最初の売り先は、たいてい近くの<ruby>直売所<rt>ちょくばいじょ</rt></ruby>になります。どこに何が在るかは、当日 一緒に確かめましょう。※こちらから店の名前を挙げない。</p>
+</div></div><h2 class="sec">50 / 88</h2>
+<p>利益が残る農業</p>
+<h3 class="subsec">最後に「拡大」</h3>
+<p>安定と売り先ができてから、面積・人・設備。ここまで来て初めて、月5万を毎月続ける絵がはっきりします。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>最後が拡大です。面積を増やす、人を入れる、設備を入れる。安定と売り先ができてから、です。ここまで来て初めて、月5万を毎月続ける絵がはっきりします。<ruby>藤原<rt>ふじわら</rt></ruby>さんは今『まだ始める前』ですから、ここは今日は決めなくていい所です。</p>
+</div></div><h2 class="sec">51 / 88</h2>
+<p>月5万の話</p>
+<h3 class="subsec">月5万は、一気には届きません</h3>
+<ul class="pts"><li>【カード】いま0円</li></ul>
+<ul class="pts"><li>【カード】1つ目？</li></ul>
+<ul class="pts"><li>【カード】2つ目？</li></ul>
+<ul class="pts"><li>【カード】その先月5万</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>月5万は、一気には届きません。分ける必要があります。いま ここ、次はここ、その次はここ、そして月5万。この順番を、今日 一緒に引きます。大事なのは、次の1つをいくらに置くかです。いきなり5万を見ずに、次の1つだけを見る。※空欄は当日 本人の言葉で埋める。こちらから金額を提案しない。</p>
+</div></div><h2 class="sec">52 / 88</h2>
+<p>月5万の話</p>
+<h3 class="subsec">1つ目は「初めて売れた」で構いません</h3>
+<p>金額ではありません。作った物が、誰かに買われた——その1回が、いちばん大きい1つです。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんの1つ目は、金額ではないと思っています。作った物が、初めて誰かに買われる。その1回です。金額は数百円でいいんです。売れた瞬間に、『自分の畑から お金が生まれる』という感覚が入る。これが入ると、次からの判断が全部 変わります。僕もそうでした。※ここは押さない。本人が『そうかも』と言うまで待つ。</p>
+</div></div><h2 class="sec">53 / 88</h2>
+<p>月5万の話</p>
+<h3 class="subsec">体力の答えも、ここで一緒に出ます</h3>
+<p>やってみて、何時間 動けたかを数える。その記録が「どれだけの作業が出来るのか」の答えそのものです。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>そして、体力の答えも ここで一緒に出ます。1つ目に向かって動きながら、出た日と動けた時間を数えておく。それが、1年後の願いに書かれた『どれだけの作業が出来るのかを自分自身、<ruby>把握<rt>はあく</rt></ruby>する』の答えそのものです。別々にやる必要はありません。同じことなんです。</p>
+</div></div><h2 class="sec">54 / 88</h2>
+<p>考え方</p>
+<h3 class="subsec">品目は、はじめは絞った方が早いです</h3>
+<p>たくさん作ると、1つ1つに手が回らず「去年どうだったか」が残りません。残らないと、来年 読めません。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>作る物の話です。始める時、あれもこれも作りたくなります。僕もそうでした。ただ、品目が多いほど、1つ1つに手を掛ける時間が割れて、『去年これがどうだったか』が残らないんです。残らないと来年 読めない。<ruby>藤原<rt>ふじわら</rt></ruby>さんは週2〜3日で、広さも限られていますから、なおさらです。秋に撒く物は、まず1つか2つに絞る。それが結果的にいちばん早いです。※どの野菜かは こちらから決めない。本人の希望と、畑を一緒に使っている方が何を作っているかを聞いてから。</p>
+</div></div><h2 class="sec">55 / 88</h2>
+<p>ポイント</p>
+<h3 class="subsec">ここからは、順番を一緒に整えたい方への話です</h3>
+<p>独学で悩み続けるより、順番を一緒に整えたい——という方への<ruby>伴走<rt>ばんそう</rt></ruby>の仕組みがあります。中身だけ、お話ししてもいいですか？</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【テストクロージング②・軽く】ここから先は、独学で悩み続けるより、順番を一緒に整えたいという方への話になります。そういう<ruby>伴走<rt>ばんそう</rt></ruby>の仕組みがあるので、中身だけお話ししてもいいですか？——『はい』をいただいてから。無理には進めない。★<ruby>藤原<rt>ふじわら</rt></ruby>さんは『使える資金は殆ど無い』と書かれている。ここは特に押さない。</p>
+</div></div><h2 class="sec">56 / 88</h2>
+<p>プログラム</p>
+<h3 class="subsec">稼げる農業の<ruby>仕組み化<rt>しくみか</rt></ruby><ruby>伴走<rt>ばんそう</rt></ruby>プログラム</h3>
+<p>利益が残る農業の仕組みを、一緒に作る3ヶ月の<ruby>伴走<rt>ばんそう</rt></ruby>型プログラムです。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>稼げる農業の<ruby>仕組み化<rt>しくみか</rt></ruby> <ruby>伴走<rt>ばんそう</rt></ruby>プログラムといいます。利益が残る農業の仕組みを、一緒に作る3ヶ月の<ruby>伴走<rt>ばんそう</rt></ruby>型です。</p>
+</div></div><h2 class="sec">57 / 88</h2>
+<p>プログラム</p>
+<h3 class="subsec">① 宿題で、手を動かします</h3>
+<p>学んで終わりにしません。毎回 宿題を出します。知識ではなく、実際に畑が動くように。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>1つ目。学んで終わりにしません。毎回 宿題を出します。<ruby>藤原<rt>ふじわら</rt></ruby>さんの場合、最初の宿題は『畑に出た日と動けた時間を数える』になると思います。難しいことではありません。</p>
+</div></div><h2 class="sec">58 / 88</h2>
+<p>プログラム</p>
+<h3 class="subsec">② 月4回の課題チェック＋ 月1回のミーティング</h3>
+<p>提出いただいた課題を月4回、僕が直接チェックして修正します。月1回のミーティングで、次の一手を一緒に決めます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>2つ目。提出いただいた課題を月4回、僕が直接チェックして修正します。月1回、今日のようなミーティングで、状況に合わせて次の一手を一緒に決めます。3ヶ月で、合計12回のチェックと3回のミーティングです。</p>
+</div></div><h2 class="sec">59 / 88</h2>
+<p>プログラム</p>
+<h3 class="subsec">③ 進め方は、この順です</h3>
+<ul class="pts"><li>現状診断</li></ul>
+<ul class="pts"><li>安定設計（読める量を作る）</li></ul>
+<ul class="pts"><li>売り先設計</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>3つ目、進め方です。最初に現状診断。そこから安定設計、売り先設計、利益設計、拡大設計の順です。<ruby>藤原<rt>ふじわら</rt></ruby>さんの場合、3ヶ月で進むのは主に最初の2つだと思います。それでいいんです。</p>
+</div></div><h2 class="sec">60 / 88</h2>
+<p>プログラム</p>
+<ul class="pts"><li>利益設計</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>3つ目、進め方です。最初に現状診断。そこから安定設計、売り先設計、利益設計、拡大設計の順です。<ruby>藤原<rt>ふじわら</rt></ruby>さんの場合、3ヶ月で進むのは主に最初の2つだと思います。それでいいんです。</p>
+</div></div><h2 class="sec">61 / 88</h2>
+<p>プログラム</p>
+<ul class="pts"><li>拡大設計（面積・人・設備）</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>3つ目、進め方です。最初に現状診断。そこから安定設計、売り先設計、利益設計、拡大設計の順です。<ruby>藤原<rt>ふじわら</rt></ruby>さんの場合、3ヶ月で進むのは主に最初の2つだと思います。それでいいんです。</p>
+</div></div><h2 class="sec">62 / 88</h2>
+<p>プログラム</p>
+<h3 class="subsec">④ 3ヶ月で、終わりにしません</h3>
+<p>契約は3ヶ月。でも3ヶ月が過ぎても、質問には期限なく答え続けます。農業は10年単位で信用を作る仕事なので。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>4つ目。契約は3ヶ月です。でも3ヶ月が過ぎても、質問には期限なく答え続けます。僕がこの教育の活動をやめる日が来るまで、ずっとです。農業は10年単位で信用を作る仕事で、土地が増えるのも販路ができるのも年月がかかる。だから短期で終わりにしていません。ただ、病気や事故もあり得るので、契約上は3ヶ月と区切っています。★<ruby>藤原<rt>ふじわら</rt></ruby>さんのように これから始める方には、この『3ヶ月で切れない』が いちばん効く所です。</p>
+</div></div><h2 class="sec">63 / 88</h2>
+<p>プログラム</p>
+<h3 class="subsec"><ruby>藤原<rt>ふじわら</rt></ruby>さんの場合、3ヶ月で何ができているか</h3>
+<ul class="pts"><li>秋に撒く物が1つか2つに決まっている</li></ul>
+<ul class="pts"><li>畑に出た日と動ける時間が、数字になっている</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんの場合、3ヶ月後に何ができているか、具体で言います。1つ、秋に撒く物が1つか2つに決まっている。2つ、畑に出た日と動ける時間が数字になっている。3つ、初めて売れるまでの道が引けている。4つ、月5万までの道のりの最初の1つが決まっている。——この4つが揃うと、ご自身が書かれた『どれだけの作業が出来るのかを自分自身、<ruby>把握<rt>はあく</rt></ruby>する』は、もう達成できています。</p>
+</div></div><h2 class="sec">64 / 88</h2>
+<p>プログラム</p>
+<ul class="pts"><li>初めて売れる、までの道が引けている</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんの場合、3ヶ月後に何ができているか、具体で言います。1つ、秋に撒く物が1つか2つに決まっている。2つ、畑に出た日と動ける時間が数字になっている。3つ、初めて売れるまでの道が引けている。4つ、月5万までの道のりの最初の1つが決まっている。——この4つが揃うと、ご自身が書かれた『どれだけの作業が出来るのかを自分自身、<ruby>把握<rt>はあく</rt></ruby>する』は、もう達成できています。</p>
+</div></div><h2 class="sec">65 / 88</h2>
+<p>プログラム</p>
+<ul class="pts"><li>月5万までの道のりの、最初の1つが決まっている</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんの場合、3ヶ月後に何ができているか、具体で言います。1つ、秋に撒く物が1つか2つに決まっている。2つ、畑に出た日と動ける時間が数字になっている。3つ、初めて売れるまでの道が引けている。4つ、月5万までの道のりの最初の1つが決まっている。——この4つが揃うと、ご自身が書かれた『どれだけの作業が出来るのかを自分自身、<ruby>把握<rt>はあく</rt></ruby>する』は、もう達成できています。</p>
+</div></div><h2 class="sec">66 / 88</h2>
+<p>価格</p>
+<h3 class="subsec">ちなみに、これいくらだと思いますか？</h3>
+<p>【大きい字】？ 円</p>
+<div class="note-callout"><p>3ヶ月・宿題・月4回チェック・月1回ミーティング・その後も無期限で質問可</p></div>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【必ず本人に言わせる・ここで金額を先に出さない】ちなみに、ここまで聞いていただいて、これ、いくらだと思いますか。——先に言わない。答えを待つ。出てきた金額は、高くても安くても否定しない。『ありがとうございます』で受けて、次の1枚で実際の金額を出す。</p>
+</div></div><h2 class="sec">67 / 88</h2>
+<p>価格</p>
+<h3 class="subsec">3ヶ月 15万円</h3>
+<ul class="pts"><li>宿題（毎回）</li></ul>
+<ul class="pts"><li>月4回の課題チェック</li></ul>
+<ul class="pts"><li>月1回のミーティング</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>期間3ヶ月、価格15万円です。内容は、宿題、月4回の課題チェック、月1回のミーティング。そして3ヶ月後も、質問には無期限でお答えし続けます。価格を抑えるために期間を3ヶ月にしていて、お付き合い自体はそれより長い、という形にしています。※押しの加減は現場で。<ruby>藤原<rt>ふじわら</rt></ruby>さんは『使える資金は殆ど無い』と書かれている＝ここで無理に押さない。次の1枚（お金が不安な方へ）を必ず出す。</p>
+</div></div><h2 class="sec">68 / 88</h2>
+<p>価格</p>
+<ul class="pts"><li>3ヶ月後も、質問には無期限で回答</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>期間3ヶ月、価格15万円です。内容は、宿題、月4回の課題チェック、月1回のミーティング。そして3ヶ月後も、質問には無期限でお答えし続けます。価格を抑えるために期間を3ヶ月にしていて、お付き合い自体はそれより長い、という形にしています。※押しの加減は現場で。<ruby>藤原<rt>ふじわら</rt></ruby>さんは『使える資金は殆ど無い』と書かれている＝ここで無理に押さない。次の1枚（お金が不安な方へ）を必ず出す。</p>
+</div></div><h2 class="sec">69 / 88</h2>
+<p>正直に言います</p>
+<h3 class="subsec">「お金が不安」な方へ</h3>
+<p>いま無理をして払う物ではありません。ただ、順番を間違えて使うお金の方が、たいてい高くつきます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【最重要・ゆっくり】正直に言います。今のご状況で、無理をして払う物ではありません。それは本当にそう思っています。ただ、僕が10年で無駄にしたお金と時間を思うと、順番を間違えて使うお金の方が、たいてい高くつくんです。使えなかった機械が倉庫に眠っている、というのがその形です。だから、今日ここで決めなくてもいいです。今日 持って帰っていただきたいのは、順番の方です。※ここは押さない。ご主人様の判断で。</p>
+</div></div><h2 class="sec">70 / 88</h2>
+<p>価格</p>
+<h3 class="subsec">お約束できること・できないこと</h3>
+<ul class="pts"><li>必ず稼げる、とは約束しません</li></ul>
+<ul class="pts"><li>約束するのは、本気の<ruby>伴走<rt>ばんそう</rt></ruby>をやり切ること</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>必ず稼げる、とは約束できません。僕は自分の経験を使って整えることはできますが、実際に動くのは<ruby>藤原<rt>ふじわら</rt></ruby>さんだからです。約束できるのは、本気で一緒に走ることです。成果は、<ruby>伴走<rt>ばんそう</rt></ruby>と実行が合わさって初めて出ます。</p>
+</div></div><h2 class="sec">71 / 88</h2>
+<p>価格</p>
+<ul class="pts"><li>成果は、<ruby>伴走<rt>ばんそう</rt></ruby> ＋ <ruby>藤原<rt>ふじわら</rt></ruby>さんの実行で出ます</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>必ず稼げる、とは約束できません。僕は自分の経験を使って整えることはできますが、実際に動くのは<ruby>藤原<rt>ふじわら</rt></ruby>さんだからです。約束できるのは、本気で一緒に走ることです。成果は、<ruby>伴走<rt>ばんそう</rt></ruby>と実行が合わさって初めて出ます。</p>
+</div></div><h2 class="sec">72 / 88</h2>
+<p>こんな方へ</p>
+<h3 class="subsec">向いている人・向いていない人</h3>
+<ul class="pts"><li>○ 正しい順番で地道に実行できる方</li></ul>
+<ul class="pts"><li>○ 素直に試して改善できる方／報告できる方</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>向いているのは、正しい順番で地道に実行できる方、素直に試して改善できる方、状況をきちんと報告できる方です。向いていないのは、楽して稼ぎたい方、学んでも行動しない方、うまくいかないのを人や環境のせいにする方。<ruby>藤原<rt>ふじわら</rt></ruby>さんは『体の慣れの為に週2、3日から』と書かれた方なので、自分のペースを分かって進める側だと思っています。</p>
+</div></div><h2 class="sec">73 / 88</h2>
+<p>こんな方へ</p>
+<ul class="pts"><li>× 楽して稼ぎたい方／学んでも行動しない方</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>向いているのは、正しい順番で地道に実行できる方、素直に試して改善できる方、状況をきちんと報告できる方です。向いていないのは、楽して稼ぎたい方、学んでも行動しない方、うまくいかないのを人や環境のせいにする方。<ruby>藤原<rt>ふじわら</rt></ruby>さんは『体の慣れの為に週2、3日から』と書かれた方なので、自分のペースを分かって進める側だと思っています。</p>
+</div></div><h2 class="sec">74 / 88</h2>
+<p>こんな方へ</p>
+<ul class="pts"><li>× うまくいかないのを人や環境のせいにする方</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>向いているのは、正しい順番で地道に実行できる方、素直に試して改善できる方、状況をきちんと報告できる方です。向いていないのは、楽して稼ぎたい方、学んでも行動しない方、うまくいかないのを人や環境のせいにする方。<ruby>藤原<rt>ふじわら</rt></ruby>さんは『体の慣れの為に週2、3日から』と書かれた方なので、自分のペースを分かって進める側だと思っています。</p>
+</div></div><h2 class="sec">75 / 88</h2>
+<p>ご案内</p>
+<h3 class="subsec">今、始める理由</h3>
+<p>農業には季節があります。秋に撒く物は、秋に撒くしかありません。1回 逃すと、次は来年です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>焦って決める必要はありません。ただ、農業には季節があります。秋に撒く物は、秋に撒くしかない。1回 逃すと次は来年です。<ruby>藤原<rt>ふじわら</rt></ruby>さんは『秋に種を撒くのが良い野菜から育ててみたい』と書かれました。だから今が、いちばん動きやすい時期ではあります。先送りで解決する種類の課題ではない、というだけ お伝えしておきます。</p>
+</div></div><h2 class="sec">76 / 88</h2>
+<p>ご案内</p>
+<h3 class="subsec">なぜ、人数を絞るのか</h3>
+<ul class="pts"><li>宿題を出し、月4回チェックし、月1回ミーティングをする</li></ul>
+<ul class="pts"><li>一人ひとり本気で見るので、同時に見られる人数には物理的な限りがある</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>人数を絞る理由です。宿題を出して、月4回チェックして、月1回ミーティングをする。自分の農業も回しながら一人ひとり本気で見るので、同時に見られる人数には物理的な限りがあります。絞るのは、売るためではなく、成果を出してもらうためです。 ★数字を変えるなら この1枚だけ直す。締切 8月20日(木)＝直近2回と同じ日に揃えてある。相談会が8/19なので、締切が翌日になる点は要確認。</p>
+</div></div><h2 class="sec">77 / 88</h2>
+<p>ご案内</p>
+<ul class="pts"><li>10名限定／締切 8月20日(木)／埋まり次第 終了</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>人数を絞る理由です。宿題を出して、月4回チェックして、月1回ミーティングをする。自分の農業も回しながら一人ひとり本気で見るので、同時に見られる人数には物理的な限りがあります。絞るのは、売るためではなく、成果を出してもらうためです。 ★数字を変えるなら この1枚だけ直す。締切 8月20日(木)＝直近2回と同じ日に揃えてある。相談会が8/19なので、締切が翌日になる点は要確認。</p>
+</div></div><h2 class="sec">78 / 88</h2>
+<p>ご案内</p>
+<ul class="pts"><li>絞るのは、売るためではなく、成果を出してもらうため</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>人数を絞る理由です。宿題を出して、月4回チェックして、月1回ミーティングをする。自分の農業も回しながら一人ひとり本気で見るので、同時に見られる人数には物理的な限りがあります。絞るのは、売るためではなく、成果を出してもらうためです。 ★数字を変えるなら この1枚だけ直す。締切 8月20日(木)＝直近2回と同じ日に揃えてある。相談会が8/19なので、締切が翌日になる点は要確認。</p>
+</div></div><h2 class="sec">79 / 88</h2>
+<p>ご案内</p>
+<h3 class="subsec">参加を決めたら、初回でやること</h3>
+<p>まず現状診断。畑の広さと場所・週に出られる日・体の具合・使えるお金・秋に撒きたい物を整理して、最初の宿題をその場で決めます。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>参加を決めていただいたら、初回で現状診断をします。畑の広さと場所、週に出られる日、体の具合、使えるお金、秋に撒きたい物を整理して、最初の宿題をその場で決めます。決まると動き出しは早いです。</p>
+</div></div><h2 class="sec">80 / 88</h2>
+<p>よくある不安</p>
+<h3 class="subsec">「体力がもつか不安」な方へ</h3>
+<p>体力は、根性で増やす物ではありません。数えて、要る所に配り直す物です。僕は今、1日実働 約5時間です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>【この回の いちばん大事な反論処理】体力の不安、当然だと思います。でも、体力って根性で増やす物ではないんです。数えて、要る所に配り直す物です。僕は農業歴16年で、今 1日実働 約5時間。始めた頃より、確実に短くなっています。長く働けるようになったのではなくて、要らない作業を落としたからです。<ruby>藤原<rt>ふじわら</rt></ruby>さんも同じで、まず何にどれだけ時間がかかるかを数える。そこから落とす。順番はこれです。『慣れれば増やしていきたい』と書かれていましたが、増やすかどうかは、数えてから決めても遅くありません。</p>
+</div></div><h2 class="sec">81 / 88</h2>
+<p>よくある不安</p>
+<h3 class="subsec">「時間がない」方へ</h3>
+<p>週2〜3日で足りるのか、というご不安。だからこそ小さく始めます。増やすのは時間ではなく、順番と設計です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>時間の不安です。週2〜3日で足りるのか、と思われるかもしれません。だからこそ小さく始めます。1つか2つの品目を、限られた広さで、1周 通す。これなら週2〜3日で回ります。増やすのは時間ではなくて、順番と設計です。僕自身が、1日実働 約5時間でやっている、というのがその証拠です。</p>
+</div></div><h2 class="sec">82 / 88</h2>
+<p>よくある不安</p>
+<h3 class="subsec">「自信がない」方へ</h3>
+<p>自信は、先に持つ物ではありません。正しい一手を実行した後に、ついてきます。<ruby>藤原<rt>ふじわら</rt></ruby>さんは もう畑を用意されました。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>自信の話です。自信は、先に持つ物ではありません。正しい一手を実行した後に、後から付いてきます。<ruby>藤原<rt>ふじわら</rt></ruby>さんはもう、作業ができる畑を用意されました。あれは実行です。ゼロから自信を作るのではなくて、もうやった事を数えるところから始めましょう。</p>
+</div></div><h2 class="sec">83 / 88</h2>
+<p>よくある不安</p>
+<h3 class="subsec">「一人でやるのが不安」な方へ</h3>
+<p>「一人」と書いてくださいました。畑は一人でも、決める時は一人でなくていい。そこを引き受けるのが<ruby>伴走<rt>ばんそう</rt></ruby>です。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>最後に、一人という所です。『誰とやるか』の欄に『一人』と書いてくださいました。畑に立つのは一人でいいんです。でも、何を撒くか、いつ撒くか、どこへ出すか——決める時まで一人でやると、僕みたいに10年 遠回りします。畑は一人でも、決める時は一人でなくていい。そこを引き受けるのが<ruby>伴走<rt>ばんそう</rt></ruby>です。</p>
+</div></div><h2 class="sec">84 / 88</h2>
+<p>まとめ</p>
+<h3 class="subsec">今日の判断基準</h3>
+<ul class="pts"><li>この不安を、もう1年 抱えたままでいいのか</li></ul>
+<ul class="pts"><li>一人で答えを出せるのか</li></ul>
+<ul class="pts"><li><ruby>伴走<rt>ばんそう</rt></ruby>を使いながら進めた方が早いのか</li></ul>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>今日の判断は、この3つでしてください。この不安をもう1年 抱えたままでいいのか。一人で答えを出せるのか。<ruby>伴走<rt>ばんそう</rt></ruby>を使いながら進めた方が早いのか。完璧に自信があるかどうか、ではありません。</p>
+</div></div><h2 class="sec">85 / 88</h2>
+<p>まとめ</p>
+<h3 class="subsec">最終確認</h3>
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんに必要なのは、体力でも お金でもなく、順番です。畑も、やる気も、週2〜3日の時間も、もう持っておられます。ここから一緒に進めていきたいですか？</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p><ruby>藤原<rt>ふじわら</rt></ruby>さんに必要なのは、体力でも お金でもなくて、順番だと思っています。畑も、やる気も、週2〜3日の時間も、もう持っておられる。僕はかなり力になれると感じています。ここから一緒に進めていきたいですか？——実クロージング。押しの加減は現場で。★資金のご事情があるので、断られたら気持ちよく引く。</p>
+</div></div><h2 class="sec">86 / 88</h2>
+<p>まとめ</p>
+<h3 class="subsec">今日の一歩</h3>
+<p>「畑に出た日と、動けた時間を、1行だけ書く」。今週から始めてみてください。それが「どれだけの作業が出来るのか」の答えになります。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>最後に、今日の一歩を1つ決めましょう。おすすめは、畑に出た日と、その日 動けた時間を、紙に1行だけ書くことです。今週から。それだけで、1年後の願いに書かれた『どれだけの作業が出来るのかを自分自身、<ruby>把握<rt>はあく</rt></ruby>する』が、数字で見えてきます。お金もかかりません。ここが動くと、次が見えてきます。</p>
+</div></div><h2 class="sec">87 / 88</h2>
+<p>まとめ</p>
+<h3 class="subsec">参加後の流れ</h3>
+<p>お申し込み → 初回日程を決定 → 初回で現状診断と最初の宿題。動き出しは早いです。お支払い方法のご相談も、この場で。</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>進める場合の流れは、お申し込み、初回日程を決めて、初回で現状診断と最初の宿題、です。お支払い方法のご相談もこの場で承ります。</p>
+</div></div><h2 class="sec">88 / 88</h2>
+<p>最後に</p>
+<h3 class="subsec">分からないのは、まだ数えていないだけです</h3>
+<p>体力も、月5万も、やってみて数えれば形になります。畑も、時間も、<ruby>藤原<rt>ふじわら</rt></ruby>さんはもう持っておられます。安定・売り先・拡大、一緒に並べていきましょう。</p>
+<p>［稼げる農業の<ruby>仕組み化<rt>しくみか</rt></ruby> <ruby>伴走<rt>ばんそう</rt></ruby>プログラム］</p>
+<div class="scard"><div class="scard-head"><span class="scard-no">台本</span><span class="scard-title">口で話す</span></div><div class="scard-talk">
+
+<p>最後に。『やってみないと分からない』——分からないのは、まだ数えていないだけです。体力も、月5万も、やってみて数えれば形になります。畑も、週2〜3日の時間も、<ruby>藤原<rt>ふじわら</rt></ruby>さんはもう持っておられる。安定・売り先・拡大、一緒に並べていきましょう。今日はありがとうございました。</p>
+</div></div><p class="privacy">この台本は本人に見せません。画面共有中は開かないでください。</p>
+</div></body></html>
