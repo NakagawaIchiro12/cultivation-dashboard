@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>農業相談会スライド（山崎恭士郎さん）</title>
+<style>
+  :root{ --green:#2e7d32; --green-d:#1b5e20; --ink:#12200f; --paper:#f6f8f3; --gold:#b8892b; --line:#dfe6d8; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;background:#0e1410;color:var(--ink);overflow:hidden;}
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;}
+  #stage{background:#0e1410;}
+  .slide{display:none;width:1600px;height:900px;flex:0 0 auto;padding:81.0px 6%;flex-direction:column;justify-content:center;box-shadow:0 0 40px rgba(0,0,0,.5);
+         position:relative;background-color:var(--paper);
+         background-image:linear-gradient(100deg,
+             rgba(246,248,243,.98) 0%, rgba(246,248,243,.96) 48%,
+             rgba(246,248,243,.97) 74%, rgba(246,248,243,.94) 100%),
+           url('bg-content.jpg');
+         background-size:cover;background-position:center right;}
+  .slide.active{display:flex;animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  .kicker{color:var(--green-d);font-weight:800;font-size:40.5px;letter-spacing:.12em;margin-bottom:35.1px;}
+  h1{font-size:113.4px;line-height:1.22;color:var(--green-d);font-weight:900;letter-spacing:.01em;}
+  h2{font-size:89.1px;line-height:1.28;color:var(--green-d);font-weight:900;}
+  .sub{font-size:62.1px;line-height:1.55;margin-top:45.9px;color:#12200f;font-weight:600;max-width:40ch;}
+  ul.pts{margin-top:48.6px;list-style:none;display:flex;flex-direction:column;gap:35.1px;}
+  ul.pts li{font-size:64.8px;line-height:1.4;font-weight:700;padding-left:1.4em;position:relative;color:#12200f;}
+  ul.pts li::before{content:"";position:absolute;left:0;top:.5em;width:.55em;height:.55em;border-radius:50%;background:var(--gold);}
+  .quote{font-size:59.4px;line-height:1.6;color:#12200f;font-weight:600;max-width:38ch;margin-top:35.1px;
+         border-left:10.8px solid var(--green);padding:13.5px 0 13.5px 48.0px;background:#fff;border-radius:0 12px 12px 0;
+         box-shadow:0 6px 24px rgba(30,60,25,.08);padding-right:48.0px;padding-top:35.1px;padding-bottom:35.1px;}
+  .who{margin-top:32.4px;font-size:45.9px;color:var(--gold);font-weight:800;}
+  .big{font-size:135.0px;color:var(--green-d);font-weight:900;}
+  .price{font-size:175.5px;color:var(--green-d);font-weight:900;letter-spacing:.02em;}
+  /* 核心の悩み 見える化 */
+  .worrycore{margin-top:29.7px;font-size:86.4px;line-height:1.25;color:var(--green-d);font-weight:900;
+             background:#fff;border-left:13.5px solid var(--gold);border-radius:0 14px 14px 0;
+             padding:32.4px 48.0px;box-shadow:0 8px 28px rgba(30,60,25,.10);max-width:34ch;}
+  .worrycards{display:flex;gap:32.0px;margin-top:45.9px;flex-wrap:wrap;max-width:58ch;}
+  .wcard{flex:1 1 0;min-width:297.0px;background:#fff;border:4.0px solid var(--line);border-radius:16px;
+         padding:29.7px 25.6px;box-shadow:0 6px 20px rgba(30,60,25,.07);}
+  .wcard.on{background:#eef6ea;border-color:var(--green);}
+  .wc-h{font-size:40.5px;font-weight:800;color:var(--gold);letter-spacing:.04em;margin-bottom:16.2px;}
+  .wcard.on .wc-h{color:var(--green-d);}
+  .wc-b{font-size:48.6px;line-height:1.4;font-weight:700;color:#12200f;}
+  .wc-b b{color:var(--green-d);}
+  .cover{background-image:linear-gradient(100deg,
+             rgba(247,250,244,.93) 0%, rgba(247,250,244,.88) 40%,
+             rgba(247,250,244,.95) 72%, rgba(247,250,244,.90) 100%),
+           url('bg-cover.jpg');
+         background-size:cover;background-position:center right;color:var(--ink);
+         border-top:16.2px solid var(--green-d);}
+  .cover h1{color:var(--green-d);font-size:121.5px;text-shadow:none;}
+  .cover .sub{color:#33422f;}
+  .cover .kicker{color:var(--green);}
+  .cover .tag{background:var(--green-d);color:#fff;box-shadow:0 6px 20px rgba(27,60,25,.22);}
+  .tag{display:inline-block;background:#fff;color:var(--green-d);font-weight:800;border-radius:999px;
+       padding:17.6px 48.0px;font-size:48.6px;margin-top:54.0px;}
+  .foot{display:none;}
+  #counter{position:fixed;right:38.4px;bottom:32.4px;font-size:40.5px;font-weight:700;color:#2e7d32;background:rgba(255,255,255,.85);
+           padding:10.8px 28.8px;border-radius:999px;z-index:20;}
+  /* presenter notes: hidden by default, toggle with N. Warn: do not toggle while screen-sharing. */
+  #note{position:fixed;left:0;right:0;bottom:0;background:#12241a;color:#eafff0;padding:32.4px 128.0px;
+        font-size:40.5px;line-height:1.6;display:none;z-index:30;border-top:6.8px solid var(--gold);max-height:594.0px;overflow:auto;}
+  #note.show{display:block;}
+  #note b{color:var(--gold);}
+  #hint{display:none;}
+  .warn{position:absolute;top:40.5px;right:128.0px;font-size:37.8px;color:#b8892b;font-weight:800;}
+
+  /* ★スマホ版で足した分 */
+  #stage{overflow:hidden;}
+  .slide{overflow:hidden;}
+  .slide.active{animation:none !important;}
+  body{-webkit-text-size-adjust:100%;}
+</style>
+<!-- ▼ここから下は「前回の方の版で足した1枚」＝見本(前の回の方版)のCSSは1文字も変えていない -->
+<style>
+  .qbig{margin-top:2.6vh;font-size:8.6vh;line-height:1.25;color:var(--green-d);font-weight:900;letter-spacing:.02em;white-space:nowrap;}
+  .qbig.xl{font-size:13vh;}
+  .qbig .q{color:var(--gold);}
+  /* 3枚のカードを1列に収める（この1枚ぶんの上書き。見本のCSSは触っていない） */
+  .worrycards{max-width:none;width:78%;flex-wrap:nowrap;}
+  .wcard{min-width:0;}
+  .steps{display:flex;gap:1.6vw;align-items:flex-end;margin-top:3.6vh;width:76%;}
+  .step{flex:1 1 0;background:#fff;border:.3vh solid var(--line);border-radius:14px;padding:1.6vh 1vw;
+        box-shadow:0 6px 20px rgba(30,60,25,.07);display:flex;flex-direction:column;justify-content:center;text-align:center;}
+  .step .n{font-size:2.8vh;color:var(--gold);font-weight:800;letter-spacing:.06em;}
+  .step .v{font-size:4.2vh;font-weight:900;color:var(--green-d);margin-top:1vh;line-height:1.3;}
+  .step.s1{height:18vh;} .step.s2{height:25vh;} .step.s3{height:32vh;} .step.s4{height:39vh;background:#eef6ea;border-color:var(--green);}
+  .note-in{margin-top:2.4vh;font-size:3.2vh;color:#4a5a46;font-weight:700;}
+</style>
+
+<style>
+/* ★2026-08-18 足した分＝この4つの指定が 元の紙に1つも無く、
+   「300万のやる順番」「安定＝？＋？」「僕の答え」「いくらだと思いますか」の4枚が
+   飾りの無い ただの行で出ていた。見本の css は さわらず ここで足す。 */
+.steps{display:flex;gap:20.0px;margin-top:29.7px;flex-wrap:wrap;width:100%;}
+.step{flex:1 1 0;min-width:260.0px;background:#fff;border:4.0px solid var(--line);border-radius:16px;
+      padding:20.0px 20.0px;box-shadow:0 6px 20px rgba(30,60,25,.07);}
+.step .n{font-size:35.0px;font-weight:800;color:var(--gold);letter-spacing:.04em;margin-bottom:11.0px;}
+.step .v{font-size:39.0px;line-height:1.3;font-weight:800;color:var(--green-d);}
+.step.s4{background:#eef6ea;border-color:var(--green);}
+.step.s4 .n{color:var(--green-d);}
+.qbig{margin-top:37.8px;font-size:86.4px;font-weight:900;color:var(--green-d);line-height:1.32;}
+.qbig.xl{font-size:94.0px;}
+.qbig .q{display:inline-block;background:#fff;border:5.0px solid var(--gold);border-radius:18px;
+         padding:6.0px 30.0px;color:var(--green-d);}
+.note-in{margin-top:29.7px;font-size:43.0px;color:#42513e;font-weight:700;line-height:1.45;}
+/* 出典＝小さく・でも読める大きさで（数字を出したら必ず出どころを同じ画面に置く） */
+.deta{margin-top:14.0px;font-size:26.0px;color:#5a6856;font-weight:700;line-height:1.35;word-break:break-all;}
+/* ★数字を並べる枚は【1枚に全部 載せる】＝順位や対比は 並べて見せないと意味が無い。
+   元の紙は はみ出すと箇条書きを1行ずつ別の枚に割る作りで、
+   「茶23.0億／まんさいかん18.1億／野菜16.2億…」が 1行ずつ4枚に散っていた（実測）。
+   この枚だけ 字を落として 1枚に収める。他の枚の大きさは 1つも変えていない。 */
+.detaslide h1{font-size:78.0px;line-height:1.2;}
+.detaslide .sub{font-size:44.0px;margin-top:22.0px;line-height:1.45;max-width:46ch;}
+.detaslide ul.pts{margin-top:24.0px;gap:14.0px;}
+.detaslide ul.pts li{font-size:42.0px;line-height:1.28;}
+.detaslide ul.pts li::before{top:.42em;width:.45em;height:.45em;}
+.detaslide .kicker{margin-bottom:20.0px;}
+</style>
+<style>
+.detaslide h1{font-size:68.0px;line-height:1.18;}
+.detaslide .sub{font-size:40.0px;margin-top:20.0px;line-height:1.42;max-width:48ch;}
+.detaslide ul.pts{margin-top:20.0px;gap:12.0px;}
+.detaslide ul.pts li{font-size:38.0px;line-height:1.26;}
+.detaslide .deta{margin-top:16.0px;font-size:22.0px;line-height:1.32;}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="counter"></div>
+<div id="hint">← → めくる｜ N=トーク台本の表示切替（画面共有中は押さない）</div>
+<div id="note"></div>
+<script>
+/* 画面に出る文＝projected。note＝口で話す台本（本人には見せない・画面共有では出さない）
+   山崎 恭士郎さん版（2026-09-01（火）20:00）＝前の回の方の作りを そのまま流用。
+   ★見本（aki-slide）の CSS と script は 1文字も変えていない。差し替えたのは 枚の中身だけ。 */
+const S = [
+/* ===== 山崎 恭士郎（やまざき きょうしろう）さん ／ 2026-09-01（火）20:00 ／「0. まだ始める前」 =====
+   ★UTAGEの実データで確かめた事（2026-08-28 取得）
+     ・整理シート＝2026-08-26 12:45 提出。11問中10問に記入あり（年齢だけ空）
+     ・1対1トーク＝全11件。うち ご本人の発言は0件（友だち追加の合図のみ）
+     ・LINE友だち追加 8/21 22:52 → 予約 8/26 09:30 → 整理シート 8/26 12:45
+   ★地域の数字＝西尾市の実データを入れてある（出どころは画面に併記）
+   ★こちらで足した本人の事実は0個。分からない所は〔当日 聞く〕のまま置く。 */
+
+ {cls:"cover", kicker:"農業相談会", h:"今日は、1年目の50万円を<br>どう作るかを決めて帰ります", sub:"畑1反、資金30万円、お一人。この条件のまま、何を どの順番でやるか。今日はそこを一緒に決めます。",
+  tag:"農業相談会", note:"山崎さん、本日はお時間ありがとうございます。整理シート、しっかり読ませていただきました。今日は、山崎さんが書いてくださった「1年目は50万から60万」——ここをどう作るか、その順番を決めて帰っていただく時間です。いきなり何かを売る場ではありません。前半はほとんど、僕が聞く時間にします。"},
+
+ {kicker:"はじめに", h:"今日のゴール", pts:["いま持っている物を、はっきりさせる","1年目の50万円を作る道を、1つに絞る","次にやる事を、1つだけ決める"],
+  note:"今日のゴールは3つです。1つ、いま持っている物をはっきりさせる。2つ、1年目の50万円を作る道を1つに絞る。3つ、次にやる事を1つだけ決める。たくさん持って帰ろうとすると、どれも動きません。だから1つに絞ります。"},
+
+ {kicker:"はじめに", h:"今日の進め方", sub:"前半は、僕がひたすら聞きます。1つずつ深く。そのあとで、僕の考え方をお伝えします。合わなければ無理に案内しません。",
+  note:"進め方です。前半は僕がひたすら聞きます。そのあとで僕の考え方をお伝えします。合わないと感じられたら、無理に案内はしません。役に立てる時だけ提案します。"},
+
+ {kicker:"自己紹介", h:"中川一郎<br>農業歴16年・順番を決めて広げてきました", sub:"根性で量を出しているのではありません。順番を決めて、そのつど仕組みに変えて広げてきました。", pts:["1代目・親から継がずに始めた","いまは1日実働 約5時間・土日休み","年間100t超（注文は200tを超えて一旦ストップ）","スタッフの技術が、僕より伸びている所もある"],
+  note:"本題の前に少しだけ。農業歴16年です。親から継いでいません。1代目で、何も持っていない所から始めました。今は1日実働およそ5時間、土日休みで年間100トン超。注文は200トンを超えて、一旦ストップをかけています。それと、うちのスタッフは、種類によっては僕より上手くなっています。根性で量を出しているのではなくて、順番を決めて、そのつど仕組みに変えてきた結果です。今日お話しするのは、その順番の話です。"},
+
+ /* ===== 前半＝確認（本人の言葉をそのまま出す）===== */
+ {kicker:"確認させてください", h:"1年後、こう書いてくださいました", sub:"※整理シートに書いていただいた言葉、そのままです",
+  quote:"副業から始めて、3年後には農業を主流でやって行きたい。",
+  note:"まず確認させてください。1年後どうなっていたいですか、という問いに、こう書いてくださいました。「副業から始めて、3年後には農業を主流でやって行きたい」。ここ、すごく大事なので聞かせてください。3年後に主流でやりたい、と思われたきっかけって、何だったんですか。"},
+
+ {kicker:"確認させてください", h:"いま いちばん頭を抱えている事", sub:"※そのままです",
+  quote:"親の会社が潰れて建築業で独立します。今年の5月に結婚をして収入が不安定になるのでまずはそこを補填できるくらい収入が欲しいです。",
+  note:"そして、今いちばん頭を抱えている事に、こう書いてくださいました。「親の会社が潰れて建築業で独立します。今年の5月に結婚をして収入が不安定になるので、まずはそこを補填できるくらい収入が欲しいです」。正直に書いてくださって、ありがとうございます。ご結婚おめでとうございます。ここ、僕はすごく大事な情報だと思っています。というのも、山崎さんが農業に求めているのは、夢の話じゃなくて、まず生活を支える収入だという事だからです。合っていますか。"},
+
+ {kicker:"確認させてください", h:"作りたい物は、まだ決めていない", sub:"※そのままです",
+  quote:"未定です。できるだけ再現性の高い作物を育てたいと思っています。",
+  note:"作物については「未定です。できるだけ再現性の高い作物を育てたいと思っています」と書いてくださいました。この『再現性』という言葉を選ばれたの、僕はいいと思いました。まぐれで1回穫れるより、毎年 同じだけ穫れる方がいい、という意味ですよね。ここ、後で必ず戻ってきます。"},
+
+ {kicker:"確認させてください", h:"売り先の手がかりは、もう在ります", sub:"※そのままです",
+  quote:"未定ですが、副業で知り合いの方ができて農業屋での出店は手伝ってくれると言ってくれました。",
+  note:"そして販売のところ。「未定ですが、副業で知り合いの方ができて、農業屋での出店は手伝ってくれると言ってくれました」。——ここ、ご自分では当たり前に思っていませんか。売り先の手がかりが、もう1つ在るんです。これ、実はかなり大きいです。"},
+
+ {kicker:"確認させてください", h:"どのくらい力を注げるか", sub:"※そのままです",
+  quote:"今現在畑を耕して牛糞を混ぜた段階での話ですがめちゃくちゃ楽しくて天職かもしれないと思っています。",
+  note:"最後に、どのくらい力を注げますか、という問いに、こう書いてくださいました。「今現在 畑を耕して牛糞を混ぜた段階での話ですが、めちゃくちゃ楽しくて天職かもしれないと思っています」。——これ、読んで嬉しかったです。もう畑に手を入れておられるんですね。今日はここから、その楽しさを続けられる形に変えていきましょう。"},
+
+ {kicker:"確認させてください", h:"いまの条件を、数字で置くと", pts:["畑＝1反（家から15分）","一人でやる","いま使える資金＝30万円ほど","目標＝1年目 50〜60万／2年目 100〜110万／3年目から 300〜350万"],
+  note:"条件を数字で並べます。畑は1反、家から15分。お一人。使える資金は30万円ほど。目標は1年目50から60万、2年目100から110万、3年目から300から350万。——この並べ方、ご自分で書かれたものです。1年ごとに階段になっていて、いきなり300万と書いていない。ここ、僕はいいと思います。無理のない書き方をされています。"},
+
+ {kicker:"聞かせてください", h:"1反の畑は、どんな畑ですか", pts:["土は砂ですか、粘土ですか","水は引けますか（井戸・用水）","日当たり・風はどうですか","去年まで何を作っていた畑ですか"],
+  note:"ここから少し聞かせてください。1反の畑ですが、土は砂っぽいですか、それとも粘土質ですか。水は引けますか。井戸か、用水か。日当たりと風はどうでしょう。それと、去年まで何を作っていた畑か、分かりますか。——この4つで、作れる物がだいぶ絞れます。"},
+
+ {kicker:"聞かせてください", h:"時間は、どのくらい取れますか", pts:["建築業の仕事は、週にどのくらいですか","朝・夕方、どちらが空きますか","土日は使えますか","奥様の理解はどうですか"],
+  note:"それと時間です。建築業で独立されるとの事ですが、週にどのくらい入る予定ですか。朝と夕方、どちらが空きますか。土日は使えますか。それから、これは大事なので聞きます。奥様の理解はどうですか。——農業は家族の理解が無いと続きません。ここは正直に教えてください。"},
+
+ /* ===== 地域の数字 ===== */
+ {kicker:"山崎さんの地域", h:"<ruby>西尾市<rt>にしおし</rt></ruby>は、農業でどのくらいの町か", sub:"市ぜんぶの<ruby>産出額<rt>さんしゅつがく</rt></ruby>＝148億4千万円。全国で33番目です。",
+  pts:["野菜＝34億4千万円","花き＝29億9千万円","豚＝23億7千万円","米＝18億6千万円"],
+  deta:"出どころ＝農林水産省「令和5年 市町村別農業産出額（推計）」",
+  note:"ここから、山崎さんの地域の数字を見ていきます。西尾市は、市ぜんぶの農業の産出額が148億4千万円。全国で33番目です。かなり強い産地です。中身を見ると、野菜が34億4千万円、花きが29億9千万円。この2つで市の4割を超えます。——つまり西尾市でお金になっているのは、野菜と花きなんです。"},
+
+ {cls:"detaslide", kicker:"山崎さんの地域", h:"<ruby>西尾市<rt>にしおし</rt></ruby>で、いちばん量が出ている物", sub:"※これは金額ではなく【量】です。品目ごとの金額は公表されていません。",
+  pts:["きゅうり＝2,454トン（ハウス・冬春のみ）","カーネーション＝1,550万本（ハウス）","米＝9,330トン（露地）","麦＝6,057トン／大豆＝1,465トン（露地）","たまねぎ＝302トン（露地・砂地）"],
+  deta:"出どころ＝JA西三河「西尾市の農産物紹介」",
+  note:"次に、量です。ここは金額ではなくて量なので、そこだけ気をつけて見てください。品目ごとの金額は、どこにも公表されていませんでした。ハウスではきゅうりが2,454トン。これは愛知県ぜんぶの4分の1以上を、西尾市だけで出しています。カーネーションは1,550万本で、県の半分近く。露地では米が9,330トン、麦が6,057トン、大豆が1,465トン。大豆は県の3分の1が西尾市です。それとたまねぎが302トン。"},
+
+ {kicker:"山崎さんの地域", h:"きゅうりは、1反で25トン以上", sub:"西尾市の平均です。ハウスの加温栽培で、11月から6月まで採り続けます。",
+  deta:"出どころ＝JA西三河（平均<ruby>反収<rt>たんしゅう</rt></ruby> 10aあたり25トン以上）",
+  note:"1つ、数字を覚えて帰ってください。西尾市のきゅうりは、1反あたり25トン以上 採れます。これは平均です。地域として、それだけの技術が溜まっている場所なんです。山崎さんの畑も同じ1反ですから、この数字は「この地域で1反が どこまで行けるか」の目安になります。"},
+
+ /* ===== 事実＝30万でハウスは建たない ===== */
+ {kicker:"正直にお伝えします", h:"ただ、ハウスは今年は建ちません", sub:"ビニールハウスは、1反でおよそ500万円から1,900万円かかります。いま使える30万円との差は、17倍から60倍です。",
+  deta:"出どころ＝イノチオアグリ／minorasu（BASF）※会社の公表資料・国の統計ではありません",
+  note:"ここは正直にお伝えします。西尾市の主役はハウスなんですが、ハウスは今年は建ちません。ビニールハウスは1反でおよそ500万円から1,900万円かかります。30万円との差は17倍から60倍です。これは煽らずに、本当のことを言っています。——ただ、これは「やめとけ」という話ではありません。順番の話です。"},
+
+ {kicker:"正直にお伝えします", h:"だから、道は3つです", pts:["① 露地で、1年目の50万円を作る","② 空いているハウスを借りる・引き継ぐ","③ 補助・支援を使う"],
+  note:"ハウスが建たないなら、道は3つです。1つ、露地で1年目の50万円を作る。2つ、空いているハウスを借りる、または引き継ぐ。骨組みだけ残って使われていないハウスは、地方には けっこう在ります。3つ、補助や支援を使う。——今日はこの中で、1つ目を中心にお話しします。いちばん早く、いちばん確実に動けるからです。"},
+
+ /* ===== 問い→答え ===== */
+ {kicker:"考えてみてください", h:"1反の露地で、1年目に<br>50万円は作れると思いますか",
+  note:"ここで1つ、考えてみてください。1反の露地で、1年目に50万円。作れると思いますか。——どう思われますか。"},
+
+ {kicker:"答え", h:"作れます。ただし<br>「何を」より先に「どこへ売るか」", sub:"売り先が決まると、作る物が決まります。逆にすると、作った物が余ります。",
+  note:"答えは、作れます。ただし条件が1つあります。「何を作るか」より先に「どこへ売るか」を決めることです。売り先が決まると、作る物は自動的に決まります。逆にすると、作ってから売り先を探すことになって、余ります。僕は始めた頃、これで5年 遠回りしました。"},
+
+ {kicker:"答え", h:"山崎さんは、売り先の手がかりを<br>もう持っています", sub:"「農業屋での出店を手伝ってくれる知り合いができた」——ここが、いちばんの資産です。",
+  note:"そして山崎さんは、その売り先の手がかりを、もう持っておられます。「農業屋での出店を手伝ってくれる知り合いができた」と書いてくださいました。ここが、今の山崎さんのいちばんの資産です。畑でも、お金でもありません。売り先の当てが在ることです。"},
+
+ {kicker:"やる順番", h:"1年目に やる事は、この4つだけです",
+  diagram:'<div class="steps"><div class="step s1"><div class="n">1つ目</div><div class="v">売り先の数字を<br>調べる</div></div><div class="step s2"><div class="n">2つ目</div><div class="v">作る物を<br>1つに決める</div></div><div class="step s3"><div class="n">3つ目</div><div class="v">1反ぜんぶ使わず<br>小さく始める</div></div><div class="step s4"><div class="n">4つ目</div><div class="v">記録を取る<br>（反あたりの量と金額）</div></div></div>',
+  note:"1年目にやる事は、この4つだけです。1つ目、売り先の数字を調べる。直売所や農業屋で、何が いくらで どれだけ売れているかを見る。2つ目、作る物を1つに決める。あれこれ作らない。3つ目、1反ぜんぶ使わずに小さく始める。4つ目、記録を取る。反あたりでどれだけ採れて、いくらになったか。——この4つ目が、山崎さんが書かれた『再現性』の正体です。"},
+
+ {kicker:"やる順番", h:"1つ目＝売り先の数字を調べる", pts:["農業屋の売り場で、何が いくらで並んでいるか","近くの直売所で、何が売り切れているか","出す人が少ない物は何か（＝隙間）","JAの<ruby>営農<rt>えいのう</rt></ruby>センターで、地域の作型を聞く"],
+  note:"1つ目、売り先の数字を調べる。農業屋の売り場で、何がいくらで並んでいるか。近くの直売所で、何が売り切れているか。そして、出す人が少ない物は何か。ここが隙間です。それとJAの営農センターにも行ってみてください。地域の作型を教えてくれます。——これ、お金は1円もかかりません。今週できます。"},
+
+ {kicker:"やる順番", h:"2つ目＝1つに決める。あれこれ作らない", sub:"面積を小さくしても、<ruby>反収<rt>たんしゅう</rt></ruby>は守る。薄く広げて全部 中途半端が、いちばんもったいない形です。",
+  note:"2つ目、作る物を1つに決めます。あれこれ作りません。ここ、前に相談を受けた方が「いちばん刺さった」と言われた所です。面積を小さくしても、反あたりの量は守る。薄く広げて全部が中途半端になるのが、いちばんもったいないんです。1反ぜんぶ使うより、3畝でちゃんと穫る方が、1年目は絶対に強いです。"},
+
+ {kicker:"やる順番", h:"3つ目＝<ruby>圃場<rt>ほじょう</rt></ruby>を小さく区切って始める", sub:"1反＝1,000平方メートル。ここを最初から全部やると、草に負けます。お一人なら なおさらです。",
+  note:"3つ目、圃場を小さく区切って始めます。1反は1,000平方メートルあります。お一人で、しかも建築業をやりながらだと、最初から全部は草に負けます。3分の1から始めて、回るのを確かめてから広げる。残りは緑肥を撒いておくか、そのままでも構いません。"},
+
+ {kicker:"やる順番", h:"4つ目＝<ruby>反収<rt>たんしゅう</rt></ruby>と金額を、必ず書き残す", sub:"何を いつ<ruby>播種<rt>はしゅ</rt></ruby>して、いつ採れて、何キロで、いくらになったか。これが2年目の全部になります。",
+  note:"4つ目、記録です。何をいつ播種して、いつ採れて、何キロで、いくらになったか。これを必ず書き残してください。この記録が、2年目の全部になります。山崎さんが書かれた『再現性の高い作物』というのは、実は品目の話ではなくて、この記録が在るかどうかの話なんです。記録が在れば、どの品目でも再現できます。"},
+
+ {kicker:"3年後へ", h:"50万 → 110万 → 350万の階段", sub:"1年目は「売れる形」を1つ作る。2年目はそれを倍にする。3年目に、ハウスか面積かを選ぶ。",
+  pts:["1年目＝売れる形を1つ作る（記録を残す）","2年目＝同じ形を倍にする（人を頼むか決める）","3年目＝ハウスに入るか、面積を広げるかを選ぶ"],
+  note:"3年後の350万まで、階段にするとこうなります。1年目は売れる形を1つ作って、記録を残す。2年目はその形を倍にする。ここで人を頼むかどうかを決めます。3年目に、ハウスに入るか、面積を広げるかを選ぶ。——ここまで来ると、選べるようになります。今は選べないんです。まだ数字が無いから。"},
+
+ {kicker:"3年後へ", h:"西尾市なら、3年目の選択肢は強い", pts:["きゅうり＝1反で25トン以上の地域","カーネーション＝県の半分を出す地域","たまねぎ＝加工用の契約栽培が在る（先に値段が決まる）","<ruby>福地<rt>ふくち</rt></ruby>地区＝野菜の苗・花壇苗の産地"],
+  deta:"出どころ＝JA西三河「西尾市の農産物紹介」",
+  note:"そして、ここが山崎さんの運のいい所です。西尾市は、3年目の選択肢がとても強い地域なんです。きゅうりは1反で25トン以上の産地。カーネーションは県の半分を出す産地。たまねぎには加工用の契約栽培が在って、これは作る前に売り先と値段が決まる形です。それと福地地区は、野菜の苗や花壇苗の産地です。——苗は、農業屋のような直売の場と相性がいい品目です。"},
+
+ /* ===== 価格 ===== */
+ {kicker:"ここから", h:"ここまでが、今日の中身です", sub:"このあと、僕がやっている<ruby>伴走<rt>ばんそう</rt></ruby>のプログラムのご案内をします。要らなければ、聞き流してください。",
+  note:"ここまでが今日の中身です。このあと、僕がやっている伴走のプログラムのご案内を少しだけします。要らなければ聞き流してください。無理に案内はしません。"},
+
+ {kicker:"考えてみてください", h:"3ヶ月 まるごと伴走して<br>いくらだと思いますか",
+  note:"1つ聞かせてください。僕が3ヶ月まるごと伴走するとして、いくらだと思いますか。——どうでしょう。"},
+
+ {kicker:"答え", h:"3ヶ月 15万円です", sub:"月に直すと5万円です。1年目の目標が50〜60万円ですから、そこから見ると 決して小さい額ではありません。",
+  note:"3ヶ月で15万円です。月に直すと5万円。——正直に言いますが、山崎さんの1年目の目標が50から60万円ですから、そこから見て小さい額ではありません。今すぐ決めてください、とは言いません。今日はまず、さっきの4つを進めてください。"},
+
+ {kicker:"伴走プログラム", h:"中でやる事", pts:["売り先の数字を、一緒に読む","作る物と作型を、一緒に決める","<ruby>圃場<rt>ほじょう</rt></ruby>の区切りと段取りを組む","<ruby>反収<rt>たんしゅう</rt></ruby>の記録の付け方を渡す","詰まった所を、その都度ほどく"],
+  note:"中でやる事はこの5つです。売り先の数字を一緒に読む。作る物と作型を一緒に決める。圃場の区切りと段取りを組む。反収の記録の付け方を渡す。そして、詰まった所をその都度ほどく。——1年目でいちばん時間を食うのは、迷っている時間なんです。そこを消すのが伴走です。"},
+
+ {kicker:"まとめ", h:"今日、持って帰っていただく物", pts:["ハウスは今年は建たない。だから露地で50万円を作る","「何を」より先に「どこへ売るか」","山崎さんは、売り先の手がかりを もう持っている","今週やる事＝農業屋と直売所で、値段と量を見てくる"],
+  note:"今日 持って帰っていただく物をまとめます。1つ、ハウスは今年は建たない。だから露地で1年目の50万円を作る。2つ、何を作るかより先に、どこへ売るかを決める。3つ、山崎さんは その売り先の手がかりを もう持っている。4つ、今週やる事は1つだけ。農業屋と、近くの直売所で、値段と量を見てくる。——これだけです。"},
+
+ {cls:"cover", kicker:"最後に", h:"畑を耕して、牛糞を混ぜた。<br>もう始まっています", sub:"「めちゃくちゃ楽しくて天職かもしれない」——この言葉を、3年後まで持っていってください。",
+  tag:"ありがとうございました",
+  note:"最後に。山崎さんは整理シートに、畑を耕して牛糞を混ぜた段階だ、と書いてくださいました。それ、もう始まっているという事です。そして「めちゃくちゃ楽しくて天職かもしれない」とも書いてくださった。この言葉を、3年後まで持っていってください。楽しいと思えているうちは、続きます。今日はありがとうございました。"}
+
+];
+
+const stage=document.getElementById('stage');
+S.forEach((s,i)=>{
+  const d=document.createElement('div');
+  d.className='slide'+(s.cls?(' '+s.cls):'');
+  let inner='';
+  if(s.kicker) inner+=`<div class="kicker">${s.kicker}</div>`;
+  inner+=`<h1>${s.h}</h1>`;
+  if(s.sub) inner+=`<div class="sub">${s.sub}</div>`;
+  if(s.quote) inner+=`<div class="quote">「${s.quote}」</div>`+(s.subq?'':'');
+  if(s.sub&&s.quote){}
+  if(s.pts){inner+='<ul class="pts">'+s.pts.map(p=>`<li>${p}</li>`).join('')+'</ul>';}
+  if(s.deta) inner+=`<div class="deta">${s.deta}</div>`;
+  if(s.diagram) inner+=s.diagram;
+  if(s.tag) inner+=`<div class="tag">${s.tag}</div>`;
+  if(s.who) inner+=`<div class="who">${s.who}</div>`;
+  inner+=`<div class="foot">稼げる農業の仕組み化 伴走プログラム</div>`;
+  d.innerHTML=inner;
+  d.dataset.note=s.note||'';
+  stage.appendChild(d);
+});
+
+/* ★入り切らない枚を【縮めずに 2枚へ割る】（ご主人様2026-08-17「細かい文字はだめ」）
+   割る所＝箇条書きの最後の1行から。割った先の見出しは「（つづき）」を付ける。 */
+(function(){
+  function afureteru(el){
+    var m = el.style.display; el.style.display='flex';
+    var ng = el.scrollHeight > el.clientHeight + 2;
+    el.style.display = m;
+    return ng;
+  }
+  var stage = document.getElementById('stage');
+  var mawaru = 0;
+  while (mawaru < 40) {
+    var s = stage.querySelectorAll('.slide');
+    var watta = false;
+    for (var i = 0; i < s.length; i++) {
+      var el = s[i];
+      if (!afureteru(el)) continue;
+      var ul = el.querySelector('ul.pts');
+      if (!ul || ul.children.length < 2) continue;      /* 割れない枚は そのまま */
+      var atarashii = el.cloneNode(true);
+      /* ★ご主人様2026-08-17 18:08「中川一郎なんとか、中川一郎なんとかって【連呼】されている。
+         タイトルは1回で良い。その後は中身を伝えていけばいい」
+         ＝割った先で 大きい見出しを もう一度 出すのをやめる。
+         　小さい行（kicker）に「◯◯（つづき）」と置くだけにする。 */
+      /* ★ご主人様2026-08-17 18:15（本人の文字・そのまま）
+         「**(つづき)いらない／全てつづき**」「**全て続きだから そんな表記はいらない。要らぬお世話**」
+         ＝割った先の枚では **見出しも（つづき）の表記も 出さない**。中身だけ続ける。 */
+      var h = atarashii.querySelector('h1,h2');
+      if (h) { h.remove(); }
+      /* 新しい方＝最後の1行だけ残す／元の方＝最後の1行を落とす */
+      var nul = atarashii.querySelector('ul.pts');
+      while (nul.children.length > 1) { nul.removeChild(nul.firstElementChild); }
+      var sub = atarashii.querySelector('.sub'); if (sub) { sub.remove(); }
+      var q = atarashii.querySelector('.quote'); if (q) { q.remove(); }
+      ul.removeChild(ul.lastElementChild);
+      atarashii.classList.remove('active');
+      el.parentNode.insertBefore(atarashii, el.nextSibling);
+      watta = true;
+      break;
+    }
+    if (!watta) break;
+    mawaru++;
+  }
+
+  /* ★割れない枚（表紙・カード・大きい数字など）だけ、最後の方法で文字を落とす。
+     ただし【元の大きさより小さくはしない】＝BAI 倍ぶんの余地の中だけで詰める。 */
+  var s2 = stage.querySelectorAll('.slide');
+  for (var k = 0; k < s2.length; k++) {
+    var el2 = s2[k];
+    var kai = 0;
+    var nokori = 1 / 1.500;               /* ここまでしか小さくしない（＝元の大きさ） */
+    var ima = 1.0;
+    while (afureteru(el2) && kai < 12 && ima > nokori + 0.001) {
+      var m2 = el2.style.display; el2.style.display = 'flex';
+      var r = Math.max(0.94, el2.clientHeight / el2.scrollHeight);
+      if (ima * r < nokori) { r = nokori / ima; }
+      var ko = el2.querySelectorAll('*');
+      for (var j = 0; j < ko.length; j++) {
+        var cs = window.getComputedStyle(ko[j]);
+        var f = parseFloat(cs.fontSize);
+        if (f > 0) { ko[j].style.fontSize = (f * r) + 'px'; }
+        var mt = parseFloat(cs.marginTop);
+        if (mt > 0) { ko[j].style.marginTop = (mt * r) + 'px'; }
+        var g = parseFloat(cs.rowGap);
+        if (g > 0) { ko[j].style.rowGap = (g * r) + 'px'; }
+      }
+      var sp = parseFloat(window.getComputedStyle(el2).paddingTop);
+      if (sp > 8) { el2.style.paddingTop = (sp * r) + 'px'; el2.style.paddingBottom = (sp * r) + 'px'; }
+      el2.style.display = m2;
+      ima = ima * r;
+      kai++;
+    }
+  }
+})();
+let cur=0;const slides=[...document.querySelectorAll('.slide')];
+const counter=document.getElementById('counter');
+const noteBox=document.getElementById('note');let noteOn=false;
+function show(i){cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  if(noteOn){noteBox.innerHTML='<b>🎙 トーク台本（発表者のみ）：</b> '+(slides[cur].dataset.note||'—');}
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){show(cur+1);}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){show(cur-1);}
+  else if(e.key.toLowerCase()==='n'){noteOn=!noteOn;noteBox.classList.toggle('show',noteOn);show(cur);}
+  else if(e.key==='Home'){show(0);}else if(e.key==='End'){show(slides.length-1);}
+});
+stage.addEventListener('click',()=>show(cur+1));
+const _h=parseInt((location.hash||'').slice(1),10);
+show(isNaN(_h)?0:_h);
+</script>
+
+<script>
+// ★箱ごと 画面に収まるだけ拡大／縮小する
+// ★zoom を使う：transform は .slide.active の fade の keyframe が
+//   transform:none で上書きするので 効かなかった（実測して分かった）
+(function(){
+  function fit(){
+    var k = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+    var s = document.querySelectorAll('.slide');
+    for (var i = 0; i < s.length; i++) { s[i].style.zoom = k; }
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+  document.addEventListener('keydown', function(){ setTimeout(fit, 10); });
+  document.addEventListener('click', function(){ setTimeout(fit, 10); });
+  window.addEventListener('load', fit);
+  setTimeout(fit, 30);
+  setInterval(fit, 800);
+})();
+</script>
+
+<script>
+/* ★はみ出しの【最後の1回】＝字が全部そろってから もう一度 見る。
+   元の紙の縮め方は 読み込みの途中で1回だけ走る＝字が後から届くと 3〜6px はみ出したまま残る。
+   （実測＝92枚中5枚が 3〜6px はみ出していた）。ここでは 残った分だけ 0.98倍ずつ詰める。
+   ★見本のCSSも 元の script も さわっていない。後ろに足しただけ。 */
+(function(){
+  function afureteru(el){
+    var m = el.style.display; el.style.display = 'flex';
+    var ng = el.scrollHeight > el.clientHeight + 1;
+    el.style.display = m;
+    return ng;
+  }
+  function tsumeru(){
+    var s = document.querySelectorAll('.slide');
+    for (var i = 0; i < s.length; i++) {
+      var el = s[i], kai = 0;
+      while (afureteru(el) && kai < 25) {
+        var m = el.style.display; el.style.display = 'flex';
+        var ko = el.querySelectorAll('*');
+        for (var j = 0; j < ko.length; j++) {
+          var cs = window.getComputedStyle(ko[j]);
+          var f = parseFloat(cs.fontSize);
+          if (f > 0) { ko[j].style.fontSize = (f * 0.98) + 'px'; }
+          var mt = parseFloat(cs.marginTop);
+          if (mt > 0) { ko[j].style.marginTop = (mt * 0.98) + 'px'; }
+          var g = parseFloat(cs.rowGap);
+          if (g > 0) { ko[j].style.rowGap = (g * 0.98) + 'px'; }
+        }
+        el.style.display = m;
+        kai++;
+      }
+    }
+  }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function(){ setTimeout(tsumeru, 60); }); }
+  window.addEventListener('load', function(){ setTimeout(tsumeru, 300); });
+  setTimeout(tsumeru, 1200);
+})();
+</script>
+</body>
+</html>
