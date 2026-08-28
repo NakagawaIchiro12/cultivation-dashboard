@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>農業相談会 いまの状況</title>
+<style>
+:root{--green:#2e7d32;--green-d:#1b5e20;--ink:#1c2b1e;--paper:#f6f8f3;--gold:#b8892b;--line:#dfe6d8;
+      --red:#c62828;--red-bg:#fdeeee;--amber:#e08a00;--amber-bg:#fff7e6;--gray:#78846f;--gray-bg:#f1f3ee;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+     background:var(--paper);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;}
+header.top{position:sticky;top:0;z-index:20;background:linear-gradient(120deg,#1b5e20,#2e7d32);
+     color:#fff;padding:16px 20px;border-bottom:4px solid var(--gold);box-shadow:0 3px 14px rgba(0,0,0,.15);}
+header.top h1{font-size:21px;font-weight:900;letter-spacing:.01em;line-height:1.4;}
+header.top p{font-size:13.5px;color:#d5f2d9;margin-top:5px;font-weight:600;}
+.wrap{max-width:820px;margin:0 auto;padding:20px 18px 120px;}
+
+/* サマリー */
+.sum{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 26px;}
+.sum div{flex:1 1 30%;min-width:140px;background:#fff;border:1px solid var(--line);border-radius:12px;
+     padding:12px 14px;box-shadow:0 4px 14px rgba(30,60,25,.06);}
+.sum b{display:block;font-size:27px;font-weight:900;color:var(--green-d);line-height:1.2;}
+.sum span{font-size:13.5px;color:#5c6a57;font-weight:700;}
+.sum div.hot b{color:var(--red);}
+
+h2.sec{font-size:21px;font-weight:900;color:var(--green-d);margin:38px 0 10px;
+     padding:10px 16px;background:#eaf3e6;border-left:7px solid var(--gold);border-radius:0 10px 10px 0;}
+h2.sec.hot{color:var(--red);background:var(--red-bg);border-left-color:var(--red);}
+h2.sec.cool{color:#5a6a55;background:var(--gray-bg);border-left-color:#9aa892;}
+h2.sec small{display:block;font-size:13.5px;font-weight:700;color:#5c6a57;margin-top:3px;}
+
+/* 人カード */
+.p{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0;
+   box-shadow:0 5px 18px rgba(30,60,25,.06);border-left:8px solid var(--gray);}
+.p.now{border-left-color:var(--green);}
+.p.stop{border-left-color:var(--red);}
+.p.warm{border-left-color:var(--amber);}
+.p-head{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-bottom:10px;
+     padding-bottom:9px;border-bottom:1px solid #eef2ea;}
+.p-no{background:var(--green-d);color:#fff;font-weight:900;font-size:15px;
+     border-radius:8px;padding:3px 12px;min-width:40px;text-align:center;}
+.p.stop .p-no{background:var(--red);}
+.p.warm .p-no{background:var(--amber);}
+.p.cold .p-no{background:var(--gray);}
+.p-name{font-size:19px;font-weight:900;color:var(--green-d);flex:1;min-width:50%;line-height:1.35;}
+.p-tag{background:#fbeede;color:var(--gold);font-weight:800;font-size:12.5px;border-radius:999px;padding:3px 11px;white-space:nowrap;}
+.p.stop .p-tag{background:var(--red-bg);color:var(--red);}
+.p.now .p-tag{background:#e6f3e6;color:var(--green-d);}
+
+.row{margin:11px 0;}
+.lbl{display:inline-block;font-size:12.5px;font-weight:900;color:#fff;background:#93a08c;
+     border-radius:6px;padding:2px 9px;margin-bottom:4px;letter-spacing:.03em;}
+.lbl.q{background:#4c6b47;}
+.lbl.s{background:#8d9a86;}
+.lbl.x{background:var(--red);}
+.row p{font-size:16px;margin:2px 0;}
+.route{font-size:15.5px;color:#42513e;font-weight:600;}
+blockquote{background:#f7faf5;border-left:5px solid var(--green);border-radius:0 10px 10px 0;
+     padding:11px 15px;margin:4px 0;font-size:16.5px;color:#1f2c1f;font-weight:500;white-space:pre-line;}
+.stopbox{background:var(--red-bg);border:1px solid #f3d2d2;border-left:5px solid var(--red);
+     border-radius:0 10px 10px 0;padding:11px 15px;margin:4px 0;}
+.stopbox p{font-size:16.5px;font-weight:800;color:#a01c1c;margin:0;}
+.p.cold .stopbox{background:var(--gray-bg);border-color:#dfe3da;border-left-color:var(--gray);}
+.p.cold .stopbox p{color:#5a6a55;}
+.p.now .stopbox{background:var(--amber-bg);border-color:#f2ddb0;border-left-color:var(--amber);}
+.p.now .stopbox p{color:#8a5a00;}
+.none{font-size:16px;color:#8a9784;font-style:normal;}
+
+.note{background:#fbfcf9;border:1px solid var(--line);border-left:5px solid var(--green);
+     border-radius:0 12px 12px 0;padding:12px 16px;margin:18px 0;font-size:14.5px;color:#3c4a38;}
+.note strong{color:var(--green-d);}
+.privacy{font-size:12.5px;color:#8a9784;text-align:center;margin-top:44px;padding-top:16px;border-top:1px solid var(--line);}
+@media(max-width:600px){
+  header.top h1{font-size:18px;}
+  .wrap{padding:16px 13px 100px;}
+  .p-name{min-width:100%;font-size:18px;}
+  .sum div{flex:1 1 45%;min-width:120px;}
+  .sum b{font-size:24px;}
+  blockquote,.stopbox p{font-size:16px;}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>🌱 農業相談会 — いまの状況</h1>
+  <p>2026-08-28 時点 ／ 全13人 ／ 上から順に「早く手を打つ人」</p>
+</header>
+<div class="wrap">
+
+<div class="sum">
+  <div><b>7</b><span>予約した人</span></div>
+  <div><b>6</b><span>相談ずみ</span></div>
+  <div><b>6</b><span>感想を出した人（100%）</span></div>
+  <div class="hot"><b>1</b><span>これからの予定（9/1）</span></div>
+  <div class="hot"><b>5</b><span>止まっている人</span></div>
+  <div><b>66</b><span>LINEの友だち（ブロック4）</span></div>
+</div>
+
+<h2 class="sec hot">🔴 いま手を打つ人 — 6人
+<small>上の3人は「こちらが返していない」だけで止まっています</small></h2>
+
+<div class="p now">
+  <div class="p-head"><span class="p-no">1</span><span class="p-name">山崎 恭士郎さん</span><span class="p-tag">9/1（火）20:00 予約中</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 8/21 22:52 → 診断「0. まだ始める前」 → 動画 → <strong>予約 8/26 09:30</strong> → 整理シート提出 8/26 12:45</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事</span>
+    <p class="none">ありません。友だち追加から今日まで、本人の発言は0件です。</p></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span>
+    <blockquote>8/26 12:45
+整理シート、ありがとうございます！　しっかり受け取りました😊
+▼ 農業相談会のご予約はこちら
+日程は、3日以内にお選びくださいね。</blockquote></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>当日のスライドと台本がまだ無い。</strong></p></div>
+  <div class="note">畑＝愛知県西尾市細池町（家から15分）／1反／一人／使える資金 30万円ほど／3年後 300〜350万円。<br>
+  頭を抱えている事（本人の言葉）＝「親の会社が潰れて建築業で独立します」「今年の5月に結婚をして収入が不安定になるのでまずはそこを補填できるくらい収入が欲しいです。」<br>
+  ※ 予約は済んでいるのに、8/26 12:45 に「ご予約はこちら・3日以内に」が後から飛んでいます（案内が二重）。</div>
+</div>
+
+<div class="p stop">
+  <div class="p-head"><span class="p-no">2</span><span class="p-name">菊池 隆昭さん</span><span class="p-tag">返していない</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 8/14 12:03 → 動画 → 予約 8/16 23:30 → 整理シート 8/19 11:02 → <strong>相談ずみ 8/20 20:00</strong> → 感想 8/22 07:44</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事（8/27 17:10）</span>
+    <blockquote>ありがとうございます。そろそろJA組合員に登録されるので、タイミング見て営農センターに行ってきます！その上でハウスは今の地主さんが骨組みだけになった使ってない使い古しがあるというので、借りられないか聞いてみようと思います。隣の一宮町と言う場所はトマト施設生産農家が多いので、同じ管区内なので可能性あるかもしれません！</blockquote></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span>
+    <p>8/26 16:25 ── 施策3つの長い返事と、まとめた画像1枚</p></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>この返信に まだ返していない。</strong></p></div>
+  <div class="note">感想で「大規模化を目指さないとしたら、今の農地でもやりようはありますか？　という内容でもう一度お話を聞きたい」と書かれています。こちらは「まず3つ進めて、その上で次のステップの話ができる」と返してあり、<strong>本人はいま その3つを実際にやり始めた所</strong>です。次の予約の入口が開いたままです。</div>
+</div>
+
+<div class="p stop">
+  <div class="p-head"><span class="p-no">3</span><span class="p-name">井元 隆さん</span><span class="p-tag">13日 返していない</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 8/13 12:57 → 診断「0. まだ始める前」 → 動画</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事（8/15 19:13）</span>
+    <blockquote>動画見ました</blockquote></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span>
+    <p>8/19 18:31 ── 全員へのお知らせ。<strong>1対1の返事は1通もありません。</strong></p></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>「動画見ました」に13日間 返していない。</strong></p></div>
+</div>
+
+<div class="p stop">
+  <div class="p-head"><span class="p-no">4</span><span class="p-name">嘉数 勝洋さん</span><span class="p-tag">21日 返していない</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 8/6 07:17 → 診断「4. 仕組み化」 → 動画</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事（8/7 21:35）</span>
+    <blockquote>4</blockquote>
+    <p style="font-size:14.5px;color:#5c6a57;margin-top:5px;">診断の番号を、フォームではなく1対1のトークに打たれたものです。フォームにも「4. 仕組み化」で答え済みです。</p></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span>
+    <p>8/11 18:31 ── 全員へのお知らせ。<strong>1対1の返事は1通もありません。</strong></p></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>「4」に21日間 返していない。</strong></p></div>
+</div>
+
+<div class="p stop">
+  <div class="p-head"><span class="p-no">5</span><span class="p-name">小谷 隆介さん</span><span class="p-tag">約束した物が未送信</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 8/3 00:44 → 8/5 22:40「動画みました。」 → 整理シート 8/6 15:48 → 予約 8/6 15:51 → <strong>相談ずみ 8/17 20:00</strong> → 感想 8/18 20:43</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事（8/26 21:35）</span>
+    <blockquote>ありがとうございます。
+研修は実際に行けるかはわかりませんが、大変参考になりました。</blockquote></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span>
+    <p>8/24 20:14 ── 施策3つの画像。その直前 8/24 19:30 に、こう約束しています。</p>
+    <blockquote>内容と日数を組み立てたうえで、短期研修にどのくらいの費用をお考えか、改めてフォームをお送りします。</blockquote></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>その費用のフォームが 未送信。</strong></p></div>
+  <div class="note">フォーム自体は 8/26 に作ってありますが、<strong>提出した人は0人</strong>＝まだ誰にも届いていません。約束から4日 空いて、本人が「行けるかわからない」に下がりました。感想では「時間を作るので、短期の現地研修を受けさせて頂きたい。」と書かれていた方です。</div>
+</div>
+
+<div class="p stop">
+  <div class="p-head"><span class="p-no">6</span><span class="p-name">まとばさん（三重県鈴鹿市・65歳）</span><span class="p-tag">整理シートを出したのに予約なし</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 7/31 05:43 → 8/2 20:12「動画を見ました。」 → <strong>整理シート 8/3 03:39</strong> → <strong>予約なし</strong></p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事（8/5 18:49）</span>
+    <blockquote>相談会は有料ですか。
+とこから有料でしょう？</blockquote>
+    <p style="font-size:14.5px;color:#5c6a57;margin-top:5px;">その前（8/4 19:49）＝「わざわざ僕のためにいちろうささんに時間をさいてもらって、日程予約させてもらうのも気が引けます。それに僕は、有料での勉強会にまで参加しょうとしてません。無料のところで、自分なりに頑張って行きたいです。」</p></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span>
+    <p>8/6 15:05 に「相談会そのものは、お金はかかりません。無料です。」と ちゃんと答えています。<br>
+    ただ、その<strong>3時間後の 8/6 18:31</strong> に「今回は動き出さなかった方も、また動きたくなるタイミングが必ず来ます」という全員へのお知らせ（＝もう動かない人向けの文）が飛んでいます。</p></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>「無料です」と答えた8/6から、1対1の接触が22日間ゼロ。</strong></p></div>
+  <div class="note">整理シートの中身＝15アール／一人／使える資金20万円／月10万円が目標／「作りやすく手間がかからず儲けの多い野菜を探している」。<strong>整理シートを出した8人のうち、予約していないのはこの方だけ</strong>です。</div>
+</div>
+
+<h2 class="sec cool">⚪ 動きが止まっている人 — 4人
+<small>相談は終わっていて、今こちらから動く用事は無い方</small></h2>
+
+<div class="p cold">
+  <div class="p-head"><span class="p-no">7</span><span class="p-name">馬場 雅恵さん</span><span class="p-tag">相談ずみ 8/18</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 8/6 08:17 → 動画 → 整理シート 8/12 15:47 → 予約 8/11 18:25 → <strong>相談ずみ 8/18 21:00</strong> → 感想 8/18 20:43</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事（8/26 16:38）</span>
+    <blockquote>ありがとうございます❗
+やってみます。</blockquote></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span>
+    <p>8/26 15:15 ── 感想5つに1つずつ答えた長い返事と、まとめた画像1枚</p></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>次の接点が何も無い。</strong></p></div>
+</div>
+
+<div class="p cold">
+  <div class="p-head"><span class="p-no">8</span><span class="p-name">藤原 美智子さん</span><span class="p-tag">追いかけません</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 8/11 05:36 → 整理シート 8/15 18:57 → 予約 8/16 19:02 → <strong>相談ずみ 8/19 20:00</strong> → 感想 8/22 20:35</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事</span>
+    <p class="none">1対1のトークは開いていません。</p></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span>
+    <p>8/20 21:49（感想フォームの案内）</p></div>
+  <div class="stopbox"><p>▶ ご主人様の「そのままでいい」（8/22）どおり、<strong>追いかけません。数え直しません。</strong></p></div>
+</div>
+
+<div class="p cold">
+  <div class="p-head"><span class="p-no">9</span><span class="p-name">三上 結城さん</span><span class="p-tag">相談ずみ 7/8</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 5/17 21:40 → 整理シート 6/29 22:14 → 予約 6/29 22:18 → <strong>相談ずみ 7/8 20:00</strong> → 感想 7/8 23:07</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事（7/10 00:27）</span>
+    <blockquote>貴重なお時間とありがたいメッセージありがとうございます
+ひとつ、ひとつ確認しクリアして行きたいとおもいます。
+私も100トン農家目指します（夢は大きく）</blockquote></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span>
+    <p>7/9 13:40 ── 「次の一手」をまとめた画像1枚</p></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>7/10から49日、接触ゼロ。</strong></p></div>
+</div>
+
+<div class="p cold">
+  <div class="p-head"><span class="p-no">10</span><span class="p-name">岸 朋宏さん</span><span class="p-tag">相談ずみ 7/3</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 6/24 21:10 → 整理シート 6/29 10:50 → 予約 6/29 10:33 → <strong>相談ずみ 7/3 21:00</strong> → 感想 7/6 21:16</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事（7/9 13:35）</span>
+    <blockquote>ありがとうございます。
+少しずつ出来ることをしていきたいと思います。</blockquote></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span>
+    <p>7/9 13:31 ── 「次の一手」をまとめた画像1枚</p></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>7/9から50日、接触ゼロ。</strong></p></div>
+</div>
+
+<h2 class="sec">🆕 今週 新しく来た人 — 3人
+<small>まだ動画を配っている途中。1対1のトークは まだ開いていません</small></h2>
+
+<div class="p warm">
+  <div class="p-head"><span class="p-no">11</span><span class="p-name">OKAMOTOさん</span><span class="p-tag">昨夜 8/28 22:17</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 <strong>8/28 22:17</strong> → 診断「3. 1反で利益」</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事</span><p class="none">1対1のトークは開いていません。</p></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span><p>登録直後の自動のあいさつ（8/28 22:17）</p></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>まだ何も止まっていません。動画を見てもらう所です。</strong></p></div>
+</div>
+
+<div class="p warm">
+  <div class="p-head"><span class="p-no">12</span><span class="p-name">m,tさん</span><span class="p-tag">8/27 07:14</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 <strong>8/27 07:14</strong> → 診断「0. まだ始める前」</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事</span><p class="none">1対1のトークは開いていません。</p></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span><p>動画の案内（自動）</p></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>動画を見たかどうか、まだ分かりません。</strong></p></div>
+</div>
+
+<div class="p warm">
+  <div class="p-head"><span class="p-no">13</span><span class="p-name">小野 利江子さん</span><span class="p-tag">8/26 16:26</span></div>
+  <div class="row"><span class="lbl">来たみち</span>
+    <p class="route">LINEの友だち追加 <strong>8/26 16:26</strong> → 診断「1. 生産の安定」</p></div>
+  <div class="row"><span class="lbl q">本人が最後に言った事</span><p class="none">1対1のトークは開いていません。</p></div>
+  <div class="row"><span class="lbl s">こちらが最後に送った物</span><p>動画の案内（自動）</p></div>
+  <div class="stopbox"><p>▶ 止まっている所＝<strong>動画を見たかどうか、まだ分かりません。</strong></p></div>
+</div>
+
+<h2 class="sec">📊 動画のところ</h2>
+<div class="note">
+<p><strong>動画＝「農業のゲームチェンジ」33分38秒。</strong></p>
+<p>動画のページを見た人＝<strong>51人</strong>（のべ98回）。そのうち <strong>10分00秒まで来た人＝30人（58.8%）</strong>。</p>
+<p>いま数えられるのは この1点だけです。動画に仕掛けてある「◯分◯秒に達したら」の合図が、<strong>10分00秒の1個しか置かれていない</strong>ためです。</p>
+<p>⚠️ ページには「動画を<strong>最後まで</strong>視聴すると、追加特典を受け取れます」と書いてありますが、<strong>最後（33分38秒）の合図が1つも置かれていません</strong>＝その追加特典は誰にも飛んでいません。</p>
+<p>⚠️ 動画そのものに「20分で出す」という設定が入っていますが、<strong>何を出すかが空っぽ</strong>で、動きません。</p>
+<p>⚠️ どの入口から来たかを記録する印が<strong>1本も付いていません</strong>。だから「どの流入経路から来たか」は、いまの作りでは数えられません。</p>
+</div>
+
+<h2 class="sec">🔎 どこを見て作ったか</h2>
+<div class="note">
+<p><strong>4つの流入経路を全部 見ています。</strong></p>
+<p>① 予約表＝申込者10件・日程10件（テスト2件を含む）／② 整理シートの回答＝設問11問を実物で取り直して回答8人分／③ LINEの1対1トーク＝<strong>9人分を開きました</strong>（山崎さん・小谷さん・馬場さん・菊池さん・まとばさん・井元さん・嘉数さん・三上さん・岸さん）。<strong>開いていないのは4人</strong>＝藤原さんと、今週の新しい3人／④ 通知メール＝Gmailに届いているUTAGEの通知は全部 見ました。<strong>ChatWorkの通知の部屋は中身を見ていません</strong>（開く道具が無いため。未読ありのお知らせだけ 8/25 に届いています）。</p>
+<p>本人の言葉は<strong>1字も直していません</strong>（誤字もそのまま）。UTAGEは1つも作らず・消さず・書き換えていません。LINEも1通も送っていません。</p>
+</div>
+
+<p class="privacy">農業相談会 いまの状況 ／ 2026-08-28 時点 ／ 実データから作成</p>
+</div>
+</body>
+</html>
