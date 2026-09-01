@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>農業相談会スライド</title>
+<style>
+  :root{ --green:#2e7d32; --green-d:#1b5e20; --ink:#12200f; --paper:#f6f8f3; --gold:#b8892b; --line:#dfe6d8; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;background:#0e1410;color:var(--ink);overflow:hidden;}
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;}
+  #stage{background:#0e1410;}
+  .slide{display:none;width:1600px;height:900px;flex:0 0 auto;padding:81.0px 6%;flex-direction:column;justify-content:center;box-shadow:0 0 40px rgba(0,0,0,.5);
+         position:relative;background-color:var(--paper);
+         background-image:linear-gradient(100deg,
+             rgba(246,248,243,.98) 0%, rgba(246,248,243,.96) 48%,
+             rgba(246,248,243,.97) 74%, rgba(246,248,243,.94) 100%),
+           url('bg-content.jpg');
+         background-size:cover;background-position:center right;}
+  .slide.active{display:flex;animation:fade .35s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  .kicker{color:var(--green-d);font-weight:800;font-size:40.5px;letter-spacing:.12em;margin-bottom:35.1px;}
+  h1{font-size:113.4px;line-height:1.22;color:var(--green-d);font-weight:900;letter-spacing:.01em;}
+  h2{font-size:89.1px;line-height:1.28;color:var(--green-d);font-weight:900;}
+  .sub{font-size:62.1px;line-height:1.55;margin-top:45.9px;color:#12200f;font-weight:600;max-width:40ch;}
+  ul.pts{margin-top:48.6px;list-style:none;display:flex;flex-direction:column;gap:35.1px;}
+  ul.pts li{font-size:64.8px;line-height:1.4;font-weight:700;padding-left:1.4em;position:relative;color:#12200f;}
+  ul.pts li::before{content:"";position:absolute;left:0;top:.5em;width:.55em;height:.55em;border-radius:50%;background:var(--gold);}
+  .quote{font-size:59.4px;line-height:1.6;color:#12200f;font-weight:600;max-width:38ch;margin-top:35.1px;
+         border-left:10.8px solid var(--green);padding:13.5px 0 13.5px 48.0px;background:#fff;border-radius:0 12px 12px 0;
+         box-shadow:0 6px 24px rgba(30,60,25,.08);padding-right:48.0px;padding-top:35.1px;padding-bottom:35.1px;}
+  .who{margin-top:32.4px;font-size:45.9px;color:var(--gold);font-weight:800;}
+  .big{font-size:135.0px;color:var(--green-d);font-weight:900;}
+  .price{font-size:175.5px;color:var(--green-d);font-weight:900;letter-spacing:.02em;}
+  /* 核心の悩み 見える化 */
+  .worrycore{margin-top:29.7px;font-size:86.4px;line-height:1.25;color:var(--green-d);font-weight:900;
+             background:#fff;border-left:13.5px solid var(--gold);border-radius:0 14px 14px 0;
+             padding:32.4px 48.0px;box-shadow:0 8px 28px rgba(30,60,25,.10);max-width:34ch;}
+  .worrycards{display:flex;gap:32.0px;margin-top:45.9px;flex-wrap:wrap;max-width:58ch;}
+  .wcard{flex:1 1 0;min-width:297.0px;background:#fff;border:4.0px solid var(--line);border-radius:16px;
+         padding:29.7px 25.6px;box-shadow:0 6px 20px rgba(30,60,25,.07);}
+  .wcard.on{background:#eef6ea;border-color:var(--green);}
+  .wc-h{font-size:40.5px;font-weight:800;color:var(--gold);letter-spacing:.04em;margin-bottom:16.2px;}
+  .wcard.on .wc-h{color:var(--green-d);}
+  .wc-b{font-size:48.6px;line-height:1.4;font-weight:700;color:#12200f;}
+  .wc-b b{color:var(--green-d);}
+  .cover{background-image:linear-gradient(100deg,
+             rgba(247,250,244,.93) 0%, rgba(247,250,244,.88) 40%,
+             rgba(247,250,244,.95) 72%, rgba(247,250,244,.90) 100%),
+           url('bg-cover.jpg');
+         background-size:cover;background-position:center right;color:var(--ink);
+         border-top:16.2px solid var(--green-d);}
+  .cover h1{color:var(--green-d);font-size:121.5px;text-shadow:none;}
+  .cover .sub{color:#33422f;}
+  .cover .kicker{color:var(--green);}
+  .cover .tag{background:var(--green-d);color:#fff;box-shadow:0 6px 20px rgba(27,60,25,.22);}
+  .tag{display:inline-block;background:#fff;color:var(--green-d);font-weight:800;border-radius:999px;
+       padding:17.6px 48.0px;font-size:48.6px;margin-top:54.0px;}
+  .foot{display:none;}
+  #counter{position:fixed;right:38.4px;bottom:32.4px;font-size:40.5px;font-weight:700;color:#2e7d32;background:rgba(255,255,255,.85);
+           padding:10.8px 28.8px;border-radius:999px;z-index:20;}
+  /* presenter notes: hidden by default, toggle with N. Warn: do not toggle while screen-sharing. */
+  #note{position:fixed;left:0;right:0;bottom:0;background:#12241a;color:#eafff0;padding:32.4px 128.0px;
+        font-size:40.5px;line-height:1.6;display:none;z-index:30;border-top:6.8px solid var(--gold);max-height:594.0px;overflow:auto;}
+  #note.show{display:block;}
+  #note b{color:var(--gold);}
+  #hint{display:none;}
+  .warn{position:absolute;top:40.5px;right:128.0px;font-size:37.8px;color:#b8892b;font-weight:800;}
+
+  /* ★スマホ版で足した分 */
+  #stage{overflow:hidden;}
+  .slide{overflow:hidden;}
+  .slide.active{animation:none !important;}
+  body{-webkit-text-size-adjust:100%;}
+</style>
+<!-- ▼ここから下は「前回の方の版で足した1枚」＝見本(前の回の方版)のCSSは1文字も変えていない -->
+<style>
+  .qbig{margin-top:2.6vh;font-size:8.6vh;line-height:1.25;color:var(--green-d);font-weight:900;letter-spacing:.02em;white-space:nowrap;}
+  .qbig.xl{font-size:13vh;}
+  .qbig .q{color:var(--gold);}
+  /* 3枚のカードを1列に収める（この1枚ぶんの上書き。見本のCSSは触っていない） */
+  .worrycards{max-width:none;width:78%;flex-wrap:nowrap;}
+  .wcard{min-width:0;}
+  .steps{display:flex;gap:1.6vw;align-items:flex-end;margin-top:3.6vh;width:76%;}
+  .step{flex:1 1 0;background:#fff;border:.3vh solid var(--line);border-radius:14px;padding:1.6vh 1vw;
+        box-shadow:0 6px 20px rgba(30,60,25,.07);display:flex;flex-direction:column;justify-content:center;text-align:center;}
+  .step .n{font-size:2.8vh;color:var(--gold);font-weight:800;letter-spacing:.06em;}
+  .step .v{font-size:4.2vh;font-weight:900;color:var(--green-d);margin-top:1vh;line-height:1.3;}
+  .step.s1{height:18vh;} .step.s2{height:25vh;} .step.s3{height:32vh;} .step.s4{height:39vh;background:#eef6ea;border-color:var(--green);}
+  .note-in{margin-top:2.4vh;font-size:3.2vh;color:#4a5a46;font-weight:700;}
+</style>
+
+<style>
+/* ★2026-08-18 足した分＝この4つの指定が 元の紙に1つも無く、
+   「300万のやる順番」「安定＝？＋？」「僕の答え」「いくらだと思いますか」の4枚が
+   飾りの無い ただの行で出ていた。見本の css は さわらず ここで足す。 */
+.steps{display:flex;gap:20.0px;margin-top:29.7px;flex-wrap:wrap;width:100%;}
+.step{flex:1 1 0;min-width:260.0px;background:#fff;border:4.0px solid var(--line);border-radius:16px;
+      padding:20.0px 20.0px;box-shadow:0 6px 20px rgba(30,60,25,.07);}
+.step .n{font-size:35.0px;font-weight:800;color:var(--gold);letter-spacing:.04em;margin-bottom:11.0px;}
+.step .v{font-size:39.0px;line-height:1.3;font-weight:800;color:var(--green-d);}
+.step.s4{background:#eef6ea;border-color:var(--green);}
+.step.s4 .n{color:var(--green-d);}
+.qbig{margin-top:37.8px;font-size:86.4px;font-weight:900;color:var(--green-d);line-height:1.32;}
+.qbig.xl{font-size:94.0px;}
+.qbig .q{display:inline-block;background:#fff;border:5.0px solid var(--gold);border-radius:18px;
+         padding:6.0px 30.0px;color:var(--green-d);}
+.note-in{margin-top:29.7px;font-size:43.0px;color:#42513e;font-weight:700;line-height:1.45;}
+/* 出典＝小さく・でも読める大きさで（数字を出したら必ず出どころを同じ画面に置く） */
+.deta{margin-top:14.0px;font-size:26.0px;color:#5a6856;font-weight:700;line-height:1.35;word-break:break-all;}
+/* ★数字を並べる枚は【1枚に全部 載せる】＝順位や対比は 並べて見せないと意味が無い。 */
+.detaslide h1{font-size:78.0px;line-height:1.2;}
+.detaslide .sub{font-size:44.0px;margin-top:22.0px;line-height:1.45;max-width:46ch;}
+.detaslide ul.pts{margin-top:24.0px;gap:14.0px;}
+.detaslide ul.pts li{font-size:42.0px;line-height:1.28;}
+.detaslide ul.pts li::before{top:.42em;width:.45em;height:.45em;}
+.detaslide .kicker{margin-bottom:20.0px;}
+</style>
+<style>
+.detaslide h1{font-size:68.0px;line-height:1.18;}
+.detaslide .sub{font-size:40.0px;margin-top:20.0px;line-height:1.42;max-width:48ch;}
+.detaslide ul.pts{margin-top:20.0px;gap:12.0px;}
+.detaslide ul.pts li{font-size:38.0px;line-height:1.26;}
+.detaslide .deta{margin-top:16.0px;font-size:22.0px;line-height:1.32;}
+</style>
+
+<style>
+/* ★2026-09-01 この版だけで足した分＝【段を選ぶ画面】と【検品の行】。
+   上の見本のCSSは 1文字も変えていない。ここに足しただけ。
+   ★この画面は 画面共有を始める前に消える物。相手には出ない。 */
+#danpick{position:fixed;inset:0;z-index:9999;background:#0e1410;color:#eafff0;
+         display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4vh 4vw;overflow:auto;}
+#danpick.hide{display:none;}
+#danpick .dp-t{font-size:3.4vh;font-weight:900;color:#ffd98a;letter-spacing:.06em;}
+#danpick .dp-s{font-size:2.1vh;margin-top:1.4vh;color:#bcd6c2;font-weight:700;line-height:1.6;text-align:center;max-width:70ch;}
+#danpick .dp-row{display:flex;gap:1.2vw;margin-top:3.2vh;flex-wrap:wrap;justify-content:center;}
+#danpick button{background:#17301f;color:#eafff0;border:.35vh solid #2e7d32;border-radius:14px;
+                padding:1.8vh 1.6vw;font-size:2.2vh;font-weight:900;cursor:pointer;line-height:1.4;
+                font-family:inherit;min-width:15vw;text-align:left;}
+#danpick button:hover{background:#1f4a2c;border-color:#b8892b;}
+#danpick button .b-n{display:block;font-size:1.7vh;color:#ffd98a;letter-spacing:.06em;margin-bottom:.6vh;}
+#danpick button .b-y{display:block;font-size:1.6vh;color:#9dc4a8;font-weight:800;margin-top:.6vh;}
+#danpick .dp-note{margin-top:2.6vh;font-size:1.7vh;color:#8fae97;font-weight:700;text-align:center;max-width:76ch;line-height:1.7;}
+#danpick .dp-kenpin{margin-top:2.2vh;font-size:1.9vh;font-weight:900;padding:1.2vh 2vw;border-radius:12px;line-height:1.6;text-align:center;max-width:76ch;}
+#danpick .dp-kenpin.ng{background:#4a1d1d;color:#ffd0d0;border:.3vh solid #b04a4a;}
+#danpick .dp-kenpin.ok{background:#17301f;color:#bff3cf;border:.3vh solid #2e7d32;}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="counter"></div>
+<div id="hint">← → めくる｜ N=トーク台本の表示切替（画面共有中は押さない）</div>
+<div id="note"></div>
+
+<!-- ★段を選ぶ画面＝画面共有を始める【前】に押して消す。相手には出ません。
+     ★はじめから hide が付いています＝押した後に画面を更新しても、この画面は【出ません】。
+       出どころ＝Codexの指摘（2026-09-01）「共有中に更新・タブ復元で選ぶ画面が相手に見える」。
+       押した番号を この端末に覚えさせて、6時間 経つまでは 出さない作りにした。 -->
+<div id="danpick" class="hide">
+  <div class="dp-t">相談を始める前に、この方の「いまの現状」の番号を押してください</div>
+  <div class="dp-s">申込みの整理シートに書いてある番号です。押すと この画面は消えて、相談用のスライドだけになります。<br>
+    ★<b>押してから 画面共有を始めてください。</b>URLは1文字も変わりません（アドレスバーに番号は出ません）。</div>
+  <div class="dp-row" id="dp-dan"></div>
+  <div class="dp-note">
+    ★話しているうちに現状がずれた時は、<b>キーボードの 1・2・3</b> を押すと、その場で山の2枚だけが入れ替わります。<br>
+    画面はめくれません・何も表示は出ません・相手には気づかれません。<br>
+    1＝まず体で入る／2＝売り先が先／3＝いま居る場所を見る
+  </div>
+  <div class="dp-kenpin" id="dp-kenpin">検品中…</div>
+</div>
+<script>
+/* ★この1つだけ 先に走らせる＝選ぶ画面を【出すかどうか】を、絵が出る前に決める。
+   ・前に押した番号が この端末に残っていて、押してから6時間 経っていない → 出さない
+     （＝画面共有の途中で更新しても、タブが復元されても、相手に見えません）
+   ・番号が無い／6時間 経った → 出す（＝次の相談の時は ちゃんと選び直せます） */
+(function(){
+  var AKERU = 6 * 60 * 60 * 1000;   /* 6時間 */
+  var k = null;
+  try {
+    var raw = window.localStorage.getItem('soudan_yama');
+    if (raw) {
+      var o = JSON.parse(raw);
+      if (o && o.k && (Date.now() - o.t) < AKERU) { k = o.k; }
+    }
+  } catch (e) { k = null; }
+  window.__YAMA_HOZON = k;
+  if (!k) { document.getElementById('danpick').classList.remove('hide'); }
+})();
+</script>
+
+<script>
+/* ============================================================
+   農業相談会スライド｜段で山を入れ替える1本（2026-09-01）
+   ご主人様2026-09-01 21:30「3」＝方向性3案の【3番】が選ばれたので この形にした。
+
+   ★この版で【新しい】のは 2か所だけ
+     1) 山（今日いちばん持って帰ってもらう1枚）＋その次の1枚 が、現状の番号で入れ替わる
+     2) 相談を始める前に 番号を押す画面（相手には出ない・URLは変わらない）
+   ★見本（yamazaki-slide）の CSS と、描く仕組み・はみ出しを詰める仕組み・
+     拡大縮小の仕組みは 1文字も変えていない。
+
+   ★★毎回 書き換える所＝〔 〕で囲ってあります。
+     消し忘れると 段を選ぶ画面の一番下に【赤で】何個 残っているか出ます。
+   ============================================================ */
+
+/* ===== 山＝3組。それぞれ「山の1枚」と「その次の1枚」の2枚 ===== */
+const YAMA = {
+  /* --- 山A＝まず体で入る（現状 0＝まだ始める前）--------------------
+     根拠＝2026-09-01 山崎さん「バイトはアリですね。ものすごいすごいアリです。」
+           2026-08-19 藤原さん 感想「農業のアルバイトに行く事を教えてもらいました。」 */
+  A: [
+    {kicker:"ここが山です", h:"自分で始める前に、<br>まず現場に 体で入ってください",
+     sub:"研修でも、バイトでも構いません。お金をいただきながら、しんどさと段取りが分かります。順番は、これが先です。",
+     note:"【今日いちばん持って帰っていただきたい所・ゆっくり】ここが今日いちばん大事な所です。自分で始める前に、まず現場に体で入ってください。研修でもバイトでも構いません。——なぜかと言うと、種をまく、苗を育てる、植える、管理する、収穫する。この全部の段階に、それぞれエラーがあるんです。そのエラーは、本を読んでも動画を見ても分かりません。体で1回 通した人だけが分かります。しかも、お金をいただきながら学べます。自分で始めると、月謝を払いながら学ぶことになります。逆なんです。"},
+    {kicker:"その次にやる事", h:"どこへ行くか、決めましょう",
+     pts:["アプリ「ノウハウ」で探す（人を雇える規模の募集しか来ません）","<ruby>農業改良普及課<rt>のうぎょうかいりょうふきゅうか</rt></ruby>から、人づてに紹介してもらう","作りたい物が決まっているなら、その作物の農家へ","「いろんな作業を教えてください」と言って入る"],
+     note:"では、どこへ行くか。1つ、ノウハウというアプリがあります。農業の農に、英語のハウです。ここは人を雇える規模の農家しか募集を出しませんので、行けば その規模が見えます。2つ、農業改良普及課。県の事務所です。ここで作物の話を聞くと、この農家さんに聞いてみたら、と紹介してもらえます。師匠を誰にするかが、ここで決まります。3つ、作りたい物がもう決まっているなら、その作物の農家へ。——そして入ったら、いろんな作業を教えてくださいと言ってください。前向きな農家なら、どんどん任せてくれます。僕もそうです。★ここで相手が乗ってきたら、次の枚へ急がずに 会話を続ける。"}
+  ],
+
+  /* --- 山B＝売り先が先（現状 1・2・3）------------------------------
+     根拠＝感想フォーム6件のうち3件。岸さん「作ることとより売り先優先順序がある」／
+           ありすさん「売り先が決まると作るものが決まる」／菊池さん「農地より販売先が先」 */
+  B: [
+    {kicker:"ここが山です", h:"「何を作るか」より先に<br>「どこへ売るか」",
+     sub:"売り先が決まると、作る物は自動的に決まります。逆にすると、作ってから売り先を探すことになって、余ります。",
+     note:"【今日いちばん持って帰っていただきたい所・ゆっくり】ここが今日いちばん大事な所です。何を作るかより先に、どこへ売るかを決めてください。売り先が決まると、作る物は自動的に決まるんです。——逆をやると、作ってから売り先を探すことになります。売れなかったり、多品目に手を出してどれも中途半端になったり。僕は始めた頃、まさにこれで、5年ぐらい まともに作れていません。だから、これは自分の失敗の話です。"},
+    {kicker:"その次にやる事", h:"その売り先で、いくらぶん<br>売れているかを調べる",
+     pts:["その売り場で、何が いくらで並んでいるか","1ヶ月で いくら／1年で いくら 売れているか","そのうちの何割なら、自分が取れそうか","JAの<ruby>営農<rt>えいのう</rt></ruby>センターで、地域の<ruby>作型<rt>さくがた</rt></ruby>を聞く"],
+     note:"では、どう調べるか。まず その売り場で、何がいくらで並んでいるかを見ます。次が大事です。1ヶ月でいくら、1年でいくら売れているかを聞いてください。データは持っているはずです。——ここを見る理由を言います。売上の上限が100万円しかない売り場だと、その中で取れる分はどうしても限られます。でも1億円ある所なら、10分の1で1,000万円です。同じ努力でも、届く金額が変わるんです。だから先に、器の大きさを見ます。お金は1円もかかりません。今週できます。"}
+  ],
+
+  /* --- 山C＝いま居る場所を見る（現状 4・5）-------------------------
+     根拠＝2026-08-17 小谷さん 感想「なんとなく、今の立ち位置がつかめた。」
+           同じ回で本人が段を言い直している（申込は4.仕組み化／口では「まず反収」） */
+  C: [
+    {kicker:"ここが山です", h:"行きたい場所ではなく、<br>いま居る場所を見ます",
+     sub:"目標も、選ばれた番号も「行きたい場所」です。決め手になるのは、いま居る場所。そして現在地は、本人がいちばん見えません。",
+     note:"【今日いちばん持って帰っていただきたい所・ゆっくり】ここが今日いちばん大事な所です。目標も、申込みで選ばれた番号も、行きたい場所なんです。順番を決める時に効くのは、いま居る場所の方です。——そして現在地って、本人がいちばん見えないんですよ。僕もそうでした。一人で考えて、順番を間違えて10年 遠回りしました。知識も情報もあったんです。でも、それを自分の畑に合う形にできなかった。だから、他人と突き合わせる意味があります。今日、突き合わせさせてください。"},
+    {kicker:"その次にやる事", h:"いまの数字を、口に出して<br>置いてみてください",
+     pts:["いま、年間でどのくらいですか","いちばん時間を取られているのは、どれですか","ご自分が居ないと止まる作業は、どれですか","1つやめていいなら、どれをやめますか"],
+     note:"【必ず本人に答えてもらう・待つ】では、いまの数字を口に出して置いてみてください。1つ、いま年間でどのくらいですか。2つ、いちばん時間を取られているのはどれですか。3つ、ご自分が居ないと止まる作業はどれですか。4つ、1つやめていいなら、どれをやめますか。——数字が出ても、否定も評価もしない。『分かりました、ではそこからの階段を作りましょう』で受ける。言いたくなさそうなら『ざっくりで大丈夫です、桁だけでも』と言い換える。★この4つ目が、いちばん本音が出ます。"}
+  ]
+};
+
+/* ===== 現状の番号 → どの山を出すか =====
+   0 まだ始める前 → A     ★実データ4人（ただし刺さった所はバラバラ）
+   1 生産の安定   → B     ★実データ2人・2人とも「売り先が先」
+   2 売り先       → B     ★実データ0件＝近い所に寄せただけ
+   3 1反で利益    → B     ★実データ0件＝近い所に寄せただけ
+   4 仕組み化     → C     ★実データ1人（小谷さん）
+   5 規模拡大     → C     ★実データ0件＝近い所に寄せただけ            */
+const DAN2YAMA = {0:"A", 1:"B", 2:"B", 3:"B", 4:"C", 5:"C"};
+const DANNAME = {
+  0:["0. まだ始める前","山A＝まず体で入る（実データ4人）"],
+  1:["1. 生産の安定","山B＝売り先が先（実データ2人）"],
+  2:["2. 売り先","山B＝売り先が先（★実データ0件・寄せた）"],
+  3:["3. 1反で利益","山B＝売り先が先（★実データ0件・寄せた）"],
+  4:["4. 仕組み化","山C＝いま居る場所を見る（実データ1人）"],
+  5:["5. 規模拡大","山C＝いま居る場所を見る（★実データ0件・寄せた）"]
+};
+
+/* ===== 画面に出る文＝projected／note＝口で話す台本（本人には見せない）=====
+   ★〔 〕で囲った所が、相談ごとに書き換える所です。 */
+const S = [
+
+ {cls:"cover", kicker:"農業相談会", h:"今日は、〔いちばんの目標〕を<br>どう作るかを決めて帰ります", sub:"〔畑の広さ〕、資金〔金額〕、〔一人か家族とか〕。この条件のまま、何を どの順番でやるか。今日はそこを一緒に決めます。",
+  tag:"農業相談会", note:"〔お名前〕さん、本日はお時間ありがとうございます。整理シート、しっかり読ませていただきました。今日は、〔お名前〕さんが書いてくださった〔いちばんの目標〕、ここをどう作るか、その順番を決めて帰っていただく時間です。いきなり何かを売る場ではありません。前半はほとんど、僕が聞く時間にします。"},
+
+ {kicker:"はじめに", h:"今日のゴール", pts:["いま持っている物を、はっきりさせる","〔いちばんの目標〕を作る道を、1つに絞る","次にやる事を、1つだけ決める"],
+  note:"今日のゴールは3つです。1つ、いま持っている物をはっきりさせる。2つ、目標を作る道を1つに絞る。3つ、次にやる事を1つだけ決める。たくさん持って帰ろうとすると、どれも動きません。だから1つに絞ります。"},
+
+ {kicker:"はじめに", h:"今日の進め方", sub:"前半は、僕がひたすら聞きます。1つずつ深く。そのあとで、僕の考え方をお伝えします。合わなければ無理に案内しません。",
+  note:"進め方です。前半は僕がひたすら聞きます。そのあとで僕の考え方をお伝えします。合わないと感じられたら、無理に案内はしません。役に立てる時だけ提案します。"},
+
+ {kicker:"自己紹介", h:"中川一郎<br>農業歴16年・順番を決めて広げてきました", sub:"根性で量を出しているのではありません。順番を決めて、そのつど仕組みに変えて広げてきました。", pts:["1代目・親から継がずに始めた","いまは1日実働 約5時間・土日休み","年間100t超（注文は200tを超えて一旦ストップ）","スタッフの技術が、僕より伸びている所もある"],
+  note:"本題の前に少しだけ。農業歴16年です。親から継いでいません。1代目で、何も持っていない所から始めました。今は1日実働およそ5時間、土日休みで年間100トン超。注文は200トンを超えて、一旦ストップをかけています。それと、うちのスタッフは、種類によっては僕より上手くなっています。根性で量を出しているのではなくて、順番を決めて、そのつど仕組みに変えてきた結果です。今日お話しするのは、その順番の話です。"},
+
+ /* ===== 前半＝確認（本人が整理シートに書いた言葉を そのまま出す）===== */
+ {kicker:"確認させてください", h:"1年後・3年後、こう書いてくださいました", sub:"※整理シートに書いていただいた言葉、そのままです",
+  quote:"〔1年後どうなっていたいか の回答をそのまま〕",
+  note:"まず確認させてください。1年後どうなっていたいですか、という問いに、こう書いてくださいました。——ここ、すごく大事なので聞かせてください。そう思われたきっかけって、何だったんですか。★答えを返さない。聞くだけ。"},
+
+ {kicker:"確認させてください", h:"いま いちばん頭を抱えている事", sub:"※そのままです",
+  quote:"〔いま頭を抱えている事 の回答をそのまま〕",
+  note:"そして、今いちばん頭を抱えている事に、こう書いてくださいました。正直に書いてくださって、ありがとうございます。——ここ、僕はすごく大事な情報だと思っています。合っているか、確かめさせてください。★責める言い方にしない。『自分で言葉にできている人は強い』という温度で読む。"},
+
+ {kicker:"確認させてください", h:"作りたい物について", sub:"※そのままです",
+  quote:"〔育てたい作物 の回答をそのまま〕",
+  note:"作物については、こう書いてくださいました。——ここ、後で必ず戻ってきます。今は、そのまま置かせてください。"},
+
+ {kicker:"確認させてください", h:"売り先について", sub:"※そのままです",
+  quote:"〔いまの販売の状況 の回答をそのまま〕",
+  note:"そして販売のところ。——ここ、ご自分では当たり前に思っていませんか。実は、今日いちばん大事な材料になります。もう少し詳しく聞かせてください。"},
+
+ {kicker:"確認させてください", h:"どのくらい力を注げるか", sub:"※そのままです",
+  quote:"〔どのくらい力を注げるか の回答をそのまま〕",
+  note:"最後に、どのくらい力を注げますか、という問いに、こう書いてくださいました。——これ、読んで嬉しかったです。今日はここから、その気持ちを続けられる形に変えていきましょう。"},
+
+ {kicker:"確認させてください", h:"いまの条件を、数字で置くと", pts:["畑＝〔広さ〕（〔家からの時間〕）","〔一人／家族と／スタッフと〕","いま使える資金＝〔金額〕","目標＝〔1年目〕／〔2年目〕／〔3年目〕"],
+  note:"条件を数字で並べます。——この並べ方、ご自分で書かれたものです。★数字を評価しない。『少ない』と言わない。使える幅を知るために置いている、という姿勢で。"},
+
+ {kicker:"聞かせてください", h:"畑は、どんな畑ですか", pts:["土は砂ですか、粘土ですか","水は引けますか（井戸・用水）","日当たり・風はどうですか","去年まで何を作っていた畑ですか"],
+  note:"ここから少し聞かせてください。土は砂っぽいですか、それとも粘土質ですか。水は引けますか。井戸か、用水か。日当たりと風はどうでしょう。それと、去年まで何を作っていた畑か、分かりますか。——この4つで、作れる物がだいぶ絞れます。★ここは15分ほど使って聞く。答えを返そうとしない・遮らない。"},
+
+ {kicker:"聞かせてください", h:"時間は、どのくらい取れますか", pts:["いまのお仕事は、週にどのくらいですか","朝・夕方、どちらが空きますか","土日は使えますか","ご家族の理解はどうですか"],
+  note:"それと時間です。今のお仕事は週にどのくらい入る予定ですか。朝と夕方、どちらが空きますか。土日は使えますか。それから、これは大事なので聞きます。ご家族の理解はどうですか。——農業は家族の理解が無いと続きません。ここは正直に教えてください。"},
+
+ /* ===== 地域の数字（★毎回 その方の市町村で調べ直して差し替える）===== */
+ {kicker:"〔お名前〕さんの地域", h:"〔市町村名〕は、農業でどのくらいの町か", sub:"市ぜんぶの<ruby>産出額<rt>さんしゅつがく</rt></ruby>＝〔金額〕。全国で〔順位〕番目です。",
+  pts:["〔1位の部門〕＝〔金額〕","〔2位の部門〕＝〔金額〕","〔3位の部門〕＝〔金額〕","〔4位の部門〕＝〔金額〕"],
+  deta:"出どころ＝農林水産省「令和5年 市町村別農業産出額（推計）」",
+  note:"ここから、〔お名前〕さんの地域の数字を見ていきます。——つまり この地域でお金になっているのは何か、という話です。★数字を出したら 必ず出どころを同じ画面に置く。推測で足さない。"},
+
+ {cls:"detaslide", kicker:"〔お名前〕さんの地域", h:"〔市町村名〕で、いちばん量が出ている物", sub:"※これは金額ではなく【量】です。品目ごとの金額は公表されていません。",
+  pts:["〔品目〕＝〔量〕","〔品目〕＝〔量〕","〔品目〕＝〔量〕","〔品目〕＝〔量〕","〔品目〕＝〔量〕"],
+  deta:"出どころ＝〔JA・県・市の資料名〕",
+  note:"次に、量です。ここは金額ではなくて量なので、そこだけ気をつけて見てください。品目ごとの金額は、どこにも公表されていませんでした。★『調べたけれど無かった』は そのまま言う。埋めない。"},
+
+ {kicker:"〔お名前〕さんの地域", h:"〔主役の品目〕は、1反で〔反収〕", sub:"この地域の平均です。〔作り方・採れる時期〕。",
+  deta:"出どころ＝〔JA・県の資料名〕",
+  note:"1つ、数字を覚えて帰ってください。この地域の主役の品目は、1反あたりこれだけ採れます。これは平均です。地域として、それだけの技術が溜まっている場所なんです。〔お名前〕さんの畑も同じ1反ですから、この数字は『この地域で1反がどこまで行けるか』の目安になります。"},
+
+ /* ===== 正直に＝いま取れない打ち手を先に外す ===== */
+ {kicker:"正直にお伝えします", h:"ただ、〔いま取れない打ち手〕は<br>今年はできません", sub:"〔理由と、かかる金額〕。いま使える〔金額〕との差は、〔何倍〕です。",
+  deta:"出どころ＝〔資料名〕※会社の公表資料・国の統計ではありません",
+  note:"ここは正直にお伝えします。これは煽らずに、本当のことを言っています。——ただ、これは『やめとけ』という話ではありません。順番の話です。取れない打ち手を先に外しておくと、残った打ち手に集中できるんです。僕自身、使えなかった機械が倉庫に眠っています。知らないまま買うと、時間もお金も失います。"},
+
+ {kicker:"正直にお伝えします", h:"だから、道は3つです", pts:["① 〔いちばん早く動ける道〕","② 〔借りる・引き継ぐ道〕","③ 補助・支援を使う"],
+  note:"それなら、道は3つです。——今日はこの中で、1つ目を中心にお話しします。いちばん早く、いちばん確実に動けるからです。"},
+
+ /* ============================================================
+    ★★ここが【山】です。下の2枚は、段を選ぶ画面で押した番号によって
+    　　中身が入れ替わります（山A／山B／山C）。枚の場所は動きません。
+    　　話しているうちにずれた時は キーボードの 1・2・3 でその場で入れ替わります。
+    ============================================================ */
+ {yama:0},
+ {yama:1},
+
+ /* ===== ここから価格。手前に1枚 置いてあるので、めくるか止めるかを選べます ===== */
+ {kicker:"ここから", h:"ここまでが、今日の中身です", sub:"このあと、僕がやっている<ruby>伴走<rt>ばんそう</rt></ruby>のプログラムのご案内をします。要らなければ、聞き流してください。",
+  note:"★ここが分かれ道です。ここで止めて まとめへ飛んでもいい枚です（→ キーで2つ先へ）。案内する時だけ次へ。／ここまでが今日の中身です。このあと、僕がやっている伴走のプログラムのご案内を少しだけします。要らなければ聞き流してください。無理に案内はしません。"},
+
+ {kicker:"考えてみてください", h:"3ヶ月 まるごと伴走して<br>いくらだと思いますか",
+  note:"1つ聞かせてください。僕が3ヶ月まるごと伴走するとして、いくらだと思いますか。——先に言わない。答えを待つ。出てきた金額は、高くても安くても否定しない。『ありがとうございます』で受けて、次の1枚で実際の金額を出す。"},
+
+ {kicker:"答え", h:"3ヶ月 15万円です", sub:"月に直すと5万円です。〔1年目の目標〕から見ると、決して小さい額ではありません。",
+  note:"3ヶ月で15万円です。月に直すと5万円。——正直に言いますが、〔お名前〕さんの1年目の目標から見て、小さい額ではありません。今すぐ決めてください、とは言いません。今日はまず、さっきの事を進めてください。★押しの加減は現場で。スライドは事実を出すだけ。"},
+
+ {kicker:"伴走プログラム", h:"中でやる事", pts:["売り先の数字を、一緒に読む","作る物と<ruby>作型<rt>さくがた</rt></ruby>を、一緒に決める","<ruby>圃場<rt>ほじょう</rt></ruby>の区切りと段取りを組む","<ruby>反収<rt>たんしゅう</rt></ruby>の記録の付け方を渡す","詰まった所を、その都度ほどく"],
+  note:"中でやる事はこの5つです。売り先の数字を一緒に読む。作る物と作型を一緒に決める。圃場の区切りと段取りを組む。反収の記録の付け方を渡す。そして、詰まった所をその都度ほどく。——1年目でいちばん時間を食うのは、迷っている時間なんです。そこを消すのが伴走です。"},
+
+ {kicker:"まとめ", h:"今日、持って帰っていただく物", pts:["〔正直にお伝えした事〕","〔今日の山＝いちばん伝えた1つ〕","〔その方が すでに持っている強み〕","今週やる事＝〔1つだけ〕"],
+  note:"今日 持って帰っていただく物をまとめます。★4つ目は必ず【1つだけ】にする。たくさん持って帰ろうとすると、だいたいどれも動かない。〔当日 本人と決めた1つを入れる〕"},
+
+ {cls:"cover", kicker:"最後に", h:"〔本人が書いた いちばん前向きな一言〕", sub:"この言葉を、3年後まで持っていってください。",
+  tag:"ありがとうございました",
+  note:"最後に。〔お名前〕さんは整理シートに、この言葉を書いてくださいました。——これを、3年後まで持っていってください。楽しいと思えているうちは、続きます。今日はありがとうございました。"}
+
+];
+
+/* ★山の2枚を、いま選ばれている組の中身に差し込む（描く前に1回だけ） */
+let YAMA_IMA = "A";
+function yamaWoIreru(k){
+  YAMA_IMA = k;
+  for (var i = 0; i < S.length; i++) {
+    if (typeof S[i].yama === 'number') {
+      var moto = S[i].yama;
+      var atarashii = {};
+      var src = YAMA[k][moto];
+      for (var p in src) { atarashii[p] = src[p]; }
+      atarashii.yama = moto;
+      S[i] = atarashii;
+    }
+  }
+}
+/* ★前に押した番号が この端末に残っていれば それで描く（＝更新しても山が戻りません）。
+   無ければ 山A（実データがいちばん多い 段0）で描いておく。 */
+yamaWoIreru((window.__YAMA_HOZON === 'B' || window.__YAMA_HOZON === 'C') ? window.__YAMA_HOZON : 'A');
+
+const stage=document.getElementById('stage');
+S.forEach((s,i)=>{
+  const d=document.createElement('div');
+  d.className='slide'+(s.cls?(' '+s.cls):'');
+  let inner='';
+  if(s.kicker) inner+=`<div class="kicker">${s.kicker}</div>`;
+  inner+=`<h1>${s.h}</h1>`;
+  if(s.sub) inner+=`<div class="sub">${s.sub}</div>`;
+  if(s.quote) inner+=`<div class="quote">「${s.quote}」</div>`+(s.subq?'':'');
+  if(s.sub&&s.quote){}
+  if(s.pts){inner+='<ul class="pts">'+s.pts.map(p=>`<li>${p}</li>`).join('')+'</ul>';}
+  if(s.deta) inner+=`<div class="deta">${s.deta}</div>`;
+  if(s.diagram) inner+=s.diagram;
+  if(s.tag) inner+=`<div class="tag">${s.tag}</div>`;
+  if(s.who) inner+=`<div class="who">${s.who}</div>`;
+  inner+=`<div class="foot">稼げる農業の仕組み化 伴走プログラム</div>`;
+  d.innerHTML=inner;
+  d.dataset.note=s.note||'';
+  if(typeof s.yama==='number'){ d.dataset.yama=String(s.yama); }
+  stage.appendChild(d);
+});
+
+/* ★入り切らない枚を【縮めずに 2枚へ割る】（ご主人様2026-08-17「細かい文字はだめ」）
+   割る所＝箇条書きの最後の1行から。 */
+(function(){
+  function afureteru(el){
+    var m = el.style.display; el.style.display='flex';
+    var ng = el.scrollHeight > el.clientHeight + 2;
+    el.style.display = m;
+    return ng;
+  }
+  var stage = document.getElementById('stage');
+  var mawaru = 0;
+  while (mawaru < 40) {
+    var s = stage.querySelectorAll('.slide');
+    var watta = false;
+    for (var i = 0; i < s.length; i++) {
+      var el = s[i];
+      if (!afureteru(el)) continue;
+      var ul = el.querySelector('ul.pts');
+      if (!ul || ul.children.length < 2) continue;      /* 割れない枚は そのまま */
+      if (el.dataset.yama !== undefined) continue;      /* ★山の枚は割らない（入れ替えるので位置を動かさない） */
+      var atarashii = el.cloneNode(true);
+      /* ★ご主人様2026-08-17 18:15「(つづき)いらない／全てつづき」
+         ＝割った先の枚では 見出しも（つづき）の表記も 出さない。中身だけ続ける。 */
+      var h = atarashii.querySelector('h1,h2');
+      if (h) { h.remove(); }
+      var nul = atarashii.querySelector('ul.pts');
+      while (nul.children.length > 1) { nul.removeChild(nul.firstElementChild); }
+      var sub = atarashii.querySelector('.sub'); if (sub) { sub.remove(); }
+      var q = atarashii.querySelector('.quote'); if (q) { q.remove(); }
+      ul.removeChild(ul.lastElementChild);
+      atarashii.classList.remove('active');
+      el.parentNode.insertBefore(atarashii, el.nextSibling);
+      watta = true;
+      break;
+    }
+    if (!watta) break;
+    mawaru++;
+  }
+
+  /* ★割れない枚だけ、最後の方法で文字を落とす。元の大きさより小さくはしない。 */
+  var s2 = stage.querySelectorAll('.slide');
+  for (var k = 0; k < s2.length; k++) {
+    var el2 = s2[k];
+    var kai = 0;
+    var nokori = 1 / 1.500;
+    var ima = 1.0;
+    while (afureteru(el2) && kai < 12 && ima > nokori + 0.001) {
+      var m2 = el2.style.display; el2.style.display = 'flex';
+      var r = Math.max(0.94, el2.clientHeight / el2.scrollHeight);
+      if (ima * r < nokori) { r = nokori / ima; }
+      var ko = el2.querySelectorAll('*');
+      for (var j = 0; j < ko.length; j++) {
+        var cs = window.getComputedStyle(ko[j]);
+        var f = parseFloat(cs.fontSize);
+        if (f > 0) { ko[j].style.fontSize = (f * r) + 'px'; }
+        var mt = parseFloat(cs.marginTop);
+        if (mt > 0) { ko[j].style.marginTop = (mt * r) + 'px'; }
+        var g = parseFloat(cs.rowGap);
+        if (g > 0) { ko[j].style.rowGap = (g * r) + 'px'; }
+      }
+      var sp = parseFloat(window.getComputedStyle(el2).paddingTop);
+      if (sp > 8) { el2.style.paddingTop = (sp * r) + 'px'; el2.style.paddingBottom = (sp * r) + 'px'; }
+      el2.style.display = m2;
+      ima = ima * r;
+      kai++;
+    }
+  }
+})();
+let cur=0;const slides=[...document.querySelectorAll('.slide')];
+const counter=document.getElementById('counter');
+const noteBox=document.getElementById('note');let noteOn=false;
+function show(i){cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
+  counter.textContent=(cur+1)+' / '+slides.length;
+  if(noteOn){noteBox.innerHTML='<b>🎙 トーク台本（発表者のみ）：</b> '+(slides[cur].dataset.note||'—');}
+}
+document.addEventListener('keydown',e=>{
+  if(document.getElementById('danpick') && !document.getElementById('danpick').classList.contains('hide')) return; /* ★選ぶ画面が出ている間は めくらない */
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){show(cur+1);}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){show(cur-1);}
+  else if(e.key.toLowerCase()==='n'){noteOn=!noteOn;noteBox.classList.toggle('show',noteOn);show(cur);}
+  else if(e.key==='Home'){show(0);}else if(e.key==='End'){show(slides.length-1);}
+});
+stage.addEventListener('click',()=>{
+  if(document.getElementById('danpick') && !document.getElementById('danpick').classList.contains('hide')) return; /* ★選ぶ画面が出ている間は めくらない */
+  show(cur+1);
+});
+const _h=parseInt((location.hash||'').slice(1),10);
+show(isNaN(_h)?0:_h);
+</script>
+
+<script>
+// ★箱ごと 画面に収まるだけ拡大／縮小する
+(function(){
+  function fit(){
+    var k = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+    var s = document.querySelectorAll('#stage .slide');
+    for (var i = 0; i < s.length; i++) { s[i].style.zoom = k; }
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+  document.addEventListener('keydown', function(){ setTimeout(fit, 10); });
+  document.addEventListener('click', function(){ setTimeout(fit, 10); });
+  window.addEventListener('load', fit);
+  setTimeout(fit, 30);
+  setInterval(fit, 800);
+})();
+</script>
+
+<script>
+/* ★はみ出しの【最後の1回】＝字が全部そろってから もう一度 見る。 */
+(function(){
+  function afureteru(el){
+    var m = el.style.display; el.style.display = 'flex';
+    var ng = el.scrollHeight > el.clientHeight + 1;
+    el.style.display = m;
+    return ng;
+  }
+  function tsumeru(){
+    var s = document.querySelectorAll('#stage .slide');
+    for (var i = 0; i < s.length; i++) {
+      var el = s[i], kai = 0;
+      while (afureteru(el) && kai < 25) {
+        var m = el.style.display; el.style.display = 'flex';
+        var ko = el.querySelectorAll('*');
+        for (var j = 0; j < ko.length; j++) {
+          var cs = window.getComputedStyle(ko[j]);
+          var f = parseFloat(cs.fontSize);
+          if (f > 0) { ko[j].style.fontSize = (f * 0.98) + 'px'; }
+          var mt = parseFloat(cs.marginTop);
+          if (mt > 0) { ko[j].style.marginTop = (mt * 0.98) + 'px'; }
+          var g = parseFloat(cs.rowGap);
+          if (g > 0) { ko[j].style.rowGap = (g * 0.98) + 'px'; }
+        }
+        el.style.display = m;
+        kai++;
+      }
+    }
+  }
+  window.TSUMERU = tsumeru;
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function(){ setTimeout(tsumeru, 60); }); }
+  window.addEventListener('load', function(){ setTimeout(tsumeru, 300); });
+  setTimeout(tsumeru, 1200);
+})();
+</script>
+
+<script>
+/* ============================================================
+   ★段を選ぶ画面（相手には出ない）と、その場での入れ替え
+   ・URLは1文字も変えません＝アドレスバーに番号は出ません
+   ・読み込み直しもしません＝白い画面が一瞬 出ることもありません
+   ・戻るボタンで選ぶ画面が出てくることもありません
+   出どころ＝Codexの反証（2026-09-01）。URLに番号を付ける作りは
+   　画面共有でアドレスバーに映る／戻るで選ぶ画面が出る、と指摘されたので変えた。
+   ============================================================ */
+(function(){
+  var pick = document.getElementById('danpick');
+  var row  = document.getElementById('dp-dan');
+
+  /* --- 山の2枚を、その場で入れ替える（枚の場所は動かさない）--- */
+  function yamaKirikae(k){
+    YAMA_IMA = k;
+    var s = document.querySelectorAll('#stage .slide');
+    for (var i = 0; i < s.length; i++) {
+      var el = s[i];
+      if (el.dataset.yama === undefined) continue;
+      var src = YAMA[k][parseInt(el.dataset.yama, 10)];
+      var inner = '';
+      if (src.kicker) inner += '<div class="kicker">' + src.kicker + '</div>';
+      inner += '<h1>' + src.h + '</h1>';
+      if (src.sub) inner += '<div class="sub">' + src.sub + '</div>';
+      if (src.pts) { inner += '<ul class="pts">'; for (var j = 0; j < src.pts.length; j++) { inner += '<li>' + src.pts[j] + '</li>'; } inner += '</ul>'; }
+      if (src.deta) inner += '<div class="deta">' + src.deta + '</div>';
+      inner += '<div class="foot">稼げる農業の仕組み化 伴走プログラム</div>';
+      el.innerHTML = inner;
+      el.dataset.note = src.note || '';
+      /* 差し替えた枚だけ 大きさを入れ直す（前の枚で縮めた指定が残らないように）
+         ★枚そのものの上下の余白も戻す＝Codexの指摘（前の山で縮んだ余白だけ残っていた） */
+      var ko = el.querySelectorAll('*');
+      for (var m = 0; m < ko.length; m++) { ko[m].style.fontSize = ''; ko[m].style.marginTop = ''; ko[m].style.rowGap = ''; }
+      el.style.paddingTop = ''; el.style.paddingBottom = '';
+    }
+    try { window.localStorage.setItem('soudan_yama', JSON.stringify({k:k, t:Date.now()})); } catch (e) {}
+    if (window.TSUMERU) { setTimeout(window.TSUMERU, 30); }
+    if (typeof show === 'function') { show(cur); }   /* 台本の表示も入れ替える */
+  }
+
+  /* --- 段の押しボタンを6つ作る --- */
+  for (var d = 0; d <= 5; d++) {
+    (function(n){
+      var b = document.createElement('button');
+      b.innerHTML = '<span class="b-n">現状 ' + n + '</span>' + DANNAME[n][0] +
+                    '<span class="b-y">' + DANNAME[n][1] + '</span>';
+      b.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        yamaKirikae(DAN2YAMA[n]);
+        pick.classList.add('hide');
+      });
+      row.appendChild(b);
+    })(d);
+  }
+
+  /* --- 話しているうちにずれた時＝1・2・3 でその場で入れ替える（何も表示は出ない）--- */
+  document.addEventListener('keydown', function(e){
+    if (!pick.classList.contains('hide')) return;
+    if (e.key === '1') { yamaKirikae('A'); }
+    else if (e.key === '2') { yamaKirikae('B'); }
+    else if (e.key === '3') { yamaKirikae('C'); }
+  });
+
+  /* --- 検品＝〔 〕の書き換え忘れが何個 残っているかを、選ぶ画面にだけ出す --- */
+  function kenpin(){
+    var box = document.getElementById('dp-kenpin');
+    var honbun = 0, daihon = 0;
+    var mita = {};                     /* ★同じ台本を2回 数えない＝2枚に割れた枚は台本が複製されるため
+                                          （Codexの指摘・2026-09-01） */
+    var s = document.querySelectorAll('#stage .slide');
+    for (var i = 0; i < s.length; i++) {
+      honbun += (s[i].textContent.match(/〔/g) || []).length;
+      var nt = s[i].dataset.note || '';
+      if (nt && !mita[nt]) { mita[nt] = 1; daihon += (nt.match(/〔/g) || []).length; }
+    }
+    var namae = /山崎|小谷|馬場|藤原|菊池|Aki|山田/.test(document.title) ? 1 : 0;
+    if (honbun === 0 && daihon === 0 && namae === 0) {
+      box.className = 'dp-kenpin ok';
+      box.innerHTML = '✅ 書き換え忘れ 0か所。表題に人の名前も入っていません。このまま始められます。';
+    } else {
+      box.className = 'dp-kenpin ng';
+      box.innerHTML = '⚠️ 書き換え忘れが残っています＝画面に出る文 <b>' + honbun + '</b>か所／口で話す台本 <b>' + daihon + '</b>か所' +
+        (namae ? '／<b>表題に前の方の名前が残っています</b>' : '') +
+        '<br>この〔 〕は そのまま相手の画面に出ます。始める前に全部 消してください。';
+    }
+  }
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function(){ setTimeout(kenpin, 200); }); }
+  setTimeout(kenpin, 1400);
+})();
+</script>
+</body>
+</html>
