@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>農業相談会 読み上げ台本（松本典樹さん）</title>
+<style>
+:root{--green:#2e7d32;--green-d:#1b5e20;--ink:#1c2b1e;--paper:#f6f8f3;--gold:#b8892b;--line:#dfe6d8;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+     background:var(--paper);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;}
+header.top{position:sticky;top:0;z-index:20;background:linear-gradient(120deg,#1b5e20,#2e7d32);
+     color:#fff;padding:16px 20px;border-bottom:4px solid var(--gold);box-shadow:0 3px 14px rgba(0,0,0,.15);}
+header.top h1{font-size:20px;font-weight:900;letter-spacing:.01em;line-height:1.4;}
+header.top p{font-size:13px;color:#d5f2d9;margin-top:5px;font-weight:600;}
+.wrap{max-width:820px;margin:0 auto;padding:20px 18px 120px;}
+.doc-h1{display:none;} /* top md title already in header */
+h2.sec{font-size:21px;font-weight:900;color:var(--green-d);margin:40px 0 6px;
+     padding:10px 16px;background:#eaf3e6;border-left:7px solid var(--gold);border-radius:0 10px 10px 0;}
+h3.subsec{font-size:17px;font-weight:800;color:var(--green-d);margin:26px 0 4px;
+     padding-left:12px;border-left:4px solid var(--green);}
+hr.sep{border:0;border-top:1px dashed var(--line);margin:26px 0;}
+p{font-size:16px;margin:12px 0;}
+/* ふりがな（ルビ）＝親字より小さく・地名で迷わないよう金色で目立たせる */
+ruby{ruby-align:center;}
+rt{font-size:.52em;font-weight:700;color:var(--gold);letter-spacing:.02em;line-height:1;
+   transform:translateY(.1em);}
+.scard-title rt{color:#a9781f;}
+.wrap>p:first-of-type{color:#42513e;}
+ul.pts{list-style:none;margin:12px 0;display:flex;flex-direction:column;gap:8px;}
+ul.pts li{font-size:16px;padding-left:1.4em;position:relative;}
+ul.pts li::before{content:"";position:absolute;left:.2em;top:.62em;width:.5em;height:.5em;border-radius:50%;background:var(--gold);}
+ul.pts li.sub{padding-left:2.6em;font-size:15px;color:#4a5847;}
+ul.pts li.sub::before{left:1.4em;background:var(--green);width:.4em;height:.4em;}
+.note-callout{background:#fbfcf9;border:1px solid var(--line);border-left:5px solid var(--green);
+     border-radius:0 12px 12px 0;padding:12px 16px;margin:16px 0;font-size:14.5px;color:#3c4a38;}
+.note-callout p{font-size:14.5px;margin:7px 0;}
+.note-callout strong{color:var(--green-d);}
+/* score / talk cards */
+.scard{background:#fff;border:1px solid var(--line);border-radius:14px;
+     padding:16px 18px;margin:14px 0;box-shadow:0 5px 18px rgba(30,60,25,.06);}
+.scard-head{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:9px;
+     padding-bottom:9px;border-bottom:1px solid #eef2ea;}
+.scard-no{background:var(--green-d);color:#fff;font-weight:900;font-size:15px;
+     border-radius:8px;padding:3px 12px;min-width:46px;text-align:center;letter-spacing:.02em;}
+.scard-title{font-size:17px;font-weight:900;color:var(--green-d);flex:1;min-width:60%;line-height:1.4;}
+.scard-tag{background:#fbeede;color:var(--gold);font-weight:800;font-size:12px;border-radius:999px;padding:3px 11px;}
+.scard-talk{font-size:16.5px;color:#222c22;font-weight:500;line-height:1.85;}
+.scard-talk strong{color:var(--green-d);font-weight:800;}
+/* table */
+.tbl-wrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;min-width:480px;background:#fff;border-radius:10px;overflow:hidden;
+     box-shadow:0 4px 16px rgba(30,60,25,.06);font-size:14.5px;}
+th,td{border:1px solid #e3eadd;padding:9px 12px;text-align:left;vertical-align:top;line-height:1.7;}
+th{background:#1b5e20;color:#fff;font-weight:800;}
+tr:nth-child(even) td{background:#f7faf5;}
+/* presenter notes fold */
+.notes-fold{margin-top:44px;border-top:3px dashed var(--gold);}
+details.notes{margin-top:16px;background:#f2f4ef;border:1px solid #d9e0d2;border-radius:12px;padding:4px 4px;}
+details.notes>summary{cursor:pointer;list-style:none;padding:14px 18px;font-size:16px;font-weight:900;
+     color:#5a6a55;display:flex;align-items:center;gap:10px;}
+details.notes>summary::-webkit-details-marker{display:none;}
+details.notes>summary::before{content:"▶";font-size:12px;color:var(--gold);transition:transform .2s;}
+details.notes[open]>summary::before{transform:rotate(90deg);}
+.notes-body{padding:6px 18px 22px;color:#5c6a57;font-size:14.5px;}
+.notes-body h2.sec{background:#e7ebe2;color:#4b5a46;border-left-color:#9aa892;font-size:18px;margin-top:26px;}
+.notes-body h3.subsec{color:#5a6a55;border-left-color:#9aa892;}
+.notes-body p{font-size:14.5px;color:#5c6a57;}
+.notes-body ul.pts li{font-size:14.5px;color:#5c6a57;}
+.notes-body .scard{background:#fafbf8;box-shadow:none;}
+.notes-body .note-callout{background:#edf0e9;border-left-color:#9aa892;}
+.notes-body table{font-size:13.5px;}
+.privacy{font-size:12px;color:#8a9784;text-align:center;margin-top:40px;padding-top:16px;border-top:1px solid var(--line);}
+@media(max-width:600px){
+  header.top h1{font-size:17px;}
+  .wrap{padding:16px 14px 100px;}
+  .scard-title{min-width:100%;font-size:16px;}
+  .scard-talk{font-size:16px;}
+  p{font-size:15.5px;}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>🎙 農業相談会 読み上げ台本 — <ruby>松本<rt>まつもと</rt></ruby> <ruby>典樹<rt>のりき</rt></ruby>さん</h1>
+  <p>2026-09-30（水）20:30・Google Meet ／ 大きい見出し＝スライド、緑の本文＝そのまま読む口頭トーク</p>
+</header>
+<div class="wrap">
+<div class="note-callout"><p>イチロウが面談中に手元で読む用。スライド（<code>matsumoto-slide</code>）はこの台本と同じ順番・同じ枚数（24枚）です。</p>
+<p><strong>相手に見せる時間は30分</strong>。30分のあたり（「次の一手3選」の枚）で3選を案内し、そのあとは質問の時間にします。伴走の案内・価格は入れていません。引きは特典③（施策3選）です。</p>
+<p><strong>型＝金井さん（9/28）の最後の形＝小野さん（9/11）の【録音で実際に流れた順】</strong>。本人確認・きっかけ → 条件・準備（褒める）→ 市の数字 → 売り先全体の品目別・月別の売上を見て主力を決める（売れない物は作らない）→ 3選の案内 → 質問の時間 → 目標の条件・背中を押す → 今週やる1つ → 特典③ → 感想フォーム。</p>
+<p>🔤 <strong>読み方</strong>：<ruby>亀岡市<rt>かめおかし</rt></ruby>＝かめおかし／<ruby>典樹<rt>のりき</rt></ruby>さん＝のりきさん（LINEの表示名「松本　ノリキ」から。冒頭で本人に確かめる）／<ruby>万願寺唐辛子<rt>まんがんじとうがらし</rt></ruby>＝まんがんじとうがらし。</p></div>
+<hr class="sep">
+<h2 class="sec">📋 整理シートの原文（UTAGE実データ・原文ママ）</h2>
+<div class="note-callout"><p>取得元＝UTAGE シナリオ s6d3KpJo9Sad（整理シート）読者 0WiIhFgTnZmS／提出 2026-09-29 10:40:29。設問名・回答とも<strong>そのまま</strong>（「ジャガイモ」が2回あるのも原文のまま）。</p></div>
+<div class="tbl-wrap"><table><tr><th>設問（原文）</th><th><ruby>松本<rt>まつもと</rt></ruby>さんの回答（原文ママ）</th></tr><tr><td>年齢帯</td><td>45〜49歳</td></tr><tr><td>1年後、どんな状態になっていたいですか？</td><td>安定出荷と農業だけでの生計をたてたい。</td></tr><tr><td>今、一番頭を抱えていることは何ですか？</td><td>品目選び、安定出荷、そもそも自身の作った野菜が売れるのかどうか</td></tr><tr><td>育てたい・育てている作物は何ですか？</td><td>ジャガイモ、タマネギ、ニンジン、キャベツ、カボチャ、ナス、<ruby>万願寺唐辛子<rt>まんがんじとうがらし</rt></ruby>、ジャガイモ、バジルは確定していて、トマト、トウモロコシは育てたい</td></tr><tr><td>今の販売状況を教えてください</td><td>販売はしていないが、ジャガイモ、タマネギ、ニンジン、キャベツに関しては買取り先を確保。<br>その他、道の駅とマルシェへの出店は確約済み</td></tr><tr><td>今使える農地はどのくらいですか？</td><td>現在は<ruby>0.5反<rt>れいてんごたん</rt></ruby><br>4月より６反になる予定</td></tr><tr><td>一人でやる予定ですか？家族やスタッフと一緒ですか？</td><td>家族と</td></tr><tr><td>今使える資金はどのくらいですか？</td><td>１００万円</td></tr><tr><td>農業でいくら稼ぎたいですか？（年間）</td><td>５００万円</td></tr><tr><td>畑の都道府県（市区町村まで分かれば）を教えてください。</td><td><ruby>京都府<rt>きょうとふ</rt></ruby></td></tr><tr><td>農業で本気で稼ぐために、どのくらい力を注げますか？</td><td>現在は<ruby>亀岡<rt>かめおか</rt></ruby>オーガニック農業スクールで学び新規就農予定者として毎日農業に触れています（農家研修、座学、個々の<ruby>圃場<rt>ほじょう</rt></ruby>管理）</td></tr><tr><td>今回の30分で、いちばん知りたいこと・決めたいことは何ですか？</td><td>新規就農者としての最低限必要な準備、どうすれば安定出荷、安定した生計を立てれるようになりたいか</td></tr></table></div>
+<h3 class="subsec">ほかに本人から来た物</h3>
+<ul class="pts"><li>1対1トークに本人から届いた言葉＝0件（9/16 17:43 友だち追加のみ）</li><li>予約フォーム「あなたの現状に近いものを選んでください」＝<strong>「0. まだ始める前」</strong>（予約 2026-09-21 19:23）</li><li>整理シート提出の直後（9/29 10:40:30）に「予約はこちら・日程は3日以内に」の自動の案内が届いている＝予約はもう入っている</li></ul>
+<h2 class="sec">📊 <ruby>亀岡市<rt>かめおかし</rt></ruby>の農業（事前に調べた物）</h2>
+<div class="note-callout"><p>出典＝農林水産省 令和6年 市町村別農業<ruby>産出額<rt>さんしゅつがく</rt></ruby>（推計）詳細品目別データ。単位は億円。「秘匿」は金額が公表されていない品目（順位だけ出ている）。</p><p>【話す時の線】<ruby>亀岡市<rt>かめおかし</rt></ruby>は<ruby>松本<rt>まつもと</rt></ruby>さんが学んでいるスクールの市。4月からの畑が同じ市かは当日聞く。市全体の推計＝地域で何が動いているかの参考。何をどれだけ作るかは、売り先の品目別・月別の売上で決める。</p></div>
+<div class="tbl-wrap"><table><tr><th><ruby>亀岡市<rt>かめおかし</rt></ruby></th><th><ruby>産出額<rt>さんしゅつがく</rt></ruby></th><th>府内順位</th></tr><tr><td>農業産出額 合計</td><td>90.6億円</td><td>3位</td></tr><tr><td>野菜</td><td>22.7億円</td><td>5位</td></tr><tr><td>米</td><td>28.4億円</td><td>2位</td></tr><tr><td>たまねぎ</td><td>0.7億円</td><td>1位</td></tr><tr><td>ピーマン</td><td>2.5億円</td><td>2位</td></tr><tr><td>なす</td><td>1.9億円</td><td>3位</td></tr><tr><td>トマト</td><td>1.1億円</td><td>3位</td></tr><tr><td>ねぎ</td><td>3.4億円</td><td>5位</td></tr><tr><td>ばれいしょ</td><td>0.3億円</td><td>7位</td></tr><tr><td>にんじん</td><td>0.1億円</td><td>3位</td></tr><tr><td>キャベツ</td><td>秘匿</td><td>4位</td></tr></table></div>
+<h2 class="sec">はじめに</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S1</span><span class="scard-title">品目選びと安定出荷を、始める前に決める30分</span><span class="scard-tag">0〜2分</span></div><div class="scard-talk"><strong>【話す】</strong><ruby>松本<rt>まつもと</rt></ruby>さん、今日はありがとうございます。整理シート、読みました。ここから順番に聞かせていただきます。<br><strong>【確認】</strong>画面と声、大丈夫ですか。<br><strong>【聞く】</strong>お名前、「のりき」さんとお読みして合っていますか。<br>（整理シートを出した直後に「予約はこちら・3日以内に」の自動の案内が届いています。予約は9/30 20:30で入っているので、気にされていたら「予約はちゃんと入っています」と一言）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S2</span><span class="scard-title">100t農家のイチロウです</span><span class="scard-tag">2〜3分</span></div><div class="scard-talk"><strong>【話す】</strong>自然農と有機JAS、慣行農法を一通り経験して出荷してきました。年間100t超えで、今年は200tを超えるかなというところまで来ています。今日は僕の話をするわけではなくて、<ruby>松本<rt>まつもと</rt></ruby>さんの条件に合わせて考えるために、立場だけお伝えしました。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S3</span><span class="scard-title">先に状況をお聞きして、そのあとで考え方をお渡しします</span><span class="scard-tag">3〜4分</span></div><div class="scard-talk"><strong>【話す】</strong>先に状況をお聞きして、その後で僕の考え方をお渡しします。良さそうだなと思えば使っていただければ大丈夫ですし、ちょっと違うなと思えば、後の感想フォームで書いていただくこともできます。<br><strong>【聞く】</strong>この進め方で大丈夫ですか。</div></section>
+<h2 class="sec">聞く＝きっかけと今の条件</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S4</span><span class="scard-title">どの動画を見て、相談しようと思いましたか</span><span class="scard-tag">4〜7分</span></div><div class="scard-talk"><strong>【聞く】</strong>YouTubeからご覧になって、お知りになったんですか。知ったきっかけとか、いつ頃から見てるかとか、教えていただければと思います。<br><strong>【聞く】</strong>「農業のゲームチェンジ」の動画は見ていただけましたか。覚えている言葉があれば教えてください。<br>（1対1トークに<ruby>松本<rt>まつもと</rt></ruby>さんから届いた言葉は0件＝ここで初めて本人の声を聞く。小野さんはここで「教えてくれる人が周りにいない」と話した）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S5</span><span class="scard-title">書いてくださった言葉から、始めます</span><span class="scard-tag">7〜9分</span></div><div class="scard-talk"><strong>【話す】</strong>シートの言葉、そのまま読ませてください。「品目選び、安定出荷、そもそも自身の作った野菜が売れるのかどうか」。そして今日知りたいことが「新規就農者としての最低限必要な準備、どうすれば安定出荷、安定した生計を立てれるようになりたいか」。<br><strong>【聞く】</strong>この3つの中で、いちばん気になっているのはどれですか。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S6</span><span class="scard-title">今は<ruby>0.5反<rt>れいてんごたん</rt></ruby>。4月から<ruby>6反<rt>ろくたん</rt></ruby>になります</span><span class="scard-tag">9〜12分</span></div><div class="scard-talk"><strong>【聞く】</strong>4月からの<ruby>6反<rt>ろくたん</rt></ruby>は、どこの畑ですか。市町村と、<ruby>圃場<rt>ほじょう</rt></ruby>が何か所に分かれているかを教えてください。<br><strong>【聞く】</strong>ご家族と、と書いてくださいました。どなたが、週にどのくらい畑に入れそうですか。<br><strong>【聞く】</strong><ruby>亀岡<rt>かめおか</rt></ruby>のオーガニック農業スクールでは、研修・座学・自分の<ruby>圃場<rt>ほじょう</rt></ruby>管理と書かれていました。今、自分の<ruby>圃場<rt>ほじょう</rt></ruby>で何を作っていますか。<br>（録音：小野さんには販売先・家族・面積を具体に聞いた。ここが後の「売り先全体の数字」の段につながる）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S7</span><span class="scard-title"><ruby>松本<rt>まつもと</rt></ruby>さんは、どうなっていきたいですか</span><span class="scard-tag">12〜14分</span></div><div class="scard-talk"><strong>【聞く】</strong>ご相談に来ていただいたということは前向きだと思うんですけども、<ruby>松本<rt>まつもと</rt></ruby>さんご自身は、どのようにやっていきたいとお考えですか。<br><strong>【聞く】</strong>500万円は、売上ですか、手元に残る額ですか。何年目で届けたいですか。<br>（録音：小野さん 19:12〜 本人のイメージを聞いてから数字へ進んだ）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S8</span><span class="scard-title">もう、売り先の入り口を持っています</span><span class="scard-tag">14〜16分</span></div><div class="scard-talk"><strong>【聞く】</strong>ジャガイモ・タマネギ・ニンジン・キャベツの買取り先は、どんな所ですか。量や時期の話まで出ていますか。<br><strong>【聞く】</strong>道の駅とマルシェは、どこに、月に何回くらい出す予定ですか。<br><strong>【褒める】</strong>始める前から売り先を先に押さえている。ここはまず受け止めて褒める（小野さんには「これ出せてるの素晴らしいですね」「大変頑張ってらっしゃるなと思います」と言った。感想で「『頑張ってる！』と褒めて頂き」がいちばん効いた）</div></section>
+<h2 class="sec">亀岡市の農業（事前に調べた物）</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S9</span><span class="scard-title"><ruby>亀岡市<rt>かめおかし</rt></ruby>の野菜は、22.7億円です</span><span class="scard-tag">16〜18分</span></div><div class="scard-talk"><strong>【話す】</strong><ruby>松本<rt>まつもと</rt></ruby>さんが学んでいる<ruby>亀岡市<rt>かめおかし</rt></ruby>を、僕の方で調べました。野菜全体の売上が22億7千万円あります。その中で、たまねぎは<ruby>京都府<rt>きょうとふ</rt></ruby>で1位、なすは3位、キャベツは金額は伏せられていますが4位です。<br><strong>【聞く】</strong>4月からの<ruby>6反<rt>ろくたん</rt></ruby>も、<ruby>亀岡市<rt>かめおかし</rt></ruby>ですか。（違う市なら、その市の数字を後でお送りすると伝える）<br><strong>【聞かれたら】</strong><ruby>亀岡市<rt>かめおかし</rt></ruby>のほか＝トマト1.1億円（府内3位）／ピーマン2.5億円（2位）／ねぎ3.4億円（5位）／ばれいしょ0.3億円（7位）／にんじん0.1億円（3位）／米28.4億円（2位）。<br><strong>【出典】</strong>農林水産省 令和6年 市町村別農業<ruby>産出額<rt>さんしゅつがく</rt></ruby>（推計）詳細品目別データ。</div></section>
+<h2 class="sec">今日の芯＝売れている物を主力にする</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S10</span><span class="scard-title">今日、先に答えを出したいのはどちらですか</span><span class="scard-tag">19〜20分</span></div><div class="scard-talk"><strong>【聞く】</strong>予約の時に「0. まだ始める前」を選んでくださいました。今日いちばん先に答えを出したいのは、Aですか、Bですか。<br><strong>【待つ】</strong>本人が選ぶ。どちらを選んでも、両方に触れて終わる。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S11</span><span class="scard-title">4月から、何を作る予定ですか</span><span class="scard-tag">20〜21分</span></div><div class="scard-talk"><strong>【聞く】</strong>確定している品目（ジャガイモ・タマネギ・ニンジン・キャベツ・カボチャ・ナス・<ruby>万願寺唐辛子<rt>まんがんじとうがらし</rt></ruby>・バジル）と、育てたい品目（トマト・トウモロコシ）、それぞれ<ruby>何反<rt>なんたん</rt></ruby>くらいを考えていますか。<br><strong>【聞く】</strong>スクールで作ってみて、うまくいった物と、うまくいかなかった物を教えてください。<br>（録音：小野さん 24:29〜 今の作付けを1つずつ聞いた）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S12</span><span class="scard-title">見ているのは、売上じゃないんです</span><span class="scard-tag">21〜22分</span></div><div class="scard-talk"><strong>【話す】</strong>売り上げももちろん見ます。でも一番見ているのは売り上げじゃないんです。1作で<ruby>一反<rt>いったん</rt></ruby>あたりいくら手元に残るかです。苗の数も面積も、この数字から逆算します。<br>（動画の言葉＝ゲームチェンジのフロント動画 [6:44]〜[7:05]）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S13</span><span class="scard-title">年500万円。<ruby>1反<rt>いったん</rt></ruby>あたり、いくら残せば届くと思いますか？</span><span class="scard-tag">22〜23分</span></div><div class="scard-talk"><strong>【聞く】</strong>先に答えを言わない。本人に言ってもらう。<br><strong>【待つ】</strong>出てきた数字は否定しない。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S14</span><span class="scard-title"><ruby>1反<rt>いったん</rt></ruby>あたり 約83万円</span><span class="scard-tag">23〜24分</span></div><div class="scard-talk"><strong>【確認】</strong>500万は、売上ですか、経費を引いた後の手取りですか。<br><strong>【話す】</strong>面積を増やす前に、何を作るか、どのぐらい取れるのか、回転するのかを測れるといいなと思います。まずそもそも、何を作るかっていうところからですよね。<br>（計算は 500万円÷<ruby>6反<rt>ろくたん</rt></ruby>＝83.3万円 だけ。栽培・単価の数字は足していない）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S15</span><span class="scard-title">売り先の「全体の売上」を見ます</span><span class="scard-tag">24〜27分</span></div><div class="scard-talk"><strong>【話す】</strong>作る物・作る量の決め方です。まずは出す予定の道の駅、そして買取り先。その道の駅で、何が、どの月に、いくら売れているかという数字があるんです。そこをもらうといいですね。<br><strong>【話す】</strong>例えば道の駅のある品目の全体の売上が月40万円なら、そこに入る余地があるかが分かります。その月に千円しか売れていない物を5千円分作っても、売れないんです。<br><strong>【聞く】</strong>道の駅と買取り先に、品目別・月別の売上を聞けそうですか。<br>（録音：小野さん 27:47〜31:05＝感想で「売り先で何が一番売り上げがあるのか調べる」がいちばん印象に残った所。<ruby>松本<rt>まつもと</rt></ruby>さんの「自分の野菜が売れるのか」への答えもここ）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S16</span><span class="scard-title">売れている物を主力に、売れない物は作らない</span><span class="scard-tag">27〜29分</span></div><div class="scard-talk"><strong>【話す】</strong>売上の上位を作っていくんです。「これを作りたい」で決めた物が上位に当てはまっていればいいんですが、そうでなければ、作るのをやめるか減らしましょう。品目が多いほど、始めた年はてんてこ舞いになります。<br><strong>【話す】</strong>主力が決まると、作業の時間が測れるようになります。学ぶ時間・考える時間ができて、捨てていた物が生き残る。結果、切らさずに出せる量が増えていきます。<br><strong>【聞く】</strong>10品目の中で、売り先がまだ決まっていない物はどれですか。<br><strong>【話す】</strong>ステップとしては、販売明細をもらう、その数字から品目を選ぶ、できるだけパイの大きいもの。そうすると大体何個植えるか決まって、主力から時間が測れるようになります。</div></section>
+<h2 class="sec">次の一手3選の案内と質問</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S17</span><span class="scard-title"><ruby>松本<rt>まつもと</rt></ruby>さん専用の「次の一手3選」を作ります</span><span class="scard-tag">30〜31分</span></div><div class="scard-talk"><strong>【話す】</strong>今日の話をもとに、4月までに何をしていけばいいかの「次の一手3選」を作ります。感想フォームに、学べたことや、終わってみて疑問に残ったことを書いていただくと、しっかり見てお送りします。半月ほどかかる場合があります。少しお時間をください。<br>（録音：小野さん 36:41〜 30分のあたりで3選を案内して、そのあと質問を受けた）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S18</span><span class="scard-title">聞きたいことを、全部聞いてください</span><span class="scard-tag">31〜50分</span></div><div class="scard-talk"><strong>【話す】</strong>30分たちましたが、質問があればどんどん聞いてください。全部お答えします。<br><strong>【聞く・待つ】</strong>ここは本人の質問に答える時間（小野さんは苗の徒長・病気と予防・連作と2か所の畑の回し方・マルチなしを質問した）。<br>★作り方・肥料・薬の数字は、イチロウが話した事だけを記録する。資料には数字を入れていない。</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S19</span><span class="scard-title">「<ruby>1反<rt>いったん</rt></ruby>でいくら」の指標は、<ruby>普及<rt>ふきゅう</rt></ruby>所とJAにあります</span><span class="scard-tag">（質問の中で）</span></div><div class="scard-talk"><strong>【話す】</strong>府の農業改良<ruby>普及<rt>ふきゅう</rt></ruby>センターという場所があります。そこでは、例えばキャベツを<ruby>一反<rt>いったん</rt></ruby>作るとどれぐらいの売上になるか、という指標を持っています。誰でもその数字になるわけではありませんが、見せてもらうことができます。<br><strong>【話す】</strong>僕も花を始めたら、実は地域が日本一の市場だった。売上のパイがある所に入っていくのは、非常に大事だと実感しています。<br>（録音：小野さん 52:05〜1:01:36）</div></section>
+<h2 class="sec">背中を押す</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S20</span><span class="scard-title">年500万円に近づく、3つの条件</span><span class="scard-tag">50〜52分</span></div><div class="scard-talk"><strong>【話す】</strong>技術が上がって、絶え間なく出せて、売り先のランキングを知っていて、そこにきちっと出せるかどうか。この3つがそろうほど近づきます。そのかわり、今より忙しくなります。<br>（録音：小野さん 1:02:19〜「2反でどれぐらい目指せるか」への答え。目標額を約束にしない）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S21</span><span class="scard-title">始める前に、ここまで揃えています</span><span class="scard-tag">52〜54分</span></div><div class="scard-talk"><strong>【話す】</strong>まだ始める前なのに、<ruby>6反<rt>ろくたん</rt></ruby>の畑が決まっていて、4品目の買取り先があって、道の駅とマルシェにも出せる。しかも毎日スクールで畑に触れている。ここまで揃えてから始める人は、なかなかいません。頑張ってらっしゃいます。<br><strong>【話す】</strong>「自分の野菜が売れるのか」は、売り先の数字を見れば、始める前に答えが出せます。</div></section>
+<h2 class="sec">締め</h2>
+<section class="scard"><div class="scard-head"><span class="scard-no">S22</span><span class="scard-title">まず、売り先に聞いてみます</span><span class="scard-tag">54〜56分</span></div><div class="scard-talk"><strong>【聞く】</strong>今週やる1つは、どれにしますか。<br><strong>【待つ】</strong>決めるのは本人。<br>（小野さんは感想で「直売所に聞いてみようと思います」と書いた＝この1つが持ち帰りやすい）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S23</span><span class="scard-title">特典③のご案内</span><span class="scard-tag">56〜57分</span></div><div class="scard-talk"><strong>【話す】</strong>今日の感想を書いてくださったら、<ruby>松本<rt>まつもと</rt></ruby>さん専用の「施策3選」をLINEでお送りします。しっかり考えてお作りするので、半月ほどかかる場合があります。少しお時間をください。<br>（金井さんの回と同じ案内。出どころ＝部署_UTAGEちゃん/haishin-bunsho/knowledge/確定_正解の見本_三上さんに送った流れ_20260803.md「相談会 → 感想フォーム案内 → 特典③」）</div></section>
+<section class="scard"><div class="scard-head"><span class="scard-no">S24</span><span class="scard-title">次の一手を作るための、最後の材料です</span><span class="scard-tag">57〜60分</span></div><div class="scard-talk"><strong>【話す】</strong>このあと感想フォームが届きます。書いていただかないと次の3選が作れませんので、いろんなこと書いてください。届かなかった時は、LINEにそのまま書いていただいて大丈夫です。<br><strong>【閉じる】</strong>今日はありがとうございました。</div></section>
+<h2 class="sec">相談直後に残す事</h2>
+<ul class="pts"><li>YouTubeを知ったきっかけ・見た動画</li><li>4月からの<ruby>6反<rt>ろくたん</rt></ruby>の場所・圃場の数・家族の人手</li><li>品目ごとの予定面積と売り先</li><li>年500万円の意味（売上か手取りか）</li><li>今週やる1つ</li><li>本人の言葉で印象に残った一言（感想と照らす）</li><li>録音＝プラウド</li></ul>
+<hr class="sep">
+<div class="notes-fold">
+<details class="notes">
+  <summary>📕 発表者ノート（自分用・面談中は開かない／<ruby>松本<rt>まつもと</rt></ruby>さんに見せない）</summary>
+  <div class="notes-body">
+<h2 class="sec">分からない事〔当日聞く〕10個</h2>
+<ul class="pts"><li>1. 4月からの<ruby>6反<rt>ろくたん</rt></ruby>の場所（市町村）と、<ruby>圃場<rt>ほじょう</rt></ruby>が何か所か</li><li>2. 「家族と」＝誰が・週に何時間入れるか</li><li>3. 年500万円は売上か手取りか・何年目で届けたいか</li><li>4. 品目ごとの予定面積（確定8品目＋育てたい2品目）</li><li>5. 買取り先の中身（どこ・量・時期・単価の決め方）</li><li>6. 道の駅とマルシェの場所と、出す頻度</li><li>7. スクールの自分の<ruby>圃場<rt>ほじょう</rt></ruby>で今作っている物と、うまくいった物／いかなかった物</li><li>8. 使える資金100万円の使い道の予定（機械・資材など）</li><li>9. YouTubeを知ったきっかけ・見た動画</li><li>10. 名前の読み（のりき さん＝LINEの表示名「<ruby>松本<rt>まつもと</rt></ruby>　ノリキ」から）</li></ul>
+<h2 class="sec">書く線（守った事）</h2>
+<ul class="pts"><li>Zoomと書かない（Google Meet）／相談件数の数字を出さない</li><li>栽培・農薬・単価の数字は足していない（表の数字は農水省の統計と<ruby>松本<rt>まつもと</rt></ruby>さん本人の回答と割り算だけ）</li><li><ruby>1反<rt>いったん</rt></ruby>あたりの計算は「年500万÷<ruby>6反<rt>ろくたん</rt></ruby>＝約83万円」だけ</li><li>伴走・価格の枚は0枚。引きは特典③</li></ul>
+<h2 class="sec">決まっていない事（イチロウが決める）</h2>
+<ul class="pts"><li>冒頭に「録音しています」の一言を入れるか（9/28 金井さんの回の後から未決）</li></ul>
+<h2 class="sec">元にした実物</h2>
+<ul class="pts"><li>型＝金井さん（9/28）の最後の形 outputs/2026-09-28_soudan_kanai/work/slides_kanai.mjs（24枚）＝小野さん（9/11）の録音の流れ</li><li>見比べ・7つの決まり＝outputs/2026-09-28_soudan_kanai/mikurabe.md</li><li>「<ruby>1反<rt>いったん</rt></ruby>で利益」の言葉＝ゲームチェンジのフロント動画 [6:44]〜[8:15]</li></ul>
+  </div>
+</details>
+</div>
+<p class="privacy">個別相談 面談準備資料（非公開・関係者のみ）</p>
+</div>
+</body>
+</html>
